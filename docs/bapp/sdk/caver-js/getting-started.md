@@ -273,9 +273,9 @@ caver-js 지갑 없이 해당 개인키로부터 서명을 직접 생성하고�
 
 ## 다른 트랜잭션 타입 실행하기 <a id="executing-other-transaction-types"></a>
 
-Klaytn은 확장성과 성능을 위한 다양한 트랜잭션 타입을 제공합니다. 자세한 내용은 [Transactions](https://docs.klaytn.com/klaytn/design/transactions)을 참고하세요. 이 장에서는 caver-js와 함께 사용할 수 있는 다양한 예시를 설명합니다.
+Klaytn은 확장성과 성능을 위한 다양한 트랜잭션 타입을 제공합니다. For more information, see [Transactions](../../../klaytn/design/transactions/README.md). 이 장에서는 caver-js와 함께 사용할 수 있는 다양한 예시를 설명합니다.
 
-### 트랜잭션 비용 위임
+### Fee Delegation <a id="fee-delegation"></a>
 
 Klaytn은 [트랜잭션 비용 위임](../../../klaytn/design/transactions/README.md#fee-delegation) 기능을 제공합니다. 예제 코드는 다음과 같습니다.
 
@@ -431,9 +431,529 @@ Contract JSON ABI
 
 자세한 내용은 [caver.klay.Contract](api-references/caver.klay.Contract.md)를 참조하세요.
 
-## 샘플 프로젝트 <a id="sample-projects"></a>
+## 다양한 AccountKey 타입 사용 <a id="using-various-accountkey-types"></a>
 
-caver-js를 사용한 BApp \(Blockchain Application\) 개발 샘플 프로젝트는 다음과 같습니다:
+caver-js는 플랫폼 지원으로 다양한 유형의 [AccountKey](../../../klaytn/design/accounts.md#account-key)를 지원하는 새로운 클래스를 도입했습니다.
+
+아래 예제는 Node.js 파일에서의 예시를 설명합니다. 예제를 실습하려면, 먼저 아래처럼 작업 디렉토리에 테스트 파일을 생성하세요.
+
+```bash
+$ touch test.js
+```
+작업 디렉토리에 생성된 `test.js` 파일을 확인할 수 있을 것입니다.
+
+test.js에 다음 코드를 작성하세요.
+```javascript
+// test.js file
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+
+async function testFunction() {
+    const version = await caver.klay.getNodeInfo()
+    console.log(version)
+}
+
+testFunction()
+```
+
+파일을 저장하고 콘솔에서 실행하세요.
+
+```bash
+$ node ./test.js
+```
+
+console.log 출력을 확인했다면, 아래 단계로 진행하세요.
+
+**참고** caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 이러한 클래스가 지원됩니다.
+
+### Account <a id="account"></a>
+Account는 계정의 주소와 키를 포함하는 클래스입니다. 계정에는 [AccountKeyPublic](#accountkeypublic), [AccountKeyMultiSig](#accountkeymultisig), 또는 [AccountKeyRoleBased](#accountkeyrolebased) 유형이 될 수 있는 [AccountKey](#accountkey)가 있습니다.
+
+caver.klay.accounts 패키지는 기본으로 개인키를 저장하고 관리하는 [AccountKeyPublic](#accountkeypublic)을 사용합니다.
+
+다음 예제는 AccountKeyPublic을 AccountKey로 계정을 만듭니다.
+```javascript
+// test.js file
+async function testFunction() {
+    // Create random account with accountKeyPublic by default
+    const account = caver.klay.accounts.create()
+    printAccount(account)
+
+    // Create account with specific private key string
+    const privateKey = caver.klay.accounts.create().privateKey
+    const accountFromKey = caver.klay.accounts.privateKeyToAccount(privateKey)
+    printAccount(accountFromKey)
+}
+
+function printAccount(account) {
+    console.log(`address: ${account.address}`)
+    console.log(`privateKey: ${account.privateKey}`)
+    console.log(`accountKeyType: ${account.accountKeyType}`)
+    console.log(`accountKey`)
+    console.log(account.accountKey)
+    console.log(`account.keys: ${account.keys}`)
+    console.log(`account.transactionKey: ${account.transactionKey}`)
+    console.log(`account.updateKey: ${account.updateKey}`)
+    console.log(`account.feePayerKey: ${account.feePayerKey}\n`)
+}
+```
+
+위의 printAccount는 계정 인스턴스의 속성을 사용하는 방법을 보여줍니다. 계정 내부의 속성은 다음과 같습니다.
+
+| 속성명            | 설명                                                                                                                                                                                                   |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address        | 계정 주소.                                                                                                                                                                                               |
+| privateKey     | 계정에 있는 accountKey의 기본 키 문자열. 이 속성은 이전 버전과의 호환성을 위해 남겨졌습니다. privateKey는 accountKey의 기본 키만 나타내므로, privateKey를 사용하여 서명하거나 트랜잭션을 보내지 않는 편이 좋습니다. transactionKey, updateKey 또는 feePayerKey를 사용하는 것이 좋습니다. |
+| accountKeyType | 계정이 가진 accountKey의 유형. `AccountKeyPublic`, `AccountKeyMultiSig`, 또는 `AccountKeyRoleBased`일 수 있습니다.                                                                                                   |
+| accountKey     | 계정의 키. AccountKeyPublic, AccountKeyMultiSig 또는 AccountKeyRoleBased입니다.                                                                                                                               |
+| keys           | 계정이 가진 accountKey의 모든 키.                                                                                                                                                                             |
+| transactionKey | [RoleTransaction](../../../klaytn/design/accounts.md#roles)에 사용되는 키. AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, transactionKey는 키와 동일한 값을 가집니다.                                       |
+| updateKey      | [RoleAccountUpdate](../../../klaytn/design/accounts.md#roles)에 사용되는 키. AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, updateKey는 키와 동일한 값을 가집니다.                                          |
+| feePayerKey    | [RoleFeePayer](../../../klaytn/design/accounts.md#roles)에 사용되는 키. AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, feePayerKey는 키와 동일한 값을 가집니다.                                             |
+
+**참고** `transactionKey`, `updateKey`, 그리고 `feePayerKey`는 역할에 사용해야 하는 개인키 문자열 또는 개인키 문자열 배열을 반환합니다. 따라서 privateKey 속성을 사용하는 대신, accountKey 유형에 대한 걱정 없이 `transactionKey`, `updateKey` 그리고 `feePayerKey`를 적절하게 사용하는 것이 권장됩니다.
+
+다양한 AccountKey 클래스에 대한 설명은 [AccountKey](#accountkey) 부분에서 제공됩니다.
+
+### AccountKey  <a id="accountkey"></a>
+AccountKey는 계정의 키를 저장하는 데이터 구조입니다. 계정에는 서명에 사용할 하나의 개인키 문자열 또는 여러 개인키 문자열이 있을 수 있습니다. 계정은 [역할들](../../../klaytn/design/accounts.md#roles)로 개인키를 관리할 수도 있습니다.
+
+이 구조를 지원하기 위해, caver-js는 AccountKeyPublic, AccountKeyMultiSig 및 AccountKeyRoleBased라는 새로운 클래스를 도입했습니다.
+
+AccountKey를 만들려면 `caver.klay.accounts.createAccountKey`를 사용하세요. 이 함수는 매개변수 유형에 따라 생성할 AccountKey를 결정합니다. 개인키 문자열이 매개변수로 제공되면 AccountKeyPublic을 생성하고, 개인키 문자열 배열이 제공되면 AccountKeyMultiSig를 생성합니다. 각 역할마다 다른 키를 가진 객체가 있으면 AccountKeyRoleBased를 생성합니다.
+
+**참고** caver-js에서 정의된 `AccountKey`에 대한 클래스는 caver-js에서 개인키를 저장하기 위한 데이터 구조입니다. Klaytn 네트워크 계정의 키와 다를 수 있습니다.
+
+#### AccountKeyPublic  <a id="accountkeypublic"></a>
+AccountKeyPublic은 하나의 개인키 문자열을 저장하고 관리하기 위한 클래스입니다.
+
+다음은 AccountKeyPublic으로 계정을 업데이트하는 방법에 대해 설명합니다. 다음 코드를 testFunction()에 작성하고 실행하세요.
+
+```javascript
+const privateKey = caver.klay.accounts.create().privateKey
+const accountKey = caver.klay.accounts.createAccountKey(privateKey)
+
+console.log(accountKey)
+console.log(`type: ${accountKey.type}`)
+console.log(`keys: ${accountKey.keys}`)
+console.log(`transactionKey: ${accountKey.transactionKey}`)
+console.log(`updateKey: ${accountKey.updateKey}`)
+console.log(`feePayerKey: ${accountKey.feePayerKey}`)
+```
+
+AccountKeyPublic는 개인키 문자열을 저장하고 관리하므로, 위의 예제를 실행하면, `keys`, `transactionKey`, `updateKey` 그리고 `feePayerKey` 모두 동일한 개인키 문자열을 나타내는 것을 볼 수 있을 것입니다.
+
+AccountKeyPublic을 accountKey로 계정을 생성하는 예제는 아래를 참조하세요.
+
+```javascript
+const privateKey = caver.klay.accounts.create().privateKey
+const accountKey = caver.klay.accounts.createAccountKey(privateKey)
+
+const address = caver.klay.accounts.create().address
+
+// Create an Account instance with a private key string
+const accountFromStringKey = caver.klay.accounts.createWithAccountKey(address, privateKey)
+
+// Create an Account instance with an AccountKeyPublic instance
+const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, accountKey)
+```
+
+#### AccountKeyMultiSig  <a id="accountkeymultisig"></a>
+AccountKeyPublic은 여러 개인키 문자열을 저장하고 관리하기 위한 클래스입니다.
+
+다음은 AccountKeyMultiSig으로 계정을 업데이트하는 방법에 대해 설명합니다. 다음 코드를 testFunction()에 작성하고 실행하세요.
+
+```javascript
+const privateKeyArray = [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey]
+const accountKey = caver.klay.accounts.createAccountKey(privateKeyArray)
+
+console.log(accountKey)
+console.log(`type: ${accountKey.type}`)
+console.log(`keys: ${accountKey.keys}`)
+console.log(`transactionKey: ${accountKey.transactionKey}`)
+console.log(`updateKey: ${accountKey.updateKey}`)
+console.log(`feePayerKey: ${accountKey.feePayerKey}`)
+```
+
+AccountKeyPublic는 여러 개인키 문자열을 저장하고 관리하므로, 위의 예제를 실행하면, `keys`, `transactionKey`, `updateKey` 그리고 `feePayerKey` 모두 동일한 여러 개인키 문자열을 나타내는 것을 볼 수 있을 것입니다.
+
+만일 트랜잭션을 서명할 때 사용할 개인키(또는 개인키 문자열의 배열)를 명시하지 않았다면, caver-js는 인메모리 지갑에서 `from` 또는 `fee payer`와 일치하는 계정을 찾아 서명합니다. 이 경우, 계정에 여러 개의 개인키가 있는 경우, caver-js는 모든 해당하는 키로 트랜잭션에 서명합니다.
+
+AccountKeyMultiSig을 accountKey로 계정을 생성하는 예제는 아래를 참조하세요.
+
+```javascript
+const privateKeyArray = [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey]
+const accountKey = caver.klay.accounts.createAccountKey(privateKeyArray)
+
+const address = caver.klay.accounts.create().address
+
+// Create Account instance with an array of private key strings
+const accountFromStringKey = caver.klay.accounts.createWithAccountKey(address, privateKeyArray)
+
+// Create Account instance with AccountKeyMultiSig instance
+const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, accountKey)
+```
+
+#### AccountKeyRoleBased  <a id="accountkeyrolebased"></a>
+AccountKeyRoleBased는 각 역할의 키를 저장하고 관리하기 위한 클래스입니다. 각 역할은 하나의 개인키 문자열 또는 여러 개인키 문자열을 가질 수 있습니다.
+
+다음은 AccountKeyRoleBased으로 계정을 업데이트하는 방법에 대해 설명합니다. 다음 코드를 testFunction()에 작성하고 실행하세요.
+
+```javascript
+const keyobject = {
+    transactionKey: [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey],
+    updateKey: caver.klay.accounts.create().privateKey,
+    feePayerKey: [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey]
+}
+const accountKey = caver.klay.accounts.createAccountKey(keyobject)
+
+console.log(accountKey)
+console.log(`type: ${accountKey.type}`)
+console.log(`keys:`)
+console.log(accountKey.keys)
+console.log(`transactionKey: ${accountKey.transactionKey}`)
+console.log(`updateKey: ${accountKey.updateKey}`)
+console.log(`feePayerKey: ${accountKey.feePayerKey}`)
+```
+
+AccountKeyRoleBased는 역할별로 키를 저장하고 관리하므로, 위의 예제를 실행하면, `keys` 속성에 정의된 세 가지 역할(transactionKey, updateKey, feePayerKey)을 확인할 수 있습니다. 따라서, 다른 AccountKey([AccountKeyPublic](#accountkeypublic) 또는 [AccountKeyMultiSig](#accountkeymultisig))와 달리, transactionKey, updateKey 및 feePayerKey는 각각 다른 키를 나타냅니다.
+
+AccountKeyRoleBased을 accountKey로 계정을 생성하는 예제는 아래를 참조하세요.
+
+```javascript
+const keyobject = {
+    transactionKey: [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey],
+    updateKey: caver.klay.accounts.create().privateKey,
+    feePayerKey: [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey]
+}
+const accountKey = caver.klay.accounts.createAccountKey(keyobject)
+
+const address = caver.klay.accounts.create().address
+
+// Create Account instance with an object that defines key by role
+const accountFromStringKey = caver.klay.accounts.createWithAccountKey(address, keyobject)
+
+// Create Account instance with AccountKeyRoleBased instance
+const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, accountKey)
+```
+
+위의 예제를 통해 caver-js에서 계정 및 다양한 AccountKey 유형을 사용하는 방법을 볼 수 있습니다.
+
+이 예제는 Klaytn 네트워크에 영향을 미치지 않음을 유의하세요. AccountKeyPublic, AccountKeyMultiSig 또는 AccountKeyRoleBased와 같은 특정 계정 키 유형으로 계정을 사용하려면, Klaytn 네트워크에 계정 업데이트 트랜잭션을 보내야합니다.
+
+다음 [AccountForUpdate](#accountforupdate)는 Klaytn 네트워크에 트랜잭션을 보내 계정을 업데이트하는 방법에 대해 설명합니다.
+
+### AccountForUpdate  <a id="accountforupdate"></a>
+
+AccountForUpdate is a class designed to make it easier to use transactions for account updates.
+
+The AccountForUpdate contains only the public key to be used for account update and the address of the account to update.
+
+The examples below start with updating your account with accountKey. There must be enough KLAY in the account to be used for testing. Test KLAY for the Baobab network is available through [Baobab Faucet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
+
+#### Create an AccountForUpdate  <a id="create-an-accountforupdate"></a>
+Let's start by creating an AccountForUpdate.
+
+You can create it by calling `createAccountForUpdate()` with the target account address and the new key you want to use.
+
+```javascript
+const account = caver.klay.accounts.create()
+
+// AccountForUpdate with AccountKeyPublic
+const privateKeyString = caver.klay.accounts.create().privateKey
+const accountForUpdateForAccountKeyPublic = caver.klay.accounts.createAccountForUpdate(account.address, privateKeyString)
+
+// AccountForUpdate with AccountKeyMultiSig
+const privateKeyArray = [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey]
+const multiSigOptions = { threshold: 2, weight: [1, 1] }
+const accountForUpdateForAccountKeyMultiSig = caver.klay.accounts.createAccountForUpdate(account.address, privateKeyArray, multiSigOptions)
+
+// AccountForUpdate with AccountKeyRoleBased
+const keyObject = {
+    transactionKey: [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey],
+    updateKey: caver.klay.accounts.create().privateKey,
+    feePayerKey: caver.klay.accounts.create().privateKey,
+}
+const roleBasedOptions = { transactionKey: { threshold: 2, weight: [1, 1] } }
+const accountForUpdateForAccountKeyRoleBased = caver.klay.accounts.createAccountForUpdate(account.address, keyObject, roleBasedOptions)
+
+// AccountForUpdate with LegacyKey
+const accountForUpdateForLegacyKey = caver.klay.accounts.createAccountForUpdateWithLegacyKey(account.address)
+
+// AccountForUpdate with FailKey
+const accountForUpdateForFailKey = caver.klay.accounts.createAccountForUpdateWithFailKey(account.address)
+```
+
+**NOTE** If you want to update with multiple private key strings, you must define thresholds and weights in the options object.
+
+#### Account update with AccountForUpdate  <a id="account-update-with-accountforupdate"></a>
+
+You can easily create an account update transaction using AccountForUpdate created above.
+
+There are three types of transactions used to update an account: `ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE` and `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`.
+
+In the example below, `account` is an account that has enough KLAY balance, and `accountForUpdate` is an AccountForUpdate instance that contains the new key and the target account address. `accountForUpdate is created using`caver.klay.accounts.createAccountForUpdate`.
+
+The example below demonstrates how to create a transaction using AccountForUpdate and send it to the Klaytn network.
+
+```javascript
+const updateTx = {
+    type: 'ACCOUNT_UPDATE',
+    from: account.address,
+    key: accountForUpdate,
+    gas: 300000,
+}
+
+// Sign transaction with updateKey of account
+const signed = await caver.klay.accounts.signTransaction(updateTx, account.updateKey)
+
+// Send account update transaction
+const receipt = await caver.klay.sendSignedTransaction(signed)
+console.log(receipt)
+
+// Get accountKey from Klaytn network
+const updatedKey = await caver.klay.getAccountKey(account.address)
+console.log(updatedKey)
+```
+
+If you want to use `FEE_DELEGATED_ACCOUNT_UPDATE` transaction, see the example below.
+
+```javascript
+const updateTx = {
+    type: 'FEE_DELEGATED_ACCOUNT_UPDATE',
+    from: account.address,
+    key: accountForUpdate,
+    gas: 300000,
+}
+
+// Sender signs transaction with updateKey of account
+const senderSigned = await caver.klay.accounts.signTransaction(updateTx, account.updateKey)
+
+// Fee payer signs transaction with feePayerKey of fee payer
+const feePayerSigned = await caver.klay.accounts.feePayerSignTransaction(senderSigned.rawTransaction, feePayer.address, feePayer.feePayerKey)
+
+// Send fee delegated account update transaction
+const receipt = await caver.klay.sendSignedTransaction(feePayerSigned)
+console.log(receipt)
+
+// Get accountKey from Klaytn network
+const updatedKey = await caver.klay.getAccountKey(account.address)
+console.log(updatedKey)
+```
+
+**NOTE** `caver.klay.accounts.feePayerSignTransaction` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+If you want to use `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` transaction, define `updateTx` in the above example as:
+
+```javascript
+const updateTx = {
+    type: 'FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO',
+    from: account.address,
+    key: accountForUpdate,
+    gas: 300000,
+    feeRatio: 30,
+}
+```
+
+If your account has been updated successfully, the old key can no longer be used. Update the `accountKey` of the account stored in caver-js as follows.
+
+When updating the `accountKey` property of an account directly, the assigning value must be an instance of AccountKeyPublic, AccountKeyMultiSig, or AccountKeyRoleBased.
+
+```javascript
+const accountKey = caver.klay.accounts.createAccountKey(newKey)
+account.accountKey = accountKey
+```
+
+If your account is in the caver-js in-memory wallet, please update it as below.
+
+```javascript
+// Add account to in-memory wallet
+caver.klay.accounts.wallet.add(account)
+
+caver.klay.accounts.wallet.updateAccountKey(account.address, newKey)
+```
+
+You are now ready to use the updated account in caver-js.
+
+## Sending a Transaction with multiple signer<a id="sending-a-transaction-with-multiple-signer"></a>
+
+If the account's accountKey is AccountKeyMultiSig or AccountKeyRoleBased, the person who manages each key can be different.
+
+This section describes how to collect signatures and send the transaction if there are multiple signers.
+
+### Sequential sign <a id="sequential-sign"></a>
+The result object of [caver.klay.accounts.signTransaction](api-references/caver.klay.accounts.md#signtransaction) has a rawTransaction field.
+
+The `rawTransaction` has an RLP encoded transaction that contains both `signatures` and `feePayerSignatures`. `feePayerSignature` is included only when the transaction is a fee delegated transaction.
+
+The following example shows how to sign a transaction sequentially with multiple private keys. Assume the account's transactionKey has two private key strings.
+
+```javascript
+const tx = {
+    type: 'VALUE_TRANSFER',
+    from: account.address,
+    to: caver.klay.accounts.create().address,
+    value: 1,
+    gas: 900000,
+}
+
+// Sign with transactionKey[0]
+const user1Signed = await caver.klay.accounts.signTransaction(tx, account.transactionKey[0])
+
+// Append sender's signatures with transactionKey[1]
+const user2Signed = await caver.klay.accounts.signTransaction(user1Signed.rawTransaction, account.transactionKey[1])
+
+const receipt = await caver.klay.sendSignedTransaction(user2Signed)
+console.log(receipt)
+```
+
+See the example below for signing with a fee payer's key whose type is an AccountKeyRoleBased. The fee payer is assumed to have three private key strings in feePayerKey.
+
+```javascript
+const tx = {
+    type: 'FEE_DELEGATED_VALUE_TRANSFER',
+    from: account.address,
+    to: caver.klay.accounts.create().address,
+    value: 1,
+    gas: 900000,
+}
+
+// Sign with transactionKey[0] and transactionKey[1]
+const userSigned = await caver.klay.accounts.signTransaction(tx, [account.transactionKey[0], account.transactionKey[1]])
+
+// Fee payer signs transaction with feePayerKey[0]
+const feePayer1Signed = await caver.klay.accounts.feePayerSignTransaction(userSigned.rawTransaction, feePayer.address, feePayer.feePayerKey[0])
+
+// Append feePayerSignatures with feePayerKey[1] and feePayerKey[2]
+const feePayer2Signed = await caver.klay.accounts.feePayerSignTransaction(feePayer1Signed.rawTransaction, feePayer.address, [feePayer.feePayerKey[1], feePayer.feePayerKey[2]])
+
+const receipt = await caver.klay.sendSignedTransaction(feePayer2Signed)
+console.log(receipt)
+```
+
+**NOTE** `caver.klay.accounts.feePayerSignTransaction` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+If the account you use exists in the caver-js in-memory wallet, you do not need to pass the key(s) to `signTransaction` or `feePayerSignTransaction`. See the example below.
+
+```javascript
+const tx = {
+    type: 'FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO',
+    from: account.address,
+    to: caver.klay.accounts.create().address,
+    value: 1,
+    gas: 900000,
+    feeRatio: 10,
+}
+
+// Sign with transactionKey[0] and transactionKey[1]
+const userSigned = await caver.klay.accounts.signTransaction(tx)
+
+// Fee payer signs transaction with feePayerKey[0], feePayerKey[1] and feePayerKey[2]
+const feePayerSigned = await caver.klay.accounts.feePayerSignTransaction(userSigned.rawTransaction, feePayer.address)
+
+const receipt = await caver.klay.sendSignedTransaction(feePayerSigned)
+console.log(receipt)
+```
+
+### Combine signatures from RawTransaction <a id="combine-signatures-from-rawtransaction"></a>
+
+If you receive the result object of the `caver.klay.accounts.signTransaction` or `caver.klay.accounts.feePayerSignTransaction` from several people, you can create a single RLP encoded transaction that contains all the signature information.
+
+The example below shows how to combine and send the RLP encoded transactions.
+```javascript
+const tx = {
+    type: 'FEE_DELEGATED_VALUE_TRANSFER',
+    from: account.address,
+    to: caver.klay.accounts.create().address,
+    value: 1,
+    gas: 900000,
+}
+
+// Sign with transactionKey[0]
+const user1Signed = await caver.klay.accounts.signTransaction(tx, account.transactionKey[0])
+
+// Sign with transactionKey[1]
+const user2Signed = await caver.klay.accounts.signTransaction(tx, account.transactionKey[1])
+
+// Fee payer signs transaction with feePayerKey[0]
+const feePayer1Signed = await caver.klay.accounts.feePayerSignTransaction(tx, feePayer.address, feePayer.feePayerKey[0])
+
+// Fee payer signs transaction with feePayerKey[1]
+const feePayer2Signed = await caver.klay.accounts.feePayerSignTransaction(tx, feePayer.address, feePayer.feePayerKey[1])
+
+// Fee payer signs transaction with feePayerKey[2]
+const feePayer3Signed = await caver.klay.accounts.feePayerSignTransaction(tx, feePayer.address, feePayer.feePayerKey[2])
+
+const rawTransactionArray = [user1Signed.rawTransaction, user2Signed.rawTransaction, feePayer1Signed.rawTransaction, feePayer2Signed.rawTransaction, feePayer3Signed.rawTransaction]
+const combined = await caver.klay.accounts.combineSignatures(rawTransactionArray)
+
+const receipt = await caver.klay.sendSignedTransaction(combined)
+console.log(receipt)
+```
+
+**NOTE** `caver.klay.accounts.combineSignatures` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+### Send transaction object with Signatures and FeePayerSignatures <a id="send-transaction-object-with-signatures-and-feepayersignatures"></a>
+
+If you only receive `signatures` or `feePayerSignatures` from multiple signers, you can send a transaction as follows:
+
+```javascript
+const tx = {
+    type: 'FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO',
+    from: account.address,
+    to: caver.klay.accounts.create().address,
+    value: 1,
+    gas: 900000,
+    feeRatio: 10,
+}
+
+// Sign with transactionKey[0] and transactionKey[1]
+const { signatures } = await caver.klay.accounts.signTransaction(tx)
+
+// Fee payer signs transaction with feePayerKey[0], feePayerKey[1] and feePayerKey[2]
+const { feePayerSignatures } = await caver.klay.accounts.feePayerSignTransaction(tx, feePayer.address)
+
+// Fill in the missing information in the tx object.
+tx.signatures = signatures
+tx.feePayer = feePayer.address
+tx.feePayerSignatures = feePayerSignatures
+
+const receipt = await caver.klay.sendSignedTransaction(tx)
+console.log(receipt)
+```
+
+You can also call `caver.klay.accounts.getRawTransactionWithSignatures` to get an RLP encoded transaction containing the signatures and feePayerSignatures of the transaction object.
+
+```javascript
+const tx = {
+    type: 'FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO',
+    from: account.address,
+    to: caver.klay.accounts.create().address,
+    value: 1,
+    gas: 900000,
+    feeRatio: 10,
+}
+
+// Sign with transactionKey[0] and transactionKey[1]
+const { signatures } = await caver.klay.accounts.signTransaction(tx)
+
+// Fee payer signs transaction with feePayerKey[0], feePayerKey[1] and feePayerKey[2]
+const { feePayerSignatures } = await caver.klay.accounts.feePayerSignTransaction(tx, feePayer.address)
+
+// Fill in the missing information in the tx object.
+tx.signatures = signatures
+tx.feePayer = feePayer.address
+tx.feePayerSignatures = feePayerSignatures
+
+const { rawTransaction } = await caver.klay.accounts.getRawTransactionWithSignatures(tx)
+console.log(rawTransaction)
+```
+
+**NOTE** `caver.klay.accounts.getRawTransactionWithSignatures` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+
+## Sample Projects <a id="sample-projects"></a>
+
+The BApp \(Blockchain Application\) Development sample projects using caver-js are the following:
 
 * [Count BApp 개발하기](../../tutorials/count-bapp/README.md)
 * [Klaystagram](../../tutorials/klaystagram/README.md)
