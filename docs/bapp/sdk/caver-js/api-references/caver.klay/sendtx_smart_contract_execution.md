@@ -9,7 +9,7 @@ Sends a [Smart Contract Execution](../../../../../klaytn/design/transactions/bas
 
 **매개변수**
 
-| 명칭                         | Type                                            | 설명                                                                                                                                                      |
+| 명칭                         | 형식                                              | 설명                                                                                                                                                      |
 | -------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionObject          | 객체                                              | The transaction object to send.                                                                                                                         |
 | transactionObject.type     | 문자열                                             | The type of "SMART_CONTRACT_EXECUTION" transaction.                                                                                                   |
@@ -80,7 +80,7 @@ Sends a [Fee Delegated Smart Contract Execution](../../../../../klaytn/design/tr
 
 **매개변수**
 
-| 명칭                                     | Type                                            | 설명                                                                                                                                                      |
+| 명칭                                     | 형식                                              | 설명                                                                                                                                                      |
 | -------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionObject                      | 객체                                              | The transaction object to send.                                                                                                                         |
 | transactionObject.type                 | 문자열                                             | The type of "FEE_DELEGATED_SMART_CONTRACT_EXECUTION" transaction.                                                                                   |
@@ -162,7 +162,7 @@ Sends a [Fee Delegated Smart Contract Execution With Ratio](../../../../../klayt
 
 **매개변수**
 
-| 명칭                                     | Type                                            | 설명                                                                                                                                                                                                |
+| 명칭                                     | 형식                                              | 설명                                                                                                                                                                                                |
 | -------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionObject                      | 객체                                              | The transaction object to send.                                                                                                                                                                   |
 | transactionObject.type                 | 문자열                                             | The type of "FEE_DELEGATED_SMART_CONTRACT_EXECUTION_WITH_RATIO" transaction.                                                                                                                |
@@ -236,4 +236,5 @@ caver.klay.sendTransaction({
 })
 .on('error', console.error); // 가스 부족 에러(out-of-gas)가 발생한 경우 두 번째 인자는 트랜잭션 영수증입니다.
 ```
+
 

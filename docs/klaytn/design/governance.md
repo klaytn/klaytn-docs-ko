@@ -1,4 +1,4 @@
-# 거버넌스 (Governance)
+# 거버넌스(Governance)
 
 ## 개요
 
