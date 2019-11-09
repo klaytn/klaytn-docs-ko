@@ -2,7 +2,7 @@
 
 ## debug_traceBadBlock <a id="debug_tracebadblock"></a>
 
-`traceBadBlock` 메서드는 블록에 포함된 모든 트랜잭션에 대해서 모든 호출된 연산자의 풀 스택 추적을 반환합니다.
+`traceBadBlock` 메서드는 블록에 포함된 모든 트랜잭션에 대해서 모든 호출된 Opcode의 풀 스택 추적을 반환합니다.
 
 **참고**: 이 블록의 이전 블록이 존재해야 합니다. 존재하지 않으면 실패합니다.
 
@@ -57,7 +57,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlock <a id="debug_traceblock"></a>
 
-`traceBlock` 메서드는 블록에 포함된 모든 트랜잭션에 대해서 모든 호출된 연산자의 풀 스택 추적을 반환합니다.
+`traceBlock` 메서드는 블록에 포함된 모든 트랜잭션에 대해서 모든 호출된 Opcode의 풀 스택 추적을 반환합니다.
 
 **참고**: 이 블록의 이전 블록이 존재해야 합니다. 존재하지 않으면 실패합니다.
 
@@ -355,9 +355,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 추적 API 함수에 보조적으로 필수적이지 않은 매개변수를 전달할 수도 있습니다. 이들은 특정 호출을 지정하는 옵션 역할을 합니다. 다음의 옵션들을 사용할 수 있습니다.
 
-- `disableStorage`: `BOOL`. 이 옵션을 true로 설정하면 스토리지 캡처가 비활성화됩니다. (기본 설정: false)
-- `disableMemory`: `BOOL`. 이 옵션을 true로 설정하면 메모리 캡처가 비활성화됩니다. (기본 설정: false)
-- `disableStack`: `BOOL`. 이 옵션을 true로 설정하면 스택 캡처가 비활성화됩니다. (기본 설정: false)
+- `disableStorage`: `BOOL`. 이 옵션을 true로 설정하면 스토리지 캡처가 비활성화됩니다.(기본 설정: false)
+- `disableMemory`: `BOOL`. 이 옵션을 true로 설정하면 메모리 캡처가 비활성화됩니다.(기본 설정: false)
+- `disableStack`: `BOOL`. 이 옵션을 true로 설정하면 스택 캡처가 비활성화됩니다.(기본 설정: false)
 - `timeout`: `STRING`. 자바스크립트 기반 추적 호출 타임아웃으로 기본 설정된 5초를 변경합니다. 유효한 값은 [여기](https://golang.org/pkg/time/#ParseDuration)를 참고해주세요.
 - `tracer`: `STRING`. 이 옵션을 설정하면 자바스크립트 기반 트랜잭션 추적을 활성화합니다. 자세한 내용은 [다음 섹션](#javascript-based-tracing)을 참고해주세요. 이 옵션을 설정하면 앞선 4개의 매개변수는 모두 무시됩니다. 다음 표와 같이 사전 정의된 추적 툴을 사용할 수도 있습니다.
 
@@ -403,23 +403,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 
 ## 자바스크립트 기반 추적 <a id="javascript-based-tracing"></a>
-`tracer` 옵션의 두 번째 매개변수를 지정하여 자바스크립트 기반 추적을 활성화합니다. 이 모드에서 `tracer`는 (최소한) `step`과 `result` 등 두 메서드가 있는 객체라고 생각되는 자바스크립트 표현 식으로 해석(interpret)됩니다.
+`tracer` 옵션의 두 번째 매개변수를 지정하여 자바스크립트 기반 추적을 활성화합니다. 이 모드에서 `tracer`는(최소한) `step`과 `result` 등 두 메서드가 있는 객체라고 생각되는 자바스크립트 표현 식으로 해석(interpret)됩니다.
 
 `step`은 두 매개변수 `log`와 `db`를 매개변수로 받는 함수이고, KLVM의 트랜잭션을 추적하는 스텝마다 또는 오류가 발생할 때 호출됩니다.
 
 `log`는 다음의 필드를 갖고 있습니다.
 
-| 필드명            | 형식             | 설명                         |
-| -------------- | -------------- | -------------------------- |
-| `pc`           | Number         | 현재 프로그램 카운터입니다.            |
-| `op`           | 객체             | 현재 연산자를 나타내는 연산자 객체입니다.    |
-| `gas`          | Number         | 남은 가스양입니다.                 |
-| `gasPrice`     | Number         | peb에서 가스당 가격입니다.           |
-| `memory`       | 객체             | 컨트랙트의 메모리 공간을 나타내는 구조체입니다. |
-| `stack`        | array[big.Int] | KLVM 실행 스택입니다.             |
-| `depth`        | Number         | 실행 뎁스입니다.                  |
-| `계정 (Account)` | 문자열            | 현재 연산을 실행하는 계정의 주소입니다.     |
-| `err`          | 문자열            | 발생한 오류에 대한 정보입니다.          |
+| 필드명            | 형식             | 설명                            |
+| -------------- | -------------- | ----------------------------- |
+| `pc`           | Number         | 현재 프로그램 카운터입니다.               |
+| `op`           | 객체             | 현재 Opcode를 나타내는 Opcode 객체입니다. |
+| `gas`          | Number         | 남은 가스양입니다.                    |
+| `gasPrice`     | Number         | peb에서 가스당 가격입니다.              |
+| `memory`       | 객체             | 컨트랙트의 메모리 공간을 나타내는 구조체입니다.    |
+| `stack`        | array[big.Int] | KLVM 실행 스택입니다.                |
+| `depth`        | Number         | 실행 뎁스입니다.                     |
+| `계정 (Account)` | 문자열            | 현재 연산을 실행하는 계정의 주소입니다.        |
+| `err`          | 문자열            | 발생한 오류에 대한 정보입니다.             |
 
 `err` 필드가 null이 아니면 다른 모든 필드의 정보는 무시되어야 합니다.
 
@@ -441,11 +441,11 @@ function(log) {
 
 `log.op`는 다음의 메서드를 갖고 있습니다.
 
-| 메서드 이름       | 설명                          |
-| ------------ | --------------------------- |
-| `isPush()`   | 연산자가 `PUSHn`이면 true를 반환합니다. |
-| `toString()` | 연산자의 문자열 표현을 반환합니다.         |
-| `toNumber()` | 연산자의 번호를 반환합니다.             |
+| 메서드 이름       | 설명                             |
+| ------------ | ------------------------------ |
+| `isPush()`   | Opcode가 `PUSHn`이면 true를 반환합니다. |
+| `toString()` | Opcode의 문자열 표현을 반환합니다.         |
+| `toNumber()` | Opcode의 번호를 반환합니다.             |
 
 `log.memory`는 다음의 메서드를 갖고 있습니다.
 
@@ -477,7 +477,7 @@ function(log) {
 
 몇몇 값은 자바스크립트 number나 JS bigints가 아니라 Go언어의 `big.Int` 객체입니다. 따라서 그러한 값들은 godocs에서 설명된 것과 같이 동일한 인터페이스를 갖습니다. 기본적인 JSON으로의 직렬화는 자바스크립트 number로 진행되므로 큰 숫자를 직렬화하려면 `.String()`을 호출해야 합니다. 편의를 위해 `big.NewInt(x)`가 제공되어 uint를 Go언어의 `big.Int`로 변환합니다.
 
-사용 예제는 아래와 같으며, 각 CALL 연산자에서만 스택의 가장 위에 있는 요소를 반환합니다.
+사용 예제는 아래와 같으며, 각 CALL Opcode에서만 스택의 가장 위에 있는 요소를 반환합니다.
 
 ```javascript
 debug.traceTransaction(txhash, {tracer: '{data: [], step: function(log) { if(log.op.toString() == "CALL") this.data.push(log.stack.peek(0)); }, result: function() { return this.data; }}'});
