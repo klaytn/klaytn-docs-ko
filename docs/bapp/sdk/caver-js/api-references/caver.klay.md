@@ -5,7 +5,7 @@ description: >-
 
 # caver.klay <a id="caver-klay"></a>
 
-`caver-klay` 패키지를 사용하면 Klaytn 노드와 상호작용할 수 있습니다.  아래 목록은 `caver-js`에서 현재 지원되는 API의 기능을 열거합니다.
+`caver-klay` 패키지를 사용하면 Klaytn 노드와 상호작용할 수 있습니다.  아래 목록은 `caver-js`에서 현재 지원하는 API의 함수를 열거합니다.
 
 
 ### [계정](./caver.klay/account.md) <a id="account"></a>
