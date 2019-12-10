@@ -17,7 +17,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  "0x726e5C8705892989DAB1E9982FBE0B0A92eC84Bf"
 
 ```
-*이 부모 오퍼레이터 계정의 주소는 `$dataDIR/parent_bridge_account` 디렉토리에 있는  키스토어 파일로부터 도출됩니다.*
+*이 부모 오퍼레이터 계정의 주소는 `$dataDIR/parent_bridge_account` 디렉토리에 있는 키스토어 파일로부터 도출됩니다.*
 
 
 ## 부모 오퍼레이터(Parent Operator) 계정에 KLAY 추가하기<a id="add-klay-to-parent-operator-account"></a>
@@ -37,10 +37,10 @@ true
 ```
 
 # 앵커링 데이터 확인하기<a id="check-anchoring-data"></a>
-앵커링 기능이 활성화되면 SCN은 블록 데이터를 주기적으로 메인체인에 앵커링합니다. 아래와 같이 앵커링된 데이터를 확인할 수 있습니다.
+앵커링 기능이 활성화되면 SCN은 블록 데이터를 메인체인에 주기적으로 앵커링합니다. 아래와 같이 앵커링된 데이터를 확인할 수 있습니다.
 
 ## 서브 브리지(Sub-Bridge)<a id="sub-bridge"></a>
-서브 브리지에서는 아래와 같이 가장 최근에 앵커링된 블록 번호를 확인할 수 있습니다. 상세 사항은 [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_latestAnchoredBlockNumber)를 참조하세요.
+서브 브리지에서는 아래와 같이 마지막으로 앵커링된 블록 번호를 확인할 수 있습니다. 상세 사항은 [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_latestAnchoredBlockNumber)를 참조하세요.
 ```javascript
 > subbridge.latestAnchoredBlockNumber
 71025
@@ -53,7 +53,7 @@ true
 ```
 
 ## 메인 브리지(Main-Bridge)<a id="sub-bridge"></a>
-메인 브리지에서 체인 인덱싱 옵션이 활성화된 경우 아래와 같이 서비스체인 블록 해시로 앵커링 트랜잭션 해시를 찾을 수 있습니다. 상세 사항은 [mainbridge API](../../../bapp/json-rpc/api-references/mainbridge.md#mainbridge_convertServiceChainBlockHashToMainChainTxHash)를 참조하세요.
+메인 브리지에서 체인 인덱싱 옵션이 활성화 된 경우, 아래와 같이 서비스체인 블록 해시로 앵커링 tx 해시를 찾을 수 있습니다. 상세 사항은 [mainbridge API](../../../bapp/json-rpc/api-references/mainbridge.md#mainbridge_convertServiceChainBlockHashToMainChainTxHash)를 참조하세요.
 
 ```javascript
 > mainbridge.convertServiceChainBlockHashToMainChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")

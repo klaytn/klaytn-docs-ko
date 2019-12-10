@@ -37,7 +37,7 @@ kscnd is running
 
 ## 로그 <a id="logs"></a>
 
-로그는 `kscnd.out`에 저장되는데, 이 파일의 위치는 `kscnd.conf`의 `LOG_DIR`에 정의되어 있습니다. 노드가 정상적으로 동작할 때, 아래와 같이 1초마다 블록을 생성하는 것을 볼 수 있습니다.
+로그는 `kscnd.out` 파일에 저장되어 있고, 이 파일은 `kscnd.conf` 파일의 `LOG_DIR` 필드에서 정의된 경로에 있습니다. 노드가 제대로 작동하면 다음과 같이 매초 블록을 가져오는 것을 볼 수 있습니다.
 
 예시:
 
@@ -58,9 +58,9 @@ $ tail -F ~/kscnd_home/logs/kscnd.out
 
 ## 조회<a id="queries"></a>
 
-### kscn console <a id="kscn-console"></a>
+### kscn 콘솔 <a id="kscn-console"></a>
 
-Klaytn은 CLI 클라이언트를 제공합니다: `kscn console`. 클라이언트를 사용하는 또 다른 방법은 IPC(프로세스 간 통신)를 통해 프로세스에 연결하는 것입니다. IPC 파일 `klay.ipc`는 SCN의 `data` 디렉토리에 있습니다.
+Klaytn은 `kscn console`이라는 CLI 클라이언트를 제공합니다. 클라이언트를 사용하는 또 다른 방법은 IPC (inter-process communication)를 통해 프로세스에 연결하는 것입니다. `klay.ipc` IPC 파일은 SCN의 `data` 디렉토리에 있습니다.
 
 다음 명령을 실행하고 결과를 확인하세요.
 
