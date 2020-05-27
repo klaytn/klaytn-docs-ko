@@ -251,6 +251,7 @@ kip7Instance.decimals()
 
 `프로미스`는 `Number`를 반환합니다 - 토큰이 사용하는 소수점 자릿수입니다.
 
+
 **예시**
 
 ```javascript
@@ -445,6 +446,7 @@ kip7Instance.approve(spender, amount [, sendParam])
 | gas      | Number &#124; String                            | (선택 사항) 트랜잭션에 규정된 최대 가스 (가스 제한). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, amount).estimateGas({from})`.                                               |
 | gasPrice | Number &#124; String                            | (선택 사항) 이 트랜잭션에 사용할 peb 단위의 가스 가격. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`.                                                                                |
 | value    | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) peb으로 환산한 전송될 토큰 가치.                                                                                                                                                                   |
+
 
 **리턴값**
 
