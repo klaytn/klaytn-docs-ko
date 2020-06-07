@@ -1,4 +1,4 @@
-# 코어 셀 시작/중지<a id="starting-stopping-core-cell"></a>
+# 코어 셀 시작/중지 <a id="starting-stopping-core-cell"></a>
 
 ## CN 시작/중지  <a id="cn-start-stop"></a>
 
@@ -20,7 +20,7 @@ $ systemctl stop kcnd.service
 
 ```
 
-**status**
+**상태**
 
 ```bash
 $ systemctl status kcnd.service
@@ -47,7 +47,7 @@ $ systemctl stop kpnd.service
 
 ```
 
-**status**
+**상태**
 
 ```bash
 $ systemctl status kpnd.service

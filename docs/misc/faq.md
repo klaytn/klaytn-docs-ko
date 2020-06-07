@@ -15,13 +15,13 @@
 
 Cypress는 Klaytn의 메인넷 이름이고, Baobab은 테스트넷입니다. 아래는 각 네트워크와 관련된 정보입니다.
 
-Cypress 메인넷
+Cypress 메인넷:
 - EN 다운로드 : [다운로드 페이지](../node/endpoint-node/installation-guide/download.md)에서 Cypress 패키지를 선택하십시오.
 - 퍼블릭 EN : https://api.cypress.klaytn.net:8651
 - Klaytnscope : https://scope.klaytn.com
 - Klaytn Wallet : https://wallet.klaytn.com
 
-Baobab 테스트넷
+Baobab 테스트넷:
 - EN 다운로드 : [다운로드 페이지](../node/endpoint-node/installation-guide/download.md)에서 Baobab 패키지를 선택하십시오.
 - 퍼블릭 EN : https://api.baobab.klaytn.net:8651
 - Klaytnscope : https://baobab.scope.klaytn.com
@@ -35,11 +35,11 @@ Baobab 테스트넷
 
 Klaytn SDK를 사용하여 BApp을 구축하는 방법에 대한 자세한 내용은 [튜토리얼](../bapp/tutorials/README.md)을 확인하세요.
 
-또한 [web3.js](../bapp/sdk/caver-js/porting-from-web3.js.md) 및 [web3j](../bapp/sdk/caver-java/porting-from-web3j.md)로 구현된 앱을 쉽게 옮겨올 수 있도록 포팅 가이드라인을 제공하고 있으니 확인해보세요. caver-js 및 caver-java의 구문은 web3.js 및 web3j와 매우 유사하므로 최소의 노력으로 간단하게 포팅할 수 있습니다. 그러나, web3.js 또는 web3j를 사용하여 Klaytn에 직접 요청을 보낼 수는 없다는 점을 기억하세요.
+또한 [web3.js](../bapp/sdk/caver-js/v1.4.1/porting-from-web3.js.md) 및 [web3j](../bapp/sdk/caver-java/porting-from-web3j.md)로 구현된 앱을 쉽게 옮겨올 수 있도록 포팅 가이드라인을 제공하고 있으니 확인해보세요. caver-js 및 caver-java의 구문은 web3.js 및 web3j와 매우 유사하므로 최소의 노력으로 간단하게 포팅할 수 있습니다. 그러나, web3.js 또는 web3j를 사용하여 Klaytn에 직접 요청을 보낼 수는 없다는 점을 기억하세요.
 
 
 
-## Klaytn을 사용하려면 엔드포인트 노드(Endpoint Node, EN)를 반드시 설치하고 실행해야하나요?<a id="must-i-install-and-run-en"></a>
+## Klaytn을 사용하려면 엔드포인트 노드(Endpoint Node, EN)를 반드시 설치하고 실행해야하나요? <a id="must-i-install-and-run-en"></a>
 
 상황에 따라 다릅니다. 엔드포인트 노드는 블록의 유효성을 검사하고 RPC API를 외부 세계에 노출합니다. 애플리케이션이 Klaytn 네트워크와 상호 작용하려면 항상 EN이 필요합니다. 단순히 Klaytn API를 시험해보고자 하는 사람들은 퍼블릭 EN에 연결해 사용할 수 있습니다. 퍼블릭 EN은 SLA없이 테스트 목적으로 제공된다는 점을 기억하세요. 상용 서비스에서 퍼블릭 EN을 사용하지는 마세요.
 
@@ -66,14 +66,14 @@ Klaytn에 특화된 토큰 표준이 추가로 정의될 수 있습니다. [KIP(
 
 
 
-## Klaytn의 스마트 컨트랙트 개발에 트러플(Truflle)을 사용할 수 있나요?<a id="can-i-use-truffle"></a>
+## Klaytn의 스마트 컨트랙트 개발에 트러플(Truflle)을 사용할 수 있나요? <a id="can-i-use-truffle"></a>
 
 예. [truffle-hdwallet-provider-klaytn](https://www.npmjs.com/package/truffle-hdwallet-provider-klaytn)을 이용하면 트러플로 Klaytn의 스마트 컨트랙트를 개발할 수 있습니다. [트러플(Truffle)](../toolkit/truffle.md)에 설명되어 있는  설정 방법을 참고하세요.
 
 트러플이 처음이라면 [테스트 가이드](../smart-contract/testing-guide.md)와 [배포 가이드](../smart-contract/deploy-guide.md)를 통해 트러플이 지원하는 기능을 이해할 수 있습니다.
 
 
-## Metamask와 같은 브라우저 확장 지갑은 어디서 구할 수 있나요?<a id="where-can-i-get-a-browser-extension-wallet"></a>
+## Metamask와 같은 브라우저 확장 지갑은 어디서 구할 수 있나요? <a id="where-can-i-get-a-browser-extension-wallet"></a>
 
 현재 공식 브라우저 지갑은 없습니다.
 
@@ -92,14 +92,14 @@ Klaytn은 [계정 주소를 키 쌍과 분리할 수 있습니다](../klaytn/des
 수수료 납부자 계정은 일반적으로 [역할 기반 키](../klaytn/design/accounts.md#accountkeyrolebased)를 가집니다. 대부분의 경우 이 계정 주소는 RoleFeePayer 키로부터 도출되지 않습니다.
 
 
-## 수수료 위임을 구현한 온전한 샘플코드를 어디에서 볼 수 있을까요?<a id="fee-delegation-samples"></a>
+## 수수료 위임을 구현한 온전한 샘플코드를 어디에서 볼 수 있을까요? <a id="fee-delegation-samples"></a>
 
 [트랜잭션 수수료 위임 예시](../bapp/tutorials/fee-delegation-example.md)에 밸류 트랜스퍼(Value Transfer)를 구현한 전체 코드가 제공되니 참고하세요.
 
 컨트랙트 배포 방법은 [자바 스크립트 코드](https://gist.github.com/w3kim/64a3cf5da58250474f046d4dd7f85cc8)를 참조하세요. 트러플로는 수수료를 위임하여 컨트랙트를 배포할 수 없습니다.
 
-[다중 서명된 트랜잭션 보내기](../bapp/sdk/caver-js/getting-started.md#sending-a-transaction-with-multiple-signer)에 여러 개의 서명을 취합하는 두 가지 방법이 잘 설명되어 있습니다. 관련 caver-js API는 다음과 같습니다. API 설명에 있는 코드 예제를 살펴보세요.
-- [caver.klay.accounts.signTransaction](../bapp/sdk/caver-js/api-references/caver.klay.accounts.md#signtransaction)
-- [caver.klay.accounts.feePayerSignTransaction](../bapp/sdk/caver-js/api-references/caver.klay.accounts.md#feepayersigntransaction)
-- [caver.klay.accounts.combinesignatures](../bapp/sdk/caver-js/api-references/caver.klay.accounts.md#combinesignatures)
-- [caver.klay.sendSignedTransaction](../bapp/sdk/caver-js/api-references/caver.klay/transaction.md#sendsignedtransaction)
+[다중 서명된 트랜잭션 보내기](../bapp/sdk/caver-js/v1.4.1/getting-started.md#sending-a-transaction-with-multiple-signer)에 여러 개의 서명을 취합하는 두 가지 방법이 잘 설명되어 있습니다. 관련 caver-js API는 다음과 같습니다. API 설명에 있는 코드 예제를 살펴보세요.
+- [caver.klay.accounts.signTransaction](../bapp/sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#signtransaction)
+- [caver.klay.accounts.feePayerSignTransaction](../bapp/sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#feepayersigntransaction)
+- [caver.klay.accounts.combinesignatures](../bapp/sdk/caver-js/v1.4.1/api-references/caver.klay.accounts.md#combinesignatures)
+- [caver.klay.sendSignedTransaction](../bapp/sdk/caver-js/v1.4.1/api-references/caver.klay/transaction.md#sendsignedtransaction)

@@ -26,7 +26,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니�
 
 | 명칭                   | 형식     | 설명                                                                                                                                                                                                            |
 | -------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type                 | String | 트랜잭션 타입. "ACCOUNT_UPDATE"                                                                                                                                                                                     |
+| 형식                   | String | 트랜잭션 타입. "ACCOUNT_UPDATE"                                                                                                                                                                                     |
 | from                 | String | 이 트랜잭션 발신자의 주소. 이 계정이 이 트랜잭션에 의해 업데이트 될 것입니다.                                                                                                                                                                 |
 | gas                  | Number | 트랜잭션에 지불할 의향이 있는 최대 가스량(사용하지 않은 가스는 환불됨).                                                                                                                                                                     |
 | gasPrice             | Number | (선택사항) 트랜잭션 발신자가 설정한 가스 가격으로 단위는 peb입니다. gasPrice는 Klaytn 노드에 설정된 unitPrice와 같아야 합니다.                                                                                                                         |
@@ -40,7 +40,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니�
 | roleFeePayerKey      | Object | (선택사항) 역할 기반 키를 가지도록 계정을 업데이트하는 경우 roleFeePayerKey를 입력하세요. roleFeePayerKey는 공개키 또는 다중 서명 키일 수 있습니다. 이 roleFeePayerKey는 feePayer로 트랜잭션에 서명할 때 사용됩니다.                                                           |
 | failKey              | Bool   | (선택사항) fail key를 가지도록 계정을 업데이트하는 경우 true로 설정하세요.                                                                                                                                                              |
 
-If you call `caver.klay.sendTransaction` with a transaction object of type `ACCOUNT_UPDATE` as in the above, caver-js will send it to the network after signing with the key of the sender account (`from`) inside the in-memory wallet.
+`caver.klay.sendTransaction`로 위의  `ACCOUNT_UPDATE` 트랜잭션 객체를 호출하면, caver-js는 이 트랜잭션 객체를 인메모리 지갑 내부에 있는 발신자 계정(`from`)의 키로 서명한 후에 Klaytn 네트워크로 보낼 것입니다.
 
 **리턴값**
 
@@ -275,7 +275,7 @@ caver.klay.sendTransaction(transactionObject [, callback])
 
 여기서 보여주는 예제는 `caver.klay.sendTransaction`을 사용하는 방법만 설명합니다.
 
-For information on how to send using `caver.klay.accounts.feePayerSignTransaction` and `caver.klay.sendSignedTransaction`, see [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) and [Sending a Transaction with multiple signer](../../getting-started.md#sending-a-transaction-with-multiple-signer).
+`caver.klay.accounts.feePayerSignTransaction`과 `caver.klay.sendSignedTransaction`으로 보내는 방법에 관한 정보는 [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction)과 [Sending a Transaction with multiple signer](../../getting-started.md#sending-a-transaction-with-multiple-signer)를 참조하십시오.
 
 **매개변수**
 
@@ -290,7 +290,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니�
 
 | 명칭                   | 형식     | 설명                                                                                                                                                                                                            |
 | -------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type                 | String | 트랜잭션 타입. "FEE_DELEGATED_ACCOUNT_UPDATE"                                                                                                                                                                     |
+| 형식                   | String | 트랜잭션 타입. "FEE_DELEGATED_ACCOUNT_UPDATE"                                                                                                                                                                     |
 | from                 | String | 이 트랜잭션 발신자의 주소. 이 계정이 이 트랜잭션에 의해 업데이트 될 것입니다.                                                                                                                                                                 |
 | gas                  | Number | 트랜잭션에 지불할 의향이 있는 최대 가스량(사용하지 않은 가스는 환불됨).                                                                                                                                                                     |
 | gasPrice             | Number | (선택사항) 트랜잭션 발신자가 설정한 가스 가격으로 단위는 peb입니다. gasPrice는 Klaytn 노드에 설정된 unitPrice와 같아야 합니다.                                                                                                                         |
@@ -383,7 +383,7 @@ caver.klay.sendTransaction(transactionObject [, callback])
 
 여기서 보여주는 예제는 `caver.klay.sendTransaction`을 사용하는 방법만 설명합니다.
 
-For information on how to send using `caver.klay.accounts.feePayerSignTransaction` and `caver.klay.sendSignedTransaction`, see [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction) and [Sending a Transaction with multiple signer](../../getting-started.md#sending-a-transaction-with-multiple-signer).
+`caver.klay.accounts.feePayerSignTransaction`과 `caver.klay.sendSignedTransaction`으로 보내는 방법에 관한 정보는 [caver.klay.accounts.feePayerSignTransaction](../caver.klay.accounts.md#feepayersigntransaction)과 [Sending a Transaction with multiple signer](../../getting-started.md#sending-a-transaction-with-multiple-signer)를 참조하십시오.
 
 **매개변수**
 
@@ -398,7 +398,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니�
 
 | 명칭                   | 형식     | 설명                                                                                                                                                                                                            |
 | -------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type                 | String | "FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO" 트랜잭션 타입.                                                                                                                                                        |
+| 형식                   | String | "FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO" 트랜잭션 타입.                                                                                                                                                        |
 | from                 | String | 이 트랜잭션 발신자의 주소. 이 계정이 이 트랜잭션에 의해 업데이트 될 것입니다.                                                                                                                                                                 |
 | gas                  | Number | 트랜잭션에 지불할 의향이 있는 최대 가스량(사용하지 않은 가스는 환불됨).                                                                                                                                                                     |
 | gasPrice             | Number | (선택사항) 트랜잭션 발신자가 설정한 가스 가격으로 단위는 peb입니다. gasPrice는 Klaytn 노드에 설정된 unitPrice와 같아야 합니다.                                                                                                                         |

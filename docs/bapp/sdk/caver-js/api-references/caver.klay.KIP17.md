@@ -13,16 +13,16 @@ The code that implements KIP-17 for caver-js is available on the [caver-js Githu
 
 For more information about KIP-17, see [Klaytn Improvement Proposals](https://kips.klaytn.com/KIPs/kip-17).
 
-**참고** `caver.klay.KIP17`는 caver-js [v1.4.1](https://www.npmjs.com/package/caver-js/v/1.4.1)부터 지원됩니다.
+**참고** `caver.klay.KIP17`은 caver-js [v1.4.1](https://www.npmjs.com/package/caver-js/v/1.4.1)부터 지원됩니다.
 
 ## caver.klay.KIP17.deploy <a id="caver-klay-kip17-deploy"></a>
 
 ```javascript
 caver.klay.KIP17.deploy(tokenInfo, deployer)
 ```
-Deploys the KIP-17 token contract to the Klaytn blockchain. A contract deployed using caver.klay.KIP17.deploy is a non-fungible token that follows the KIP-17 standard.
+KIP-17 토큰 컨트랙트를 Klaytn 블록체인에 배포합니다. A contract deployed using caver.klay.KIP17.deploy is a non-fungible token that follows the KIP-17 standard.
 
-After successful deployment, the promise will resolve with a new KIP17 instance.
+성공적으로 배포된 후, 프로미스는 새로운 KIP17 인스턴스를 반환할 것입니다.
 
 **매개변수**
 
@@ -33,10 +33,10 @@ After successful deployment, the promise will resolve with a new KIP17 instance.
 
 The tokenInfo object must contain the following:
 
-| 명칭     | 형식     | 설명                       |
-| ------ | ------ | ------------------------ |
-| name   | String | The name of the token.   |
-| symbol | String | The symbol of the token. |
+| 명칭 | 형식     | 설명                       |
+| -- | ------ | ------------------------ |
+| 명칭 | String | The name of the token.   |
+| 기호 | String | The symbol of the token. |
 
 **리턴값**
 
@@ -534,7 +534,7 @@ false
 ```javascript
 kip17Instance.approve(to, tokenId [, sendParam])
 ```
-Approves another address to transfer the given token id. The zero address indicates there is no approved address. There can only be one approved address per token at a given time. This method is allowed to call only by the token owner or an approved operator.
+Approves another address to transfer the given token id. The zero address indicates there is no approved address. 한 번에 하나의 승인된 주소만 있을 수 있습니다. This method is allowed to call only by the token owner or an approved operator.
 
 Note that the approve method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
 
@@ -554,7 +554,7 @@ The sendParam object can contain the following:
 | -------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | from     | String                                          | (optional) The address from which the transaction should be sent. If omitted, it will be set by `this.options.from`. If from is not defined in the sendParam object and this.options.from is not defined, an error occurs. |
 | gas      | Number &#124; String                            | (선택 사항) 트랜잭션에 규정된 최대 가스 (가스 제한). If omitted, it will be set by caver-js via calling `this.methods.approve(spender, tokenId).estimateGas({from})`.                                                                          |
-| gasPrice | Number &#124; String                            | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`.                                                                                                              |
+| gasPrice | Number &#124; String                            | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격. 생략하면 `caver.klay.getGasPrice` 값으로 caver-js가 설정합니다.                                                                                                                                        |
 | value    | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션에 의해 전송된 peb 단위의 값.                                                                                                                                                                                            |
 
 **리턴값**

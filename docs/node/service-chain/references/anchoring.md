@@ -17,7 +17,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  "0x726e5C8705892989DAB1E9982FBE0B0A92eC84Bf"
 
 ```
-*이 부모 오퍼레이터 계정의 주소는 `$dataDIR/parent_bridge_account` 디렉토리에 있는 키스토어 파일로부터 도출됩니다.*
+*이 부모 오퍼레이터 계정의 주소는 `$dataDIR/parent_bridge_account` 디렉토리에 있는  키스토어 파일로부터 도출됩니다.*
 
 
 ## 부모 오퍼레이터(Parent Operator) 계정에 KLAY 추가하기<a id="add-klay-to-parent-operator-account"></a>
@@ -53,7 +53,7 @@ true
 ```
 
 ## 메인 브리지(Main-Bridge)<a id="sub-bridge"></a>
-메인 브리지에서 체인 인덱싱 옵션이 활성화 된 경우, 아래와 같이 서비스체인 블록 해시로 앵커링 tx 해시를 찾을 수 있습니다. You can refer to [mainbridge APIs](../../../bapp/json-rpc/api-references/mainbridge.md#mainbridge_convertChildChainBlockHashToParentChainTxHash) for more details.
+메인 브리지에서 체인 인덱싱 옵션이 활성화 된 경우, 아래와 같이 서비스체인 블록 해시로 앵커링 tx 해시를 찾을 수 있습니다. 상세 사항은 [mainbridge API](../../../bapp/json-rpc/api-references/mainbridge.md#mainbridge_convertChildChainBlockHashToParentChainTxHash)를 참조하세요.
 
 ```javascript
 > mainbridge.convertChildChainBlockHashToParentChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
