@@ -150,7 +150,6 @@ kip7Instance.clone([tokenAddress])
 | ------ | -------------------------- |
 | Object | 원본 KIP7 인스턴스를 복제한 인스턴스입니다. |
 
-
 **예시**
 
 ```javascript
