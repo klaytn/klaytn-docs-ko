@@ -1,6 +1,6 @@
 # 시작하기 <a id="getting-started"></a>
 
-This documentation is for developers using caver-js v1.5.0 or higher. If you are using an older version, see [Getting Started (~v1.4.1)](v1.4.1/getting-started_1.4.1.md).
+이 문서는 caver-js 1.5.0 또는 상위 버전을 사용하는 개발자를 위해 작성되었습니다. 하위 버전에 관한 자세한 내용은 [Getting Started (~v1.4.1)](v1.4.1/getting-started_1.4.1.md)를 확인하십시오.
 
 ## 준비 사항 <a id="prerequisites"></a>
 
@@ -13,13 +13,13 @@ caver-js 라이브러리를 사용하려면 다음 패키지가 필요합니다.
 * [gcc-c++](https://gcc.gnu.org/)
 * [Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
-**Note** caver-js can run on Node.js versions 8, 10 and 12, and the recommended versions are:
+**참고** caver-js는 Node.js 버전 8, 10, 12에서 실행할 수 있으며, 권장 버전은 다음과 같습니다:
 
 * lts/carbon \([8.16.0](https://nodejs.org/dist/latest-v8.x/)\)
 * lts/dubnium \([10.16.0](https://nodejs.org/dist/latest-v10.x/)\)
 * lts/erbium \([12.18.0](https://nodejs.org/dist/latest-v12.x/)\)
 
-If you are already using a different version of the Node \(for example, Node v14\), use the Node Version Manager\([NVM](https://github.com/nvm-sh/nvm)\) to install and use the version supported by caver-js.
+다른 버전의 Node\(가령 Node v14\)를 이미 사용중인 경우, Node Version Manager\([NVM](https://github.com/nvm-sh/nvm)\)를 사용해 caver-js가 지원하는 버전을 설치하고 사용합니다.
 
 ### 설치 <a id="installation"></a>
 
@@ -29,7 +29,7 @@ If you are already using a different version of the Node \(for example, Node v14
 $ npm install caver-js
 ```
 
-**참고**: `package.json` 파일이 설치 경로와 동일한 곳에 존재해야 합니다. If it does not exist, `package.json` can be generated via `npm init`.
+**참고**: `package.json` 파일이 설치 경로와 동일한 곳에 존재해야 합니다. 만일 존재하지 않으면, `npm init`을 통해 `package.json`가 생성될 수 있습니다.
 
 caver-js의 특정 버전을 설치하려면 다음 명령을 이용하세요:
 
@@ -37,9 +37,9 @@ caver-js의 특정 버전을 설치하려면 다음 명령을 이용하세요:
 $ npm install caver-js@X.X.X
 ```
 
-## Sending KLAY at a glance <a id="sending-klay-at-a-glance"></a>
+## 빠른 시작: KLAY 전송하기<a id="sending-klay-at-a-glance"></a>
 
-This section describes a simple example of using a `keystore file` to send KLAY with a value transfer transaction. The keystore file can be created in [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). 테스트를 위해 KLAY가 필요한 경우 [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에서 Baobab testnet KLAY를 얻을 수 있습니다.
+이 장은 `keystore file`을 사용해 KLAY를 전송하는 간단한 KLAY 전송 트랜잭션 예시를 설명합니다. 키스토어 파일은 [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에 생성될 수 있습니다. 테스트를 위해 KLAY가 필요한 경우 [Klaytn Wallet](../../../toolkit/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에서 Baobab testnet KLAY를 얻을 수 있습니다.
 
 ```javascript
 const fs = require('fs')
@@ -76,11 +76,11 @@ async function testFunction() {
 testFunction()
 ```
 
-## caver-js로 시작하기 <a id="starting-with-caver-js"></a>
+## caver-js 시작하기<a id="starting-with-caver-js"></a>
 
-Once you have finished installing caver-js, you can now connect to a Klaytn Node using caver-js.
+caver-js 설치가 끝나면 이제 caver-js를 사용해 Klaytn 노드에 접속할 수 있습니다.
 
-To practice the examples below, first create a test file in the working directory.
+예제를 실습하려면, 먼저 아래처럼 작업 디렉토리에 테스트 파일을 생성하세요.
 
 ```bash
 $ touch test.js
@@ -101,16 +101,16 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위 코드를 실행하면 아래 결과를 얻습니다.
 
 ```bash
 $ node ./test.js
 Klaytn/v1.4.0/linux-amd64/go1.14.1
 ```
 
-If you see the output of console.log like above, proceed with the steps below. The version number can be different according to the version of the connected Klaytn node.
+위와 같이 console.log 출력을 확인했다면, 아래 단계로 진행하세요. 접속한 Klaytn 노드 버전에 따라 버전 넘버가 다를 수 있습니다.
 
-### Connecting to a Klaytn Node <a id="connecting-to-a-klaytn-node"></a>
+### Klaytn 노드에 접속하기<a id="connecting-to-a-klaytn-node"></a>
 
 아래 예시와 같이 caver-js 모듈을 가져와 Baobab 테스트넷의 Klaytn 노드에 연결할 수 있습니다:
 
@@ -126,23 +126,23 @@ const Caver = require('caver-js')
 const caver = new Caver('http://localhost:8551/')
 ```
 
-## Managing Keyrings <a id="managing-keyrings"></a>
+## Keyring 관리 <a id="managing-keyrings"></a>
 
-[Keyring][] is a structure that contains the address of the Klaytn account and the private key(s).
+[Keyring][]은 Klaytn 계정 주소와 개인키(들)이 들어있는 객체입니다.
 
-[Keyring][] can be classified into three types depending on the type of key being stored: [SingleKeyring][] to store one address and one private key, [MultipleKeyring][] to store one address and multiple private keys, and [RoleBasedKeyring][] to store one address and one or more private keys for each role.
+[Keyring][]은 저장되는 키 종류에 따라 3가지 타입으로 나뉩니다: 주소 1개와 개인키 1개를 가지는 [SingleKeyring][], 주소 1개와 여러 개인키를 가지는 [MultipleKeyring][], 그리고 주소 1개와 키 Role별로 개인키 1개 이상을 가지는 [RoleBasedKeyring][]가 있습니다.
 
-[SingleKeyring][] defines `key` property inside, and this `key` store one private key.
+[SingleKeyring][]는 내부에 `key` 속성을 가지고 이 `key` 속성에 개인키 1개가 저장됩니다.
 
-[MultipleKeyring][] defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
+[MultipleKeyring][]는 내부에 `keys` 속성을 가지고, 이 `keys` 속성에 여러 개인키가 저장됩니다.
 
-The `keys` property defined in [RoleBasedKeyring][] is implemented as a two-dimensional array (empty `keys` will look like `[ [], [], [] ]`) that can include multiple keys for each [role][]. The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
+[RoleBasedKeyring][] 내부에 있는 `keys` 속성은 2차원 배열입니다(`keys`가 비어있으면 `[ [], [], [] ]`와 같이 보임). 배열의 각 원소에는 각 [role][]이 사용하는 1개 이상의 개인키가 저장됩니다. 2차원 배열의 1번째 원소에는 `roleTransactionKey`로 사용될 개인키(들), 배열의 2번째 원소에는 `roleAccountUpdateKey`로 사용될 개인키(들), 배열의 3번째 원소에는 `roleFeePayerKey`로 사용될 개인키(들)이 저장됩니다.
 
-### Creating a Keyring <a id="creating-a-keyring"></a>
+### Keyring 생성<a id="creating-a-keyring"></a>
 
-#### Generating a SingleKeyring <a id="generating-a-singlekeyring"></a>
+#### SingleKeyring 생성 <a id="generating-a-singlekeyring"></a>
 
-You can randomly generate a single keyring as shown below.
+아래와 같이 임의의 값을 사용해 SingleKeyring을 생성할 수 있습니다.
 
 ```javascript
 // test.js
@@ -157,7 +157,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위 코드를 실행하면 아래 결과를 얻습니다.
 
 ```bash
 $ node ./test.js
@@ -167,11 +167,11 @@ SingleKeyring {
 }
 ```
 
-The execution result is shown above. Member variables defined inside the instance can be accessed through `keyring.address` and `keyring.key`.
+실행 결과는 아래와 같습니다. 인스턴스 멤버 변수들은 `keyring.address`와 `keyring.key`로 접근 가능합니다.
 
-#### Creating a SingleKeyring from private key <a id="creating-a-singlekeyring-from-private-key"></a>
+#### 개인키로 SingleKeyring 생성하기 <a id="creating-a-singlekeyring-from-private-key"></a>
 
-Also, if you own a specific private key, you can use it to create a keyring as shown below.
+개인키가 있다면, 이 개인키를 사용해 Keyring을 만들 수 있습니다.
 
 ```javascript
 // test.js
@@ -187,7 +187,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위 코드를 실행하면 아래 결과를 얻습니다.
 
 ```bash
 $ node ./test.js
@@ -197,11 +197,11 @@ SingleKeyring {
 }
 ```
 
-The result of `caver.wallet.keyring.createFromPrivateKey`, like the result of `caver.wallet.keyring.generate` above, is a [SingleKeyring][] instance with an address defined inside it and a [PrivateKey] instance in `keyring.key`.
+위 `caver.wallet.keyring.generate` 결과처럼, `caver.wallet.keyring.createFromPrivateKey` 결과값도 계정 주소와 PrivateKey 인스턴스가 저장된 하나의 [SingleKeyring][] 인스턴스입니다.
 
-#### Creating a SingleKeyring with a private key and an address <a id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
+#### 개인키와 계정 주소로 SingleKeyring 생성하기<a id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
 
-If your private key for your Klaytn account is decoupled from the address, you can create a keyring using the given address and the given private key like below.
+여러분의 Klaytn 계정 주소가 개인키로부터 생성된 것이 아니라 개인키와 별도로 분리된 것이라면, 주소와 개인키를 사용해 Keyring을 만들 수 있습니다.
 
 ```javascript
 // test.js
@@ -221,7 +221,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Run the code in your console like below.
+콘솔에서 아래 코드를 실행하세요.
 
 ```bash
 $ node ./test.js
@@ -235,9 +235,9 @@ SingleKeyring {
 }
 ```
 
-#### Creating a MultipleKeyring with multiple private keys <a id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
+#### 여러 개인키로 MultipleKeyring 생성하기<a id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
 
-If you want to use multiple private keys, you can create a [MultipleKeyring][] using an address and multiple private keys. The below examples show how to create a [MultipleKeyring][] with multiple private keys.
+여러 개인키를 사용한다면, 주소 1개와 여러 개인키로 [MultipleKeyring][]를 만들 수 있습니다. 아래 예시는 개인키들로 [MultipleKeyring][]를 만드는 방법을 소개합니다.
 
 ```javascript
 // test.js
@@ -253,7 +253,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위 코드를 실행하면 아래 결과를 얻습니다.
 
 ```bash
 $ node ./test.js
@@ -266,12 +266,12 @@ MultipleKeyring {
 }
 ```
 
-As you can see, `_keys` has multiple PrivateKey instances in the array. Member variables defined inside the instance can be accessed through `keyring.address` and `keyring.keys`.
+위에서 확인할 수 있듯이 `_keys` 속성은 여러 PrivateKey 인스턴스가 들어있는 배열을 갖고 있습니다. 인스턴스 멤버 변수들은 `keyring.address`와 `keyring.keys`로 접근 가능합니다.
 
 
-#### Creating a RoleBasedKeyring with private keys <a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
+#### 개인키로 RoleBasedKeyring 생성하기<a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
 
-To use different private key(s) for each [role][], `caver.wallet.keyring.createWithRoleBasedKey` is used instead. Each array element represents a role described in [RoleBasedKeyring][]. The example below shows how to create a [RoleBasedKeyring][] instance from different keys for each role.
+[role][]마다 개인키(들)를 따로 사용하려면, `caver.wallet.keyring.createWithRoleBasedKey`를 사용해야 합니다. 배열의 각 원소는 [RoleBasedKeyring][]에 있는 각 Role에 해당됩니다. 아래 예시는 각 Role이 사용하는 개인키들로부터 [RoleBasedKeyring][] 인스턴스를 만드는 방법을 소개합니다.
 
 ```javascript
 // test.js
@@ -291,7 +291,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위 코드를 실행하면 아래 결과를 얻습니다.
 
 ```bash
 $ node ./test.js
@@ -312,13 +312,13 @@ RoleBasedKeyring {
 }
 ```
 
-Looking at the output above, the first element of the keys array, `roleTransactionKey`, has three PrivateKey instances, and the second element, `roleAccountUpdateKey`, has one PrivateKey instance. And the last element of the array, `roleFeePayerKey`, has two PrivateKey instances.
+위 결과를 살펴보면, keys 배열의 1번째 원소인 `roleTransactionKey`는 PrivateKey 인스턴스 3개를 가지고 있고, 2번째 원소인 `roleAccountUpdateKey`는 PrivateKey 인스턴스 1개를 가지고 있습니다. 그리고 배열의 마지막 원소인 `roleFeePayerKey`는 PrivateKey 인스턴스 2개를 가지고 있습니다.
 
-**Note**: Calling functions related to keyring ([caver.wallet.keyring][]) or wallet ([caver.wallet][]) do not affect the actual Klaytn blockchain platform (Klaytn).
+**참고**: Keyring 관련 ([caver.wallet.keyring][]) 또는 지갑 관련([caver.wallet][]) 함수는 Klaytn 블록체인 플랫폼에 영향을 미치지 않습니다.
 
-### Adding Keyrings to caver-js <a id="adding-keyrings-to-caver-js"></a>
+### caver-js에 Keyring 추가하기<a id="adding-keyrings-to-caver-js"></a>
 
-You can use a keyring easily by using the in-memory wallet provided by caver-js. The following examples illustrate how to add a keyring to a wallet using a keyring instance and a keystore file generated by [Klaytn Wallet](https://wallet.klaytn.com/).
+caver-js에서 제공하는 인메모리 지갑을 사용하면 쉽게 Keyring을 사용할 수 있습니다. 다음 예시는 Keyring 인스턴스 및 [Klaytn Wallet](https://wallet.klaytn.com/)이 생성한 키스토어 파일을 사용해 지갑에 Keyring을 추가하는 방법을 보여줍니다.
 
 ```javascript
 // test.js
@@ -361,7 +361,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Run the in your console.
+콘솔에서 아래 코드를 실행하세요.
 
 ```bash
 $ node ./test.js
@@ -375,9 +375,9 @@ SingleKeyring {
 }
 ```
 
-Looking at the output above, you can query your keyring from `caver.wallet` after adding it to `caver.wallet`.
+위 결과를 살펴보면 `caver.wallet`에 Keyring을 추가하면 `caver.wallet`에서 여러분의 Keyring을 조회할 수 있습니다.
 
-If you have an address and private key(s) to use, you can easily create a keyring and add it directly to [caver.wallet][] via [caver.wallet.newKeyring][].
+사용할 주소와 개인키(들)만 있으면 [caver.wallet.newKeyring][]로 손쉽게 Keyring을 만들고 [caver.wallet][]에 직접 추가할 수 있습니다.
 
 ```javascript
 // test.js
@@ -405,7 +405,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. The result of the above code execution is shown below. When `caver.wallet.newKeyring` is executed with a private key, a Keyring instance with one private key is created and added to `caver.wallet`. For multiple private keys, a Keyring instance with multiple private keys is created. When passing one or more private keys for each role as arguments, a Keyring instance with a different private key(s) for each role is created and also added to the `caver.wallet`.
+위 코드를 실행하면 아래 결과를 얻습니다. 위 코드 실행 결과는 아래와 같습니다. 개인키를 사용해 `caver.wallet.newKeyring`을 실행하면 개인키 1개를 가진 Keyring 인스턴스 1개가 생성되고 이 인스턴스는 `caver.wallet`에 추가됩니다. 여러 개인키를 사용하면 여러 개인키를 가지는 Keyring 인스턴스 1개가 생성됩니다. Role별로 1개 이상의 개인키를 사용하면, Role마다 서로 다른 개인키(들)을 가진 Keyring 인스턴스 1개가 생성되며 이 역시 `caver.wallet`에 추가됩니다.
 
 ```bash
 $ node ./test.js
@@ -441,11 +441,11 @@ RoleBasedKeyring {
 }
 ```
 
-`caver.wallet.add` or `caver.wallet.newKeyring` returns a Keyring instance after adding it to `caver.wallet`.
+`caver.wallet`에 Keyring 인스턴스를 추가하면 `caver.wallet.add` 또는 `caver.wallet.newKeyring`은 Keyring 인스턴스를 반환합니다.
 
-## 트랜잭션 발신 <a id="sending-a-transaction"></a>
+## 트랜잭션 전송<a id="sending-a-transaction"></a>
 
-This section will show you how to send KLAY using caver-js on the Baobab network.
+이 장에서는 Baobab 네트워크에서 caver-js를 사용하여 KLAY를 보내는 방법을 보여줍니다.
 
 ### Baobab Faucet을 통해 KLAY 받기 <a id="getting-klay-via-baobab-faucet"></a>
 
@@ -453,20 +453,20 @@ This section will show you how to send KLAY using caver-js on the Baobab network
 
 ### 송금 트랜잭션 전송 <a id="sending-a-value-transfer-transaction"></a>
 
-트랜잭션 서명은 caver-js 지갑을 통해 할 수 있습니다. You have to go through two steps below to send the transaction to the network.
+트랜잭션 서명은 caver-js 지갑을 통해 할 수 있습니다. 트랜잭션을 네트워크에 보내려면 아래와 같이 2단계를 거쳐야합니다.
 
-1. Sign a transaction
-    - If the keyring you want to use is added to [caver.wallet][], you can use `caver.wallet.sign` function to sign.
-    - If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
-2. Send the RLP-encoded string of the signed transaction to the Klaytn via `caver.rpc.klay.sendRawTransaction`.
+1. 트랜잭션 서명하기
+    - 만약, 사용하시고 싶은 Keyring이 [caver.wallet][]에 있다면, `caver.wallet.sign` 함수로 서명할 수 있습니다.
+    - `caver.wallet`에 Keyring을 추가하지 않고 따로 관리한다면, `transaction.sign` 함수를 통해 트랜잭션에 서명할 수 있습니다.
+2. RLP 인코딩된 서명된 트랜잭션을 `caver.rpc.klay.sendRawTransaction`을 통해 Klaytn에 전송합니다.
 
-**Note:** The sender should have enough number of KLAY.
+**참고:** 발신자의 잔액은 송금하려는 KLAY보다 많아야 합니다.
 
-#### Sign a transaction
+#### 트랜잭션 서명하기
 
-Before sending a transaction to Klaytn, you should sign a transaction first.
+트랜잭션을 Klaytn에 보내기 전에 트랜잭션에 먼저 서명해야 합니다.
 
-Below is an example of how to sign a transaction if a keyring is added to the [caver.wallet][].
+아래는 Keyring이 [caver.wallet][]에 추가되었을 때 트랜잭션에 서명하는 방법을 보이는 예제입니다.
 
 ```javascript
 // test.js
@@ -496,17 +496,17 @@ async function testFunction() {
 testFunction()
 ```
 
-The above code adds a keyring to `caver.wallet`, creates a transaction, and signs the transaction through `caver.wallet.sign`.
+위 코드는 Keyring을 `caver.wallet`에 추가하고, 트랜잭션을 생성하고, `caver.wallet.sign`를 통해 이 트랜잭션에 서명합니다.
 
-Running the above code gives you the following result. When the above code is executed, the RLP-encoded string of the transaction is shown below. (The RLP-encoded string output you got could be different from the string output shown below.)
+위 코드를 실행하면 아래 결과를 얻습니다. 위 코드가 실행되었을 때, RLP 인코딩된 트랜잭션 문자열은 아래와 같이 나타납니다. (여러분이 코드를 실행한 결과로 얻는 RLP 인코딩된 문자열은 아래에 있는 RLP 인코딩된 문자열과 다를 수 있습니다.)
 
 ```bash
 RLP-encoded string: 0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b6991507647f720194ade4883d092e2a972d70637ca7de9ab5166894a2f847f845824e44a0e1ec99789157e5cb6bc691935c204a23aaa3dc049efafca106992a5d5db2d179a0511c421d5e508fdb335b6048ca7aa84560a53a5881d531644ff178b6aa4c0a41
 ```
 
-#### Send the RLP-encoded string of the signed transaction to the Klaytn
+#### RLP 인코딩된 서명된 트랜잭션을 Klaytn에 전송합니다.
 
-Now you can send a signed transaction to the network like below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
+이제, 아래와 같이 서명된 트랜잭션을 Klaytn에 전송할 수 있습니다. 아래 예시를 직접 실행하려면 `0x{RLP-encoded string}`를 위 `rlpEncoded` 값으로 대체하십시오 .
 
 ```javascript
 // test.js
@@ -524,7 +524,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. When the above code is executed, the receipt of the transaction is shown below.
+위 코드를 실행하면 아래 결과를 얻습니다. 위 코드가 실행되었을 때, 트랜잭션에 대한 영수증은 아래와 같이 나타납니다.
 
 ```bash
 $ node ./test.js
@@ -552,7 +552,7 @@ $ node ./test.js
 }
 ```
 
-If you want to sign a transaction and send it to the network without `caver.wallet`, see the example below.
+`caver.wallet` 없이 트랜잭션에 서명하고 Klaytn에 서명된 트랜잭션을 보내려면 아래 예시를 확인하십시오.
 
 ```javascript
 // test.js
@@ -580,13 +580,13 @@ async function testFunction() {
 testFunction()
 ```
 
-When the above code is executed, the receipt of the transaction is printed like the previous example.
+위 코드가 실행 되었을 때, 트랜잭션에 대한 영수증은 앞에서 소개한 예제와 같이 나타납니다.
 
 ### 영수증 확인<a id="checking-receipts"></a>
 
-You can use the promise or event emitter to get the receipt of the transaction when you transfer the transaction to the Klaytn by [caver.rpc.klay.sendRawTransaction][].
+[caver.rpc.klay.sendRawTransaction][]을 통해 Klaytn에 트랜잭션을 전송할 때 프로미스(promise)나 이벤트 이미터(event emitter)를 사용하여 트랜잭션의 영수증을 받아올 수 있습니다.
 
-The following example shows how to get a receipt using promises and event emitters.
+다음 예시는 프로미스(promise) 및 이벤트 이미터(event emitter)를 사용하여 영수증을 받는 과정입니다.
 
 ```javascript
 // Using a promise - async/await
@@ -600,7 +600,7 @@ caver.rpc.klay.sendRawTransaction(rawTransaction).then(console.log)
 caver.rpc.klay.sendRawTransaction(rawTransaction).on('receipt', console.log)
 ```
 
-위 예시와 같이 프로미스(promise)와 이벤트 이미터(event emitter)를 통해 트랜잭션을 전송한 결과를 가져올 수 있습니다. The `transactionHash` field is defined inside the receipt object. You can use [caver.rpc.klay.getTransactionReceipt][] RPC call with `receipt.transactionHash` to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the [caver.rpc.klay.getTransactionReceipt][] RPC call.
+위 예시와 같이 프로미스(promise)와 이벤트 이미터(event emitter)를 통해 트랜잭션을 전송한 결과를 가져올 수 있습니다. `transactionHash` 필드는 영수증 객체 내부에 정의됩니다. 트랜잭션이 블록에 추가된 후, [caver.rpc.klay.getTransactionReceipt][]에 `receipt.transactionHash`를 파라미터로 전달해 RPC를 호출하면 언제든지 트랜잭션 영수증을 조회할 수 있습니다. 아래 예시는 [caver.rpc.klay.getTransactionReceipt][] RPC 호출을 사용하여 영수증을 받는 방법을 보여줍니다.
 
 ```javascript
 // test.js
@@ -615,7 +615,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. When the above code is executed, the receipt of the transaction is shown below.
+위 코드를 실행하면 아래 결과를 얻습니다. 위 코드가 실행되었을 때, 트랜잭션에 대한 영수증은 아래와 같이 나타납니다.
 
 ```bash
 $ node ./test.js
@@ -643,15 +643,15 @@ $ node ./test.js
 }
 ```
 
-The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see [caver.rpc.klay.getTransactionReceipt][]. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures][].
+트랜잭션의 실행 결과는 영수증의 `status`를 통하여 확인할 수 있습니다. 리턴값에 대한 자세한 설명은 [caver.rpc.klay.getTransactionReceipt][]를 참조하세요. 만약 트랜잭션 실행이 실패한다면 에러에 대한 자세한 내용은 영수증의 `txError`에서 확인할 수 있습니다. `txError`에 대한 자세한 설명은 [txError: Detailed Information of Transaction Failures][]를 참고하세요.
 
 ## 다른 트랜잭션 타입 실행하기 <a id="executing-other-transaction-types"></a>
 
-Klaytn은 확장성과 성능을 위한 다양한 트랜잭션 타입을 제공합니다. 자세한 내용은 [트랜잭션](../../../klaytn/design/transactions/README.md)을 참고하세요. This section describes some examples that can be used with caver-js.
+Klaytn은 확장성과 성능을 위한 다양한 트랜잭션 타입을 제공합니다. 자세한 내용은 [트랜잭션](../../../klaytn/design/transactions/README.md)을 참고하세요. 이 장에서는 caver-js와 함께 사용할 수 있는 예시를 설명합니다.
 
 ### 트랜잭션 수수료 위임 <a id="fee-delegation"></a>
 
-Klaytn은 [트랜잭션 수수료 위임][] 기능을 제공합니다. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
+Klaytn은 [트랜잭션 수수료 위임][] 기능을 제공합니다. 여기에서는, 여러분이 트랜잭션 전송자일 때 RLP 인코딩된 트랜잭션을 만드는 예시를 소개합니다.
 
 ```javascript
 // test.js
@@ -678,14 +678,14 @@ async function testFunction() {
 testFunction()
 ```
 
-When the above code is executed, the RLP-encoded string will be printed. (The RLP-encoded string output you got could be different from the string output shown below.)
+위 코드가 실행되었을 때, RLP 인코딩된 문자열이 출력됩니다. (여러분이 코드를 실행한 결과로 얻는 RLP 인코딩된 문자열은 아래에 있는 RLP 인코딩된 문자열과 다를 수 있습니다.)
 
 ```bash
 $ node ./test.js
 0x09f884028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf080c4c3018080
 ```
 
-The fee payer can send the transaction to the Klaytn after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If `caver.wallet` also has the fee payer's key, the fee payer's signature can be injected into `feeDelegatedTx` by calling `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Otherwise, the fee payer has to create a `feeDelegatedTx` from the RLP-encoded string signed by the sender and add the fee payer's sign onto it, as illustrated below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
+트랜잭션 발신자가 서명한 RLP 인코딩된 문자열(`rawTransaction`)에 `feePayerSignatures`를 첨부한 후에, 수수료 납부자는 Klaytn에 트랜잭션을 전송할 수 있습니다. `caver.wallet`에 수수료 납부자 키도 같이 있다면, `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`를 호출하여 수수료 납부자 서명을 `feeDelegatedTx`에 넣을 수 있습니다. 그렇지 않다면, 수수료 납부자는 트랜잭션 발신자가 서명한 RLP 인코딩된 문자열에서 `feeDelegatedTx`를 새로 만들고, 자신의 서명을 여기에 추가해야합니다. 아래 예시를 참고하십시오. 아래 예시를 직접 실행하려면 `0x{RLP-encoded string}`를 위 `rlpEncoded` 값으로 대체하십시오 .
 
 ```javascript
 // test.js
@@ -710,14 +710,14 @@ async function testFunction() {
 testFunction()
 ```
 
-When the above code is executed, the RLP-encoded string including the sender's signatures and fee payer's signatures is printed like below. (The output you got could be different from the string output shown below.)
+위 코드가 실행되었을 때, 발신자 서명과 수수료 납부자 서명이 첨부된 RLP 인코딩된 문자열 아래와 같이 나타납니다. (여러분이 코드를 실행한 결과로 얻는 값은 아래에 있는 값과 다를 수 있습니다.)
 
 ```bash
 $ node ./test.js
 0x09f8dc028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf09417e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24f847f845824e44a0921b7c3be69db96ce14134b306c2ada423613cb66ecc6697ee8067983c268b6ea07b86b255d1c781781315d85d7904226fb2101eb9498c4a03f3fbd30ba3ec5b79
 ```
 
-The transaction is now signed by both the sender and the fee payer, and it can now be sent over the network. Replace `0x{RLP-encoded string}` with the RLP-encoded string output of the example code above.
+이제 트랜잭션 발신자와 수수료 납부자 모두 트랜잭션에 서명했으니, 트랜잭션을 Klaytn에 전송할 수 있습니다. `0x{RLP-encoded string}`을 위 예시 코드의 RLP 인코딩된 문자열 출력값으로 대체하십시오.
 
 ```javascript
 // test.js
@@ -733,7 +733,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. Through the execution result of the above code, you can check the FeeDelegatedValueTransfer transaction result.
+위 코드를 실행하면 아래 결과를 얻습니다. 위 예시 코드 실행 결과를 보면, FeeDelegatedValueTransfer 트랜잭션 결과를 알 수 있습니다.
 
 ```bash
 $ node ./test.js
@@ -771,25 +771,25 @@ $ node ./test.js
 
 ### 계정 업데이트 <a id="account-update"></a>
 
-If you want to change the private key(s) for your Klaytn account, there are 3 important things you need to remember:
+여러분의 Klaytn 계정 개인키를 변경하려면, 다음 3가지 사항을 반드시 알아야 합니다:
 
-1. Klaytn validates every transaction you send to it.
-2. The validation requires your public keys which exactly corresponds to your private key(s).
-3. Thus, changing your private key(s) into the new one(s) is **always be** **preceded** by changing your old public key(s) to the new one(s). The new public key(s) must be derived from the new private key(s).
+1. Klaytn은 자신에게 전송되는 모든 트랜잭션을 검증합니다.
+2. 트랜잭션을 검증하려면 여러분의 개인키와 짝을 이루는 공개키가 필요합니다.
+3. 따라서, 기존에 사용하던 개인키를 새로운 개인키로 바꾸기 전에, **먼저** 기존 공개키를 새로운 공개키로 바꿔야 합니다. 새로운 공개키는 반드시 새로운 개인키로부터 만들어야 합니다.
 
-Keeping the 3 things above in your mind, you can change your private key(s) by following the steps below:
+위 3가지를 꼭 참고하여, 다음에 소개하는 단계를 거쳐 여러분의 개인키를 변경하십시오:
 
-1. Prepare the new private key(s) to create a new keyring.
-2. Create a keyring by its type (Single keyring, Multiple keyring, or Role-based keyring) you need.
-3. Generate an Account instance from the new keyring. This Account instance holds the new public key(s) for your Klaytn account.
-4. Send AccountUpdate transaction including Account instance to Klaytn.
-5. Finally, replace your old keyring to the new one that was created in Step 2.
+1. 새로운 Keyring을 만들기 위해 새 개인키(들)을 준비합니다.
+2. 필요한 Keyring 타입(SingleKeyring, MultipleKeyring, RoleBasedKeyring)을 골라 Keyring을 만듭니다.
+3. 새 Keyring에서 Account 인스턴스를 생성합니다. 이 Account 인스턴스는 여러분의 Klaytn 계정이 사용할 새로운 공개키를 가지고 있습니다.
+4. Account 인스턴스를 입력 파라미터로 받는 AccountUpdate 트랜잭션을 Klaytn에 전송합니다.
+5. 마지막으로, 기존 Keyring을 2번째 단계에서 만들었던 새 Keyring으로 교체합니다.
 
-Please check [Account Update][] for the details.
+자세한 내용은 [Account Update][]를 확인하십시오.
 
-To change your AccountKey, you must provide an [Account][] instance for the `account` field in the input argument object of `caver.transaction.accountUpdate`. An [Account][] instance contains the address of the Klaytn account and the AccountKey to be updated.
+AccountKey를 변경하려면, [Account][] 인스턴스를 `caver.transaction.accountUpdate`의 `account` 필드에 입력 파라미터로 넣어야 합니다. [Account][] 인스턴스는 Klaytn 계정의 주소와 업데이트할 AccountKey를 담고 있습니다.
 
-The code below is an example code that changes the private key(s) you use for your Klaytn account along with changing AccountKey of your Klaytn account to [AccountKeyPublic][]. Don't forget to prepare your new private key(s).
+아래 코드는 여러분의 Klaytn 계정 개인키를 바꾸는 것과 더불어 여러분의 Klaytn 계정 AccountKey를 [AccountKeyPublic][]로 바꾸는 예시입니다. 이를 위해서는 새로 사용할 개인키(들)를 준비하셔야 합니다.
 
 ```javascript
 // test.js
@@ -823,9 +823,9 @@ async function testFunction() {
 testFunction()
 ```
 
-If the above code is executed successfully, you no longer are able to use the old private key(s) to sign any transaction with the old keyring. So you must update the old keyring with the `newKeyring` through `caver.wallet.updateKeyring(newKeyring)`. Once it is updated, the signing will be done by the newly updated private key(s).
+위 코드가 성공적으로 실행되었다면, 기존 개인키(들)과 기존 개인키(들)에 대응되는 기존 Keyring은 트랜잭션에 서명할 때 더는 사용하실 수 없습니다. 따라서 여러분은 `caver.wallet.updateKeyring(newKeyring)`을 사용해 기존 Keyring을 `newKeyring`으로 업데이트하셔야 합니다.  일단 업데이트되고 나면, 트랜잭션 서명은 새로운 개인키로만 가능합니다.
 
-Running the above code gives you the following result. In the execution result of the above code, the result of the private key and the account update that you should newly use are printed like below.
+위 코드를 실행하면 아래 결과를 얻습니다. 위 코드를 실행하면, 개인키 업데이트 및 계정 정보 업데이트 결과가 아래와 같이 출력됩니다.
 
 ```bash
 $ node ./test.js
@@ -856,9 +856,9 @@ new private key string: 0x{private key}
 ```
 
 
-Here comes how to update AccountKey of your Klaytn account with multiple [AccountKeys]? The example below explains how to create an [Account][] instance with multiple private keys that what you want to use (You can create an [Account][] instance with multiple public keys via [caver.account.create][]). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
+그렇다면, 여러분의 Klaytn 계정 AccountKey를 여러개의 [AccountKeys]로 업데이트하려면 어떻게 해야 할까요? 아래 예시는 여러분이 사용하고 싶은 개인키들을 가지고 [Account][] 인스턴스를 만드는 방법을 소개합니다([caver.account.create][]로 여러 공개키를 가지고 [Account][] 인스턴스를 만들 수 있습니다.). 여기에서도, 트랜잭션 객체의 `account` 필드에 Account 인스턴스를 입력 파라미터로 넣으면, 나머지 업데이트 과정은 위에서 소개한 AccountKey 1개를 업데이트하는 과정과 동일합니다.
 
-First, let's create an Account instance to update with [AccountKeyWeightedMultiSig][]. For [AccountKeyWeightedMultiSig][], a threshold and a weight for each key must be defined. To do this, use [caver.account.weightedMultiSigOptions][]. The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
+먼저, AccountKey를  [AccountKeyWeightedMultiSig][]로 업데이트하기 위해 Account 인스턴스 하나를 만들어봅니다. [AccountKeyWeightedMultiSig][]로 업데이트하려면, 임계값과 Key별 가중치가 정의되어야 합니다. 이를 위해, [caver.account.weightedMultiSigOptions][]를 사용하십시오. 1번째 파라미터는 임계값이고 2번째 파라미터는 Key별 가중치를 담고 있는 배열입니다.
 
 ```javascript
 // Create an account instance with three private keys using AccountKeyWeightedMultiSig
@@ -871,7 +871,7 @@ const options = new caver.account.weightedMultiSigOptions(3, [1, 2, 1])
 const account = newKeyring.toAccount(options)
 ```
 
-Now let's update AccountKey using [AccountKeyRoleBased][]. [AccountKeyRoleBased][] is an `AccountKey` type that defines the key to use for each [role][].
+이제 [AccountKeyRoleBased][]를 사용해 AccountKey를 업데이트합니다. [AccountKeyRoleBased][]은 `AccountKey` 타입 중 하나이며 여기에는 각 [role][]에서 사용하는 AccountKey가 정의되어 있습니다.
 
 ```javascript
 // Create an account instance with roles using AccountKeyRoleBased. In the account instance created, each role has a public key that corresponds to one private key.
@@ -881,7 +881,7 @@ const newKeyring = caver.wallet.keyring.createWithRoleBasedKey(sender.address, n
 const account = newKeyring.toAccount()
 ```
 
-The AccountKeyRoleBased above is an example of using one public key for each role. As you can see from the code above, each of them corresponds to one private key. If you want to use multiple private keys for each role, [caver.account.weightedMultiSigOptions][] must be defined for each role as shown below.
+위 AccountKeyRoleBased는 Role마다 공개키 1개를 사용하는 예시입니다. 위 코드에서 볼 수 있듯이, 이들 각각은 개인키 1개에 대응됩니다. 각 Role마다 여러 개인키를 사용하고 싶다면 아래와 같이 각 Role마다 [caver.account.weightedMultiSigOptions][]을 반드시 정의해야 합니다.
 
 ```javascript
 // Create an account instance with [3, 2, 3] keys for each role using AccountKeyRoleBased
@@ -900,7 +900,7 @@ const options = [
 const account = newKeyring.toAccount(options)
 ```
 
-If you want to update AccountKey to [AccountKeyLegacy][] or [accountKeyFail][], create an Account instance as shown below and assign it to the `account` field of the transaction.
+AccountKey를 [AccountKeyLegacy][] 또는 [accountKeyFail][]로  업데이트하고 싶다면, 아래와 같이 Account 인스턴스를 만들고 이를 트랜잭션의 `account` 필드에 넣으십시오.
 
 ```javascript
 // Create an account with AccountKeyLegacy
@@ -912,9 +912,9 @@ const accountWithFailKey = caver.account.createWithAccountKeyFail(keyringToUpdat
 
 ### 스마트 컨트랙트 <a id="smart-contract"></a>
 
-The [caver.contract][] package makes it easy to interact with smart contracts on Klaytn. 저수준 ABI\(Application Binary Interface\)가 주어지면 스마트 컨트랙트의 모든 메소드를 자동으로 자바스크립트 호출로 변환합니다. 이를 통해 스마트 컨트랙트가 마치 자바스크립트 객체인 것처럼 스마트 컨트랙트와 상호작용할 수 있습니다.
+[caver.contract][] 패키지를 사용하면 Klaytn의 스마트 컨트랙트와 쉽게 상호작용할 수 있습니다. 저수준 ABI\(Application Binary Interface\)가 주어지면 스마트 컨트랙트의 모든 메소드를 자동으로 자바스크립트 호출로 변환합니다. 이를 통해 스마트 컨트랙트가 마치 자바스크립트 객체인 것처럼 스마트 컨트랙트와 상호작용할 수 있습니다.
 
-First, we make a simple solidity example like the below. Create a 'test.sol' file and write down the below example.
+먼저, 아래와 같이 간단한 솔리디티 코드 예시를 만듭니다. 'test.sol' 파일을 만들고 아래 예시를 작성합니다.
 
 ```
 pragma solidity ^0.5.6;
@@ -930,7 +930,7 @@ contract KVstore {
 }
 ```
 
-Now we can compile a smart contract to get its bytecode and ABI.
+이제, 이 스마트 컨트랙트를 컴파일하여 바이트코드와 ABI를 얻습니다.
 
 ```text
 > solc --abi --bin ./test.sol
@@ -941,11 +941,11 @@ Contract JSON ABI
 [{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
 ```
 
-**NOTE**: To compile a smart contract, you must have a [solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html) installed.
+**참고**: 스마트 컨트랙트를 컴파일하려면 [솔리디티 컴파일러](https://solidity.readthedocs.io/en/develop/installing-solidity.html) 가 설치되어 있어야 합니다.
 
-For the smart contract deployment, you can use [caver.contract][] to deploy it, or you can deploy it using [caver.transaction.smartContractDeploy][], [caver.transaction.feeDelegatedSmartContractDeploy][] or [caver.transaction.feeDelegatedSmartContractDeployWithRatio][] transaction. Here is an example of using [caver.contract][].
+스마트 컨트랙트를 배포하려면, [caver.contract][], [caver.transaction.smartContractDeploy][], [caver.transaction.feeDelegatedSmartContractDeploy][], 또는 [caver.transaction.feeDelegatedSmartContractDeployWithRatio][]을 사용해 배포할 수 있습니다. 다음은 [caver.contract][]를 사용하는 예시입니다.
 
-You can create a contract instance as below using the result of compiling the smart contract.
+여러분은 아래와 같이 스마트 컨트랙트를 컴파일하여 얻은 결과를 사용해 컨트랙트 인스턴스를 만들 수 있습니다.
 
 ```javascript
 // test.js
@@ -962,7 +962,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위 코드를 실행하면 아래 결과를 얻습니다.
 
 ```bash
 $ node ./test.js
@@ -984,9 +984,9 @@ Contract {
 null
 ```
 
-Looking at the output above, you can see that the methods are managed through abi inside the Contract instance. And since it hasn't been deployed yet, you can see that the result of `contractInstance.options.address` is output as null.
+위 결과를 살펴보면, 스마트 컨트랙트 메서드들이 ABI를 통해 컨트랙트 인스턴스 내부에서 관리됨을 알 수 있습니다. 그리고 아직 컨트랙트가 배포되지 않았으므로 `contractInstance.options.address` 값이 null임을 확인할 수 있습니다.
 
-If the smart contract has already been deployed and you know the contract address where the smart contract was deployed, please pass the contract address to the second parameter as shown below.
+만약 스마트 컨트랙트가 이미 배포되었고 배포된 컨트랙트의 주소를 알고 있다면, 아래와 같이 컨트랙트 주소를 2번째 파라미터로 넣으십시오.
 
 ```javascript
 // test.js
@@ -1005,7 +1005,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위 코드를 실행하면 아래 결과를 얻습니다.
 
 ```bash
 $ node ./test.js
@@ -1027,11 +1027,11 @@ Contract {
 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-Since this contract instance received the address of the smart contract, it stores the contract address in `contractInstance.options.address`.
+이 컨트랙트 인스턴스에 스마트 컨트랙트 주소가 입력되었으므로, 이제 `contractInstance.options.address`에는 이 컨트랙트 주소가 들어있습니다.
 
-If the contract instance is created, you can deploy it by passing the bytecode to the `data` field as shown below.
+컨트랙트 인스턴스가 생성되면, 아래와 같이 바이트코드를 `data` 필드에 전달하는 것으로 배포할 수 있습니다.
 
-Note that [caver.contract][] sends transactions for deployment and execution. It uses keyrings in `caver.wallet` to sign transactions. The keyring to be used must be added to `caver.wallet` before.
+[caver.contract][]가 컨트랙트 배포와 실행을 위해 트랜잭션을 전송함에 유의하십시오. 트랜잭션 서명에는 `caver.wallet`에 있는 Keyring을 사용합니다. 사용할 Keyring은 `caver.wallet`에 먼저 추가해야 합니다.
 
 ```javascript
 // test.js
@@ -1059,7 +1059,7 @@ async function testFunction() {
 testFunction()
 ```
 
-In the code above, the `deployer` deploys the contract to the Klaytn and returns the deployed contract instance.
+위 코드를 보면, `deployer`가 컨트랙트를 Klaytn에 배포하고 배포된 컨트랙트 인스턴스를 받습니다.
 
 ```bash
 $ node ./test.js
@@ -1081,9 +1081,67 @@ Contract {
 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-One way to invoke a specific method of a smart contract is to use it with `caver.contract` or use [caver.transaction.smartContractExecution][], [caver.transaction.feeDelegatedSmartContractExecution][] or [caver.transaction.feeDelegatedSmartContractExecutionWithRatio][] transaction.
+`caver.contract`를 사용해 스마트 컨트랙트를 수수료 위임 트랜잭션으로 배포하는 것은 아직 지원되지 않습니다. 이를 위해서는, `caver.transaction.feeDelegatedSmartContractDeploy` (또는 `caver.transaction.feeDelegatedSmartContractDeployWithRatio`)가 아래와 같이 명시적으로 사용되어야 합니다:
 
-스마트 컨트랙트로 트랜잭션을 생성하려면:
+```javascript
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+
+async function deployWithFeeDelegation() {
+    const deployer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+    caver.wallet.add(deployer)
+
+    const feePayer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+    caver.wallet.add(feePayer)
+
+    const abi = [
+        {
+            constant: true,
+            inputs: [{ name: 'key', type: 'string' }],
+            name: 'get',
+            outputs: [{ name: '', type: 'string' }],
+            payable: false,
+            stateMutability: 'view',
+            type: 'function',
+        },
+        {
+            constant: false,
+            inputs: [{ name: 'key', type: 'string' }, { name: 'value', type: 'string' }],
+            name: 'set',
+            outputs: [],
+            payable: false,
+            stateMutability: 'nonpayable',
+            type: 'function',
+        },
+    ]
+
+    const byteCode =
+        '608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029'
+
+    // caver.abi.encodeContractDeploy encodes byte code and parameters of constructor
+    // If you have contructor parameter(s), pass parameter(s) after byteCode
+    const input = caver.abi.encodeContractDeploy(abi, byteCode)
+
+    const feeDelegated = new caver.transaction.feeDelegatedSmartContractDeploy({
+        from: deployer.address,
+        input,
+        gas: 500000,
+    })
+
+    // Append signatures to feeDelegated transaction
+    await caver.wallet.sign(deployer.address, feeDelegated)
+
+    // Append feePayerSignatures to feeDelegated transaction
+    await caver.wallet.signAsFeePayer(feePayer.address, feeDelegated)
+
+    // Send signed transaction to Klaytn
+    const receipt = await caver.rpc.klay.sendRawTransaction(feeDelegated)
+    console.log(receipt)
+}
+```
+
+스마트 컨트랙트는 컨트랙트를 실행하는 트랜잭션의 타입에 따라 다음 중 하나를 선택해 실행됩니다: `caver.contract`에 있는 `Contract` 클래스, [caver.transaction.smartContractExecution][], [caver.transaction.feeDelegatedSmartContractExecution][], 또는 [caver.transaction.feeDelegatedSmartContractExecutionWithRatio][]. 스마트 컨트랙트를 실행하기 위해 트랜잭션을 보내려면:
 
 ```javascript
 // test.js
@@ -1104,7 +1162,7 @@ async function testFunction() {
 testFunction()
 ```
 
-When the above code is executed, the transaction result from executing `set` arrives as below.
+위 코드가 실행되면 `set`을 실행하는 트랜잭션 결과는 아래와 같이 나타납니다.
 
 ```bash
 $ node ./test.js
@@ -1129,7 +1187,65 @@ $ node ./test.js
 }
 ```
 
-To load a contract instance and call one of its functions:
+`caver.contract`를 사용해 스마트 컨트랙트를 수수료 위임 트랜잭션으로 실행하는 것은 아직 지원되지 않습니다. 이를 위해서는, `caver.transaction.feeDelegatedSmartContractExecution` (또는 `caver.transaction.feeDelegatedSmartContractExecutionWithRatio`)가 아래와 같이 명시적으로 사용되어야 합니다:
+
+```javascript
+// test.js
+const Caver = require('caver-js')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+
+async function executionWithFeeDelegation() {
+    const executor = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+    caver.wallet.add(executor)
+
+    const feePayer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+    caver.wallet.add(feePayer)
+
+    const abi = [
+        {
+            constant: true,
+            inputs: [{ name: 'key', type: 'string' }],
+            name: 'get',
+            outputs: [{ name: '', type: 'string' }],
+            payable: false,
+            stateMutability: 'view',
+            type: 'function',
+        },
+        {
+            constant: false,
+            inputs: [{ name: 'key', type: 'string' }, { name: 'value', type: 'string' }],
+            name: 'set',
+            outputs: [],
+            payable: false,
+            stateMutability: 'nonpayable',
+            type: 'function',
+        },
+    ]
+
+    // Pass contract address as a second parameter
+    const contractInstance = new caver.contract(abi, '0x{address in hex}')
+
+    const input = contractInstance.methods.set('testKey', 'testValue').encodeABI()
+    const feeDelegated = new caver.transaction.feeDelegatedSmartContractExecution({
+        from: executor.address,
+        to: contractInstance.options.address,
+        input,
+        gas: 100000,
+    })
+
+    // Append signatures to feeDelegated transaction
+    await caver.wallet.sign(executor.address, feeDelegated)
+
+    // Append feePayerSignatures to feeDelegated transaction
+    await caver.wallet.signAsFeePayer(feePayer.address, feeDelegated)
+
+    // Send signed transaction to Klaytn
+    const receipt = await caver.rpc.klay.sendRawTransaction(feeDelegated)
+    console.log(receipt)
+}
+```
+
+컨트랙트 인스턴스를 로드하여 메서드 중 하나를 호출(call)하는 예시는 다음과 같습니다:
 
 ```javascript
 // test.js
@@ -1147,30 +1263,30 @@ async function testFunction() {
 testFunction()
 ```
 
-When the above code is executed, the value is shown as an output below.
+위 코드가 실행되면, 아래와 같은 값을 얻습니다.
 
 ```bash
 $ node ./test.js
 testValue
 ```
 
-To find more information, see [caver.contract][].
+자세한 내용은 [caver.contract][]을 참고해주세요.
 
-## Sending a Transaction with multiple signers<a id="sending-a-transaction-with-multiple-signers"></a>
+## 다중 서명된 트랜잭션 보내기<a id="sending-a-transaction-with-multiple-signers"></a>
 
-If the Klaytn account's AccountKey is AccountKeyMultiSig or AccountKeyRoleBased, the person who manages each key can vary.
+Klaytn 계정의 AccountKey가 AccountKeyMultiSig 또는 AccountKeyRoleBased인 경우 각 키를 관리하는 사람이 다를 수 있습니다.
 
 이 장에서는 서명하는 사람이 여럿인 경우 서명을 수집하고 트랜잭션을 보내는 방법에 대해 설명합니다.
 
-To run this example, you need to update AccountKey of the Klaytn account you use for testing with [AccountKeyWeightedMultiSig][]. Please refer to [Account Update](#account-update) for how to update your Klaytn account.
+예제를 실행하려면 사용하는 Klaytn 계정의 AccountKey를 [AccountKeyWeightedMultiSig][]로 업데이트해야 합니다. 여러분의 Klaytn 계정을 업데이트하려면 [Account Update](#account-update)를 확인하십시오.
 
-### Signing sequentially <a id="signing-sequentially"></a>
+### 순차적으로 서명하기<a id="signing-sequentially"></a>
 
-When a transaction is signed using `caver.wallet` or the transaction's `sign` function, signatures (or feePayerSignatures) are defined (or appended) inside the transaction. You can obtain the RLP-encoded string (`rawTransaction`) containing the signatures (and feePayerSignatures) by calling the `transaction.getRLPEncoding()` function of the signed transaction instance.
+트랜잭션에 `caver.wallet` 또는 `sign` 함수로 서명을 하면, 트랜잭션 발신자 서명(또는 트랜잭션 수수료 납부자 서명)은 트랜잭션에 정의(또는 첨부)됩니다. 서명된 트랜잭션 인스턴스의 `transaction.getRLPEncoding()` 함수를 호출하면, 트랜잭션 발신자 서명(그리고 트랜잭션 수수료 납부자 서명)이 있는 RLP 인코딩된 문자열(`rawTransaction`)을 얻을 수 있습니다.
 
-다음 예제는 여러 개인 키를 사용하여 트랜잭션에 순차적으로 서명하는 방법을 보여줍니다. Let's assume that AccountKey of the account who sends this transaction is AccountKeyWeightedMultiSig of two public keys, which means this Klaytn account can use two private key strings, one private key for each user. This is a case that two users share the same Klaytn account.
+다음 예제는 여러 개인 키를 사용하여 트랜잭션에 순차적으로 서명하는 방법을 보여줍니다. 트랜잭션을 보내는 계정의 AccountKey가 공개키 2개로 구성된 AccountKeyWeightedMultiSig라고 가정합니다. 이는 이 Klaytn 계정이 개인키 2개를 쓸 수 있으며, 계정 사용자 1명당 개인키 1개를 사용함을 의미합니다. 이는 같은 Klaytn 계정을 사용자 2명이 공유하는 상황입니다.
 
-In the example below, user1 and user2 create a `Keyring` instances to be used. After that, each uses its own keyring to sign the transaction. The example below uses `transaction.sign` to sign it.
+아래 예시에서, 사용자1과 사용자2는 `Keyring` 인스턴스를 만듭니다. 그리고, 각 사용자는 자신의 Keyring을 써서 트랜잭션에 서명합니다. 아래 예시는 트랜잭션 서명에 `transaction.sign`을 씁니다.
 
 ```javascript
 // test.js
@@ -1198,7 +1314,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. Looking at the execution result of the code above, if user1 signs, one signature is created. If user2 signs, user2's signature is appended. [SignatureData][] is an object that stores a signature.
+위 코드를 실행하면 아래 결과를 얻습니다. 위 실행 결과를 보면, 사용자1이 서명할 때 서명 1개가 트랜잭션에 붙습니다. 사용자2가 서명하면, 사용자2의 서명도 트랜잭션에 추가됩니다. [SignatureData][] 객체는 서명을 저장하는 객체입니다.
 
 ```bash
 $ node ./test.js
@@ -1211,9 +1327,9 @@ $ node ./test.js
 ]
 ```
 
-Then let's see how to sign sequentially without sharing the same transaction object. In the below example, user1 passes RLP-encoded string that is the result of getRLPEncoding function of the signed transaction to user2.
+이제, 같은 트랜잭션 객체를 공유하지 않을 때 순차적으로 서명하는 방법을 안내합니다. 아래 예시에서, RLP 인코딩된 문자열은 서명을 가진 트랜잭션의 인스턴스 함수 getRLPEncoding를 실행하고 얻은 결과값입니다. 사용자1은 이 RLP 인코딩된 문자열을 사용자2에게 넘깁니다.
 
-The code below explains how to sign and append signatures with RLP-encoded string.
+아래 코드는 서명하는 방법과 서명을 RLP 인코딩된 문자열에 첨부하는 방법을 소개합니다.
 
 ```javascript
 // test.js
@@ -1249,7 +1365,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위 코드를 실행하면 아래 결과를 얻습니다.
 
 ```bash
 $ node ./test.js
@@ -1259,15 +1375,15 @@ $ node ./test.js
 ]
 ```
 
-If you run the above code, you can see that user2's signature has been appended in `transactionFromRLP.signatures` and a total of two signatures are included in it.
+위 코드를 실행하면, 사용자2의 서명이 추가되어 `transactionFromRLP.signatures`에 총 2개의 서명이 있음을 확인할 수 있습니다.
 
-When all users have signed, send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(transactionFromRLP)`.
+모든 사용자가 서명했다면, `await caver.rpc.klay.sendRawTransaction(transactionFromRLP)`로 트랜잭션을 Klaytn에 보냅니다.
 
-If you send a fee-delegated transaction, and the fee payer uses multiple keys, you can proceed with the above logic using `caver.wallet.signAsFeePayer`.
+수수료 위임 트랜잭션을 전송할 때 수수료 납부자가 여러 키를 사용한다면, `caver.wallet.signAsFeePayer`를 위 예시 코드 방식대로 쓸 수 있습니다.
 
-### Combining signed raw transactions <a id="combining-signed-rawtransactions"></a>
+### 서명된 raw transaction들을 결합하기<a id="combining-signed-rawtransactions"></a>
 
-If you receive multiple signed RLP-encoded raw transaction strings from several people, you can combine them into a single RLP-encoded raw transaction string that contains all the signatures.
+여러 사람에게서 서명이 첨부된 상태로 RLP 인코딩된 raw transaction들을 받는다면, 여러분은 이 raw transaction들을 모든 서명이 첨부된 하나의 raw transaction으로 합칠 수 있습니다.
 
 아래 예제는 RLP 인코딩된 트랜잭션들을 하나로 통합하고 전송하는 방법을 보여줍니다.
 
@@ -1295,18 +1411,18 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+위 코드를 실행하면 아래 결과를 얻습니다.
 
 ```bash
 $ node ./test.js
 0x08f9010d808505d21dba00830111709445c2a1e3a1c3957a06dae73ad516461c2d2c7ccc01940fa355263f37f5a54d9179452baa8b63b8b2cddef8d5f8458207f5a094ce13c39d25d44ad1d07ba2fd89f476c4dc6eef6071a2ef1f496f9b04d049e5a00f7abddd548998b0a55e53600a48286c38262fffc6c153a64e8f65a77c11c722f8458207f6a0ceeea7287b2670719d8ac15cf3b21b36fcaf74d58cce99935ce17e100064037aa0499067788d5db5e7c09ed7bfe19764d66684abc06b81e8f54ea254377bc81066f8458207f5a05c3ba89336c7d84d4ce08104cfd6f7ef33cd9f29766a1955baae8bcf964fd50fa015accbbce6bb11847a3b0660491775d64ef6d692ea709b768f64f12968c09240
 ```
 
-Running the code above outputs one RLP-encoded raw transaction string with all the signature information combined.
+위 코드를 실행하면 모든 서명이 첨부된 RLP 인코딩된 raw transaction 문자열 1개가 출력됩니다.
 
-When executing `combineSignedRawTransactions`, the signed RLP-encoded raw transaction strings to be combined must be exactly the same to each other except the signatures and the optional variables in the transaction instance. Optional variables without any given value in the base transaction instance (the caller of `combineSignedRawTransactions`) will be redeemed with the corresponding ones in the following raw transaction string to be merged right next. If there is any inconsistency among all raw transaction strings including the values of optional variables of them to be merged, an error occurs.
+`combineSignedRawTransactions`를 실행할 때, 서명된 상태로 RLP 인코딩된 raw transaction 문자열들은 서명 자체와 트랜잭션 인스턴스의 옵션 변수를 빼고는 서로 완전히 동일해야 합니다. 기본 트랜잭션 인스턴스(`combineSignedRawTransactions`를 호출하는 트랜잭션 인스턴스)에서 값을 지정하지 않은 옵션 변수는, 바로 뒤에서 합쳐지는 raw transaction 문자열에 지정된 옵션 변수값으로 덮어씌워 집니다. 옵션 변수값들을 포함해 모든 raw transaction 문자열 중 하나라도 전체에서 어긋난다면, 에러가 발생합니다.
 
-The combineSignedRawTransactions returns an RLP-encoded string containing all signatures (and feePayerSignatures if the transaction is a fee-delegated transaction) as a result. You use this to send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(combined)`.
+combineSignedRawTransaction은 모든 서명(트랜잭션이 수수료 위임 트랜잭션이면 모든 트랜잭션 수수료 납부자 서명들도 포함)이 담긴 RLP 인코딩된 문자열을 반환합니다. 그리고 이 문자열은 `await caver.rpc.klay.sendRawTransaction(combined)`로 트랜잭션을 Klaytn에 보내는 데 사용합니다.
 
 
 ## 샘플 프로젝트 <a id="sample-projects"></a>
