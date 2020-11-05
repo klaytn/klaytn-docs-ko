@@ -31,7 +31,7 @@ Generates instances of [SingleKeyring][] in the keyringContainer with randomly g
 | 명칭               | 형식     | 설명                                                   |
 | ---------------- | ------ | ---------------------------------------------------- |
 | numberOfKeyrings | number | The number of [SingleKeyring][] instances to create. |
-| entropy          | 문자열    | (선택 사항) 엔트로피를 증가시키는 임의의 문자열.                         |
+| entropy          | 문자열    | (optional) A random string to increase entropy.      |
 
 **리턴값**
 

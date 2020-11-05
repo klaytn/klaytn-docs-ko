@@ -1,2 +1,2 @@
-# Klaytn SDK <a id="klaytn-sdks"></a>
+# Klaytn SDKs <a id="klaytn-sdks"></a>
 

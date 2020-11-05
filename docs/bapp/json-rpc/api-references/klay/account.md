@@ -61,7 +61,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_encodeAccountKey <a id="klay_encodeaccountkey"></a>
 
-계정 키를 RLP(Recursive Length Prefix)를 사용해 인코딩합니다.
+Encodes an account key using the Recursive Length Prefix (RLP) encoding scheme.
 
 **매개변수**
 
@@ -220,7 +220,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 ## klay_getAccount <a id="klay_getaccount"></a>
 
-입력으로 받은 주소의 계정 정보를 반환합니다. Klaytn에는 외부 소유 계정(EOA)와 스마트 컨트랙트 계정 등 두 가지 유형의 계정이 있습니다. 자세한 내용은  [Klaytn 계정](../../../../klaytn/design/accounts.md#klaytn-accounts)을 참고해주세요.
+입력으로 받은 주소의 계정 정보를 반환합니다. There are two different account types in Klaytn: Externally Owned Account (EOA) and Smart Contract Account. 자세한 내용은  [Klaytn 계정](../../../../klaytn/design/accounts.md#klaytn-accounts)을 참고해주세요.
 
 **매개변수**
 
@@ -291,7 +291,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getAccountKey <a id="klay_getaccountkey"></a>
 
-입력으로 받은 주소의 외부 소유 계정(EOA)에 해당하는 계정의 키를 반환합니다. 해당 계정의 키가 AccountKeyLegacy이거나 입력으로 받은 주소의 계정이 스마트 컨트랙트 계정이면 빈 값을 반환합니다. 자세한 내용은 [계정 키](../../../../klaytn/design/accounts.md#account-key)를 참고해주세요.
+Returns the account key of the Externally Owned Account (EOA) of a given address. 해당 계정의 키가 AccountKeyLegacy이거나 입력으로 받은 주소의 계정이 스마트 컨트랙트 계정이면 빈 값을 반환합니다. 자세한 내용은 [계정 키](../../../../klaytn/design/accounts.md#account-key)를 참고해주세요.
 
 **매개변수**
 
@@ -302,9 +302,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **리턴값**
 
-| 형식         | 설명                           |
-| ---------- | ---------------------------- |
-| AccountKey | 계정 키는 공개키(들)와 키의 유형으로 구성됩니다. |
+| 형식         | 설명                                                       |
+| ---------- | -------------------------------------------------------- |
+| AccountKey | The account key consist of public key(s) and a key type. |
 
 **예시**
 
@@ -438,7 +438,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionCount <a id="klay_gettransactioncount"></a>
 
-어떤 주소의 계정에서 *발신된* 트랜잭션의 개수를 반환합니다.
+Returns the number of transactions *sent* from an address.
 
 **매개변수**
 
@@ -508,7 +508,7 @@ sign 메서드는 다음을 사용하여 Klaytn만의 서명을 계산합니다.
 sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 ```
 
-메시지에 접두사를 붙이면 계산된 서명 값이 Klaytn의 서명임을 알 수 있습니다. 이는 악성 BApp이 임의의 데이터(트랜잭션)에 서명하여 누군가를 사칭하는 것을 방지합니다.
+메시지에 접두사를 붙이면 계산된 서명 값이 Klaytn의 서명임을 알 수 있습니다. This prevents misuse where a malicious BApp can sign arbitrary data, *e.g.*, transaction, and use the signature to impersonate the victim.
 
 **참고**: 서명하려는 계정은 잠금 해제되어 있어야 합니다.
 

@@ -1,8 +1,8 @@
-# Go 런타임 추적 <a id="go-runtime-tracing"></a>
+# Go Runtime Tracing <a id="go-runtime-tracing"></a>
 
 ## debug_goTrace <a id="debug_gotrace"></a>
 
-입력으로 받은 기간 동안 Go 런타임 추적을 진행하고 추적 데이터를 디스크에 씁니다.
+Turns on Go runtime tracing for the given duration and writes trace data to disk.
 
 | 클라이언트 | 메서드 호출                                                    |
 |:-----:| --------------------------------------------------------- |

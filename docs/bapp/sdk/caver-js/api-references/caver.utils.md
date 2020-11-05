@@ -76,9 +76,9 @@ Safely converts any given value (including [Bignumber.js](http://mikemcl.github.
 
 **매개변수**
 
-| 명칭     | 형식                   | 설명            |
-| ------ | -------------------- | ------------- |
-| number | string &#124; number | 큰 숫자로 변환할 숫자. |
+| 명칭     | 형식                   | 설명                                 |
+| ------ | -------------------- | ---------------------------------- |
+| number | string &#124; number | number to convert to a big number. |
 
 **리턴값**
 
@@ -130,10 +130,10 @@ true
 ```
 
 
-## isBignumber <a id="isbignumber"></a>
+## isBigNumber <a id="isbignumber"></a>
 
 ```javascript
-caver.utils.isBignumber(bignumber)
+caver.utils.isBigNumber(bignumber)
 ```
 
 Checks if a given value is a [Bignumber.js](http://mikemcl.github.io/bignumber.js/) instance.
@@ -154,7 +154,7 @@ Checks if a given value is a [Bignumber.js](http://mikemcl.github.io/bignumber.j
 
 ```javascript
 > var number = new Bignumber(10)
-> caver.utils.isBignumber(number)
+> caver.utils.isBigNumber(number)
 true
 ```
 
@@ -467,10 +467,10 @@ caver.utils.toHex(mixed)
 '0x49206861766520313030e282ac'
 ```
 
-## hexTonumberstring <a id="hextonumberstring"></a>
+## hexToNumberString <a id="hextonumberstring"></a>
 
 ```javascript
-caver.utils.hexTonumberstring(hex)
+caver.utils.hexToNumberString(hex)
 ```
 
 주어진 HEX 값의 숫자 표현을 문자열로 반환합니다.
@@ -490,14 +490,14 @@ caver.utils.hexTonumberstring(hex)
 **예제**
 
 ```javascript
-> caver.utils.hexTonumberstring('0xea')
+> caver.utils.hexToNumberString('0xea')
 "234"
 ```
 
-## hexTonumber <a id="hextonumber"></a>
+## hexToNumber <a id="hextonumber"></a>
 
 ```javascript
-caver.utils.hexTonumber(hex)
+caver.utils.hexToNumber(hex)
 ```
 주어진 HEX 값을 숫자로 반환합니다.
 
@@ -518,7 +518,7 @@ caver.utils.hexTonumber(hex)
 **예제**
 
 ```javascript
-> caver.utils.hexTonumber('0xea')
+> caver.utils.hexToNumber('0xea')
 234
 ```
 
@@ -1277,7 +1277,7 @@ false
 caver.utils.isValidHashStrict(input)
 ```
 
-Returns `true` if the input is in 0x-prefixed 32-bytes hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of 0x-prefixed 32-bytes hash. [caver.utils.isValidHash](#isvalidhash)와의 차이점은 HEX 앞에 `0x`이 붙는다는 것입니다.
+Returns `true` if the input is in 0x-prefixed 32-bytes hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of 0x-prefixed 32-bytes hash. Difference to [caver.utils.isValidHash](#isvalidhash) is that it expects HEX to be prefixed with `0x`.
 
 **매개변수**
 
@@ -1516,7 +1516,7 @@ true
 ```javascript
 caver.utils.isKlaytnWalletKey(key)
 ```
-키가 [KlaytnWalletKey][] 포맷이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.
+Returns `true` if key is in [KlaytnWalletKey][] format, otherwise it returns `false`.
 
 **매개변수**
 

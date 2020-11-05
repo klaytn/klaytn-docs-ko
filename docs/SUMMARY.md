@@ -1,9 +1,8 @@
-# 목차 <a id="table-of-contents"></a>
+# Table of contents <a id="table-of-contents"></a>
 
-* [환영합니다.](README.md)
+* [Welcome](README.md)
 
-* [Klaytn  
-  개요](klaytn/README.md)
+* [Klaytn 개요](klaytn/README.md)
   * [왜 Klaytn일까요?](klaytn/why-klaytn.md)
   * [Klaytn 디자인](klaytn/design/README.md)
     * [합의 메커니즘](klaytn/design/consensus-mechanism.md)
@@ -39,8 +38,7 @@
   * [KLAY 받기](getting-started/getting-klay.md)
   * [Cypress Mainnet 초기 설정 요청](getting-started/request-for-initial-setup-on-cypress-mainnet.md)
 
-* [스마트  
-  컨트랙트](smart-contract/README.md)
+* [스마트 컨트랙트](smart-contract/README.md)
   * [솔리디티 - 스마트 컨트랙트 언어](smart-contract/solidity-smart-contract-language.md)
   * [미리 컴파일된 컨트랙트(Precompiled Contracts)](smart-contract/precompiled-contracts.md)
   * [IDE 및 도구](smart-contract/ide-and-tools/README.md)
@@ -60,8 +58,7 @@
   * [Klaytn 호환 토큰](smart-contract/token-standard.md)
   * [이더리움 컨트랙트 포팅](smart-contract/porting-ethereum-contract.md)
 
-* [설치 &   
-  운영](node/README.md)
+* [설치 & 운영](node/README.md)
   * [Endpoint Node](node/endpoint-node/README.md)
     * [시스템 요구사항](node/endpoint-node/system-requirements.md)
     * [설치 가이드](node/endpoint-node/installation-guide/README.md)
@@ -119,14 +116,18 @@
         * [노드 상태 확인](node/service-chain/references/spn-sen/checking-node-status.md)
       * [브리지 설정](node/service-chain/references/bridge-configuration.md)
       * [앵커링](node/service-chain/references/anchoring.md)
+      * [KAS Anchoring](node/service-chain/references/kas-anchoring.md)
       * [밸류 트랜스퍼(Value Transfer)](node/service-chain/references/value-transfer.md)
       * [환경설정 파일](node/service-chain/references/configuration-files.md)
-      * [로그 파일](node/service-chain/references/log-files.md)
+      * [Log Files](node/service-chain/references/log-files.md)
       * [Genesis JSON](node/service-chain/references/genesis.md)
     * [How-To 가이드](node/service-chain/howto/README.md)
   * [에러 & 문제 해결](node/errors-and-troubleshooting.md)
   * [다운로드](node/download/README.md)
-    * [v1.5.0 (latest)](node/download/v1.5.0.md)
+    * [latest (v1.5.3)](node/download/latest.md)
+    * [v1.5.2](node/download/v1.5.2.md)
+    * [v1.5.1](node/download/v1.5.1.md)
+    * [v1.5.0](node/download/v1.5.0.md)
     * [v1.4.2](node/download/v1.4.2.md)
     * [v1.4.1](node/download/v1.4.1.md)
     * [v1.4.0](node/download/v1.4.0.md)
@@ -137,8 +138,7 @@
     * [v0.9.6](node/download/v0.9.6.md)
     * [v0.8.2](node/download/v0.8.2.md)
 
-* [BApp  
-  개발자](bapp/README.md)
+* [BApp 개발자](bapp/README.md)
   * [JSON-RPC APIs](bapp/json-rpc/README.md)
     * [API 참조 문서](bapp/json-rpc/api-references/README.md)
       * [klay](bapp/json-rpc/api-references/klay.md)
@@ -186,6 +186,7 @@
           * [caver.kct.kip7](bapp/sdk/caver-js/api-references/caver.kct/kip7.md)
           * [caver.kct.kip17](bapp/sdk/caver-js/api-references/caver.kct/kip17.md)
         * [caver.utils](bapp/sdk/caver-js/api-references/caver.utils.md)
+        * [caver.ipfs](bapp/sdk/caver-js/api-references/caver.ipfs.md)
       * [caver-js ~v1.4.1](bapp/sdk/caver-js/v1.4.1/README.md)
         * [Getting Started (~v1.4.1)](bapp/sdk/caver-js/v1.4.1/getting-started_1.4.1.md)
         * [API 참조 문서](bapp/sdk/caver-js/v1.4.1/api-references/README.md)
@@ -216,7 +217,7 @@
       * [API 참조 문서](https://javadoc.io/doc/com.klaytn.caver/core/)
       * [caver-java ~v1.4.0](bapp/sdk/caver-java/v1.4.0/README.md)
         * [Getting Started (~v1.4.0)](bapp/sdk/caver-java/v1.4.0/getting-started_1.4.0.md)
-        * [web3j에서 포팅하기](bapp/sdk/caver-java/v1.4.0/porting-from-web3j.md)
+        * [Porting from web3j](bapp/sdk/caver-java/v1.4.0/porting-from-web3j.md)
   * [튜토리얼](bapp/tutorials/README.md)
     * [트랜잭션 수수료 위임 예시](bapp/tutorials/fee-delegation-example.md)
     * [Baobab에서 BApp 개발하기(동영상 강의)](bapp/tutorials/bapp-on-baobab-video-lecture/README.md)
@@ -268,6 +269,6 @@
 * [로드맵](misc/roadmap.md)
 * [FAQ](misc/faq.md)
 * [용어집](misc/glossary.md)
-* [이용약관](misc/terms-of-use.md)
+* [Terms of Use](misc/terms-of-use.md)
 
 * [지원 언어](languages.md)

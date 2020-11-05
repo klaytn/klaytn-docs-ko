@@ -6,7 +6,7 @@
 
 `Keyring` is a structure that contains the address of the account and the private key(s). This is a class in caver-js that allows users to sign on using their own [Klaytn's account](../../../../../klaytn/design/accounts.md#klaytn-accounts).
 
-`Keyring`은 저장되는 키 종류에 따라 3가지 타입으로 나뉩니다: 주소 1개와 개인키 1개를 가지는 [SingleKeyring][], 주소 1개와 여러 개인키를 가지는 [MultipleKeyring][], 그리고 주소 1개와 키 Role별로 개인키 1개 이상을 가지는 [RoleBasedKeyring][]가 있습니다.
+`Keyring` can be classified into three types depending on the type of key being stored: [SingleKeyring][] to store one address and one private key, [MultipleKeyring][] to store one address and multiple private keys, and [RoleBasedKeyring][] to store one address and one or more private keys for each role.
 
 - [SingleKeyring][]: User signs with a private key
 - [MultipleKeyring][]: User signs with private keys
@@ -113,9 +113,9 @@ Generates a SingleKeyring instance with a randomly generated private key.
 
 **매개변수**
 
-| 명칭      | 형식  | 설명                           |
-| ------- | --- | ---------------------------- |
-| entropy | 문자열 | (선택 사항) 엔트로피를 증가시키는 임의의 문자열. |
+| 명칭      | 형식  | 설명                                              |
+| ------- | --- | ----------------------------------------------- |
+| entropy | 문자열 | (optional) A random string to increase entropy. |
 
 **리턴값**
 
@@ -143,9 +143,9 @@ Generates a private key string.
 
 **매개변수**
 
-| 명칭      | 형식  | 설명                           |
-| ------- | --- | ---------------------------- |
-| entropy | 문자열 | (선택 사항) 엔트로피를 증가시키는 임의의 문자열. |
+| 명칭      | 형식  | 설명                                              |
+| ------- | --- | ----------------------------------------------- |
+| entropy | 문자열 | (optional) A random string to increase entropy. |
 
 **리턴값**
 
@@ -170,10 +170,10 @@ Generates private key strings.
 
 **매개변수**
 
-| 명칭      | 형식     | 설명                                 |
-| ------- | ------ | ---------------------------------- |
-| num     | number | The number of private key strings. |
-| entropy | 문자열    | (선택 사항) 엔트로피를 증가시키는 임의의 문자열.       |
+| 명칭      | 형식     | 설명                                              |
+| ------- | ------ | ----------------------------------------------- |
+| num     | number | The number of private key strings.              |
+| entropy | 문자열    | (optional) A random string to increase entropy. |
 
 **리턴값**
 
@@ -205,7 +205,7 @@ Generates a 2D array of which each array element contains keys defined for each 
 | 명칭       | 형식  | 설명                                                        |
 | -------- | --- | --------------------------------------------------------- |
 | numArray | 배열  | An array containing the number of keys for each [role][]. |
-| entropy  | 문자열 | (선택 사항) 엔트로피를 증가시키는 임의의 문자열.                              |
+| entropy  | 문자열 | (optional) A random string to increase entropy.           |
 
 **리턴값**
 
@@ -1167,7 +1167,7 @@ Encrypts a keyring and returns a keystore v4 standard. 더 자세한 내용은 [
 | 명칭       | 형식  | 설명                                                                                                   |
 | -------- | --- | ---------------------------------------------------------------------------------------------------- |
 | password | 문자열 | The password to be used for encryption. The encrypted key store can be decrypted with this password. |
-| options  | 문자열 | (선택 사항) `options` 매개변수를 사용하면 암호화 사용 시 사용할 값을 지정할 수 있습니다.                                             |
+| options  | 문자열 | (optional) The `options` parameter allows you to specify the values to use when using encrypt.       |
 
 **리턴값**
 

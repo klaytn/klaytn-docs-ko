@@ -8,7 +8,7 @@
 caver.rpc.net.getNetworkId([callback])
 ```
 
-Klaytn 노드의 네트워크 식별자(네트워크 ID)를 반환합니다.
+Return the network identifier (network ID) of the Klaytn Node.
 
 **매개변수**
 

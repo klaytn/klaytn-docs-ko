@@ -140,13 +140,13 @@ caver.klay.isSenderTxHashIndexingEnabled([callback])
 
 **매개변수**
 
-| 명칭       | 형식       | 설명                                                                                |
-| -------- | -------- | --------------------------------------------------------------------------------- |
-| callback | Function | (선택 사항) 선택적 콜백 함수입니다. 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 하여 실행됩니다. |
+| 명칭       | 형식       | 설명                                                                                                 |
+| -------- | -------- | -------------------------------------------------------------------------------------------------- |
+| callback | Function | (optional) Optional callback function. 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 하여 실행됩니다. |
 
 **리턴값**
 
-`프로미스`는 `Boolean`을 반환 - `true`는 트랜잭션 수수료 납부자가 서명한 트랜잭션을 찾기 위해 노드가 트랜잭션 발신자 해시를 인덱싱하고 있음을 의미합니다. 더 자세한 정보는 [Klaytn Platform API - klay_getTransactionBySenderTxHash](../../../../../json-rpc/api-references/klay/transaction.md#klay_gettransactionbysendertxhash)와 [Klaytn Transactions - Fee Delegation and SenderTxHash](../../../../../../klaytn/design/transactions/README.md#fee-delegation)를 참조하십시오.
+`프로미스`는 `Boolean`을 반환 - `true`는 트랜잭션 수수료 납부자가 서명한 트랜잭션을 찾기 위해 노드가 트랜잭션 발신자 해시를 인덱싱하고 있음을 의미합니다. For detailed information, please see [Klaytn Platform API - klay_getTransactionBySenderTxHash](../../../../../json-rpc/api-references/klay/transaction.md#klay_gettransactionbysendertxhash) and [Klaytn Transactions - Fee Delegation and SenderTxHash](../../../../../../klaytn/design/transactions/README.md#fee-delegation).
 
 
 **예시**
@@ -188,7 +188,7 @@ true
 caver.klay.rewardbase([callback])
 ```
 
-현재 노드의 Rewardbase를 반환합니다. Rewardbase는 블록 보상을 받을 계정 주소입니다. 오직 Klaytn 컨센서스 노드(Consensus Nodes)만이 환경설정을 통해 Rewardbase를 받습니다. [Configuration File](../../../../../../node/core-cell/operation-guide/configuration.md)를 참조하십시오.
+현재 노드의 Rewardbase를 반환합니다. Rewardbase는 블록 보상을 받을 계정 주소입니다. Only the Klaytn Consensus Nodes (CN) have the rewardbase in their configuration. [Configuration File](../../../../../../node/core-cell/operation-guide/configuration.md)를 참조하십시오.
 
 
 **매개변수**

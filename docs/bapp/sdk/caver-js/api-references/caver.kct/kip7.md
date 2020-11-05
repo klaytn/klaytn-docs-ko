@@ -1,6 +1,6 @@
 # caver.kct.kip7 <a id="caver-klay-kip7"></a>
 
-`caver.kct.kip7`은 KIP-7 표준을 구현한 스마트 컨트랙트를 JavaScript 객체 형태로 Klaytn 블록체인 플랫폼(Klaytn)에서 손쉽게 다룰 수 있도록 돕습니다.
+The `caver.kct.kip7` helps you easily handle a smart contract that implements KIP-7 as a JavaScript object on the Klaytn blockchain platform (Klaytn).
 
 `caver.kct.kip7`는 KIP-7 토큰 컨트랙트를 구현하기 위해 [caver.contract](../caver.contract.md)를 상속합니다. `caver.kct.kip7`은 `caver.contract`와 동일한 속성값들을 가지며, 추가 기능 구현을 위해 메서드를 더 가지고 있습니다. 이 장은 `caver.kct.kip7` 메쏘드들 중 오직 새롭게 추가된 메쏘드들만을 소개합니다.
 
@@ -33,17 +33,17 @@ tokenInfo 객체는 다음을 반드시 포함해야 합니다:
 | decimals      | number                                | 토큰이 사용하는 소수점 자릿수입니다. |
 | initialSupply | BigNumber &#124; string &#124; number | 처음 공급될 토큰 총 수량입니다.   |
 
-**참고** `initialSupply` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**NOTE** The `initialSupply` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
 `PromiEvent`: 이벤트 이미터와 결합된 프로미스이며 새로운 KIP7 인스턴스를 반환합니다. 추가로 다음 이벤트가 발생할 수 있습니다.
 
-| 명칭              | 형식     | 설명                                                                                                                                                   |
-| --------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | 문자열    | 트랜잭션이 전송된 직후 및 트랜잭션 해시를 사용할 수 있을 때 발생합니다.                                                                                                            |
-| receipt         | object | 트랜잭션 영수증을 사용할 수 있을 때 발생합니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다. |
-| error           | 에러     | 전송 중 오류가 나타나면 발생됩니다.                                                                                                                                 |
+| 명칭              | 형식     | 설명                                                                                                                                                                                           |
+| --------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transactionHash | 문자열    | 트랜잭션이 전송된 직후 및 트랜잭션 해시를 사용할 수 있을 때 발생합니다.                                                                                                                                                    |
+| receipt         | object | 트랜잭션 영수증을 사용할 수 있을 때 발생합니다. If you want to know about the properties inside the receipt object, see [getTransactionReceipt][]. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다. |
+| error           | 에러     | 전송 중 오류가 나타나면 발생됩니다.                                                                                                                                                                         |
 
 **예시**
 
@@ -101,9 +101,9 @@ new caver.kct.kip7([tokenAddress])
 
 **매개변수**
 
-| 명칭           | 형식  | 설명                                                                                 |
-| ------------ | --- | ---------------------------------------------------------------------------------- |
-| tokenAddress | 문자열 | (선택 사항) KIP-7 토큰 컨트랙트 주소이며 나중에 `kip7.options.address = '0x1234..'`로 값을 설정할 수 있습니다. |
+| 명칭           | 형식  | 설명                                                                                                                          |
+| ------------ | --- | --------------------------------------------------------------------------------------------------------------------------- |
+| tokenAddress | 문자열 | (optional) The address of the KIP-7 token contract, which can be assigned later through `kip7.options.address = '0x1234..'` |
 
 
 **리턴값**
@@ -429,7 +429,7 @@ kip7.approve(spender, amount [, sendParam])
 | amount    | BigNumber &#124; string &#124; number | 토큰 사용자가 사용을 허락받은 토큰 수량입니다.                   |
 | sendParam | object                                | (선택 사항) 트랜잭션을 보내는 데 필요한 파라미터들을 가지고 있는 객체입니다. |
 
-**참고** `amount` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 `sendParam` 객체는 다음을 포함합니다:
 
@@ -442,7 +442,7 @@ kip7.approve(spender, amount [, sendParam])
 
 **리턴값**
 
-`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
+`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
 **예시**
 
@@ -504,17 +504,17 @@ kip7.transfer(recipient, amount [, sendParam])
 
 **매개변수**
 
-| 명칭        | 형식                                    | 설명                                                                                                         |
-| --------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| recipient | 문자열                                   | 토큰을 받을 계정 주소입니다.                                                                                           |
-| amount    | BigNumber &#124; string &#124; number | 전송될 토큰 수량입니다.                                                                                              |
-| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
+| 명칭        | 형식                                    | 설명                                                                                                                                              |
+| --------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| recipient | 문자열                                   | 토큰을 받을 계정 주소입니다.                                                                                                                                |
+| amount    | BigNumber &#124; string &#124; number | 전송될 토큰 수량입니다.                                                                                                                                   |
+| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**참고** `amount` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
-`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
+`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
 **예시**
 
@@ -577,18 +577,18 @@ kip7.safeTransfer(recipient, amount [, data] [, sendParam])
 
 **매개변수**
 
-| 명칭        | 형식                                    | 설명                                                                                                         |
-| --------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| recipient | 문자열                                   | 토큰을 받을 계정 주소입니다.                                                                                           |
-| amount    | BigNumber &#124; string &#124; number | 전송할 토큰 수량입니다.                                                                                              |
-| data      | Buffer &#124; string &#124; number    | (선택 사항) 호출 시 함께 보낼 데이터입니다.                                                                                 |
-| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
+| 명칭        | 형식                                    | 설명                                                                                                                                              |
+| --------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| recipient | 문자열                                   | 토큰을 받을 계정 주소입니다.                                                                                                                                |
+| amount    | BigNumber &#124; string &#124; number | 전송할 토큰 수량입니다.                                                                                                                                   |
+| data      | Buffer &#124; string &#124; number    | (선택 사항) 호출 시 함께 보낼 데이터입니다.                                                                                                                      |
+| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**참고** `amount` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
-`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
+`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
 **예시**
 
@@ -653,18 +653,18 @@ kip7.transferFrom(sender, recipient, amount [, sendParam])
 
 **매개변수**
 
-| 명칭        | 형식                                    | 설명                                                                                                         |
-| --------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| sender    | 문자열                                   | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance.approve)를 사용해 토큰이 보내집니다.                             |
-| recipient | 문자열                                   | 토큰을 받을 계정 주소입니다.                                                                                           |
-| amount    | BigNumber &#124; string &#124; number | 전송할 토큰 수량입니다.                                                                                              |
-| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
+| 명칭        | 형식                                    | 설명                                                                                                                                              |
+| --------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| sender    | 문자열                                   | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance.approve)를 사용해 토큰이 보내집니다.                                                                  |
+| recipient | 문자열                                   | 토큰을 받을 계정 주소입니다.                                                                                                                                |
+| amount    | BigNumber &#124; string &#124; number | 전송할 토큰 수량입니다.                                                                                                                                   |
+| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**참고** `amount` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
-`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
+`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
 **예시**
 
@@ -750,19 +750,19 @@ kip7.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 
 **매개변수**
 
-| 명칭        | 형식                                    | 설명                                                                                                         |
-| --------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| sender    | 문자열                                   | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance.approve)를 사용해 토큰이 보내집니다.                             |
-| recipient | 문자열                                   | 토큰을 받을 계정 주소입니다.                                                                                           |
-| amount    | BigNumber &#124; string &#124; number | 전송할 토큰 수량입니다.                                                                                              |
-| data      | Buffer &#124; string &#124; number    | (선택 사항) 호출 시 함께 보낼 데이터입니다.                                                                                 |
-| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
+| 명칭        | 형식                                    | 설명                                                                                                                                              |
+| --------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| sender    | 문자열                                   | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance.approve)를 사용해 토큰이 보내집니다.                                                                  |
+| recipient | 문자열                                   | 토큰을 받을 계정 주소입니다.                                                                                                                                |
+| amount    | BigNumber &#124; string &#124; number | 전송할 토큰 수량입니다.                                                                                                                                   |
+| data      | Buffer &#124; string &#124; number    | (선택 사항) 호출 시 함께 보낼 데이터입니다.                                                                                                                      |
+| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**참고** `amount` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
-`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
+`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
 **예시**
 
@@ -849,19 +849,19 @@ kip7.mint(account, amount [, sendParam])
 
 **매개변수**
 
-| 명칭           | 형식                                    | 설명                                                                                                         |
-| ------------ | ------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | 문자열                                   | 토큰이 발행될 계정 주소입니다.                                                                                          |
-| amount       | BigNumber &#124; string &#124; number | 발행될 토큰 수량입니다.                                                                                              |
-| sendParam    | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
+| 명칭           | 형식                                    | 설명                                                                                                                                              |
+| ------------ | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| 계정 (Account) | 문자열                                   | 토큰이 발행될 계정 주소입니다.                                                                                                                               |
+| amount       | BigNumber &#124; string &#124; number | 발행될 토큰 수량입니다.                                                                                                                                   |
+| sendParam    | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**참고** `amount` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **참고** 만약 `sendParam.from` 또는 `kip7.options.from`이 주어졌다면, 이 주소는 반드시 MinterRole를 가진 발행자이어야 합니다.
 
 **리턴값**
 
-`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
+`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
 **예시**
 
@@ -923,16 +923,16 @@ kip7.addMinter(account [, sendParam])
 
 **매개변수**
 
-| 명칭           | 형식     | 설명                                                                                                         |
-| ------------ | ------ | ---------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | 문자열    | 발행자에 추가될 계정 주소입니다.                                                                                         |
-| sendParam    | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
+| 명칭           | 형식     | 설명                                                                                                                                              |
+| ------------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| 계정 (Account) | 문자열    | 발행자에 추가될 계정 주소입니다.                                                                                                                              |
+| sendParam    | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
 **참고** 만약 `sendParam.from` 또는 `kip7.options.from`이 주어졌다면, 이 주소는 반드시 발행자이어야 합니다.
 
 **리턴값**
 
-`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
+`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
 **예시**
 
@@ -990,15 +990,15 @@ kip7.renounceMinter([sendParam])
 
 **매개변수**
 
-| 명칭        | 형식     | 설명                                                                                                         |
-| --------- | ------ | ---------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
+| 명칭        | 형식     | 설명                                                                                                                                              |
+| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
 **참고** 만약 `sendParam.from` 또는 `kip7.options.from`이 주어졌다면, 이 주소는 반드시 MinterRole를 가진 발행자이어야 합니다.
 
 **리턴값**
 
-`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
+`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
 **예시**
 
@@ -1056,16 +1056,16 @@ kip7.burn(amount [, sendParam])
 
 **매개변수**
 
-| 명칭        | 형식                                    | 설명                                                                                                         |
-| --------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| amount    | BigNumber &#124; string &#124; number | 제거할 토큰 수량입니다.                                                                                              |
-| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
+| 명칭        | 형식                                    | 설명                                                                                                                                              |
+| --------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| amount    | BigNumber &#124; string &#124; number | 제거할 토큰 수량입니다.                                                                                                                                   |
+| sendParam | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**참고** `amount` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
-`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
+`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
 **예시**
 
@@ -1127,17 +1127,17 @@ kip7.burnFrom(account, amount [, sendParam])
 
 **매개변수**
 
-| 명칭           | 형식                                    | 설명                                                                                                         |
-| ------------ | ------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | 문자열                                   | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance. approve)를 사용해 토큰이 제거됩니다.                            |
-| amount       | BigNumber &#124; string &#124; number | 제거할 토큰 수량입니다.                                                                                              |
-| sendParam    | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
+| 명칭           | 형식                                    | 설명                                                                                                                                              |
+| ------------ | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| 계정 (Account) | 문자열                                   | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance. approve)를 사용해 토큰이 제거됩니다.                                                                 |
+| amount       | BigNumber &#124; string &#124; number | 제거할 토큰 수량입니다.                                                                                                                                   |
+| sendParam    | object                                | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
-**참고** `amount` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 에러를 일으킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
-`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
+`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
 **예시**
 
@@ -1222,16 +1222,16 @@ kip7.addPauser(account [, sendParam])
 
 **매개변수**
 
-| 명칭           | 형식     | 설명                                                                                                         |
-| ------------ | ------ | ---------------------------------------------------------------------------------------------------------- |
-| 계정 (Account) | 문자열    | 컨트랙트 중지 권한을 가질 계정 주소입니다.                                                                                   |
-| sendParam    | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
+| 명칭           | 형식     | 설명                                                                                                                                              |
+| ------------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| 계정 (Account) | 문자열    | 컨트랙트 중지 권한을 가질 계정 주소입니다.                                                                                                                        |
+| sendParam    | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
 **참고** 만약 `sendParam.from` 또는 `kip7.options.from`이 주어졌다면, 이 주소는 반드시 PauserRole을 가진 컨트랙트 중지 권한 소유자이어야 합니다.
 
 **리턴값**
 
-`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
+`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
 **예시**
 
@@ -1289,15 +1289,15 @@ kip7.renouncePauser([sendParam])
 
 **매개변수**
 
-| 명칭        | 형식     | 설명                                                                                                         |
-| --------- | ------ | ---------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
+| 명칭        | 형식     | 설명                                                                                                                                              |
+| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
 **참고** 만약 `sendParam.from` 또는 `kip7.options.from`이 주어졌다면, 이 주소는 반드시 PauserRole을 가진 컨트랙트 중지 권한 소유자이어야 합니다.
 
 **리턴값**
 
-`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
+`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
 **예시**
 
@@ -1355,15 +1355,15 @@ kip7.pause([sendParam])
 
 **매개변수**
 
-| 명칭        | 형식     | 설명                                                                                                         |
-| --------- | ------ | ---------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
+| 명칭        | 형식     | 설명                                                                                                                                              |
+| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
 **참고** 만약 `sendParam.from` 또는 `kip7.options.from`이 주어졌다면, 이 주소는 반드시 PauserRole을 가진 컨트랙트 중지 권한 소유자이어야 합니다.
 
 **리턴값**
 
-`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
+`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
 **예시**
 
@@ -1421,15 +1421,15 @@ kip7.unpause([sendParam])
 
 **매개변수**
 
-| 명칭        | 형식     | 설명                                                                                                         |
-| --------- | ------ | ---------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. sendParam에 관한 자세한 정보는 [approve](#kip7-approve)의 파라미터 설명을 참고하십시오. |
+| 명칭        | 형식     | 설명                                                                                                                                              |
+| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | object | (선택 사항) 트랜잭션 전송을 위해 사용될 파라미터들이 정의된 객체입니다. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
 
 **참고** 만약 `sendParam.from` 또는 `kip7.options.from`이 주어졌다면, 이 주소는 반드시 PauserRole을 가진 컨트랙트 중지 권한 소유자이어야 합니다.
 
 **리턴값**
 
-`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
+`프로미스`는 `Object`를 반환 - 트랜잭션 실행 결과를 담고 있는 영수증입니다. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt][]. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다.
 
 **예시**
 

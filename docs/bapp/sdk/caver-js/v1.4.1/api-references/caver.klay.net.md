@@ -5,7 +5,7 @@ description: >-
 
 # caver.klay.net <a id="caver-klay-net"></a>
 
-`caver-klay` 패키지를 사용하면 Klaytn 노드의 네트워크 속성과 상호작용할 수 있습니다.
+The `caver-klay-net` package allows you to interact with the Klaytn nodes' network properties.
 
 ```javascript
 var Net = require('caver-klay-net');
@@ -62,7 +62,7 @@ caver.klay.net.isListening([callback])
 
 **리턴값**
 
-`Promise`는 `Boolean`을 반환합니다 - 만일 노드가 피어를 수신하고 있는 경우 `true`, 그렇지 않을 경우 `false`.
+`Promise` returns `Boolean` - `true` if the node is listening for peers, `false` otherwise.
 
 **예시**
 

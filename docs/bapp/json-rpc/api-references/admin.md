@@ -5,12 +5,12 @@ description: >-
 
 # Namespace admin <a id="namespace-admin"></a>
 
-`admin` namespace는 몇몇 비표준 RPC 메서드에 접근할 수 있게 합니다. 이를 통해  네트워크 피어와 RPC 엔드포인트 관리 등, Klaytn 인스턴스를 세밀하게 제어할 수 있습니다.
+`admin` namespace는 몇몇 비표준 RPC 메서드에 접근할 수 있게 합니다. They will allow you to have fine-grained control over your Klaytn instance, including but not limited to network peer and RPC endpoint management.
 
 
 ## admin_nodeInfo <a id="admin_nodeinfo"></a>
 
-`nodeInfo` 관리 속성을 조회하여 실행 중인 Klaytn 노드에 대해 알려진 모든 세밀한 정보를 확인할 수 있습니다.  `klay`와 같은 실행 중인 애플리케이션 프로토콜에 의해 추가된 세부적인 정보뿐만 아니라 [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P 오버레이 프로토콜에 참여하는 노드 자신의 일반적인 정보도 확인할 수 있습니다.
+The `nodeInfo` administrative property can be queried for all the information known about the running Klaytn node at the networking granularity. These include general information about the node itself as a participant of the [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P overlay protocol, as well as specialized information added by each of the running application protocols, e.g., `klay`.
 
 | 클라이언트 | 메서드 호출                         |
 |:-----:| ------------------------------ |
@@ -74,7 +74,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_datadir <a id="admin_datadir"></a>
 
-`datadir` 관리 속성을 조회하여 실행 중인 Klaytn 노드가 현재 데이터베이스를 저장하는 데에 사용하는 절대 경로를 확인할 수 있습니다. 기본으로 설정된 경로는 노드 유형(kcn, kpn, ken)과 운영체제에 따라 다릅니다.
+The `datadir` administrative property can be queried for the absolute path the running Klaytn node currently uses to store all its databases. The default path is different depending on the node types (kcn, kpn, and ken) and the OS type.
 
 | 클라이언트 | 메서드 호출                        |
 |:-----:| ----------------------------- |
@@ -109,7 +109,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_peers <a id="admin_peers"></a>
 
-`peers` 관리 속성을 조회하여 연결된 원격 노드에 대한 세밀한 정보를 확인할 수 있습니다. 실행 중인 애플리케이션 프로토콜에 의해 추가된 세부적인 정보뿐만 아니라 [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P 오버레이 프로토콜에 참여하는 노드 자신의 일반적인 정보도 확인할 수 있습니다.
+The `peers` administrative property can be queried for all the information known about the connected remote nodes at the networking granularity. These include general information about the nodes themselves as participants of the [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P overlay protocol, as well as specialized information added by each of the running application protocols.
 
 | 클라이언트 | 메서드 호출                      |
 |:-----:| --------------------------- |
@@ -184,9 +184,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admi
 
 ## admin_addPeer <a id="admin_addpeer"></a>
 
-`addPeer` 관리 메서드는 추적된 정적 노드들의 목록에 새로운 원격 노드를 추가하도록 요청합니다. 각 노드는 목록의 노드들과의 연결을 항상 유지하고자 하고, 만약 원격 가끔씩 연결이 끊어지면 다시 연결합니다.
+The `addPeer` is an administrative method that requests adding a new remote node to the list of tracked static nodes. 각 노드는 목록의 노드들과의 연결을 항상 유지하고자 하고, 만약 원격 가끔씩 연결이 끊어지면 다시 연결합니다.
 
-이 메서드는 한 매개변수 kni(Klaytn Network Identifier)만을 입력으로 받습니다. 이는 geth의 [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) 개념과 유사합니다. 메서드의 입력으로 받을 kni는 추적할 원격 피어의 URL이며, 해당 피어의 추적이 허용되었는지 또는 어떤 오류가 발생했는지에 따라 `BOOL`을 반환합니다.
+이 메서드는 한 매개변수 kni(Klaytn Network Identifier)만을 입력으로 받습니다. It is similar to the [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) concept in the geth. It is URL of the remote peer to start tracking and returns a `BOOL` indicating whether the peer was accepted for tracking or some error occurred.
 
 | 클라이언트 | 메서드 호출                                         |
 |:-----:| ---------------------------------------------- |
@@ -222,9 +222,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_removePeer <a id="admin_removepeer"></a>
 
-`removePeer` 관리 메서드는 추적된 정적 노드들의 목록에서 노드를 제거하도록 요청합니다.
+The `removePeer` is an administrative method that requests removing a node from the list of tracked static nodes.
 
-이 메서드는 한 매개변수 kni(Klaytn Network Identifier)만을 입력으로 받습니다. 이는 geth의 [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) 개념과 유사합니다. 목록에서 제거될 원격 피어의 URL를 파라미터로 받습니다. 이 메서드는 피어가 성공적으로 제거되었거나 아니면 어떤 에러가 발생했는지 알려주기 위해 `BOOL`을 반환합니다.
+이 메서드는 한 매개변수 kni(Klaytn Network Identifier)만을 입력으로 받습니다. It is similar to the [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) concept in the geth. It is URL of the remote peer to be removed from a list and returns a `BOOL` indicating whether the peer was removed or some error occurred.
 
 | 클라이언트 | 메서드 호출                                            |
 |:-----:| ------------------------------------------------- |
@@ -260,7 +260,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startRPC <a id="admin_startrpc"></a>
 
-`startRPC` 관리 메서드는 HTTP 기반의 [JSON RPC](http://www.jsonrpc.org/specification) API 웹서버를 시작하여 클라이언트 요청을 처리하도록 합니다.
+The `startRPC` is an administrative method that starts an HTTP based [JSON RPC](http://www.jsonrpc.org/specification) API webserver to handle client requests.
 
 이 메서드는 HTTP RPC 리스너가 열려있는지 여부를 나타내는 불리언 플래그를 반환합니다. 동시에 하나의 HTTP 엔드포인트만이 활성화될 수 있음을 참고해주세요.
 
@@ -271,12 +271,12 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **매개변수**
 
-| 명칭   | 형식  | 설명                                                                                                                            |
-| ---- | --- | ----------------------------------------------------------------------------------------------------------------------------- |
-| host | 문자열 | (선택사항) 리스너 소켓이 열려있는 네트워크 인터페이스입니다. (기본 설정:  `"localhost"`)                                                                    |
-| port | int | (선택사항) 리스너 소켓이 열려있는 네트워크 포트입니다. (기본 설정:  `8551`)                                                                              |
-| cors | 문자열 | (선택사항) 사용할 [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 헤더입니다. (기본 설정:  `""`) |
-| apis | 문자열 | (선택사항) 이 인터페이스를 통해 제공할 API 모듈입니다. (기본 설정:  `"klay,net,rpc"`)                                                                  |
+| 명칭   | 형식  | 설명                                                                                                                                      |
+| ---- | --- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| host | 문자열 | (optional) network interface to open the listener socket on (default:  `"localhost"`).                                                  |
+| port | int | (optional) network port to open the listener socket on (default:  `8551`).                                                              |
+| cors | 문자열 | (optional) [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) header to use (default:  `""`). |
+| apis | 문자열 | (optional) API modules to offer over this interface (default:  `"klay,net,rpc"`).                                                       |
 
 **리턴값**
 
@@ -335,7 +335,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startWS <a id="admin_startws"></a>
 
-`startWS` 관리 메서드는 웹소켓 기반의 [JSON RPC](http://www.jsonrpc.org/specification) API 웹서버를 시작하여 클라이언트 요청을 처리하도록 합니다.
+The `startWS` is an administrative method that starts an WebSocket based [JSON RPC](http://www.jsonrpc.org/specification) API webserver to handle client requests.
 
 이 메서드는 웹소켓 RPC 리스너가 열려있는지 여부를 나타내는 불리언 플래그를 반환합니다. 동시에 하나의 웹소켓 엔드포인트만이 활성화될 수 있음을 참고해주세요.
 
@@ -346,12 +346,12 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **매개변수**
 
-| 명칭   | 형식  | 설명                                                                                                                            |
-| ---- | --- | ----------------------------------------------------------------------------------------------------------------------------- |
-| host | 문자열 | (선택사항) 리스너 소켓이 열려있는 네트워크 인터페이스입니다. (기본 설정:  `"localhost"`)                                                                    |
-| port | int | (선택사항) 리스너 소켓이 열려있는 네트워크 포트입니다. (기본 설정:  `8552`)                                                                              |
-| cors | 문자열 | (선택사항) 사용할 [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 헤더입니다. (기본 설정:  `""`) |
-| apis | 문자열 | (선택사항) 이 인터페이스를 통해 제공할 API 모듈입니다. (기본 설정:  `"klay,net,personal"`)                                                             |
+| 명칭   | 형식  | 설명                                                                                                                                      |
+| ---- | --- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| host | 문자열 | (optional) network interface to open the listener socket on (default:  `"localhost"`).                                                  |
+| port | int | (optional) network port to open the listener socket on (default:  `8552`).                                                              |
+| cors | 문자열 | (optional) [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) header to use (default:  `""`). |
+| apis | 문자열 | (optional) API modules to offer over this interface (default:  `"klay,net,personal"`).                                                  |
 
 **리턴값**
 
@@ -490,9 +490,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **매개변수**
 
-| 명칭       | 형식  | 설명                                                           |
-| -------- | --- | ------------------------------------------------------------ |
-| blockRlp | 문자열 | 불러올 블록들을 RLP 인코딩한 문자열입니다. (`debug.getBlockRlp` 메서드의 리턴값과 동일) |
+| 명칭       | 형식  | 설명                                                                            |
+| -------- | --- | ----------------------------------------------------------------------------- |
+| blockRlp | 문자열 | 불러올 블록들을 RLP 인코딩한 문자열입니다. (equals to the return value of `debug.getBlockRlp`) |
 
 **리턴값**
 
@@ -553,10 +553,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `stopStateMigration` 관리 메서드는 현재 실행중인 상태 마이그레이션 작업을 중단합니다. 이 메서드는 파라미터를 받지 않습니다. 상태 마이그레이션 작업이 성공적으로 중단되었다면 `null`을, 작업을 중단하는 데에 실패했다면 에러를 반환합니다.
 
-| 클라이언트 | 메서드 호출                             |
-|:-----:| ---------------------------------- |
-|  콘솔   | `admin.stopStateMigration()`       |
-|  RPC  | `{"method": "stopStateMigration"}` |
+| 클라이언트 | 메서드 호출                                   |
+|:-----:| ---------------------------------------- |
+|  콘솔   | `admin.stopStateMigration()`             |
+|  RPC  | `{"method": "admin_stopStateMigration"}` |
 
 **매개변수**
 
@@ -587,10 +587,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 `stateMigrationStatus` 관리 메서드는 상태 마이그레이션 작업 정보를 반환합니다. 이 메서드는 파라미터를 받지 않습니다. 현재 진행중인 상태 마이그레이션 작업에 대한 정보를 반환합니다.
 
-| 클라이언트 | 메서드 호출                               |
-|:-----:| ------------------------------------ |
-|  콘솔   | `admin.stateMigrationStatus`         |
-|  RPC  | `{"method": "stateMigrationStatus"}` |
+| 클라이언트 | 메서드 호출                                     |
+|:-----:| ------------------------------------------ |
+|  콘솔   | `admin.stateMigrationStatus`               |
+|  RPC  | `{"method": "admin_stateMigrationStatus"}` |
 
 **매개변수**
 
@@ -598,15 +598,15 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **리턴값**
 
-| 명칭                   | 형식      | 설명                                                       |
-| -------------------- | ------- | -------------------------------------------------------- |
-| committed            | int     | `committed`는 상태 마이그레이션 작업에 의해 복제된 트리 노드들의 개수입니다.         |
-| err                  | 에러      | 상태 마이그레이션이 성공적으로 완료되었다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다. |
-| isMigration          | bool    | 상태 마이그레이션이 진행중이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.   |
-| migrationBlockNumber | uint64  | 상태 마이그레이션이 시작된 블록 번호입니다. (상태 마이그레이션이 진행중이 아니라면 `0`.)     |
-| pending              | int     | `pending`은 상태 마이그레이션이 처리하지 않은 트리 노드 개수입니다.               |
-| progress             | float64 | `progress`는 퍼센트(%)로 표현한 상태 마이그레이션 진행 정도입니다.              |
-| read                 | int     | `read`는 상태 마이그레이션이 읽어 들인 트리 노드 개수입니다.                    |
+| 명칭                   | 형식      | 설명                                                                    |
+| -------------------- | ------- | --------------------------------------------------------------------- |
+| committed            | int     | `committed`는 상태 마이그레이션 작업에 의해 복제된 트리 노드들의 개수입니다.                      |
+| err                  | 에러      | 상태 마이그레이션이 성공적으로 완료되었다면 `null`을 반환하고, 그렇지 않으면 에러를 반환합니다.              |
+| isMigration          | bool    | 상태 마이그레이션이 진행중이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.                |
+| migrationBlockNumber | uint64  | 상태 마이그레이션이 시작된 블록 번호입니다. (`0` if the state migration is not running.) |
+| pending              | int     | `pending`은 상태 마이그레이션이 처리하지 않은 트리 노드 개수입니다.                            |
+| progress             | float64 | `progress`는 퍼센트(%)로 표현한 상태 마이그레이션 진행 정도입니다.                           |
+| read                 | int     | `read`는 상태 마이그레이션이 읽어 들인 트리 노드 개수입니다.                                 |
 
 **예시**
 
@@ -628,4 +628,38 @@ HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stateMigrationStatus","id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":{"committed":14995692,"err":"null","isMigration":true,"migrationBlockNumber":32630836,"pending":19699,"progress":25,"read":14997777}}
+```
+
+## admin_saveTrieNodeToDisk <a id="admin_saveTrieNodeToDisk"></a>
+
+The `saveTrieNodeToDisk` is an administrative method that starts saving the cached trie node to the disk to reuse them when the node restarts. Cached trie node data will be stored to and loaded from  `$DATA_DIR/fastcache` . This method returns an error if the saving process has been already triggered or trie node cache is disabled. This feature is supported since Klaytn 1.5.3.
+
+| 클라이언트 | 메서드 호출                                   |
+|:-----:| ---------------------------------------- |
+|  콘솔   | `admin.saveTrieNodeToDisk()`             |
+|  RPC  | `{"method": "admin_saveTrieNodeToDisk"}` |
+
+**매개변수**
+
+없음
+
+**리턴값**
+
+| 형식 | 설명                                                                      |
+| -- | ----------------------------------------------------------------------- |
+| 에러 | `null` if saving the trie node has started, or an error message if not. |
+
+**예시**
+
+콘솔
+
+```javascript
+> admin.saveTrieNodeToDisk()
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_saveTrieNodeToDisk", "id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
 ```
