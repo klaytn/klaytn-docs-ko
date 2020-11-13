@@ -87,25 +87,34 @@ Klaytn은 파일럿 테스트를 통해 PoC 정책을 보다 고도화 시켜 �
 
 #### 2. 보상 분배 방식
 
-Service providers receive rewards through three stages as follows, based on data collected during a round.
+서비스 제공자는 한 라운드 기간 동안 수집된 데이터를 기반으로, 아래와 같이 3단계에 거쳐 보상을 분배받습니다.
 
-1.
+1. 1단계 - 최소 기준 통과 및 기여도 산정: 최소 기준(eg. 신규 유저 100명 이상 유입) 을 통과한 서비스 제공자에 한 하여 기여도 측정 및 보상 지급이 이뤄집니다. 기여도는 위에서 언급한 4가지 지표 값 및 각 지표별 가중치를 기반으로 측정됩니다.
 
-2.
+2. 2단계 - 라운드 별 총 보상량 산정: 라운드 별 총 보상량은 총 유저(신규/기존) 유입 수를 기반으로 측정됩니다. 이때, 라운드에 대한 총 보상량에는 상한선이 존재함에 따라 PoC 보상 풀 고갈에 대한 우려는 없습니다.
 
-3.
+3. 3단계 - 기여율 및 기여도 순위 기반 보상 분배: 앞서 산정된 서비스 제공자의 기여도를 기반으로 서비스 제공자별 기여율 및 기여도 순위가 산정됩니다. 서비스 제공자는 최종적으로 기여율 및 기여도 순위에 따라 보상을 배분받습니다.
 
-This system is designed to help service providers get more rewards as they strive to attract users and develop the services.
+본 보상 분배 방식은 서비스 제공자가 유저 유치 및 서비스 개발에 힘쓸 수록 보다 많은 보상을 받을 수 있도록 디자인되었습니다.
 
 ## Klaytn 개선 준비금(Klaytn Improvement Reserve)<a id="klaytn-improvement-reserve"></a>
 
-As technology continues to improve and the needs of users change over time, our platform must have the ability to quickly adapt to any new circumstance that arises. To respond to such changes, we must not only work on services, but also undergo various activities to maintain Klaytn’s ecosystem. For instance, research and development for better technology, or projects that contribute to the overall growth of the ecosystem may be part of these activities. These activities are necessary for Klaytn to progress continuously. Therefore, the Klaytn Improvement Reserve \(KIR\) will be managed on the platform for the investment and research on the Klaytn ecosystem.
+기술은 지속해서 향상되고, 사용자의 요구는 시간이 지나면서 변화합니다. 그러므로 플랫폼은 발생하는 모든 새로운 상황에 신속하게 대처할 수 있는 능력을 갖추어야 합니다. 이러한 변화에 대응하기 위해서 서비스뿐 아니라 Klaytn의 생태계를 유지하기 위해 다양한 활동에 노력을 들여야 합니다. Klaytn 개선 준비금(Klaytn Improvement Reserve) 은 그러한 노력의 일환으로서, 지속적으로 변화하는 환경속에서 Klaytn 생태계의 발전 및 확장을 위하여 진행되는 프로그램입니다. 플랫폼에 기여할 다양한 의견들을 수렴하고 이 중 주요한 기여를 할 제안들을 수용하고 지원함으로써, Klaytn 생태계는 지속적으로 확장 및 발전할 것입니다.
 
-The spending necessary to set up the ecosystem can be categorized as following.
+Klaytn 생태계에 필요한 주요 카테고리는 다음과 같이 분류할 수 있습니다.
 
-* Platform: Support for infrastructure, research and development, and the creation of a durable protocol
-* Tools: Create a better development environment to enhance developer experience
-* Community: Create programs to encourage participation in Klaytn’s ecosystem \(community events, meetups, hackathons, etc.\)
-* Others
 
-KIR proposals can be created by any participant in Klaytn’s ecosystem. KIR spending proposals will be processed per KIR Governance Process. Refer to the [Klaytn Improvement Reserve Governance Process](governance.md#klaytn-improvement-reserve-governance-process) section for more information on the procedure. Once a spending proposal has passed, KLAY will be distributed periodically, from a predetermined total amount, based on the project’s level of progress. This process may change based on the project size but is planned to be processed monthly.
+
+| 카테고리                            | Details                                                                                                                            |
+|:------------------------------- |:---------------------------------------------------------------------------------------------------------------------------------- |
+| **Development**                 | <ul><li>IDE & Editors</li><li>Oracle</li><li>Contract Library</li>                           |
+| **Infrastructure**              | <ul><li>Local Testnet</li><li>Decentralized File System</li><li>Multi-VM</li>                           |
+| **Test, Debugging, Deployment** | <ul><li>Testing & Deployment Tools</li><li>Security & Audit Tools</li>                                                     |
+| **Monitoring & Analytics**      | <ul><li>Monitoring</li><li>Analytics</li>                                                     |
+| **Education & Activity**        | <ul><li>Documentation</li><li>Educational Materials</li><li>Community Building</li><li>Open Source Activity(Including Bug Bounty)</li> |
+| **Research**                    | <ul><li>Security, Scalability, Cryptography, etc.</li></ul>                                                                                                         |
+
+
+KIR 제안은 Klaytn 생태계의 모든 참여자가 작성할 수 있습니다. KIR 지출 제안은 KIR 심사 절차에 따라 처리됩니다.   제안이 통과되면, 프로젝트의 진행 수준에 맞추어, 사전에 설정된 KLAY 가 지급됩니다. 프로젝트에 따라 지원되는 KLAY 총량 및 지급시기 등이 달라집니다.
+
+자세한 사항은 KIR Forum(https://kir.klaytn.com/) 을 참고하세요.
