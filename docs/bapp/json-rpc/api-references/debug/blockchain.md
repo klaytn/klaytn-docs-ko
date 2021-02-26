@@ -1,10 +1,10 @@
-# Blockchain Inspection <a id="blockchain-inspection"></a>
+# 블록체인 검사 <a id="blockchain-inspection"></a>
 
 ## debug_dumpBlock <a id="debug_dumpblock"></a>
 
 블록 번호에 해당되는 상태를 검색하며 계정의 목록(스토리지와 코드 포함)을 반환합니다.
 
-**NOTE**: This function correctly returns the state for a few latest, currently 4, block numbers.  Retrieving older block state is restricted depending on the value set for the command-line option `--state.block-interval` (default: 128).  This means that the function performs the state retrieval against only the block numbers that are multiples of state.block-interval.  For example, when state.block-interval is 128, this function returns the state for the block numbers "0x0", "0x80", "0x100", "0x180", and so on.  If the block number is not a multiple of state.block-interval, it returns 'missing trie node' error.
+**참고**: 이 함수는 몇 개의 최신 블록 번호(현재는 4개)의 상태를 올바르게 반환합니다.  더 이전의 블록 상태 검색은 커맨드라인 옵션 `--state.block-interval` (default: 128)에 설정된 값에 따라 제한됩니다.  즉, 이 함수는 state.block-interval의 배수인 블록 번호에 대해서만 상태 검색을 할 수 있다는 뜻입니다.  예를 들어, state.block-interval이 128일 경우, 이 함수는 "0x0", "0x80", "0x100", "0x180" 등의 블록 번호에 대한 상태를 반환합니다.  만약 블록 번호가 state.block-interval의 배수가 아닐 경우, 'missing trie node'를 반환합니다.
 
 | 클라이언트 | 메서드 호출                                              |
 |:-----:| --------------------------------------------------- |
@@ -102,7 +102,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_getModifiedAccountsByHash <a id="debug_getmodifiedaccountsbyhash"></a>
 
-Returns all accounts that have changed between the two blocks specified by their block hashes. `endBlockHash`에서 변경한 사항은 포함되지만 `startBlockHash`에서 변경한 사항은 포함되지 않습니다. `endBlockHash`가 주어지지 않으면, 이 함수는 `startBlockHash`에서 변경된 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
+블록 해시로 명시된 두 블록 사이에서 변경된 모든 계정을 반환합니다. `endBlockHash`에서 변경한 사항은 포함되지만 `startBlockHash`에서 변경한 사항은 포함되지 않습니다. `endBlockHash`가 주어지지 않으면, 이 함수는 `startBlockHash`에서 변경된 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
 
 
 | 클라이언트 | 메서드 호출                                                                                      |
@@ -112,10 +112,10 @@ Returns all accounts that have changed between the two blocks specified by their
 
 **매개변수**
 
-| 명칭             | 형식            | 설명                                           |
-| -------------- | ------------- | -------------------------------------------- |
-| startBlockHash | 32바이트 크기 DATA | 확인할 범위의 첫 번째 블록 해시.                          |
-| endBlockHash   | 32바이트 크기 DATA | (optional) The last block hash of the range. |
+| 명칭             | 형식            | 설명                         |
+| -------------- | ------------- | -------------------------- |
+| startBlockHash | 32바이트 크기 DATA | 확인할 범위의 첫 번째 블록 해시입니다.     |
+| endBlockHash   | 32바이트 크기 DATA | (선택 사항) 범위 내 마지막 블록 해시입니다. |
 
 **리턴값**
 
@@ -142,7 +142,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## debug_getModifiedAccountsByNumber <a id="debug_getmodifiedaccountsbynumber"></a>
 
-Returns all accounts that have changed between the two blocks specified by their block numbers. `endBlockNum`에서 변경한 사항은 포함되지만 `startBlockNum`에서 변경한 사항은 포함되지 않습니다. `endBlockNum`이 주어지지 않으면, 이 함수는 `startBlockNum`에서 변경된 계정을 반환합니다. A change is defined as a difference in nonce, balance, code hash, or storage hash.
+블록 번호로 명시된 두 블록 사이에서 변경된 모든 계정을 반환합니다. `endBlockNum`에서 변경한 사항은 포함되지만 `startBlockNum`에서 변경한 사항은 포함되지 않습니다. `endBlockNum`이 주어지지 않으면, 이 함수는 `startBlockNum`에서 변경된 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
 
 
 | 클라이언트 | 메서드 호출                                                                                    |
@@ -152,10 +152,10 @@ Returns all accounts that have changed between the two blocks specified by their
 
 **매개변수**
 
-| 명칭            | 형식  | 설명                                             |
-| ------------- | --- | ---------------------------------------------- |
-| startBlockNum | int | 확인할 범위의 첫 번째 블록 넘버.                            |
-| endBlockNum   | int | (optional) The last block number of the range. |
+| 명칭            | 형식  | 설명                         |
+| ------------- | --- | -------------------------- |
+| startBlockNum | int | 확인할 범위의 첫 번째 블록 번호입니다.     |
+| endBlockNum   | int | (선택 사항) 범위 내 마지막 블록 번호입니다. |
 
 **리턴값**
 
@@ -258,7 +258,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 로컬 체인의 현재 헤드를 입력받은 블록의 번호로 설정합니다.
 
-**참고**: 이 행동은 블록체인에 심각한 손상을 줄 수 있습니다. Use with *extreme* caution.
+**참고**: 이 행동은 블록체인에 심각한 손상을 줄 수 있습니다. *각별히 주의* 하여 사용하세요.
 
 | 클라이언트 | 메서드 호출                                            |
 |:-----:| ------------------------------------------------- |
@@ -291,7 +291,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startWarmUp <a id="debug_startwarmup"></a>
 
-`startWarmUp`은 가장 최신 상태 트리를 순회하면서 트리 캐시를 채웁니다. 만약 트리 캐시가 90% 정도 차면 순회는 자동으로 중단됩니다. 이 메서드는 순회를 시작하는 데에 실패하면 에러를 반환하고, 순회를 시작하는 데에 성공했으면 `null`를 반환합니다.
+`startWarmUp`은 가장 최신 상태 트리를 순회하면서 트리 캐시를 채웁니다. 만약 트리 캐시가 90% 정도 차면 순회는 자동으로 중단됩니다. 이 메서드는 순회를 시작하는 데에 실패하면 에러를 반환하고, 순회를 시작하는 데에 성공했으면 `null`을 반환합니다.
 
 | 클라이언트 | 메서드 호출                            |
 |:-----:| --------------------------------- |
@@ -304,9 +304,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **리턴값**
 
-| 형식 | 설명                                                       |
+| 타입 | 설명                                                       |
 | -- | -------------------------------------------------------- |
-| 에러 | 트리 캐시 채우기를 시작하는 데에 성공했다면 `null`를 반환하고 그렇지 않으면 에러를 반환합니다. |
+| 에러 | 트리 캐시 채우기를 시작하는 데에 성공했다면 `null`을 반환하고 그렇지 않으면 에러를 반환합니다. |
 
 **예시**
 
@@ -323,10 +323,45 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
+## debug_startContractWarmUp <a id="debug_startcontractwarmup"></a>
 
-## debug_stopWarmUp <a id="admin_stopwarmup"></a>
+`startContractWarmUp` 은 주어진 컨트랙트 주소의 최신 스토리지 트리를 순회하면서 트리 캐시를 채웁니다. 만약 트리 캐시가 90% 정도 차면 순회는 자동으로 중단됩니다. 이 메서드는 채우기를 시작하는 데에 실패하거나 주어진 주소가 컨트랙트 주소가 아닐 경우 에러를 반환하고, 시작하는 데에 성공했으면 `null`을 반환합니다.
 
-`stopWarmUp`은 트리 캐시를 현재 채우는 작업을 중단합니다. 이 메서드는 파라미터를 받지 않습니다. 트리 캐시를 채우는 작업이 성공적으로 중단되었다면 `null`을, 작업을 중단하는 데에 실패했다면 에러를 반환합니다.
+| 클라이언트 | 메서드 호출                                                         |
+|:-----:| -------------------------------------------------------------- |
+|  콘솔   | `debug.startContractWarmUp(address)`                           |
+|  RPC  | `{"method": "debug_startContractWarmUp", "params": [address]}` |
+
+**매개변수**
+
+| 타입            | 설명          |
+| ------------- | ----------- |
+| 20바이트 크기 DATA | 컨트랙트 주소입니다. |
+
+**리턴값**
+
+| 타입 | 설명                                                       |
+| -- | -------------------------------------------------------- |
+| 에러 | 트리 캐시 채우기를 시작하는 데에 성공했다면 `null`을 반환하고 그렇지 않으면 에러를 반환합니다. |
+
+**예시**
+
+콘솔
+
+```javascript
+> debug.startContractWarmUp("0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b")
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startContractWarmUp", "params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b"], "id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+## debug_stopWarmUp <a id="debug_stopwarmup"></a>
+
+`stopWarmUp`은 현재 채우는 작업을 중단합니다. 이 메서드는 파라미터를 받지 않으며, 채우기가 중단되었는지 아닌지에 따라 `null` 또는 에러를 반환합니다.
 
 | 클라이언트 | 메서드 호출                     |
 |:-----:| -------------------------- |
@@ -339,9 +374,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **리턴값**
 
-| 형식 | 설명                                                       |
-| -- | -------------------------------------------------------- |
-| 에러 | 트리 캐시 채우기를 중단하는 데에 성공했다면 `null`를 반환하고 그렇지 않으면 에러를 반환합니다. |
+| 타입 | 설명                                     |
+| -- | -------------------------------------- |
+| 에러 | 채우기가 중단된 경우 `null`, 그렇지 않으면 에러를 반환합니다. |
 
 **예시**
 
