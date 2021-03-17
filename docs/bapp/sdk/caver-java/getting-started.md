@@ -2,7 +2,7 @@
 
 ## 새로운 기능
 
-이번 caver-java 1.5.0 버전은 Common Architecture를 도입했습니다. Common Architecture is a new software architecture for Klaytn development environment, which is shared by all Klaytn SDKs (caver-js/caver-java). Common Architecture는 여러분이 더 간편하고 더 체계적으로 개발하며 다른 프로그래밍 언어로 더 쉽게 확장하도록 설계되었습니다.
+이번 caver-java 1.5.0 버전은 Common Architecture를 도입했습니다. Common Architecture란 Klaytn 개발 환경을 위한 새로운 소프트웨어 아키텍처로써 모든 Klaytn SDKs (caver-js/caver-java)가 공유합니다. Common Architecture는 여러분이 더 간편하고 더 체계적으로 개발하며 다른 프로그래밍 언어로 더 쉽게 확장하도록 설계되었습니다.
 
 caver-java가 1.5.0으로 업데이트되면서 일부 API를 제외한 1.4.0 API는 이제 사용되지 않습니다.
 
@@ -10,14 +10,14 @@ caver-java 1.5.0이 새롭게 제공하는 API는 아래와 같습니다.
 
 ### caver.account
 
-caver.account is a package used to update AccountKey, which could be one or more public keys (AccountKeyPublic, AccountKeyWeightedMultiSig, and AccountKeyRoleBased) or a special type of keys (AccountKeyLegacy and AccountKeyFail), for a Klaytn account.
+caver.account는 Klaytn 계정의 AccountKey를 업데이트하기 위한 패키지입니다. AccountKey는 1개 이상의 공개키(AccountKeyPublic, AccountKeyWeightedMultiSig, AccountKeyRoleBased) 또는 특수 타입 키(AccountKeyLegacy, AccountKeyFail)입니다.
 
 
 - `caver.account`는 caver-java 1.4.0의 `caver.tx.account`를 대체합니다.
 
 ### caver.wallet
 
-caver.wallet은 인메모리 지갑에서 Keyring 인스턴스를 관리하도록 하는 패키지입니다. A Keyring is an instance that stores the address of a Klaytn account and its private key(s), and it is used when the address of this account signs a transaction. caver.wallet accepts all types of Keyring (SingleKeyring, MultipleKeyring, and RoleBasedKeyring) and manages them with their Klaytn account address.
+caver.wallet은 인메모리 지갑에서 Keyring 인스턴스를 관리하도록 하는 패키지입니다. Keyring이란 어떤 Klaytn 계정 주소와 그 주소의 개인키(들)를 저장하는 인스턴스입니다. 키링은 이 계정 주소가 트랜잭션에 서명할 때 사용됩니다. caver.wallet은 모든 종류의 Keyring (SingleKeyring, MultipleKeyring, and RoleBasedKeyring)을 수용하며 각 Klaytn 계정 주소를 가지고 이를 관리합니다.
 
 - `caver.wallet`는 caver-java 1.4.0의 `caver.crypto`를 대체합니다.
 - `caver.wallet.KeyStore`는 caver-java 1.4.0의 `caver.wallet.WalletFile`를 대체합니다.
@@ -44,8 +44,8 @@ caver.utils는 유틸리티 함수를 제공합니다.
 
 ## 준비 사항 <a id="prerequisites"></a>
 
-### Adding a Repository<a id="adding-a-repository"></a>
-A library repository should be added before using IPFS. Please add the following repository first.
+### 저장소 추가<a id="adding-a-repository"></a>
+IPFS를 사용하기 전 라이브러리 저장소가 추가되어야 합니다. 우선 아래 저장소를 추가합니다.
 
 **maven**
 
@@ -69,7 +69,7 @@ allprojects {
 }
 ```
 
-### Adding a Dependency <a id="adding-a-dependency"></a>
+### 의존성 추가하기<a id="adding-a-dependency"></a>
 
 **maven**
 
@@ -199,11 +199,11 @@ Caver caver = new Caver("http://your.en.url:8551/");
 
 ## Keyring 관리 <a id="managing-keyrings"></a>
 
-`Keyring` is a structure that contains the address of the Klaytn account and the private key(s).
+`Keyring`은 Klaytn 계정 주소와 개인키(들)이 들어있는 구조입니다.
 
-`Keyring` can be classified into three types depending on the type of key being stored: `SingleKeyring` to store one address and one private key, `MultipleKeyring` to store one address and multiple private keys, and `RoleBasedKeyring` to store one address and one or more private keys for each role.
+`Keyring`은 저장되는 키 종류에 따라 3가지 타입으로 나뉩니다: 주소 1개와 개인키 1개를 가지는 `SingleKeyring`, 주소 1개와 여러 개인키를 가지는 `MultipleKeyring`, 그리고 주소 1개와 키 Role별로 개인키 1개 이상을 가지는 `RoleBasedKeyring`가 있습니다.
 
-`SingleKeyring` defines `key` property inside, and this `key` stores one private key.
+`SingleKeyring`는 내부에 `key` 속성을 정의하며, 이 `key` 속성에 개인키 1개가 저장됩니다.
 
 `MultipleKeyring` defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
 
@@ -247,7 +247,7 @@ SingleKeyring keyring = KeyringFactory.createFromKlaytnWalletKey(klaytnWalletKey
 
 #### 여러 개인키로 MultipleKeyring 생성하기<a id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
 
-If you want to use multiple private keys, you can create a `MultipleKeyring` using an address and multiple private keys. The below examples show how to create a `MultipleKeyring` with multiple private keys.
+여러 개인키를 사용하고자 한다면, 주소 1개와 여러 개인키로 `MultipleKeyring`를 만들 수 있습니다. 아래 예시는 여러 개인키들로 `MultipleKeyring`를 만드는 방법을 소개합니다.
 
 ```java
 String address = "0x{address in hex}";
@@ -257,7 +257,7 @@ MultipleKeyring multipleKeyring = KeyringFactory.createWithMultipleKey(address, 
 
 #### 개인키로 RoleBasedKeyring 생성하기<a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
 
-To use different private key(s) for each `role`, `KeyringFactory.createWithRoleBasedKey` is used. Each array element represents a role described in `RoleBasedKeyring`. The example below shows how to create a `RoleBasedKeyring` instance from different keys for each role.
+`role`마다 다른 개인키(들)를 사용하려면 `KeyringFactory.createWithRoleBasedKey`를 사용해야 합니다. 배열의 각 원소는 `RoleBasedKeyring`에 있는 각 Role에 해당됩니다. 아래 예시는 각 Role이 사용하는 개인키들로부터 `RoleBasedKeyring` 인스턴스를 만드는 방법을 소개합니다.
 
 
 ```java
@@ -286,9 +286,9 @@ String[][] privateKeyArr = new String[][] {
 RoleBasedKeyring keyring = KeyringFactory.createWithRoleBasedKey(address, Arrays.asList(privateKeyArr));
 ```
 
-### Adding Keyrings to caver-java from a keystore json string.<a id="adding-keyrings-to-caver-java"></a>
+### 키스토어 json 문자열로부터 Keyrings를 caver-java에 추가하기.<a id="adding-keyrings-to-caver-java"></a>
 
-You can use a keyring more easily by adding it to the in-memory wallet provided by caver-java. The following examples illustrate how to add a keyring to `caver.wallet` using a keystore JSON file string generated by [Klaytn Wallet](https://wallet.klaytn.com/).
+Caver-java에서 제공하는 인메모리 지갑에 Keyring을 추가하면 더 쉽게 사용할 수 있습니다. 다음 예시는 [Klaytn Wallet](https://wallet.klaytn.com/)에서 만들어진 키스토어 JSON 문자열 파일을 사용해 `caver.wallet`에 Keyring을 추가하는 방법을 설명합니다.
 
 ```java
 Caver caver = new Caver(Caver.MAINNET_URL);
@@ -381,14 +381,14 @@ String[][] privateKeyArr = new String[][] {
 AbstractKeyring addedRoleBased = caver.wallet.newKeyring('0x{address in hex}', Arrays.asList(privateKeyArr))
 ```
 
-개인키를 사용해 `caver.wallet.newKeyring`을 실행하면 개인키 1개를 가진 Keyring 인스턴스 1개가 생성되고 이 인스턴스는 `caver.wallet`에 추가됩니다. For multiple private keys, a Keyring instance with multiple private keys is created and added to `caver.wallet`. When passing a 2D string array including one or more private keys for each role as an element, a Keyring instance that contains the different private key(s) for each role is created and also added to the `caver.wallet`.
+개인키를 사용해 `caver.wallet.newKeyring`을 실행하면 개인키 1개를 가진 Keyring 인스턴스 1개가 생성되고 이 인스턴스는 `caver.wallet`에 추가됩니다. 다수의 개인키의 경우, 여러 개인키를 가진 Keyring 인스턴스 1개가 생성되고 `caver.wallet`에 추가됩니다. Role별로 1개 이상의 개인키를 가진 2차원 배열을 인자로 넘겨주면, Role마다 서로 다른 개인키(들)을 가진 Keyring 인스턴스 1개가 생성되며 이 역시 `caver.wallet`에 추가됩니다.
 
 
 `caver.wallet`에 Keyring 인스턴스를 추가하면 `caver.wallet.add` 또는 `caver.wallet.newKeyring`은 Keyring 인스턴스를 반환합니다.
 
 ## 트랜잭션 전송하기 <a id="sending-a-transaction"></a>
 
-This section will show you how to send KLAY using caver-java on the Baobab network.
+이 장에서는 Baobab 네트워크에서 caver-java를 사용하여 KLAY를 전송하는 방법을 보여줍니다.
 
 ### Baobab Faucet을 통해 KLAY 받기 <a id="getting-klay-via-baobab-faucet"></a>
 
@@ -396,20 +396,20 @@ If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn W
 
 ### 송금 트랜잭션 전송 <a id="sending-a-value-transfer-transaction"></a>
 
-You can use a caver-java wallet to generate a signature of a transaction. 트랜잭션을 네트워크에 보내려면 아래와 같이 2단계를 거쳐야합니다.
+트랜잭션 서명은 caver-java 지갑을 통해 할 수 있습니다. 트랜잭션을 네트워크에 보내려면 아래와 같이 2단계를 거쳐야합니다.
 
 1. 트랜잭션 서명하기
     - 만약, 사용하시고 싶은 Keyring이 `caver.wallet`에 있다면, `caver.wallet.sign` 함수로 서명할 수 있습니다.
     - `caver.wallet`에 Keyring을 추가하지 않고 따로 관리한다면, `transaction.sign` 함수를 통해 트랜잭션에 서명할 수 있습니다.
 2. RLP 인코딩된 서명된 트랜잭션을 `caver.rpc.klay.sendRawTransaction`을 통해 Klaytn에 전송합니다.
 
-**Note:** The sender should have enough number of KLAY to be transferred and also to pay the transaction fee.
+**참고:** 발신자의 잔액은 송금하려는 KLAY와 송금 트랜잭션 수수료를 내기에 충분해야 합니다.
 
 #### 트랜잭션 서명하기
 
 트랜잭션을 Klaytn에 보내기 전에 트랜잭션에 먼저 서명해야 합니다.
 
-Below is an example of how to sign a transaction if a keyring is added to the `caver.wallet`.
+아래 예제는 Keyring이 `caver.wallet`에 추가되었을 때 트랜잭션에 서명하는 방법을 보여줍니다.
 
 ```java
 Caver caver = new Caver(Caver.MAINNET_URL);
@@ -443,7 +443,7 @@ RLP-encoded string: 0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b699
 
 #### RLP 인코딩된 서명된 트랜잭션을 Klaytn에 전송합니다.
 
-이제, 아래와 같이 서명된 트랜잭션을 Klaytn에 전송할 수 있습니다. If you want to run the below example, replace "rlpEncoding" with the value of `rlpEncoded` in the code above.
+이제, 아래와 같이 서명된 트랜잭션을 Klaytn에 전송할 수 있습니다. 아래 예시를 직접 실행하려면 "rlpEncoding"을 위 `rlpEncoded` 값으로 대체하십시오.
 
 ```java
 public String sendRawTransaction() {
@@ -504,7 +504,7 @@ try {
 }
 ```
 
-When the above code is executed, the transaction hash (txHash) is printed like the example below.
+위 코드가 실행 되었을 때, 트랜잭션 해시(txHash)는 아래 예제와 같이 나타납니다.
 
 ```bash
 Transaction Hash : 0x43e8ab1a2365ad598448b4402c1cfce6a71b3a103fce3a69905613e50b978113
@@ -512,9 +512,9 @@ Transaction Hash : 0x43e8ab1a2365ad598448b4402c1cfce6a71b3a103fce3a69905613e50b9
 
 ### 영수증 확인<a id="checking-receipts"></a>
 
-You can use the `TransactionReceiptProcessor` to get the receipt of the transaction when you transfer the transaction to the Klaytn by `caver.rpc.klay.sendRawTransaction`.
+`caver.rpc.klay.sendRawTransaction`을 통해 Klaytn에 트랜잭션을 전송할 때 `TransactionReceiptProcessor`를 사용하여 트랜잭션의 영수증을 받아올 수 있습니다.
 
-The following example shows how to get a receipt using PollingTransactionReceiptProcessor.
+다음 예시는 PollingTransactionReceiptProcessor를 사용하여 영수증을 받는 과정입니다.
 
 ```java
 Caver caver = new Caver(Caver.BAOBAB_URL);
@@ -532,7 +532,7 @@ try {
 }
 ```
 
-As described in the example above, you can get the result of sending a transaction through TransactionReceiptProcessor. `transactionHash` 필드는 영수증 객체 내부에 정의됩니다.
+위 예시와 같이 TransactionReceiptProcessor를 통해 트랜잭션을 전송한 결과를 가져올 수 있습니다. `transactionHash` 필드는 영수증 객체 내부에 정의됩니다.
 
 You can use `caver.rpc.klay.getTransactionReceipt` RPC call with `txHash` string to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the `caver.rpc.klay.getTransactionReceipt` RPC call.
 

@@ -4,7 +4,7 @@
 
 블록 번호에 해당되는 상태를 검색하며 계정의 목록(스토리지와 코드 포함)을 반환합니다.
 
-**참고**: 이 함수는 몇 개의 최신 블록 번호(현재는 4개)의 상태를 올바르게 반환합니다.  더 이전의 블록 상태 검색은 커맨드라인 옵션 `--state.block-interval` (default: 128)에 설정된 값에 따라 제한됩니다.  즉, 이 함수는 state.block-interval의 배수인 블록 번호에 대해서만 상태 검색을 할 수 있다는 뜻입니다.  예를 들어, state.block-interval이 128일 경우, 이 함수는 "0x0", "0x80", "0x100", "0x180" 등의 블록 번호에 대한 상태를 반환합니다.  만약 블록 번호가 state.block-interval의 배수가 아닐 경우, 'missing trie node'를 반환합니다.
+**참고**: 이 함수는 몇 개의 최신 블록 번호(현재는 4개)의 상태를 올바르게 반환합니다.  더 이전의 블록 상태 검색은 커맨드라인 옵션 `--state.block-interval` (default: 128)에 설정된 값에 따라 제한됩니다.  즉, 이 함수는 state.block-interval의 배수인 블록 번호에 대해서만 상태 검색을 할 수 있다는 뜻입니다.  예를 들어, state.block-interval이 128일 경우, 이 함수는 "0x0", "0x80", "0x100", "0x180" 등의 블록 번호에 대한 상태를 반환합니다.  만약 블록 번호가 state.block-interval의 배수가 아닐 경우, 'missing trie node' 에러를 반환합니다.
 
 | 클라이언트 | 메서드 호출                                              |
 |:-----:| --------------------------------------------------- |
@@ -13,15 +13,15 @@
 
 **매개변수**
 
-| 명칭     | 형식  | 설명                     |
-| ------ | --- | ---------------------- |
-| number | 문자열 | 16진수 문자열 형태의 블록 번호입니다. |
+| 이름     | 타입     | 설명                     |
+| ------ | ------ | ---------------------- |
+| number | string | 16진수 문자열 형태의 블록 번호입니다. |
 
 **리턴값**
 
-| 형식       | 설명        |
-| -------- | --------- |
-| JSON 문자열 | 블록 정보입니다. |
+| 타입          | 설명        |
+| ----------- | --------- |
+| JSON string | 블록 정보입니다. |
 
 **예시**
 
@@ -76,15 +76,15 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 명칭     | 형식  | 설명        |
+| 이름     | 타입  | 설명        |
 | ------ | --- | --------- |
 | number | int | 블록 번호입니다. |
 
 **리턴값**
 
-| 형식  | 설명              |
-| --- | --------------- |
-| 문자열 | RLP 인코딩된 블록입니다. |
+| 타입     | 설명              |
+| ------ | --------------- |
+| string | RLP 인코딩된 블록입니다. |
 
 **예시**
 
@@ -102,7 +102,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_getModifiedAccountsByHash <a id="debug_getmodifiedaccountsbyhash"></a>
 
-블록 해시로 명시된 두 블록 사이에서 변경된 모든 계정을 반환합니다. `endBlockHash`에서 변경한 사항은 포함되지만 `startBlockHash`에서 변경한 사항은 포함되지 않습니다. `endBlockHash`가 주어지지 않으면, 이 함수는 `startBlockHash`에서 변경된 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
+블록 해시로 명시된 두 블록 사이에서 변경된 모든 계정을 반환합니다. `endBlockHash`에서 변경한 사항은 포함되지만 `startBlockHash`에서 변경한 사항은 포함되지 않습니다. 만약 `endBlockHash` 값이 없으면 `startBlockHash`에서 변경된 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
 
 
 | 클라이언트 | 메서드 호출                                                                                      |
@@ -112,16 +112,16 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 명칭             | 형식            | 설명                         |
+| 이름             | 타입            | 설명                         |
 | -------------- | ------------- | -------------------------- |
 | startBlockHash | 32바이트 크기 DATA | 확인할 범위의 첫 번째 블록 해시입니다.     |
 | endBlockHash   | 32바이트 크기 DATA | (선택 사항) 범위 내 마지막 블록 해시입니다. |
 
 **리턴값**
 
-| 형식       | 설명                                   |
-| -------- | ------------------------------------ |
-| JSON 문자열 | 지정한 두 블록 사이에 변경이 이루어진 계정들의 주소 목록입니다. |
+| 타입          | 설명                                   |
+| ----------- | ------------------------------------ |
+| JSON string | 지정한 두 블록 사이에 변경이 이루어진 계정들의 주소 목록입니다. |
 
 **예시**
 
@@ -142,7 +142,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## debug_getModifiedAccountsByNumber <a id="debug_getmodifiedaccountsbynumber"></a>
 
-블록 번호로 명시된 두 블록 사이에서 변경된 모든 계정을 반환합니다. `endBlockNum`에서 변경한 사항은 포함되지만 `startBlockNum`에서 변경한 사항은 포함되지 않습니다. `endBlockNum`이 주어지지 않으면, 이 함수는 `startBlockNum`에서 변경된 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
+블록 번호로 명시된 두 블록 사이에서 변경된 모든 계정을 반환합니다. `endBlockNum`에서 변경한 사항은 포함되지만 `startBlockNum`에서 변경한 사항은 포함되지 않습니다. 만약 `endBlockNum` 값이 없으면 `startBlockNum`에서 변경된 계정을 반환합니다. 이때 변경이란 논스, 잔액, 코드 해시, 스토리지 해시 등의 값이 다른 경우를 의미합니다.
 
 
 | 클라이언트 | 메서드 호출                                                                                    |
@@ -152,16 +152,16 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 **매개변수**
 
-| 명칭            | 형식  | 설명                         |
+| 이름            | 타입  | 설명                         |
 | ------------- | --- | -------------------------- |
 | startBlockNum | int | 확인할 범위의 첫 번째 블록 번호입니다.     |
 | endBlockNum   | int | (선택 사항) 범위 내 마지막 블록 번호입니다. |
 
 **리턴값**
 
-| 형식       | 설명                                   |
-| -------- | ------------------------------------ |
-| JSON 문자열 | 지정한 두 블록 사이에 변경이 이루어진 계정들의 주소 목록입니다. |
+| 타입          | 설명                                   |
+| ----------- | ------------------------------------ |
+| JSON string | 지정한 두 블록 사이에 변경이 이루어진 계정들의 주소 목록입니다. |
 
 **예시**
 
@@ -191,15 +191,15 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 **매개변수**
 
-| 명칭 | 형식  | 설명          |
-| -- | --- | ----------- |
-| 해시 | 문자열 | sha3 해시입니다. |
+| 이름 | 타입     | 설명          |
+| -- | ------ | ----------- |
+| 해시 | string | sha3 해시입니다. |
 
 **리턴값**
 
-| 명칭       | 형식  | 설명                      |
-| -------- | --- | ----------------------- |
-| preimage | 문자열 | 입력으로 받은 sha3 해시의 역상입니다. |
+| 이름       | 타입     | 설명                      |
+| -------- | ------ | ----------------------- |
+| preimage | string | 입력으로 받은 sha3 해시의 역상입니다. |
 
 **예시**
 
@@ -390,4 +390,57 @@ HTTP RPC
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stopWarmUp","id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":null}
+```
+
+## debug_startCollectingTrieStats <a id="debug_startCollectingTrieStats"></a>
+
+The `startCollectingTrieStats` iterates the latest state or storage trie to collect trie statistics. It collects storage trie statistics of the contract in the given address. If an empty address(="0x00...00") is given, it collects statistics of the whole state trie. Statistics will be logged every minute before end, containing overall and depth-by-depth information. The method returns an error if it fails in starting a task, or `null` if it successfully has started it.
+
+| 클라이언트 | 메서드 호출                                                              |
+|:-----:| ------------------------------------------------------------------- |
+|  콘솔   | `debug.startCollectingTrieStats(address)`                           |
+|  RPC  | `{"method": "debug_startCollectingTrieStats", "params": [address]}` |
+
+**매개변수**
+
+| 타입            | 설명          |
+| ------------- | ----------- |
+| 20바이트 크기 DATA | 컨트랙트 주소입니다. |
+
+**리턴값**
+
+| 타입 | 설명                                                                        |
+| -- | ------------------------------------------------------------------------- |
+| 에러 | `null` if collecting trie statistics task is started, or an error if not. |
+
+**예시**
+
+콘솔
+
+```javascript
+// empty address to collect whole state trie statistics
+> debug.startCollectingTrieStats("0x0000000000000000000000000000000000000000")
+null
+// contract address to collect storage trie statistics
+> debug.startCollectingTrieStats("0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b")
+null
+```
+
+HTTP RPC
+```shell
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startCollectingTrieStats", "params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b"], "id":1}' http://localhost:8551
+{"jsonrpc":"2.0","id":1,"result":null}
+```
+
+Log
+
+```
+INFO[03/10,12:03:12 +09] [5] Started collecting trie statistics        blockNum=1491072 root=0x64af12b6374b92f6db457fa1b98fe9522d9f36ba352e3c4e01cdb75f001e8264 len(children)=16
+...
+INFO[03/10,12:03:12 +09] [5] Finished collecting trie statistics       elapsed=95.152412ms numNodes=133036 numLeafNodes=95948 maxDepth=9
+INFO[03/10,12:03:12 +09] [5] number of leaf nodes in a depth           depth=5 numNodes=22098
+INFO[03/10,12:03:12 +09] [5] number of leaf nodes in a depth           depth=6 numNodes=65309
+INFO[03/10,12:03:12 +09] [5] number of leaf nodes in a depth           depth=7 numNodes=8083
+INFO[03/10,12:03:12 +09] [5] number of leaf nodes in a depth           depth=8 numNodes=456
+INFO[03/10,12:03:12 +09] [5] number of leaf nodes in a depth           depth=9 numNodes=2
 ```
