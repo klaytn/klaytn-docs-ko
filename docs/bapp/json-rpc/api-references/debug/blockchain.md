@@ -227,15 +227,15 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 명칭     | 형식  | 설명        |
+| 이름     | 타입  | 설명        |
 | ------ | --- | --------- |
 | number | int | 블록 번호입니다. |
 
 **리턴값**
 
-| 형식  | 설명             |
-| --- | -------------- |
-| 문자열 | 블록 구조체의 덤프입니다. |
+| 타입     | 설명             |
+| ------ | -------------- |
+| string | 블록 구조체의 덤프입니다. |
 
 **예시**
 
@@ -254,7 +254,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_setHead <a id="debug_sethead"></a>
 
-**`경고`**: 이 API는 아직 구현되지 않았으며 호출 시 "not yet implemented API" 오류를 반환합니다.
+**`경고`**: 이 API는 아직 구현되지 않았으며 호출 시 "not yet implemented API" 에러를 반환합니다.
 
 로컬 체인의 현재 헤드를 입력받은 블록의 번호로 설정합니다.
 
@@ -268,9 +268,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **매개변수**
 
-| 명칭     | 형식  | 설명                     |
-| ------ | --- | ---------------------- |
-| number | 문자열 | 16진수 문자열 형태의 블록 번호입니다. |
+| 이름     | 타입     | 설명                     |
+| ------ | ------ | ---------------------- |
+| number | string | 16진수 문자열 형태의 블록 번호입니다. |
 
 **리턴값**
 
@@ -291,7 +291,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startWarmUp <a id="debug_startwarmup"></a>
 
-`startWarmUp`은 가장 최신 상태 트리를 순회하면서 트리 캐시를 채웁니다. 만약 트리 캐시가 90% 정도 차면 순회는 자동으로 중단됩니다. 이 메서드는 순회를 시작하는 데에 실패하면 에러를 반환하고, 순회를 시작하는 데에 성공했으면 `null`을 반환합니다.
+`startWarmUp`은 가장 최신 상태 트리를 반복하면서 트리 캐시를 채웁니다. 만약 트리 캐시가 90% 정도 차면 반복은 자동으로 중단됩니다. 이 메서드는 순회를 시작하는 데에 실패하면 에러를 반환하고, 순회를 시작하는 데에 성공했으면 `null`을 반환합니다.
 
 | 클라이언트 | 메서드 호출                            |
 |:-----:| --------------------------------- |
@@ -304,9 +304,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **리턴값**
 
-| 타입 | 설명                                                       |
-| -- | -------------------------------------------------------- |
-| 에러 | 트리 캐시 채우기를 시작하는 데에 성공했다면 `null`을 반환하고 그렇지 않으면 에러를 반환합니다. |
+| 타입    | 설명                                                       |
+| ----- | -------------------------------------------------------- |
+| error | 트리 캐시 채우기를 시작하는 데에 성공했다면 `null`을 반환하고 그렇지 않으면 에러를 반환합니다. |
 
 **예시**
 
@@ -325,7 +325,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_startContractWarmUp <a id="debug_startcontractwarmup"></a>
 
-`startContractWarmUp` 은 주어진 컨트랙트 주소의 최신 스토리지 트리를 순회하면서 트리 캐시를 채웁니다. 만약 트리 캐시가 90% 정도 차면 순회는 자동으로 중단됩니다. 이 메서드는 채우기를 시작하는 데에 실패하거나 주어진 주소가 컨트랙트 주소가 아닐 경우 에러를 반환하고, 시작하는 데에 성공했으면 `null`을 반환합니다.
+`startContractWarmUp` 은 주어진 컨트랙트 주소의 최신 스토리지 트리를 반복하면서 트리 캐시를 채웁니다. 만약 트리 캐시가 90% 정도 차면 반복은 자동으로 중단됩니다. 이 메서드는 채우기를 시작하는 데에 실패하거나 주어진 주소가 컨트랙트 주소가 아닐 경우 에러를 반환하고, 시작하는 데에 성공했으면 `null`을 반환합니다.
 
 | 클라이언트 | 메서드 호출                                                         |
 |:-----:| -------------------------------------------------------------- |
@@ -432,11 +432,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
-Log
+로그
 
 ```
 INFO[03/10,12:03:12 +09] [5] Started collecting trie statistics        blockNum=1491072 root=0x64af12b6374b92f6db457fa1b98fe9522d9f36ba352e3c4e01cdb75f001e8264 len(children)=16
-...
 INFO[03/10,12:03:12 +09] [5] Finished collecting trie statistics       elapsed=95.152412ms numNodes=133036 numLeafNodes=95948 maxDepth=9
 INFO[03/10,12:03:12 +09] [5] number of leaf nodes in a depth           depth=5 numNodes=22098
 INFO[03/10,12:03:12 +09] [5] number of leaf nodes in a depth           depth=6 numNodes=65309
