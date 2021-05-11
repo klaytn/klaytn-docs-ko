@@ -1,5 +1,5 @@
-# Working with Klaytn Transaction Types <a id="working-with-klaytn-transaction-types"></a>
-Klaytn은 다양한 트랜잭션 타입을 지원하며 각 트랜잭션은 서로 다른 필드를 가집니다. 따라서 사용자들은 트랜잭션 타입을 반드시 먼저 이해한 다음 트랜잭션  전송 및 서명 시 올바른 타입을 사용해야 합니다. 관련 APIs: `klay_signTransaction`, `klay_sendTransaction`, `klay_signTransactionAsFeePayer`, `klay_sendTransactionAsFeePayer`, `personal_signTransaction`, `personal_sendTransaction`.
+# Klaytn 트랜잭션 타입 활용하기<a id="working-with-klaytn-transaction-types"></a>
+Klaytn은 다양한 트랜잭션 타입을 지원하며 각 트랜잭션은 서로 다른 필드를 가집니다. 따라서 사용자들은 트랜잭션 타입을 반드시 먼저 이해한 다음 트랜잭션  전송 및 서명 시 올바른 타입을 사용해야 합니다. 관련 API: `klay_signTransaction`, `klay_sendTransaction`, `klay_signTransactionAsFeePayer`, `klay_sendTransactionAsFeePayer`, `personal_signTransaction`, `personal_sendTransaction`.
 
 
 ## TxTypeLegacyTransaction <a id="txtypelegacytransaction"></a>
@@ -8,7 +8,7 @@ TxTypeLegacyTransaction은 Klaytn에 있는 기존 트랜잭션 타입입니다.
 
 **매개변수**
 
-| 명칭       | 형식            | 설명                                                                                                                         |
+| 이름       | 타입            | 설명                                                                                                                         |
 | -------- | ------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | from     | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                           |
 | to       | 20바이트 크기 DATA | (컨트랙트 생성 시 선택사항) 트랜잭션 수신자의 주소입니다.                                                                                          |
