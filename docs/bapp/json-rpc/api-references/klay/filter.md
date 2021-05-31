@@ -4,28 +4,28 @@
 
 **매개변수**
 
-| 명칭       | 형식  | 설명                                    |
-| -------- | --- | ------------------------------------- |
-| QUANTITY | 문자열 | The filter id (*e.g.*, "0x16" // 22). |
+| 이름       | 타입     | 설명                               |
+| -------- | ------ | -------------------------------- |
+| QUANTITY | string | 필터 ID(*예를 들어*, "0x16" // 22)입니다. |
 
 **리턴값**
 
 `배열` - 로그 객체의 배열을 반환하거나 또는 최근 폴링 이후 변화가 없는 경우 빈 배열을 반환합니다.
-- [klay_newBlockFilter](#klay_newblockfilter)로 생성된 필터의 경우 블록 해시(32바이트 크기의 DATA)를 반환합니다. *예를 들어*, `["0x3454645634534..."]`.
-- [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter)로 생성된 필터의 경우 트랜잭션 해시(32바이트 크기의 DATA)를 반환합니다. *예를 들어*, `["0x6345343454645..."]`.
+- [klay_newBlockFilter](#klay_newblockfilter)로 생성된 필터의 경우 블록 해시(32바이트 크기의 DATA)를 반환합니다. *예*. `["0x3454645634534..."]`.
+- [klay_newPendingTransactionFilter](#klay_newpendingtransactionfilter)로 생성된 필터의 경우 트랜잭션 해시(32바이트 크기의 DATA)를 반환합니다. *예*. `["0x6345343454645..."]`.
 - [klay_newFilter](#klay_newfilter)로 생성된 필터의 경우 로그는 다음의 매개변수들을 가지는 객체입니다.
 
-| 명칭               | 형식            | 설명                                                                                                                                                                                  |
-| ---------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| removed          | TAG           | 체인 재구성으로 로그가 제거된 경우 `true`입니다. 유효한 로그이면 `false`입니다.                                                                                                                                 |
-| logIndex         | QUANTITY      | 블록에서 로그 인덱스 위치의 정숫값입니다. 보류 중인 로그인 경우 `null`을 반환합니다.                                                                                                                                 |
-| transactionIndex | QUANTITY      | 로그가 생성된 트랜잭션의 인덱스 위치의 정숫값입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                               |
-| transactionHash  | 32바이트 크기 DATA | 로그가 생성된 트랜잭션의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                        |
-| blockHash        | 32바이트 크기 DATA | 로그가 생성된 블록의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                          |
-| blockNumber      | QUANTITY      | 로그가 속한 블록의 번호입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                           |
-| address          | 20바이트 크기 DATA | 로그를 발생시킨 주소입니다.                                                                                                                                                                     |
-| data             | DATA          | 로그 중 인덱스화되지 않은 인수를 담고 있습니다.                                                                                                                                                         |
-| topics           | DATA 배열       | 길이가 0부터 4까지인 배열로, 배열의 각 원소는 32바이트 크기 DATA 형태의 인덱스화된 로그 인수들입니다. (솔리디티의 경우 `anonymous` 지정자로 이벤트를 선언하지 않았다면 첫 번째 토픽은 이벤트에 대한 서명의 해시입니다. (*예를 들어*, `Deposit(address,bytes32,uint256)`)) |
+| 이름               | 타입            | 설명                                                                                                                                                                              |
+| ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| removed          | TAG           | 체인 재구성으로 로그가 제거된 경우 `true`입니다. 유효한 로그이면 `false`입니다.                                                                                                                             |
+| logIndex         | QUANTITY      | 블록에서 로그 인덱스 위치의 정숫값입니다. 보류 중인 로그인 경우 `null`을 반환합니다.                                                                                                                             |
+| transactionIndex | QUANTITY      | 로그가 생성된 트랜잭션의 인덱스 위치의 정숫값입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                           |
+| transactionHash  | 32바이트 크기 DATA | 로그가 생성된 트랜잭션의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                    |
+| blockHash        | 32바이트 크기 DATA | 로그가 생성된 블록의 해시입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                      |
+| blockNumber      | QUANTITY      | 로그가 속한 블록의 번호입니다. 보류 중인 경우 `null`을 반환합니다.                                                                                                                                       |
+| address          | 20바이트 크기 DATA | 로그를 발생시킨 주소입니다.                                                                                                                                                                 |
+| data             | DATA          | 로그 중 인덱스화되지 않은 인수를 담고 있습니다.                                                                                                                                                     |
+| topics           | DATA 배열       | 길이가 0부터 4까지인 배열로, 배열의 각 원소는 32바이트 크기 DATA 형태의 인덱스화된 로그 인수들입니다. (솔리디티의 경우 `anonymous` 지정자로 이벤트를 선언하지 않았다면 첫 번째 토픽은 이벤트에 대한 서명의 해시입니다. (*예*. `Deposit(address,bytes32,uint256)`)) |
 
 **예시**
 
@@ -59,9 +59,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 명칭       | 형식  | 설명        |
-| -------- | --- | --------- |
-| QUANTITY | 문자열 | 필터 ID입니다. |
+| 이름       | 타입     | 설명        |
+| -------- | ------ | --------- |
+| QUANTITY | string | 필터 ID입니다. |
 
 **리턴값**
 
@@ -100,13 +100,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 `객체` - 필터 객체를 구성하는 옵션은 다음과 같습니다.
 
-| 명칭        | 형식                        | 설명                                                                                                                                                                                             |
-| --------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | QUANTITY &#124; TAG       | (선택 사항) 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다.                                                           |
-| toBlock   | QUANTITY &#124; TAG       | (선택 사항) 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다.                                                           |
-| address   | 20-byte DATA &#124; Array | (선택 사항) 로그를 발생시킨 컨트랙트 주소 또는 주소들의 목록입니다.                                                                                                                                                        |
-| topics    | DATA 배열                   | (선택 사항) 32바이트 크기 DATA 형태의 토픽으로 이루어진 배열입니다. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                                                                              |
-| blockHash | 32바이트 크기 DATA             | (선택 사항) 32바이트 길이의 해시 blockHash를 사용하여 한 블록으로 반환된 로그를 제한하는 필터 옵션입니다. blockHash를 사용하면, blockHash로 지정한 블록의 번호가 fromBlock, toBlock과 같아집니다. 따라서 필터 기준에 blockHash가 있으면 fromBlock과 toBlock이 허용되지 않습니다. |
+| 이름        | 타입                          | 설명                                                                                                                                                                                              |
+| --------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | QUANTITY &#124; TAG         | (선택 사항) 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열입니다.                                                                  |
+| toBlock   | QUANTITY &#124; TAG         | (선택 사항) 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열입니다.                                                                  |
+| address   | 20바이트 크기의 DATA &#124; Array | (선택 사항) 로그를 발생시킨 컨트랙트 주소 또는 주소들의 목록입니다.                                                                                                                                                         |
+| topics    | DATA array                  | (선택 사항) 32바이트 크기 DATA 형태의 토픽으로 이루어진 배열입니다. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                                                                               |
+| blockHash | 32바이트 크기 DATA               | (선택 사항) 32바이트 길이의 해시 blockHash를 사용하여 단일 블록으로 반환된 로그를 제한하는 필터 옵션입니다. blockHash를 사용하면, blockHash로 지정한 블록의 번호가 fromBlock, toBlock과 같아집니다. 따라서 필터 기준에 blockHash가 있으면 fromBlock과 toBlock이 허용되지 않습니다. |
 
 **리턴값**
 
@@ -239,7 +239,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 
 **리턴값**
 
-| 형식       | 설명        |
+| 타입       | 설명        |
 | -------- | --------- |
 | QUANTITY | 필터 ID입니다. |
 
@@ -260,7 +260,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_newFilter <a id="klay_newfilter"></a>
 
-필터 옵션에 따라 필터 객체를 생성하여 상태가 변경되었음(로그)를 알립니다.
+필터 옵션에 따라 필터 객체를 생성하여 상태가 변경되었음(로그)을 알립니다.
 - 상태가 변경되었는지 확인하려면 [klay_getFilterChanges](#klay_getfilterchanges)를 호출하세요.
 - `klay_newFilter`로 생성된 필터와 일치하는 모든 로그를 가져오려면 [klay_getFilterLogs](#klay_getfilterlogs)를 호출하세요.
 
@@ -275,16 +275,16 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 `객체` - 필터 객체를 구성하는 옵션은 다음과 같습니다.
 
-| 명칭        | 형식                        | 설명                                                                                                                                   |
-| --------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| fromBlock | QUANTITY &#124; TAG       | (선택 사항) 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
-| toBlock   | QUANTITY &#124; TAG       | (선택 사항) 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 바와 같은 `"earliest"`, `"latest"` 같은 문자열입니다. |
-| address   | 20-byte DATA &#124; Array | (선택 사항) 로그를 발생시킨 컨트랙트 주소 또는 주소들의 목록입니다.                                                                                              |
-| topics    | DATA 배열                   | (선택 사항) 32바이트 크기 DATA 형태의 토픽으로 이루어진 배열입니다. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                    |
+| 이름        | 타입                          | 설명                                                                                                                             |
+| --------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| fromBlock | QUANTITY &#124; TAG         | (선택 사항) 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열입니다. |
+| toBlock   | QUANTITY &#124; TAG         | (선택 사항) 정수 형태의 블록 번호나 [default block parameter](block.md#the-default-block-parameter)에 정의된 `"earliest"`, `"latest"` 같은 문자열입니다. |
+| address   | 20바이트 크기의 DATA &#124; Array | (선택 사항) 로그를 발생시킨 컨트랙트 주소 또는 주소들의 목록입니다.                                                                                        |
+| topics    | DATA array                  | (선택 사항) 32바이트 크기 DATA 형태의 토픽으로 이루어진 배열입니다. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                              |
 
 **리턴값**
 
-| 형식       | 설명       |
+| 타입       | 설명       |
 | -------- | -------- |
 | QUANTITY | 필터 ID입니다 |
 
@@ -309,7 +309,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 
 **리턴값**
 
-| 형식       | 설명        |
+| 타입       | 설명        |
 | -------- | --------- |
 | QUANTITY | 필터 ID입니다. |
 
@@ -329,27 +329,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_subscribe <a id="klay_subscribe"></a>
 
-Creates a new subscription to specific events by using either RPC Pub/Sub over WebSockets or filters over HTTP. It allows clients to wait for events instead of polling for them.
+Websockets을 통한 RPC나 Pub/Sub 또는 HTTP를 통한 필터를 이용하여 특정 이벤트에 대한 새 구독을 생성합니다. 클라이언트가 이벤트에 대해 폴링하는 대신 이벤트 발생을 기다리게 해줍니다.
 
-The node will return a subscription id for each subscription created. For each event that matches the subscription, a notification with relevant data is sent together with the subscription id. If a connection is closed, all subscriptions created over the connection are removed.
+매 생성된 구독에 대해 노드는 구독 ID를 반환할 것입니다. 구독에 일치하는 모든 이벤트에 대해서는 관계된 데이터와 구독 ID를 포함한 알림이 전송됩니다. 연결이 닫힐 경우, 이 연결을 통해 생성된 모든 구독들이 제거됩니다.
 
 **매개변수**
 
-`Object` - A notification type: `"newHeads"` or `"logs"`.
+`Object` -알림 타입: `"newHeads"` 또는 `"logs"`.
 
 
-`"newHeads"` notifies you of each block added to the blockchain. `"logs"` notifies you of logs included in new blocks. This type requires a second parameter that specifies filter options. For more details, go to [klay_newFilter > parameters](https://docs.klaytn.com/bapp/json-rpc/api-references/klay/filter#klay_newfilter).
+`"newHeads"`는 블록체인에 블록이 추가될 때 매번 알림을 보냅니다. `"logs"`는 새 블록에 포함된 로그에 대해 알림을 보냅니다. 이러한 타입은 필터 옵션을 구체화하는 두 번째 매개변수를 필요로 합니다. 더 자세한 내용은 [klay_newFilter > parameters](https://docs.klaytn.com/bapp/json-rpc/api-references/klay/filter#klay_newfilter)를 참고하세요.
 
 **리턴값**
 
-| 타입       | 설명                                                                                                                                                           |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| QUANTITY | A subscription id when a subscription is created. For each event that matches the subscription, a notification with relevant data will be delivered as well. |
+| 타입       | 설명                                                                        |
+| -------- | ------------------------------------------------------------------------- |
+| QUANTITY | 구독이 생성될 때의 구독 ID입니다. 구독에 일치하는 모든 이벤트에 대해서는 관계된 데이터와 구독 ID를 포함한 알림이 전달됩니다. |
 
 
 **예시**
 
-This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npmjs.com/package/wscat).
+이 API는 WebSocket 툴인 [`wscat`](https://www.npmjs.com/package/wscat)과 함께 쓰기에 적합합니다.
 
 ```shell
 // Request
@@ -374,19 +374,19 @@ wscat -c http://localhost:8552
 
 ## klay_uninstallFilter <a id="klay_uninstallfilter"></a>
 
-Uninstalls a filter with given id. Should always be called when watch is no longer needed. Additionally, filters timeout when they are not requested with [klay_getFilterChanges](#klay_getfilterchanges) for a period of time.
+입력으로 받은 ID를 가진 필터를 제거합니다. 더는 감시가 필요없을 때 항상 호출해야 합니다. 일정 주기 동안 [klay_getFilterChanges](#klay_getfilterchanges)를 통해 요청되지 않으면 필터는 타임아웃 됩니다.
 
 **매개변수**
 
-| 명칭 | 타입       | 설명        |
-| -- | -------- | --------- |
-| 필터 | QUANTITY | 필터 ID입니다. |
+| 이름     | 타입       | 설명        |
+| ------ | -------- | --------- |
+| filter | QUANTITY | 필터 ID입니다. |
 
 **리턴값**
 
-| 타입      | 설명                                                                    |
-| ------- | --------------------------------------------------------------------- |
-| Boolean | `true` if the filter was successfully uninstalled, otherwise `false`. |
+| 타입      | 설명                                                   |
+| ------- | ---------------------------------------------------- |
+| Boolean | 필터가 성공적으로 제거되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -405,24 +405,24 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_unsubscribe <a id="klay_unsubscribe"></a>
 
-Cancels the subscription with a specific subscription id by using either RPC Pub/Sub over WebSockets or filters over HTTP. Only the connection that created a subscription can unsubscribe from it.
+Websockets을 통한 RPC나 Pub/Sub 또는 HTTP를 통한 필터를 이용하여 특정 구독 ID에 대한 구독을 취소합니다. 해당 구독을 생성한 연결만이 구독을 취소할 수 있습니다.
 
 **매개변수**
 
-| 타입       | 설명                 |
-| -------- | ------------------ |
-| QUANTITY | A subscription id. |
+| 타입       | 설명        |
+| -------- | --------- |
+| QUANTITY | 구독 ID입니다. |
 
 **리턴값**
 
-| 타입      | 설명                                                                       |
-| ------- | ------------------------------------------------------------------------ |
-| Boolean | `true` if the subscription was successfully canceled, otherwise `false`. |
+| 타입      | 설명                                                   |
+| ------- | ---------------------------------------------------- |
+| Boolean | 구독이 성공적으로 취소되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 
 **예시**
 
-This API is appropriate for use with a WebSocket tool, [`wscat`](https://www.npmjs.com/package/wscat).
+이 API는 WebSocket 툴인 [`wscat`](https://www.npmjs.com/package/wscat)과 함께 쓰기에 적합합니다.
 
 ```shell
 // Request
