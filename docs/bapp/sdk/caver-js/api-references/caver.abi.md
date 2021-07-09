@@ -1,6 +1,6 @@
 # caver.abi <a id="caver-abi"></a>
 
-The `caver.abi` package allows you to decode and encode parameters with an ABI (Application Binary Interface). This will be used for calling functions of a deployed smart contracts.
+`caver-klay-abi` 패키지는 ABI(Application Binary Interface)의 매개변수를 디코딩 및 인코딩할 수 있게 해줍니다. 배포된 스마트 컨트랙트의 함수를 호출하는 데 사용됩니다.
 
 ## encodeFunctionSignature <a id="encodefunctionsignature"></a>
 
@@ -8,19 +8,19 @@ The `caver.abi` package allows you to decode and encode parameters with an ABI (
 caver.abi.encodeFunctionSignature(functionSignature)
 ```
 
-Encodes the function signature to its ABI signature, which are the first 4 bytes of the sha3 hash of the function name including parameter types.
+파라미터 타입을 포함한 함수 이름의 sha3 해시의 첫 4바이트인 ABI 서명으로 함수 서명을 인코딩합니다.
 
 **매개변수**
 
-| 명칭                | 타입                   | 설명                                                                                                                                                                                                         |
-| ----------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| functionSignature | string &#124; object | The function signature or the JSON interface object of the function to encode. If this is a string, it has to be in the form `function(type, type,...)`, e.g: `myFunction(uint256,uint32[],bytes10,bytes)` |
+| 이름                | 타입                   | 설명                                                                                                                                  |
+| ----------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| functionSignature | string &#124; object | 인코딩할 이벤트의 이벤트 서명 또는 JSON 인터페이스 객체입니다. 문자열인 경우 `function(type,type,...)` 형식이어야 합니다. 예시: `myFunction(uint256,uint32[],bytes10,bytes)` |
 
 **리턴값**
 
-| 타입  | 설명          |
-| --- | ----------- |
-| 문자열 | 함수의 ABI 서명. |
+| 타입     | 설명          |
+| ------ | ----------- |
+| string | 함수의 ABI 서명. |
 
 **예제**
 
@@ -50,19 +50,19 @@ Encodes the function signature to its ABI signature, which are the first 4 bytes
 caver.abi.encodeEventSignature(eventSignature)
 ```
 
-Encodes the event signature to its ABI signature, which is the sha3 hash of the event name including input parameter types.
+입력 파라미커 타입을 포함한 이벤트 이름의 sha3 해시의 ABI 서명으로 이벤트 서명을 인코딩합니다.
 
 **매개변수**
 
-| 명칭             | 타입                   | 설명                                                                                                                                                                                            |
-| -------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| eventSignature | string &#124; object | The event signature or the JSON interface object of the event to encode. If this is a string, it has to be in the form `event(type,type,...)`, e.g: `myEvent(uint256,uint32[],bytes10,bytes)` |
+| 이름             | 타입                   | 설명                                                                                                                            |
+| -------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| eventSignature | string &#124; object | 인코딩할 이벤트의 이벤트 서명 또는 JSON 인터페이스 객체입니다. 문자열인 경우 `event(type,type,...)` 형식이어야 합니다. 예시: `myEvent(uint256,uint32[],bytes10,bytes)` |
 
 **리턴값**
 
-| 타입  | 설명           |
-| --- | ------------ |
-| 문자열 | 이벤트의 ABI 서명. |
+| 타입     | 설명           |
+| ------ | ------------ |
+| string | 이벤트의 ABI 서명. |
 
 **예제**
 
@@ -96,18 +96,18 @@ caver.abi.encodeParameter(type, parameter)
 
 **매개변수**
 
-| 명칭        | 타입                   | 설명                                                                                                                                      |
-| --------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| 형식        | string &#124; object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)  for a list of types. |
-| parameter | 복합                   | 인코딩할 실제 매개변수.                                                                                                                           |
+| 이름        | 타입                   | 설명                                                                                                              |
+| --------- | -------------------- | --------------------------------------------------------------------------------------------------------------- |
+| 형식        | string &#124; object | 매개변수 타입입니다. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)에서 확인할 수 있습니다. |
+| parameter | 복합                   | 인코딩할 실제 매개변수.                                                                                                   |
 
-**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+**참고** ``는 caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0)부터 지원됩니다. `tuple` 타입에 대한 자세한 정보는 [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types)에서 확인할 수 있습니다.
 
 **리턴값**
 
-| 타입  | 설명             |
-| --- | -------------- |
-| 문자열 | ABI 인코딩된 매개변수. |
+| 타입     | 설명             |
+| ------ | -------------- |
+| string | ABI 인코딩된 매개변수. |
 
 **예제**
 
@@ -148,18 +148,18 @@ JSON 인터페이스 객체를 기반으로 함수 매개변수를 인코딩합�
 
 **매개변수**
 
-| 명칭         | 타입                  | 설명                                                                                                                                                   |
-| ---------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typesArray | Array &#124; object | An array with types or a JSON interface of a function. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
-| parameters | Array               | 인코딩할 매개변수.                                                                                                                                           |
+| 이름         | 타입                  | 설명                                                                                                                             |
+| ---------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| typesArray | Array &#124; object | 타입의 배열 또는 함수의 JSON 인터페이스의 배열입니다. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
+| parameters | Array               | 인코딩할 매개변수.                                                                                                                     |
 
-**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+**참고** ``는 caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0)부터 지원됩니다. `tuple` 타입에 대한 자세한 정보는 [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types)에서 확인할 수 있습니다.
 
 **리턴값**
 
-| 타입  | 설명             |
-| --- | -------------- |
-| 문자열 | ABI 인코딩된 매개변수. |
+| 타입     | 설명             |
+| ------ | -------------- |
+| string | ABI 인코딩된 매개변수. |
 
 **예제**
 
@@ -210,16 +210,16 @@ JSON 인터페이스 객체 및 주어진 매개변수를 사용하여 함수 �
 
 **매개변수**
 
-| 명칭            | 타입     | 설명                 |
+| 이름            | 타입     | 설명                 |
 | ------------- | ------ | ------------------ |
 | jsonInterface | object | 함수의 JSON 인터페이스 객체. |
 | parameters    | Array  | 인코딩할 매개변수.         |
 
 **리턴값**
 
-| 타입  | 설명                                 |
-| --- | ---------------------------------- |
-| 문자열 | 함수 서명 + 매개변수를 의미하는 ABI 인코딩된 함수 호출. |
+| 타입     | 설명                                 |
+| ------ | ---------------------------------- |
+| string | 함수 서명 + 매개변수를 의미하는 ABI 인코딩된 함수 호출. |
 
 **예제**
 
@@ -238,6 +238,52 @@ JSON 인터페이스 객체 및 주어진 매개변수를 사용하여 함수 �
 '0x24ee0097000000000000000000000000000000000000000000000000000000008bd02b7b0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000748656c6c6f212500000000000000000000000000000000000000000000000000'
 ```
 
+## decodeFunctionCall <a id="decodefunctioncall"></a>
+
+```javascript
+caver.abi.decodeFunctionCall(abi, functionCall)
+```
+
+Decodes a function call from its abi object of a function or function abi string and returns parameters.
+
+**NOTE** `caver.abi.decodeFunctionCall` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+
+**매개변수**
+
+| 이름           | 타입     | 설명                                |
+| ------------ | ------ | --------------------------------- |
+| abi          | object | The abi object of a function.     |
+| functionCall | string | The encoded function call string. |
+
+**리턴값**
+
+| 타입     | 설명                                                                                                                                            |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| object | An object which includes plain params. You can use `result[0]` as it is provided to be accessed like an array in the order of the parameters. |
+
+**예제**
+
+```javascript
+> caver.abi.decodeFunctionCall({
+    name: 'myMethod',
+    type: 'function',
+    inputs: [{
+        type: 'uint256',
+        name: 'myNumber'
+    },{
+        type: 'string',
+        name: 'mystring'
+    }]
+}, '0x24ee0097000000000000000000000000000000000000000000000000000000008bd02b7b0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000748656c6c6f212500000000000000000000000000000000000000000000000000')
+Result {
+  '0': '2345675643',
+  '1': 'Hello!%',
+  __length__: 2,
+  myNumber: '2345675643',
+  mystring: 'Hello!%'
+}
+```
+
 ## decodeParameter <a id="decodeparameter"></a>
 
 ```javascript
@@ -248,12 +294,12 @@ ABI 인코딩된 매개변수를 자바스크립트 타입으로 디코딩합니
 
 **매개변수**
 
-| 명칭        | 타입                 | 설명                                                                                                                                     |
-| --------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
-| 형식        | string&#124;object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
-| hexstring | Array              | 디코딩할 ABI 바이트 코드.                                                                                                                       |
+| 이름        | 타입                 | 설명                                                                                                              |
+| --------- | ------------------ | --------------------------------------------------------------------------------------------------------------- |
+| 형식        | string&#124;object | 매개변수 타입입니다. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)에서 확인할 수 있습니다. |
+| hexstring | Array              | 디코딩할 ABI 바이트 코드.                                                                                                |
 
-**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+**참고** ``는 caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0)부터 지원됩니다. `tuple` 타입에 대한 자세한 정보는 [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types)에서 확인할 수 있습니다.
 
 **리턴값**
 
@@ -298,12 +344,12 @@ caver.abi.decodeParameters(typesArray, hexstring)
 ABI 인코딩된 매개변수를 자바스크립트 타입으로 디코딩합니다.
 
 **매개변수**
-| 명칭         | 타입                  | 설명                                                                                                                                                       |
+| 이름         | 타입                  | 설명                                                                                                                                                       |
 | ---------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | typesArray | Array &#124; object | An array with types or an array of JSON interface outputs. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
-| hexstring  | 문자열                 | 디코딩할 ABI 바이트 코드.                                                                                                                                         |
+| hexstring  | string              | 디코딩할 ABI 바이트 코드.                                                                                                                                         |
 
-**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+**참고** ``는 caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0)부터 지원됩니다. `tuple` 타입에 대한 자세한 정보는 [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types)에서 확인할 수 있습니다.
 
 **리턴값**
 
@@ -392,11 +438,11 @@ caver.abi.decodeLog(inputs, hexstring, topics)
 ABI 인코딩된 로그 데이터 및 인덱싱된 토픽 데이터를 디코딩합니다.
 
 **매개변수**
-| 명칭        | 타입    | 설명                                                                                                                                                 |
-| --------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| inputs    | Array | An array of JSON interface inputs. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요.                   |
-| hexstring | 문자열   | 로그의 `data` 필드에 있는 ABI 바이트 코드.                                                                                                                      |
-| topics    | Array | An array of the index parameter topics of the log. This array doesn't have topic[0] if it is a non-anonymous event, or otherwise, it has topic[0]. |
+| 이름        | 타입     | 설명                                                                                                                                                 |
+| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| inputs    | Array  | An array of JSON interface inputs. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요.                   |
+| hexstring | string | 로그의 `data` 필드에 있는 ABI 바이트 코드.                                                                                                                      |
+| topics    | Array  | An array of the index parameter topics of the log. This array doesn't have topic[0] if it is a non-anonymous event, or otherwise, it has topic[0]. |
 
 **리턴값**
 
@@ -440,17 +486,17 @@ caver.abi.encodeContractDeploy(jsonInterface, hexstring [, params])
 Encodes smart contract bytecode with the arguments of the constructor.
 
 **매개변수**
-| 명칭            | 타입    | 설명                                               |
-| ------------- | ----- | ------------------------------------------------ |
-| jsonInterface | Array | 컨트랙트의 JSON 인터페이스.                                |
-| hexstring     | 문자열   | 배포할 스마트 컨트랙트의 바이트코드.                             |
-| params        | 복합    | (optional) Arguments to pass to the constructor. |
+| 이름            | 타입     | 설명                                               |
+| ------------- | ------ | ------------------------------------------------ |
+| jsonInterface | Array  | 컨트랙트의 JSON 인터페이스.                                |
+| hexstring     | string | 배포할 스마트 컨트랙트의 바이트코드.                             |
+| params        | 복합     | (optional) Arguments to pass to the constructor. |
 
 **리턴값**
 
-| 타입  | 설명                                                   |
-| --- | ---------------------------------------------------- |
-| 문자열 | 바이트코드 + 매개변수를 의미하는 생성자 인자를 포함한 ABI 인코딩된 스마트 컨트랙트 배포. |
+| 타입     | 설명                                                   |
+| ------ | ---------------------------------------------------- |
+| string | 바이트코드 + 매개변수를 의미하는 생성자 인자를 포함한 ABI 인코딩된 스마트 컨트랙트 배포. |
 
 **예제**
 

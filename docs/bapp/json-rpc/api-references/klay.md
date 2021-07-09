@@ -3,16 +3,16 @@ description: >-
   계정, 블록, 트랜잭션, 노드 등과 관련된 API입니다.
 ---
 
-# Namespace klay <a id="namespace-klay"></a>
+# klay <a id="namespace-klay"></a>
 
 `klay` namespace는 계정, 블록, 트랜잭션, 네트워크 또는 노드의 환경설정, 필터 등과 관련한 함수를 제공합니다. 아래는 현재 Klaytn이 지원하는 API 함수들의 목록입니다.
 
 
-### [계정(Account)](./klay/account.md) <a id="account"></a>
+### [계정](./klay/account.md) <a id="account"></a>
 - [klay_accountCreated](./klay/account.md#klay_accountcreated)
 - [klay_accounts](./klay/account.md#klay_accounts)
-- [klay_encodeAccountKey](./klay/account.md#klay_encodeAccountKey)
-- [klay_decodeAccountKey](./klay/account.md#klay_decodeAccountKey)
+- [klay_encodeAccountKey](./klay/account.md#klay_encodeaccountkey)
+- [klay_decodeAccountKey](./klay/account.md#klay_decodeaccountkey)
 - [klay_getAccount](./klay/account.md#klay_getaccount)
 - [klay_getAccountKey](./klay/account.md#klay_getaccountkey)
 - [klay_getBalance](./klay/account.md#klay_getbalance)
@@ -22,7 +22,7 @@ description: >-
 - [klay_sign](./klay/account.md#klay_sign)
 
 
-### [블록(Block)](./klay/block.md) <a id="block"></a>
+### [블록](./klay/block.md) <a id="block"></a>
 - [klay_blockNumber](./klay/block.md#klay_blocknumber)
 - [klay_getBlockByNumber](./klay/block.md#klay_getblockbynumber)
 - [klay_getBlockByHash](./klay/block.md#klay_getblockbyhash)
@@ -52,9 +52,9 @@ description: >-
 - [klay_getTransactionReceiptBySenderTxHash](./klay/transaction.md#klay_gettransactionreceiptbysendertxhash)
 - [klay_sendRawTransaction](./klay/transaction.md#klay_sendrawtransaction)
 - [klay_sendTransaction](./klay/transaction.md#klay_sendtransaction)
-- [klay_sendTransactionAsFeePayer](./klay/transaction.md#klay_sendTransactionAsFeePayer)
+- [klay_sendTransactionAsFeePayer](./klay/transaction.md#klay_sendtransactionasfeepayer)
 - [klay_signTransaction](./klay/transaction.md#klay_signtransaction)
-- [klay_signTransactionAsFeePayer](./klay/transaction.md#klay_signTransactionAsFeePayer)
+- [klay_signTransactionAsFeePayer](./klay/transaction.md#klay_signtransactionasfeepayer)
 - [klay_getDecodedAnchoringTransactionByHash](./klay/transaction.md#klay_getDecodedAnchoringTransactionByHash)
 
 
