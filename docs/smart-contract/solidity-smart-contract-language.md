@@ -6,7 +6,12 @@
 
 [솔리디티](https://github.com/ethereum/solidity)는 이더리움 플랫폼의 스마트 컨트랙트를 구현하기 위한 언어로, 고수준이고 정적인 컨트랙트 지향 언어입니다. 솔리디티는 원래 이더리움을 위해 설계되었지만 스마트 컨트랙트 작성을 위한 일반적인 언어로도 적합합니다. 따라서 Klaytn과 같은 블록체인 플랫폼에서도 사용할 수 있습니다.
 
-Klaytn is officially compatible with **Constantinople** Ethereum Virtual Machine (EVM) version. Backward compatibility is not guaranteed with other EVM versions on Klaytn. Thus, it is highly recommended to compile Solidity code with the Constantinople target option. Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).
+Klaytn is officially compatible with **Istanbul** Ethereum Virtual Machine (EVM) version. Backward compatibility is not guaranteed with other EVM versions on Klaytn. Thus, it is highly recommended to compile Solidity code with the Istanbul target option. Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).
+
+{% hint style="success" %}
+NOTE: Baobab 네트워크의 경우, 블록 번호 `#75373312`부터 protocol upgrade가 활성화되었습니다.
+Cypress 메인넷은 다음 버전부터 protocol upgrade가 적용됩니다.
+{% endhint %}
 
  Development tools such as [Remix](https://remix.ethereum.org/) \(a browser-based IDE\) and [Truffle](https://github.com/trufflesuite/truffle) \(a development framework\) can be utilized when developing smart contracts for Klaytn. The Klaytn team will attempt to maintain compatibility between Ethereum's development tools and Klaytn's but may elect to provide the Klaytn smart contract developers with enhanced or updated versions of those tools when necessary.
 
