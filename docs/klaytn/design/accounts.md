@@ -75,7 +75,12 @@ EOA와 달리 SCA에는 관련 코드가 있으며 해당 코드로 제어됩니
 | key           | [AccountKey](accounts.md#account-key) | 이 계정과 연결된 키. 이 필드는 [AccountKeyLegacy](accounts.md#accountkeylegacy), [AccountKeyPublic](accounts.md#accountkeypublic), [AccountKeyFail](accounts.md#accountkeyfail), [AccountKeyWeightedMultisig](accounts.md#accountkeyweightedmultisig), [AccountKeyRoleBased](accounts.md#accountkeyrolebased) 중 어떤 것이라도 될 수 있습니다. 트랜잭션의 서명은 이 키로 검증됩니다. |
 | codeHash      | \[\]byte \(Go\)                   | 계정의 스마트 컨트랙트 코드의 해시. 이 값은 변경할 수 없으며, 스마트 컨트랙트가 생성 될 때만 설정됩니다.                                                                                                                                                                                                                                                                               |
 | storageRoot   | \[32\]byte \(Go\)                 | 계정에 저장된 모든 변수들의 값을 포함하는 Merkle Patricia trie 루트의 256비트 해시입니다.                                                                                                                                                                                                                                                                               |
-| codeFormat    | uint8 \(Go\)                        | 이 계정의 코드 형식입니다. 현재는 EVM\(0x00\)만 지원합니다.                                                                                                                                                                                                                                                                                                   |
+| codeFormat    | uint8 \(Go\)                        | 계정이 지원하는 interpreter 버전. 16까지 설정할 수 있으며, 현재는 EVM\(0x00\)만 지원합니다.                                                                                                                                                                                                                                                                                                  |
+| vmVersion     | uint8 \(Go\)                        | 계정이 배포될 당시의 Protocol Upgrade (hard fork) 정보 (ex. 0x0(constantinople), 0x1(istanbul,...)). 16까지 존재하며, 컨트랙트 배포 시 자동으로 값이 설정됩니다. |
+
+{% hint style="success" %}
+NOTE: 클레이튼 v1.7.0부터는, 스마트 컨트랙트 계정의 속성으로 vmVersion이 추가됩니다.
+{% endhint %}
 
 ### Klaytn 계정 유형 ID <a id="klaytn-account-type-id"></a>
 아래는 각 계정 유형에 할당된 계정 유형 ID입니다.
@@ -169,7 +174,19 @@ RLP: 0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8
 
 ### AccountKeyWeightedMultiSig <a id="accountkeyweightedmultisig"></a>
 
-AccountKeyWeightedMultiSig는 계정 키 타입입니다. 여기에는 threshold와 WeightedPublicKeys가 저장되어 있습니다. WeightedPublicKeys는 공개키와 공개키의 가중치(weight)로 이루어진 리스트입니다. AccountKeyWeightedMultiSig와 연결된 계정에 대해 유효한 트랜잭션이 되려면 서명된 공개키의 가중치 합계가 임계값(threshold)보다 커야합니다.
+AccountKeyWeightedMultiSig는 계정 키 타입입니다. 여기에는 threshold와 WeightedPublicKeys가 저장되어 있습니다. WeightedPublicKeys는 공개키와 공개키의 가중치(weight)로 이루어진 리스트입니다. AccountKeyWeightedMultiSig와 연결된 계정에 대해 유효한 트랜잭션이 되려면, 다음 조건을 만족해야합니다.
+* 서명된 공개키의 가중치 합계가 임계값(threshold)보다 커야합니다.
+* 트랜잭션에 유효하지 않은 서명이 포함되면 안됩니다.
+* 서명된 공개키 개수가 WeightedPublicKey 개수보다 작아야만 합니다.
+
+{% hint style="success" %}
+NOTE: 클레이튼 v1.7.0에서 도입된 protocol upgrade, 또는 "hard fork" 이후부터는, 다음 다중키 검증 로직이 추가됩니다.
+* 트랜잭션에 유효하지 않은 서명이 포함되면 안됩니다.
+* 서명된 공개키 개수가 WeightedPublicKey 개수보다 작아야만 합니다.
+
+Baobab 네트워크의 경우, 블록 번호 `#75373312`부터 protocol upgrade가 활성화되었습니다.
+cypress 메인넷은 다음 버전부터 protocol upgrade가 적용됩니다.
+{% endhint %}
 
 #### 속성 <a id="attributes"></a>
 
