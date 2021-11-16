@@ -11,7 +11,7 @@ Limiting the execution time of a transaction was not feasible either because the
 
 The last approoach is to limit the computation cost of a transaction. We modelled the computation cost of each EVM opcode based on its actual execution time and limit the sum of computation cost of a transaction. 이 접근 방식을 사용하면 다른 요소들을 제거하고, 정규화된 실행 시간만 계산하여 노드들이 합의에 도달 할 수 있습니다.
 
-Therefore, we chose the third option for Klaytn. 현재는 실행 비용 한도는 100,000,000으로 설정되어 있습니다. Since the limit is determined by the platform, developers should be aware of the computation cost of a transaction. To calculate the computation cost of a transaction, Klaytn provides [klay_estimateComputationCost](../../../bapp/json-rpc/api-references/klay/transaction.md#klay_estimatecomputationcost). 사용법은 [klay_estimateGas](../../../bapp/json-rpc/api-references/klay/transaction.md#klay_estimategas)와 거의 같습니다.
+Therefore, we chose the third option for Klaytn. 현재는 실행 비용 한도는 100,000,000으로 설정되어 있습니다. Since the limit is determined by the platform, developers should be aware of the computation cost of a transaction. To calculate the computation cost of a transaction, Klaytn provides [klay_estimateComputationCost](../../../../bapp/json-rpc/api-references/klay/transaction.md#klay_estimatecomputationcost). 사용법은 [klay_estimateGas](../../../../bapp/json-rpc/api-references/klay/transaction.md#klay_estimategas)와 거의 같습니다.
 
 ## Opcode의 연산 비용 <a id="computation-cost-of-opcodes"></a>
 
@@ -27,8 +27,8 @@ Therefore, we chose the third option for Klaytn. 현재는 실행 비용 한도�
 | SDIV           |   739 |
 | MOD            |   812 |
 | SMOD           |   560 |
-| ADDMOD         |  3349 |
-| MULMOD         |  4757 |
+| ADDMOD         |  1410 |
+| MULMOD         |  1760 |
 | EXP            |  5000 |
 | SIGNEXTEND     |   481 |
 | LT             |   201 |
@@ -39,12 +39,12 @@ Therefore, we chose the third option for Klaytn. 현재는 실행 비용 한도�
 | ISZERO         |   165 |
 | AND            |   288 |
 | OR             |   160 |
-| XOR            |   657 |
-| NOT            |  1289 |
+| XOR            |   454 |
+| NOT            |   364 |
 | BYTE           |   589 |
-| SHL            |  1603 |
-| SHR            |  1346 |
-| SAR            |  1815 |
+| SHL            |   478 |
+| SHR            |   498 |
+| SAR            |   834 |
 | SHA3           |  2465 |
 | ADDRESS        |   284 |
 | BALANCE        |  1407 |
@@ -68,6 +68,8 @@ Therefore, we chose the third option for Klaytn. 현재는 실행 비용 한도�
 | NUMBER         |   202 |
 | DIFFICULTY     |   180 |
 | GASLIMIT       |   166 |
+| CHAINID        |   120 |
+| SELFBALANCE    |   374 |
 | POP            |   140 |
 | MLOAD          |   376 |
 | MSTORE         |   288 |
