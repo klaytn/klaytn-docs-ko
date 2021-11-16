@@ -1,6 +1,12 @@
 # 미리 컴파일된 컨트랙트(Precompiled Contracts) <a id="precompiled-contracts"></a>
 
-Klaytn은 몇 가지 유용한 미리 컴파일된 컨트랙트를 제공합니다. 이러한 컨트랙트들은 플랫폼 자체에서 기본 구현되어 있습니다. 미리 컴파일된 컨트랙트 중 주소 0x01부터 0x08까지의 컨트랙트는 이더리움에서 구현된 것과 동일합니다. 여기에 추가로 Klaytn은 이더리움에 없는 새로운 기능을 지원하기 위해 주소 0x09부터 0x0B까지의 미리 컴파일된 컨트랙트를 제공합니다.
+Klaytn은 몇 가지 유용한 미리 컴파일된 컨트랙트를 제공합니다. 이러한 컨트랙트들은 플랫폼 자체에서 기본 구현되어 있습니다. 미리 컴파일된 컨트랙트 중 주소 0x01부터 0x08까지의 컨트랙트는 이더리움에서 구현된 것과 동일합니다. 여기에 추가로 Klaytn은 이더리움에 없는 새로운 기능을 지원하기 위해 주소 0x09부터 0x0B까지의 미리 컴파일된 컨트랙트를 제공합니다.  
+{% hint style="success" %}
+NOTE: 아래 테이블은 klaytn v1.7.0에 도입된 protocol upgrade, 또는 "hard fork" 이전에 사용된 테이블입니다.
+Baobab 네트워크의 경우, 블록 번호 `#75373312`부터 protocol upgrade가 활성화되었습니다.
+Cypress 메인넷은 다음 버전부터 protocol upgrade가 적용됩니다.
+최신 문서를 보시길 원할 경우 [다음](precompiled-contracts.md) 을 참조하세요.
+{% endhint %}
 
 ## 주소 0x01: ecrecover\(hash, v, r, s\) <a id="address-0x-01-ecrecover-hash-v-r-s"></a>
 
@@ -141,7 +147,7 @@ function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
 
 ## 주소 0x09: vmLog\(str\) <a id="address-0x-09-vmlog-str"></a>
 
-0x09 주소는 특정 문자열 `str`을 특정 파일로 출력하거나 로깅 모듈에 전달하는 미리 컴파일된 컨트랙트입니다. 자세한 내용은 [debug\_setVMLogTarget](../bapp/json-rpc/api-references/debug/logging.md#debug_setvmlogtarget)를 참고해주세요. 이 컨트랙트는 오직 디버깅을 목적으로 사용되어야 하며, Klaytn 노드를 시작할 때 `--vmlog` 옵션을 활성화해야 사용할 수 있습니다. 또한 vmLog의 출력을 보려면 Klaytn 노드의 로깅 수준이 4 이상이어야 합니다. 이 미리 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
+0x09 주소는 특정 문자열 `str`을 특정 파일로 출력하거나 로깅 모듈에 전달하는 미리 컴파일된 컨트랙트입니다. 자세한 내용은 [debug\_setVMLogTarget](../../bapp/json-rpc/api-references/debug/logging.md#debug_setvmlogtarget)를 참고해주세요. 이 컨트랙트는 오직 디버깅을 목적으로 사용되어야 하며, Klaytn 노드를 시작할 때 `--vmlog` 옵션을 활성화해야 사용할 수 있습니다. 또한 vmLog의 출력을 보려면 Klaytn 노드의 로깅 수준이 4 이상이어야 합니다. 이 미리 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원하지 않습니다. 대신 아래 코드를 사용하여 이 컨트랙트를 호출할 수 있습니다.
 
 ```text
 function callVmLog(bytes memory str) public {
@@ -168,7 +174,7 @@ function feePayer() internal returns (address addr) {
 
 ## 주소 0x0B: validateSender\(\) <a id="address-0x-0-b-validatesender"></a>
 
-0x0B 주소의 미리 컴파일된 컨트랙트는 메세지 발신자의 서명을 검증합니다. Klaytn은 [주소로부터 키 쌍\(key pairs\) 분리하기](../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses) 때문에 해당 발신자가 올바르게 서명했는지 검증해야 합니다. 이를 위해 이 컨트랙트는 세 개의 매개 변수를 입력받습니다.
+0x0B 주소의 미리 컴파일된 컨트랙트는 메세지 발신자의 서명을 검증합니다. Klaytn은 [주소로부터 키 쌍\(key pairs\) 분리하기](../../klaytn/design/accounts.md#decoupling-key-pairs-from-addresses) 때문에 해당 발신자가 올바르게 서명했는지 검증해야 합니다. 이를 위해 이 컨트랙트는 세 개의 매개 변수를 입력받습니다.
 
 * 공개키를 가져오는 데에 사용되는 발신자의 주소
 * 서명을 생성하는 데에 사용된 메세지의 해시

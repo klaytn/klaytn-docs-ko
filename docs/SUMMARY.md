@@ -17,7 +17,7 @@
       * [연산 비용(Computation Cost)](klaytn/design/computation/computation-cost.md)
       * [Klaytn 가상머신](klaytn/design/computation/klaytn-virtual-machine.md)
     * [스토리지(Storage)](klaytn/design/storage.md)
-    * [트랜잭션 수수료](klaytn/design/transaction-fees.md)
+    * [트랜잭션 수수료](klaytn/design/transaction-fees/transaction-fees.md)
     * [Klaytn 자체 코인 - KLAY](klaytn/design/klaytn-native-coin-klay.md)
     * [토큰 이코노미](klaytn/design/token-economy.md)
     * [거버넌스(Governance)](klaytn/design/governance.md)
@@ -40,7 +40,7 @@
 
 * [스마트 컨트랙트](smart-contract/README.md)
   * [솔리디티 - 스마트 컨트랙트 언어](smart-contract/solidity-smart-contract-language.md)
-  * [미리 컴파일된 컨트랙트(Precompiled Contracts)](smart-contract/precompiled-contracts.md)
+  * [미리 컴파일된 컨트랙트(Precompiled Contracts)](smart-contract/precompiled-contracts/precompiled-contracts.md)
   * [IDE 및 도구](smart-contract/ide-and-tools/README.md)
     * [Klaytn IDE](toolkit/klaytn-ide.md)
     * [Truffle](toolkit/truffle.md)
