@@ -30,51 +30,57 @@
 
 * 연결할 Klaytn 체인의 EN 정보를 입력합니다.
 
+  * Cypress
+    * 네트워크 이름: Klaytn Cypress
+    * 새 RPC URL: (기본값: [https://public-node-api.klaytnapi.com/v1/cypress](https://public-node-api.klaytnapi.com/v1/cypress))
+    * 블록 탐색기 URL: [https://scope.klaytn.com/](https://scope.klaytn.com/)
+    * 체인 ID: 8217
   * Baobab
     * 네트워크 이름: Klaytn Baobab
     * 새 RPC URL: [https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651) (Default: [http://localhost:8551](http://localhost:8551/))
-    * Block Explorer URL: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
+    * 블록 탐색기 URL: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
     * 체인 ID: 1001
-  * Cypress
-    * 네트워크 이름: Klaytn Cypress
-    * 새 RPC URL: (Default: [http://localhost:8551](http://localhost:8551/))
-    * Block Explorer URL: [https://scope.klaytn.com/](https://scope.klaytn.com/)
-    * 체인 ID: 8217
   * 공통
     * 통화 기호: KLAY
 
-    > **참고:** 예제는 테스트넷(Baobab)의 Public EN으로 네트워크에 연결하였습니다. 현재는 메인넷(Cypress)에서 Public EN을 제공하고 있지 않으니 테스트넷(Baobab)으로 테스트를 진행해 주세요.
 
-* [저장]을 클릭하면 Klaytn Baobab 네트워크가 추가됩니다.
+* [Save]를 클릭하면 Klaytn Cypress 네트워크가 추가됩니다.
+
+![Network Setup and Custom RPC](./img/metamask-add-cypress-1.png) ![Network Setup and Custom RPC](./img/metamask-add-cypress-2.png)
+
+## 4단계: KLAY 보내기 <a id="send-klay"></a>
+**Note:** KLAY를 보내기 위해서는 트랜잭션을 발생시켜야 하며, 이 과정은 KLAY를 요구합니다. Klaytn Baobab 네트워크를 사용하는 경우, KLAY가 부족할 시 이 단계를 따르세요.
+
+* 우측 상단 아이콘 탭에서 [Create Account]을 클릭하여 새로운 계정을 생성합니다.
+* 계정 주소를 복사합니다.
+
+![계정 주소를 복사하세요.](./img/metamask-copy-address.png)
+
+* 드롭다운 메뉴에서 첫 번째 계정으로 전환합니다.
+* [Send]에서 받을 계정 주소와 KLAY 수량을 입력한 후 [Next]을 클릭하여 송금을 진행합니다. > **Note:** Klaytn의 가스비는 고정되어 있습니다. 임의적으로 가스비를 변경할 경우 트랜잭션이 실패할 수 있습니다. [Activity] 탭에서 거래 내역을 확인할 수 있습니다.
+
+![거래 내역](./img/metamask-send-klay.png)
+
+## Klaytn Baobab 네트워크 - 트랜잭션을 위한 KLAY 충전<a id="obtain-klay-to-make-a-transaction"></a>
+> **참고:** 예제는 테스트넷(Baobab)의 Public EN으로 네트워크에 연결하였습니다. 테스트 시에는 Baobab을 사용하세요.
+
+* [Save]을 클릭하면 Klaytn Baobab 네트워크가 추가됩니다.
 
 ![Network Setup and Custom RPC](./img/metamask-add-baobab.png)
 
-## 4단계: 송금에 필요한 KLAY 획득하기 <a id="obtain-klay-to-make-a-transaction"></a>
-
 * Klaytn Wallet의 연동 상태를 확인하기 위해서는 송금에 사용될 KLAY가 필요합니다.
-* 우측 상단 아이콘 아래 탭에서 [계정 세부 정보]를 클릭합니다.
-* [비공개 키 내보내기]를 클릭하여 private key를 획득합니다.
+* 우측 상단 아이콘 아래 탭에서 [Account details]를 클릭합니다.
+* [Export Private Key]를 클릭하여 개인 키를 획득합니다.
 
-![Export Private Key](./img/metamask-obtain-private-key.png)
+![개인 키 내보내기](./img/metamask-obtain-private-key.png)
 
 * Baobab 테스트넷에서는 [**Klaytn Faucet**](https://baobab.wallet.klaytn.com/access?next=faucet)을 이용하여 테스트에 필요한 KLAY를 받을 수 있습니다.
-* Klaytn Wallet에서 private key를 입력한 후 [Access] 버튼을 클릭해 로그인합니다. (Private key 앞에 0x를 기입합니다.)
+* Klaytn Wallet에서 개인 키를 입력한 후 [Access] 버튼을 클릭해 로그인합니다. (개인 키 앞에 0x를 기입합니다.)
 * [Run Faucet] 버튼을 클릭하세요. 5 테스트넷 KLAY가 전송되고 잔액이 업데이트됩니다. Faucet 기능은 계정당 1일 1회, 24시간마다 한 번씩 실행할 수 있습니다.
 
-![Account Sign-in and KLAY Faucet](./img/metamask-klay-faucet.png)
+![계정 로그인과 KLAY Faucet](./img/metamask-klay-faucet.png)
 
 * 메타마스크로 돌아와 보유 KLAY를 확인합니다.
+* Klaytn Baobab 네트워크의 경우 Step 4를 따르세요.
 
 ![Balance](./img/metamask-klay-received.png)
-
-## 5단계: 송금하기 <a id="send-klay"></a>
-
-* 우측 상단 아이콘 탭에서 [계정 생성]을 클릭하여 새로운 계정을 생성합니다.
-* 계정 주소를 복사합니다.
-
-![Copy the Account Address](./img/metamask-copy-address.png)
-
-* 드롭다운 메뉴에서 첫 번째 계정으로 전환합니다.
-* [보내기] 탭에서 받을 계정과 KLAY 수량을 입력한 후 [다음] 을 클릭하여 송금을 진행합니다. >**참고:** Klaytn은 Gas 값이 고정되어 있습니다. 임의 변경 시 전송 실패할 수 있습니다. [활동] 탭을 클릭하여 송금 내역을 확인합니다.
-
-![Transfer History](./img/metamask-send-klay.png)
