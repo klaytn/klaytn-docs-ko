@@ -4,10 +4,10 @@
 
 **매개변수**
 
-| 이름          | 타입                              | 설명                                                                                                                                                                                     |
-| ----------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account     | 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                                                                 |
-| 블록 번호 또는 해시 | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| 이름          | 타입                              | 설명                                                                                                                                           |
+| ----------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| account     | 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                       |
+| 블록 번호 또는 해시 | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)나 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
 
 {% hint style="success" %}
 참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
@@ -19,7 +19,7 @@
 | ------- | ---------------------------- |
 | Boolean | 입력으로 받은 주소가 존재하는지 여부를 반환합니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -48,7 +48,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | ------------------- | -------------------------- |
 | 20바이트 크기 DATA array | 클라이언트가 소유한 계정의 주소들을 반환합니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -81,7 +81,7 @@ RLP(Recursive Length Prefix)를 사용해 계정 키를 인코딩합니다.
 | DATA | RLP로 인코딩된 계정 키 |
 
 
-**예시**
+**Example**
 
 ```shell
 // Request to encode AccountKeyNil
@@ -168,7 +168,7 @@ RLP 인코딩된 계정 키를 디코딩합니다.
 | keytype | QUANTITY  | 계정 키 타입을 의미하는 정수값입니다. |
 | key     | JSON DATA | 계정 키 객체               |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -228,10 +228,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 
 **매개변수**
 
-| 이름                   | 타입                              | 설명                                                                                                                                                                                     |
-| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address              | 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                                                                 |
-| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| 이름                   | 타입                              | 설명                                                                                                                                           |
+| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| address              | 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                       |
+| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)나 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
 
 {% hint style="success" %}
 참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
@@ -243,7 +243,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 | ------- | ----------------------- |
 | Account | 계정 유형에 따라 다른 속성을 반환합니다. |
 
-**예시**
+**Example**
 
 ```shell
     // Request (Account type: Externally Owned Account)
@@ -299,14 +299,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getAccountKey <a id="klay_getaccountkey"></a>
 
-Returns the account key of the Externally Owned Account (EOA) of a given address. 해당 계정이 AccountKeyLegacy이거나 입력으로 받은 주소의 계정이 스마트 컨트랙트 계정이면 빈 값을 반환합니다. See [Account Key](../../../../klaytn/design/accounts.md#account-key).
+입력으로 받은 주소의 외부 소유 계정(EOA)에 해당하는 계정의 키를 반환합니다. 해당 계정이 AccountKeyLegacy이거나 입력으로 받은 주소의 계정이 스마트 컨트랙트 계정이면 빈 값을 반환합니다. 자세한 내용은 [계정 키](../../../../klaytn/design/accounts.md#account-key)를 참고해주세요.
 
 **매개변수**
 
-| 타입                              | 설명                                                                                                                                                                                     |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                                                                 |
-| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| 타입                              | 설명                                                                                                                                           |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                       |
+| QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)나 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
 
 {% hint style="success" %}
 참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
@@ -318,7 +318,7 @@ Returns the account key of the Externally Owned Account (EOA) of a given address
 | ---------- | ------------------------------------ |
 | AccountKey | 계정 키는 1개 이상의 공개 키와 1가지 키 타입으로 구성됩니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request (AccountKey type: AccountKeyPublic)
@@ -387,14 +387,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getBalance <a id="klay_getbalance"></a>
 
-Returns the balance of the account of given address.
+입력으로 받은 주소에 해당하는 계정의 잔액을 반환합니다.
 
 **매개변수**
 
-| 이름                   | 타입                              | 설명                                                                                                                                                                                     |
-| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address              | 20바이트 크기 DATA                   | Address to check for balance.                                                                                                                                                          |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| 이름                   | 타입                              | 설명                                                                                                                                           |
+| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| address              | 20바이트 크기 DATA                   | 잔액을 확인할 계정의 주소입니다.                                                                                                                           |
+| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)나 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
 
 {% hint style="success" %}
 참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
@@ -426,10 +426,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 타입                              | 설명                                                                                                                                                                                     |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                                                                 |
-| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| 타입                              | 설명                                                                                                                                           |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                       |
+| QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)나 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
 
 {% hint style="success" %}
 참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
@@ -441,7 +441,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | ---- | ------------------ |
 | DATA | 입력으로 받은 주소의 코드입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -458,14 +458,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getTransactionCount <a id="klay_gettransactioncount"></a>
 
-Returns the number of transactions *sent* from an address.
+어떤 주소의 계정에서 *발신된* 트랜잭션의 개수를 반환합니다.
 
 **매개변수**
 
-| 타입                              | 설명                                                                                                                                                                                     |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA                   | 주소                                                                                                                                                                                     |
-| QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| 타입                              | 설명                                                                                                                                           |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| 20바이트 크기 DATA                   | 주소                                                                                                                                           |
+| QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)나 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
 
 {% hint style="success" %}
 참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
@@ -477,7 +477,7 @@ Returns the number of transactions *sent* from an address.
 | -------- | ---------------------------------------- |
 | QUANTITY | 입력으로 받은 주소에서 발신한 트랜잭션의 개수를 정수 형태로 반환합니다. |
 
-**예시**
+**Example**
 
  ```shell
 // Request
@@ -500,10 +500,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **매개변수**
 
-| 이름                   | 타입                              | 설명                                                                                                                                                                                     |
-| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account              | 20바이트 크기 DATA                   | 계정의 주소입니다.                                                                                                                                                                             |
-| block number or hash | QUANTITY &#124; TAG &#124; HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](./block.md#the-default-block-parameter), or block hash. |
+| 이름                   | 타입                              | 설명                                                                                                                                           |
+| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| account              | 20바이트 크기 DATA                   | 계정의 주소입니다.                                                                                                                                   |
+| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)나 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
 
 {% hint style="success" %}
 참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
@@ -515,7 +515,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | ------- | --------------------------------------------- |
 | Boolean | 리턴값이 `true`이면 매개변수가 기존에 있는 스마트 컨트랙트 계정 주소입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
@@ -531,12 +531,12 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_sign <a id="klay_sign"></a>
 
-The sign method calculates a Klaytn-specific signature with:
+sign 메서드는 다음을 사용하여 Klaytn만의 서명을 계산합니다.
 ```
 sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 ```
 
-메시지에 접두사를 붙이면 계산된 서명 값이 Klaytn의 서명임을 알 수 있습니다. This prevents misuse where a malicious BApp can sign arbitrary data, *e.g.*, transaction, and use the signature to impersonate the victim.
+메시지에 접두사를 붙이면 계산된 서명 값이 Klaytn의 서명임을 알 수 있습니다. 악성 BApp이 트랜잭션 등 임의의 데이터를 서명하여 타인을 사칭할 수 없도록 방지합니다.
 
 **참고**: 서명하려는 계정은 잠금 해제되어 있어야 합니다.
 
@@ -553,7 +553,7 @@ sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 | ---- | -------- |
 | DATA | 서명 값입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
