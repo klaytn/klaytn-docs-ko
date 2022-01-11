@@ -17,9 +17,11 @@ Klaytn은 1초 블록생성 시간을 목표로 하기 때문에 트랜잭션 �
 아래 표는 EVM Opcode의 연산 비용을 보여줍니다. 연산 비용은 시뮬레이션을 통해 결정되었습니다.
 
 {% hint style="success" %}
-NOTE: Klaytn v1.7.0에서 도입된 protocol upgrade, 또는 "hard fork" 활성화부터는, 일부 연산 비용이 변경되었습니다. Baobab 네트워크의 경우 프로토콜 업데이트는 블록번호 `#75373312`번 부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
+참고: 연산 비용은 프로토콜 업그레이드(하드포크)와 함께 변경되었습니다. 이전 문서는 [이전 문서](computation-cost-previous.md)를 참고해주세요.
 
-이전 문서는 [이전 문서](computation-cost-previous.md)를 참고해주세요.
+v1.7.0 프로토콜 업그레이드 - **Istanbul** 하드포크 및 Klaytn의 자체 사항들을 포함하는 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#75373312`부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
+
+v1.7.3 프로토콜 업그레이드 - **London** 하드 포크의 Base Fee를 포함한 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#80295291`부터 적용됩니다. Cypress 메인넷의 경우 다음 버전부터 프로토콜 업그레이드가 반영됩니다.
 {% endhint %}
 
 | Opcode         | 연산 비용 |
@@ -168,4 +170,4 @@ NOTE: Klaytn v1.7.0에서 도입된 protocol upgrade, 또는 "hard fork" 활성�
 | STATICCALL     | 10000 |
 | REVERT         |     0 |
 | SELFDESTRUCT   |     0 |
-
+| BASEFEE        |   198 |
