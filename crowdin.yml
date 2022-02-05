@@ -6,7 +6,7 @@
 
 "files": [
   {
-    "source": "/sources/**/*.xml",
+    "source": "/klaytn-docs/master/*.md",
     "translation": "/translations/%two_letters_code%/docs",
     "update_option": "", #optional
     "excluded_target_languages": "", #optional
