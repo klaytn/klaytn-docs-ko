@@ -1,7 +1,7 @@
 "project_id": "366639"        #open project and go to Integrations > API
 "api_token": "cf2cce0cbef736458177f0374fa3d346beb0358975c5f6243f46994ade527be1f6a0b84adfeb0dcb"          #open profile settings and go to API > New Token > create Token
-"base_path": "folder"  #optional
-"branch": "master"  #optional
+"base_path": ""  #optional
+"branch": "dev"  #optional
 
 "files": [
   {
