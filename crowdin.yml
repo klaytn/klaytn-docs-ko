@@ -1,12 +1,13 @@
 "project_id": "366639"        #open project and go to Integrations > API
-"api_token": "cf2cce0cbef736458177f0374fa3d346beb0358975c5f6243f46994ade527be1f6a0b84adfeb0dcb"          #open profile settings and go to API > New Token > create Token
+"api_token": "cf2cce0cbef736458177f0374fa3d346beb0358975c5f6243f46994ade527be1f6a0b84adfeb0dcb"
+"preserve_hierarchy": true
 "base_path": ""  #optional
 "branch": "dev"  #optional
 
 "files": [
   {
     "source": "/sources/**/*.xml",
-    "translation": "/translations/%two_letters_code%/%original_file_name%",
+    "translation": "/translations/%two_letters_code%/docs",
     "update_option": "", #optional
     "excluded_target_languages": "", #optional
     "labels": "" #optional
