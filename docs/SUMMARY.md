@@ -7,7 +7,7 @@
   * [완결성과 개선사항](klaytn2/finality-and-improvements.md)
   * [이더리움 동일성](klaytn2/ethereum-compatibility.md)
   * [거버넌스 탈중앙화](klaytn2/decentralizing-governance.md)
-  * [Massive Eco Fund](klaytn2/massive-ecofund.md)
+  * [대규모 에코펀드](klaytn2/massive-ecofund.md)
 
 * [Klaytn 개요](klaytn/README.md)
   * [Why Klaytn](klaytn/why-klaytn.md)
