@@ -3,9 +3,9 @@
 * [Welcome](README.md)
 
 * [Klaytn 2.0](klaytn2/README.md)
-  * [Metaverse Package](klaytn2/metaverse-package.md)
-  * [Finality and Improvements](klaytn2/finality-and-improvements.md)
-  * [Ethereum Compatibility](klaytn2/ethereum-compatibility.md)
+  * [메타버스 패키지](klaytn2/metaverse-package.md)
+  * [완결성과 개선사항](klaytn2/finality-and-improvements.md)
+  * [이더리움 동일성](klaytn2/ethereum-compatibility.md)
   * [거버넌스 탈중앙화](klaytn2/decentralizing-governance.md)
   * [Massive Eco Fund](klaytn2/massive-ecofund.md)
 
