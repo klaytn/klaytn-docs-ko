@@ -1,6 +1,6 @@
 # Welcome
 
-Klaytn Docs는 수백만 사용자들에게 사용자 친화적인 블록체인 경험을 제공하는 서비스 중심의 엔터프라이즈급 플랫폼인 [클레이튼](https://www.klaytn.com)을 소개합니다. In the following documents, we explain what Klaytn is and provide guidelines and instructions on how to use Klaytn, as well as how to interact with the Klaytn network.
+Klaytn Docs는 수백만 사용자들에게 사용자 친화적인 블록체인 경험을 제공하는 서비스 중심의 엔터프라이즈급 플랫폼인 [클레이튼](https://www.klaytn.com)을 소개합니다. 다음 문서들은 Klaytn이 무엇이고 어떻게 사용하는지 알려주며 Klaytn 네트워크와 어떻게 상호작용할 수 있는지 상세 지침을 제공합니다. Klaytn의 비전, 미션, 미래 계획 등을 더 알고 싶으시면, [Klaytn 포지션 페이퍼](https://www.klaytn.com/Klaytn_PositionPaper_V2.1.0.pdf)를 참고해주세요.
 
 | 문서                          | 설명                                                                                           |
 | --------------------------- | -------------------------------------------------------------------------------------------- |
