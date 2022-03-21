@@ -22,7 +22,7 @@ Instead, you can contribute to the translation on the [Crowdin](https://crowdin.
 
 Note: **Do NOT push to `klaytn-docs:l10n` directly.** It will be overwritten by Crowdin and the changes will get lost.
 
-To start translating, follow the link - https://crwd.in/klaytn-docs. 
+To start translating, follow the [link](https://crowdin.com/project/klaytn-docs/invite?d=85n6j4j675t683c3h463e3t6c3q4r48383d3)
 
 ## Want to Contribute to Klaytn Docs? <a id="want-to-contribute"></a>
 
