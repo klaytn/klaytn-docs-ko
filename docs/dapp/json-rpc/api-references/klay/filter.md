@@ -2,7 +2,7 @@
 
 필터에 대한 폴링 방법으로, 최근 폴링 이후 발생한 로그를 배열의 형태로 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입     | 설명                               |
 | -------- | ------ | -------------------------------- |
@@ -31,7 +31,7 @@
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getFilterChanges","params":["0x16"],"id":73}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getFilterChanges","params":["0x16"],"id":73}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -75,7 +75,7 @@ See [klay_getFilterChanges](#klay_getfilterchanges)
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getFilterLogs","params":["0xd32fd16b6906e67f6e2b65dcf48fc272"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getFilterLogs","params":["0xd32fd16b6906e67f6e2b65dcf48fc272"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -113,7 +113,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | fromBlock | QUANTITY &#124; TAG         | (선택 사항, 기본값: `"latest"`)정수 또는 16진수 형태의 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다.                                     |
 | toBlock   | QUANTITY &#124; TAG         | (선택 사항, 기본값: `"latest"`)정수 또는 16진수 형태의 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다.                                     |
 | address   | 20바이트 크기의 DATA &#124; Array | (선택 사항) 로그를 발생시킨 컨트랙트 주소 또는 주소들의 목록입니다.                                                                                                                                                         |
-| topics    | DATA array                  | (선택 사항) 32바이트 크기 DATA 형태의 토픽으로 이루어진 배열입니다. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                                                                               |
+| topics    | DATA 배열                     | (선택 사항) 32바이트 크기 DATA 형태의 토픽으로 이루어진 배열입니다. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                                                                               |
 | blockHash | 32바이트 크기 DATA               | (선택 사항) 32바이트 길이의 해시 blockHash를 사용하여 단일 블록으로 반환된 로그를 제한하는 필터 옵션입니다. blockHash를 사용하면, blockHash로 지정한 블록의 번호가 fromBlock, toBlock과 같아집니다. 따라서 필터 기준에 blockHash가 있으면 fromBlock과 toBlock이 허용되지 않습니다. |
 
 {% hint style="success" %}
@@ -128,7 +128,7 @@ See [klay_getFilterChanges](#klay_getfilterchanges)
 
 ```shell
 // Request
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getLogs","params":[{"fromBlock":"0x1","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b"}],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getLogs","params":[{"fromBlock":"0x1","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b"}],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -185,7 +185,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 
 ```shell
 // Request
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getLogs","params":[{"fromBlock":"earliest","toBlock":"latest","topics":["0xc7b359b1e189b7d721be7f0765a8d745be718566b8e67cbd2728dae5d6fd64b6"]}],"id":2}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getLogs","params":[{"fromBlock":"earliest","toBlock":"latest","topics":["0xc7b359b1e189b7d721be7f0765a8d745be718566b8e67cbd2728dae5d6fd64b6"]}],"id":2}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -259,7 +259,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_newBlockFilter","params":[],"id":73}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_newBlockFilter","params":[],"id":73}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -292,7 +292,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | fromBlock | QUANTITY &#124; TAG         | (선택 사항, 기본값: `"latest"`)정수 또는 16진수 형태의 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
 | toBlock   | QUANTITY &#124; TAG         | (선택 사항, 기본값: `"latest"`)정수 또는 16진수 형태의 블록 번호 또는 [기본 블록 매개변수](#the-default-block-parameter)에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
 | address   | 20바이트 크기의 DATA &#124; Array | (선택 사항) 로그를 발생시킨 컨트랙트 주소 또는 주소들의 목록입니다.                                                                                                                     |
-| topics    | DATA array                  | (선택 사항) 32바이트 크기 DATA 형태의 토픽으로 이루어진 배열입니다. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                                           |
+| topics    | DATA 배열                     | (선택 사항) 32바이트 크기 DATA 형태의 토픽으로 이루어진 배열입니다. 토픽은 순서에 따라 다릅니다. 각 토픽은 “or” 옵션과 함께 DATA 배열이 될 수도 있습니다.                                                           |
 
 {% hint style="success" %}
 참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
@@ -308,7 +308,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ```shell
 // Request
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_newFilter","params":[{"fromBlock":"earliest","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b","topics":["0xd596fdad182d29130ce218f4c1590c4b5ede105bee36690727baa6592bd2bfc8"]}],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_newFilter","params":[{"fromBlock":"earliest","toBlock":"latest","address":"0x87ac99835e67168d4f9a40580f8f5c33550ba88b","topics":["0xd596fdad182d29130ce218f4c1590c4b5ede105bee36690727baa6592bd2bfc8"]}],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0xd32fd16b6906e67f6e2b65dcf48fc272"}
@@ -333,7 +333,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"kl
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_newPendingTransactionFilter","params":[],"id":73}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_newPendingTransactionFilter","params":[],"id":73}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -354,7 +354,7 @@ Websockets을 통한 RPC Pub/Sub 또는 HTTP를 통한 필터를 이용하여 �
 `Object` -알림 타입: `"newHeads"` 또는 `"logs"`.
 
 
-`"newHeads"`는 블록체인에 블록이 추가될 때 매번 알림을 보냅니다. `"logs"`는 새 블록에 포함된 로그에 대해 알림을 보냅니다. 이러한 타입은 필터 옵션을 구체화하는 두 번째 매개변수를 필요로 합니다. 더 자세한 내용은 [klay_newFilter > parameters](https://docs.klaytn.com/bapp/json-rpc/api-references/klay/filter#klay_newfilter)를 참고하세요.
+`"newHeads"`는 블록체인에 블록이 추가될 때 매번 알림을 보냅니다. `"logs"`는 새 블록에 포함된 로그에 대해 알림을 보냅니다. 이러한 타입은 필터 옵션을 구체화하는 두 번째 매개변수를 필요로 합니다. For more details, go to [klay_newFilter > parameters](https://docs.klaytn.com/dapp/json-rpc/api-references/klay/filter#klay_newfilter).
 
 **리턴값**
 
@@ -394,9 +394,9 @@ wscat -c http://localhost:8552
 
 **Parameters**
 
-| 이름     | 타입       | 설명        |
-| ------ | -------- | --------- |
-| filter | QUANTITY | 필터 ID입니다. |
+| 이름 | 타입       | 설명        |
+| -- | -------- | --------- |
+| 필터 | QUANTITY | 필터 ID입니다. |
 
 **리턴값**
 
@@ -408,7 +408,7 @@ wscat -c http://localhost:8552
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_uninstallFilter","params":["0xb"],"id":73}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_uninstallFilter","params":["0xb"],"id":73}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
