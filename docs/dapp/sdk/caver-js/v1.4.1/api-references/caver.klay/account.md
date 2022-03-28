@@ -35,9 +35,9 @@ caver.klay.accountCreated(address [, defaultBlock] [, callback])
 
 **참고** accountCreated는 계정이 네트워크에 있는 지 확인하므로, 키 쌍이 생성 되었다 하더라도 주소와 일치하는 계정이 실제 블록체인 네트워크에 존재하지 않으면 false가 반환됩니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭           | 형식                   | 설명                                                                                                 |
+| 이름           | 타입                   | 설명                                                                                                 |
 | ------------ | -------------------- | -------------------------------------------------------------------------------------------------- |
 | address      | String               | 네트워크에 존재하는지 확인하고 싶은 계정 주소입니다.                                                                      |
 | defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)에 설정된 기본 블록을 사용하지 않습니다.. |
@@ -67,9 +67,9 @@ caver.klay.getAccount(address[, defaultBlock] [, callback])
 
 **참고** getAccount는 계정이 네트워크에 있는 경우에만 계정을 반환하므로 키 쌍이 생성 되었다 하더라도 주소와 일치하는 계정이 실제 블록체인 네트워크에 존재하지 않으면 null이 반환됩니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭           | 형식                   | 설명                                                                                                 |
+| 이름           | 타입                   | 설명                                                                                                 |
 | ------------ | -------------------- | -------------------------------------------------------------------------------------------------- |
 | address      | String               | 계정 정보를 알고 싶은 계정 주소입니다.                                                                             |
 | defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)에 설정된 기본 블록을 사용하지 않습니다.. |
@@ -116,9 +116,9 @@ caver.klay.getAccounts([callback])
 
 노드에 생성된 계정 목록을 반환합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭       | 형식       | 설명                                                                   |
+| 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
@@ -144,9 +144,9 @@ Returns the account key of the Externally Owned Account (EOA) of the given addre
 
 **참고** getAccountKey는 계정이 네트워크에 있는 경우에만 계정 키를 반환하므로 키 쌍이 생성 되었다 하더라도 주소와 일치하는 계정이 실제 블록체인 네트워크에 존재하지 않으면 null이 반환됩니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭           | 형식                   | 설명                                                                                                 |
+| 이름           | 타입                   | 설명                                                                                                 |
 | ------------ | -------------------- | -------------------------------------------------------------------------------------------------- |
 | address      | String               | 계정 키를 알고 싶은 계정 주소입니다.                                                                              |
 | defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)에 설정된 기본 블록을 사용하지 않습니다.. |
@@ -249,9 +249,9 @@ caver.klay.getBalance(address [, defaultBlock] [, callback])
 ```
 주어진 블록에 있는 주소의 잔액을 반환합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭           | 형식                   | 설명                                                                                                 |
+| 이름           | 타입                   | 설명                                                                                                 |
 | ------------ | -------------------- | -------------------------------------------------------------------------------------------------- |
 | address      | String               | 잔액을 알고 싶은 주소입니다.                                                                                   |
 | defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)에 설정된 기본 블록을 사용하지 않습니다.. |
@@ -277,9 +277,9 @@ caver.klay.getCode(address [, defaultBlock] [, callback])
 ```
 특정 주소의 코드를 반환합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭           | 형식                   | 설명                                                                                                 |
+| 이름           | 타입                   | 설명                                                                                                 |
 | ------------ | -------------------- | -------------------------------------------------------------------------------------------------- |
 | address      | String               | 코드를 알고 싶은 주소입니다.                                                                                   |
 | defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)에 설정된 기본 블록을 사용하지 않습니다.. |
@@ -306,9 +306,9 @@ caver.klay.getTransactionCount(address [, blockNumber] [, callback])
 ```
 이 주소에서 발신된 트랜잭션의 개수를 반환합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭          | 형식                   | 설명                                                                                                                                                                                                         |
+| 이름          | 타입                   | 설명                                                                                                                                                                                                         |
 | ----------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address     | String               | 발신한 트랜잭션 개수를 확인할 주소입니다.                                                                                                                                                                                    |
 | blockNumber | number &#124; string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the [default block parameter](./block.md#defaultblock). 이 값을 생략하면 `latest`가 기본값으로 사용됩니다. |
@@ -316,7 +316,7 @@ caver.klay.getTransactionCount(address [, blockNumber] [, callback])
 
 **리턴값**
 
-| 형식     | 설명                        |
+| 타입     | 설명                        |
 | ------ | ------------------------- |
 | Number | 주어진 주소에서 발신된 트랜잭션의 개수입니다. |
 
@@ -336,9 +336,9 @@ caver.klay.isContractAccount(address [, defaultBlock] [, callback])
 
 특정 번호의 블록 시간에서 입력으로 받은 계정의 codeHash가 비어 있지 않은 경우 `true`를 반환합니다. 해당 계정이 EOA이거나 codeHash가 비어 있는 스마트 컨트랙트 계정이면 `false`를 반환합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭           | 형식                   | 설명                                                                                                 |
+| 이름           | 타입                   | 설명                                                                                                 |
 | ------------ | -------------------- | -------------------------------------------------------------------------------------------------- |
 | address      | String               | isContractAccount로 확인할 계정 주소입니다.                                                                   |
 | defaultBlock | Number &#124; String | (선택 사항) 이 파라미터에 값을 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)에 설정된 기본 블록을 사용하지 않습니다.. |
@@ -368,9 +368,9 @@ Klaytn 네트워크에서 사용하는 서명된 데이터를 생성합니다. R
 
 **참고**: 이 API는 노드에 있는 계정으로 메시지에 서명하는 기능을 제공합니다. 노드에 있는 계정은 반드시 잠금 해제되어야 메시지에 서명할 수 있습니다. To sign a transaction, use [caver.klay.signTransaction](./transaction.md#signtransaction).
 
-**매개변수**
+**Parameters**
 
-| 명칭       | 형식       | 설명                                                                   |
+| 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | 메시지      | String   | 서명하려는 메시지입니다.                                                        |
 | address  | String   | 메시지에 서명하는 계정 주소입니다.                                                  |
