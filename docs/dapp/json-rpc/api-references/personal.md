@@ -19,7 +19,7 @@ description: >-
 |  콘솔   | `personal.importRawKey(keydata, passphrase)`                           |
 |  RPC  | `{"method": "personal_importRawKey", "params": [keydata, passphrase]}` |
 
-**파라미터**
+**Parameters**
 
 | 이름         | 타입     | 설명                                                                                                                      |
 | ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------- |
@@ -45,9 +45,9 @@ description: >-
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_importRawKey","params":["{private key}", "mypassword"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_importRawKey","params":["{private key}", "mypassword"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":"0xda04fb00e2cb5745cef7d8c4464378202a1673ef"}
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_importRawKey","params":["{private key}0x000x{address}", "mypassword"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_importRawKey","params":["{private key}0x000x{address}", "mypassword"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":"0xda04fb00e2cb5745cef7d8c4464378202a1673ef"}
 ```
 
@@ -60,7 +60,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 |  콘솔   | `personal.listAccounts`                             |
 |  RPC  | `{"method": "personal_listAccounts", "params": []}` |
 
-**파라미터**
+**Parameters**
 
 없음
 
@@ -81,7 +81,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_listAccounts","params":[],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_listAccounts","params":[],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":["0xd8d81f52b595cc6135177c9c34ae6130ecad4636","0xda04fb00e2cb5745cef7d8c4464378202a1673ef"]}
 ```
 
@@ -94,7 +94,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 |  콘솔   | `personal.listWallets`                             |
 |  RPC  | `{"method": "personal_listWallets", "params": []}` |
 
-**파라미터**
+**Parameters**
 
 없음
 
@@ -123,7 +123,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_listWallets","params":[],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_listWallets","params":[],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":[{"url":"keystore:///","status":"Locked","accounts":[{"address":"0x336010a2f91728ffe01414a87ae5d8af55f310c6","url":"keystore://"}]}]}
 ```
 
@@ -140,14 +140,14 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 |  콘솔   | `personal.openWallet(url, passhrase)`                            |
 |  RPC  | `{"method": "personal_openWallet", "params": [url, passphrase]}` |
 
-**파라미터**
+**Parameters**
 
 | 이름         | 타입     | 설명           |
 | ---------- | ------ | ------------ |
 | URL        | string | 지갑 URL입니다.   |
 | Passphrase | string | 지갑의 비밀번호입니다. |
 
-**리턴값입니다.**
+**리턴값**
 
 | 이름 | 타입    | 설명        |
 | -- | ----- | --------- |
@@ -162,7 +162,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_openWallet","params":["keystore://", "passphrase"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_openWallet","params":["keystore://", "passphrase"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -175,7 +175,7 @@ HD 지갑이 새로운 계정을 도출하도록 요청하며, 추후 사용을 
 |  콘솔   | `personal.deriveAccount(url, path, pin)`                           |
 |  RPC  | `{"method": "personal_deriveAccount", "params": [url, path, pin]}` |
 
-**파라미터**
+**Parameters**
 
 | 이름   | 타입      | 설명         |
 | ---- | ------- | ---------- |
@@ -185,10 +185,10 @@ HD 지갑이 새로운 계정을 도출하도록 요청하며, 추후 사용을 
 
 **리턴값**
 
-| 이름          | 타입     | 설명             |
-| ----------- | ------ | -------------- |
-| 계정(Account) | string | 새로운 계정의 주소입니다. |
-| 에러          | error  | 오류 조건입니다.      |
+| 이름      | 타입     | 설명             |
+| ------- | ------ | -------------- |
+| Account | string | 새로운 계정의 주소입니다. |
+| 에러      | error  | 오류 조건입니다.      |
 
 **예시**
 
@@ -199,7 +199,7 @@ HD 지갑이 새로운 계정을 도출하도록 요청하며, 추후 사용을 
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_deriveAccount","params":[url, path, pin],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_deriveAccount","params":[url, path, pin],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":"0xed1b12248aee85a32aead06c7789d3fcdcd4dae6"}
 ```
 
@@ -214,7 +214,7 @@ Klaytn 콘솔에서 비밀번호가 매개변수로 주어지지 않으면 `newA
 |  콘솔   | `personal.newAccount(passphrase)`                           |
 |  RPC  | `{"method": "personal_newAccount", "params": [passphrase]}` |
 
-**파라미터**
+**Parameters**
 
 | 이름         | 타입     | 설명                         |
 | ---------- | ------ | -------------------------- |
@@ -245,7 +245,7 @@ Repeat passphrase:
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_newAccount","params":["helloWorld"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_newAccount","params":["helloWorld"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":"0xed1b12248aee85a32aead06c7789d3fcdcd4dae6"}
 ```
 
@@ -259,7 +259,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 |  콘솔   | `personal.lockAccount(address)`                           |
 |  RPC  | `{"method": "personal_lockAccount", "params": [address]}` |
 
-**파라미터**
+**Parameters**
 
 | 이름      | 타입     | 설명            |
 | ------- | ------ | ------------- |
@@ -280,7 +280,7 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_lockAccount","params":["0xda04fb00e2cb5745cef7d8c4464378202a1673ef"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_lockAccount","params":["0xda04fb00e2cb5745cef7d8c4464378202a1673ef"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -300,7 +300,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 |  콘솔   | `personal.unlockAccount(address, passphrase, duration)`                           |
 |  RPC  | `{"method": "personal_unlockAccount", "params": [address, passphrase, duration]}` |
 
-**파라미터**
+**Parameters**
 
 | 이름         | 타입     | 설명                                     |
 | ---------- | ------ | -------------------------------------- |
@@ -341,7 +341,7 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_unlockAccount","params":["0xda04fb00e2cb5745cef7d8c4464378202a1673ef","mypassword"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_unlockAccount","params":["0xda04fb00e2cb5745cef7d8c4464378202a1673ef","mypassword"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -356,7 +356,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 |  콘솔   | `personal.replaceRawKey(keydata, oldPassphrase, newPassphrase)`                           |
 |  RPC  | `{"method": "personal_replaceRawKey", "params": [keydata, oldPassphrase, newPassphrase]}` |
 
-**파라미터**
+**Parameters**
 
 | 이름            | 타입     | 설명                                                                                                                      |
 | ------------- | ------ | ----------------------------------------------------------------------------------------------------------------------- |
@@ -381,9 +381,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_replaceRawKey","params":["{private key}", "myoldpassword", mypassword"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_replaceRawKey","params":["{private key}", "myoldpassword", mypassword"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":"0xda04fb00e2cb5745cef7d8c4464378202a1673ef"}
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_replaceRawKey","params":["{private key}0x000x{address}", "myoldpassword", mypassword"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_replaceRawKey","params":["{private key}0x000x{address}", "myoldpassword", mypassword"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":"0xda04fb00e2cb5745cef7d8c4464378202a1673ef"}
 ```
 
@@ -396,7 +396,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 |  콘솔   | `personal.sendAccountUpdate(tx, passphrase)`                           |
 |  RPC  | `{"method": "personal_sendAccountUpdate", "params": [tx, passphrase]}` |
 
-**파라미터**
+**Parameters**
 
 | 이름         | 타입     | 설명                                             |
 | ---------- | ------ | ---------------------------------------------- |
@@ -422,7 +422,7 @@ HTTP RPC
 
 **참고**: `klay.toPeb()` 함수는 HTTP RPC를 통해 실행할 수 없습니다.
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendAccountUpdate","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","key":"0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8"}, "passphrase"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendAccountUpdate","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","key":"0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8"}, "passphrase"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
 ```
 
@@ -435,7 +435,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 |  콘솔   | `personal.sendTransaction(tx, passphrase)`                           |
 |  RPC  | `{"method": "personal_sendTransaction", "params": [tx, passphrase]}` |
 
-**파라미터**
+**Parameters**
 
 | 이름         | 타입     | 설명                                                                                            |
 | ---------- | ------ | --------------------------------------------------------------------------------------------- |
@@ -461,7 +461,7 @@ HTTP RPC
 
 **참고**: `klay.toPeb()` 함수는 HTTP RPC를 통해 실행할 수 없습니다.
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendTransaction","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","to":"0xafa3f8684e54059998bc3a7b0d2b0da075154d66","value":"0x1230000000"},"passphrase"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendTransaction","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","to":"0xafa3f8684e54059998bc3a7b0d2b0da075154d66","value":"0x1230000000"},"passphrase"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
 ```
 
@@ -474,7 +474,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 |  콘솔   | `personal.sendValueTransfer(tx, passphrase)`                           |
 |  RPC  | `{"method": "personal_sendValueTransfer", "params": [tx, passphrase]}` |
 
-**파라미터**
+**Parameters**
 
 | 이름         | 타입     | 설명                                                     |
 | ---------- | ------ | ------------------------------------------------------ |
@@ -500,7 +500,7 @@ HTTP RPC
 
 **참고**: `klay.toPeb()` 함수는 HTTP RPC를 통해 실행할 수 없습니다.
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendValueTransfer","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","to":"0xafa3f8684e54059998bc3a7b0d2b0da075154d66","value":"0x1230000000"},"passphrase"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sendValueTransfer","params":[{"from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4","to":"0xafa3f8684e54059998bc3a7b0d2b0da075154d66","value":"0x1230000000"},"passphrase"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":"0x26a7a8ba619a5e3e4d742c217f55f49591a5616b200c976bd58a966a05e294b7"}
 ```
 
@@ -517,7 +517,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 |  콘솔   | `personal.sign(message, account, password)`                           |
 |  RPC  | `{"method": "personal_sign", "params": [message, account, password]}` |
 
-**파라미터**
+**Parameters**
 
 | 이름       | 타입     | 설명                        |
 | -------- | ------ | ------------------------- |
@@ -540,7 +540,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sign","params":["0xdead","0xda04fb00e2cb5745cef7d8c4464378202a1673ef","mypassword"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sign","params":["0xdead","0xda04fb00e2cb5745cef7d8c4464378202a1673ef","mypassword"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":"0xccb8cce176b01fdc8f7ac3c101b8eb3b9005e938a60800e517624419dd8b7fba0e4598bdf1c4fa1743e1288e89b8b7090cc11f4b3640aafcbc71896ec73eec241b"}
 ```
 
@@ -552,7 +552,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 참고: 보안이 되지 않은 HTTP RPC 연결을 통해 계정 비밀번호를 전송하는 것은 매우 위험합니다. [klay_signTransaction](./klay/transaction.md#klay_signtransaction)를 참고하세요.
 {% endhint %}
 
-**파라미터**
+**Parameters**
 
 필수적으로 있어야 하는 파라미터들은 트랜잭션 타입에 따라 다릅니다. [Working with Klaytn Transaction Types](./klay/transaction/transaction-type-support.md)에서 적절한 파라미터를 확인하십시오.
 
@@ -599,9 +599,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"pe
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sign","params":["0xdead","0xda04fb00e2cb5745cef7d8c4464378202a1673ef","mypassword"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sign","params":["0xdead","0xda04fb00e2cb5745cef7d8c4464378202a1673ef","mypassword"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":"0xccb8cce176b01fdc8f7ac3c101b8eb3b9005e938a60800e517624419dd8b7fba0e4598bdf1c4fa1743e1288e89b8b7090cc11f4b3640aafcbc71896ec73eec241b"}
 
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_ecRecover","params":["0xdead","0xccb8cce176b01fdc8f7ac3c101b8eb3b9005e938a60800e517624419dd8b7fba0e4598bdf1c4fa1743e1288e89b8b7090cc11f4b3640aafcbc71896ec73eec241b"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_ecRecover","params":["0xdead","0xccb8cce176b01fdc8f7ac3c101b8eb3b9005e938a60800e517624419dd8b7fba0e4598bdf1c4fa1743e1288e89b8b7090cc11f4b3640aafcbc71896ec73eec241b"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":"0xda04fb00e2cb5745cef7d8c4464378202a1673ef"}
 ```

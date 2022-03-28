@@ -19,15 +19,15 @@ Namespace `txpool` API는 몇몇 비표준 RPC 메서드에 접근하여 현재 
 |  콘솔   | `txpool.content`               |
 |  RPC  | `{"method": "txpool_content"}` |
 
-**매개변수**
+**Parameters**
 
 없음
 
 **리턴값**
 
-| 타입          | 설명             |
-| ----------- | -------------- |
-| JSON string | 트랜잭션 풀의 내용입니다. |
+| 타입       | 설명             |
+| -------- | -------------- |
+| JSON 문자열 | 트랜잭션 풀의 내용입니다. |
 
 **예시**
 
@@ -127,7 +127,7 @@ Namespace `txpool` API는 몇몇 비표준 RPC 메서드에 접근하여 현재 
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"txpool_content","id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"txpool_content","id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":{"pending":{},"queued":{}}}
 #There is no pending transaction nor queued transaction.
 ```
@@ -144,15 +144,15 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
 |  콘솔   | `txpool.inspect`               |
 |  RPC  | `{"method": "txpool_inspect"}` |
 
-**매개변수**
+**Parameters**
 
 없음
 
 **리턴값**
 
-| 타입          | 설명                            |
-| ----------- | ----------------------------- |
-| JSON string | 보류 상태이거나 대기 상태인 트랜잭션들의 목록입니다. |
+| 타입       | 설명                            |
+| -------- | ----------------------------- |
+| JSON 문자열 | 보류 상태이거나 대기 상태인 트랜잭션들의 목록입니다. |
 
 **예시**
 
@@ -209,7 +209,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"txpool_inspect","id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"txpool_inspect","id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":{"pending":{"0x1A789E38cD567a00b7Fb8e1D39100ac395fa463B":{"0":"0x87AC99835e67168d4f9a40580f8F5C33550bA88b: 0 peb + 99000000 gas × 25000000000 peb"},"0xAb552FC3d76de919c74435A4C6B04576a9763934":{"0":"0x87AC99835e67168d4f9a40580f8F5C33550bA88b: 0 peb + 99000000 gas × 25000000000 peb"}},"queued":{}}}
 ```
 
@@ -225,7 +225,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
 |  콘솔   | `txpool.status`               |
 |  RPC  | `{"method": "txpool_status"}` |
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -250,6 +250,6 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"txpool_status","id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"txpool_status","id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":{"pending":"0x0","queued":"0x0"}}
 ```
