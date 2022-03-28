@@ -4,7 +4,7 @@
 
 입력된 데이터의 Keccak-256(이 해시 함수는 표준 SHA3-256가 아닙니다) 해시를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름   | 타입   | 설명                   |
 | ---- | ---- | -------------------- |
@@ -21,7 +21,7 @@
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_sha3","params":["0x11223344"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_sha3","params":["0x11223344"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
