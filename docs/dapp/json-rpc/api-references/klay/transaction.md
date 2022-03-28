@@ -2,7 +2,7 @@
 
 블록체인에 트랜잭션을 생성하지 않고 즉시 새 메시지 호출을 합니다. 결과 데이터를 반환하거나 또는 에러가 발생하면 JSON RPC의 에러 객체를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름                | 타입                              | 설명                                                                                                                                           |
 | ----------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -40,7 +40,7 @@
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_call", "params": [{"from": "0x3f71029af4e252b25b9ab999f77182f0cd3bc085", "to": "0x87ac99835e67168d4f9a40580f8f5c33550ba88b", "gas": "0x100000", "gasPrice": "0x5d21dba00", "value": "0x0", "data": "0x8ada066e"}, "latest"], "id": 1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_call", "params": [{"from": "0x3f71029af4e252b25b9ab999f77182f0cd3bc085", "to": "0x87ac99835e67168d4f9a40580f8f5c33550ba88b", "gas": "0x100000", "gasPrice": "0x5d21dba00", "value": "0x0", "data": "0x8ada066e"}, "latest"], "id": 1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0x000000000000000000000000000000000000000000000000000000000000000a"}
@@ -77,7 +77,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 **예시**
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_estimateGas", "params": [{"from": "0x3f71029af4e252b25b9ab999f77182f0cd3bc085", "to": "0x87ac99835e67168d4f9a40580f8f5c33550ba88b", "gas": "0x100000", "gasPrice": "0x5d21dba00", "value": "0x0", "data": "0x8ada066e"}], "id": 1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_estimateGas", "params": [{"from": "0x3f71029af4e252b25b9ab999f77182f0cd3bc085", "to": "0x87ac99835e67168d4f9a40580f8f5c33550ba88b", "gas": "0x100000", "gasPrice": "0x5d21dba00", "value": "0x0", "data": "0x8ada066e"}], "id": 1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -103,7 +103,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 **예시**
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_estimateComputationCost","params":[{"from":"0x73718c4980728857f3aa5148e9d1b471efa3a7dd", "to":"0x069942a3ca0dabf495dba872533134205764bc9c", "value":"0x0", "data":"0x2a31efc7000000000000000000000000000000000000000000000000000000000000271000000000000000000000000000000000000000000000000000000000000000420000000000000000000000000000000000000000000000000000000000003039"}, "latest"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_estimateComputationCost","params":[{"from":"0x73718c4980728857f3aa5148e9d1b471efa3a7dd", "to":"0x069942a3ca0dabf495dba872533134205764bc9c", "value":"0x0", "data":"0x2a31efc7000000000000000000000000000000000000000000000000000000000000271000000000000000000000000000000000000000000000000000000000000000420000000000000000000000000000000000000000000000000000000000003039"}, "latest"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -131,7 +131,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionByBlockHashAndIndex","params":["0x451cafae98d61b7458b5cef54402830941432278184453e3ca490eb687317e68", "0x0"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionByBlockHashAndIndex","params":["0x451cafae98d61b7458b5cef54402830941432278184453e3ca490eb687317e68", "0x0"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -186,7 +186,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 **예시**
 
 ```shell
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionByBlockNumberAndIndex","params":["0x27", "0x0"],"id":1}' http://localhost:8551
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionByBlockNumberAndIndex","params":["0x27", "0x0"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -233,36 +234,36 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 `객체` - 트랜잭션 객체를 반환하거나 또는 해당하는 트랜잭션을 찾을 수 없는 경우 `null`을 반환합니다.
 
-| 이름                 | 타입            | 설명                                                                                                                                                                |
-| ------------------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | 32바이트 크기 DATA | 트랜잭션이 담긴 블록의 해시입니다. 보류 중인 상태이면 `null`을 반환합니다.                                                                                                                     |
-| blockNumber        | QUANTITY      | 트랜잭션이 담긴 블록의 번호입니다. 보류 중인 상태이면 `null`을 반환합니다.                                                                                                                     |
-| codeFormat         | String        | (선택사항) 스마트 컨트랙트 코드의 코드 형식입니다.                                                                                                                                     |
-| feePayer           | 20바이트 크기 DATA | (선택사항) 트랜잭션 수수료 납부자의 주소입니다.                                                                                                                                       |
-| feePayerSignatures | Array         | (선택사항) 트랜잭션 수수료 납부자의 서명 객체들로 이루어진 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                  |
-| feeRatio           | QUANTITY      | (선택사항) 트랜잭션 수수료 납부자의 부담 비율입니다. 이 값이 30이면, 트랜잭션 수수료의 30%를 트랜잭션 수수료 납부자가 지불합니다. 나머지 70%는 트랜잭션 발신자가 지불합니다.                                                           |
-| from               | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                  |
-| gas                | QUANTITY      | 트랜잭션 발신자에 의해 설정된 가스양입니다.                                                                                                                                          |
-| gasPrice           | QUANTITY      | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다.                                                                                                                                  |
-| 해시                 | 32바이트 크기 DATA | 트랜잭션 해시.                                                                                                                                                          |
-| humanReadable      | Boolean       | (선택사항) Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.                                                                                             |
-| key                | String        | (선택사항) 새로 생성된 계정의 키입니다.                                                                                                                                           |
-| input              | DATA          | (선택사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                       |
-| 논스                 | QUANTITY      | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                                           |
-| senderTxHash       | 32바이트 크기 DATA | 발신자만 서명한 트랜잭션 해시. 이에 대한 자세한 내용은 [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash)를 참고하세요. 이 값은 수수료 위임된 트랜잭션이 아닌 경우의 `hash`와 항상 동일합니다. |
-| signatures         | 배열            | 서명 객체의 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                                             |
-| to                 | 20바이트 크기 DATA | 트랜잭션 수신자의 주소입니다. 컨트랙트 생성 트랜잭션이면 `null`을 반환합니다.                                                                                                                    |
-| transactionIndex   | QUANTITY      | 블록 내 트랜잭션의 인덱스 위치의 정숫값입니다. 보류 중인 상태이면 `null`을 반환합니다.                                                                                                              |
-| 형식                 | String        | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                                            |
-| typeInt            | QUANTITY      | 트랜잭션의 유형을 나타내는 정수입니다.                                                                                                                                             |
-| 값                  | QUANTITY      | peb로 전송된 값입니다.                                                                                                                                                    |
+| 이름                 | 타입            | 설명                                                                                                                                                                         |
+| ------------------ | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash          | 32바이트 크기 DATA | 트랜잭션이 담긴 블록의 해시입니다. 보류 중인 상태이면 `null`을 반환합니다.                                                                                                                              |
+| blockNumber        | QUANTITY      | 트랜잭션이 담긴 블록의 번호입니다. 보류 중인 상태이면 `null`을 반환합니다.                                                                                                                              |
+| codeFormat         | String        | (선택사항) 스마트 컨트랙트 코드의 코드 형식입니다.                                                                                                                                              |
+| feePayer           | 20바이트 크기 DATA | (선택사항) 트랜잭션 수수료 납부자의 주소입니다.                                                                                                                                                |
+| feePayerSignatures | Array         | (선택사항) 트랜잭션 수수료 납부자의 서명 객체들로 이루어진 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                           |
+| feeRatio           | QUANTITY      | (선택사항) 트랜잭션 수수료 납부자의 부담 비율입니다. 이 값이 30이면, 트랜잭션 수수료의 30%를 트랜잭션 수수료 납부자가 지불합니다. 나머지 70%는 트랜잭션 발신자가 지불합니다.                                                                    |
+| from               | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                           |
+| gas                | QUANTITY      | 트랜잭션 발신자에 의해 설정된 가스양입니다.                                                                                                                                                   |
+| gasPrice           | QUANTITY      | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다.                                                                                                                                           |
+| 해시                 | 32바이트 크기 DATA | 트랜잭션의 해시입니다.                                                                                                                                                               |
+| humanReadable      | Boolean       | (선택사항) Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.                                                                                                      |
+| key                | String        | (선택사항) 새로 생성된 계정의 키입니다.                                                                                                                                                    |
+| input              | DATA          | (선택사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                                |
+| 논스                 | QUANTITY      | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                                                    |
+| senderTxHash       | 32바이트 크기 DATA | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. 이에 대한 자세한 내용은 [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash)를 참고하세요. 이 값은 수수료 위임된 트랜잭션이 아닌 경우의 `hash`와 항상 동일합니다. |
+| signatures         | Array         | 서명 객체의 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                                                      |
+| to                 | 20바이트 크기 DATA | 트랜잭션 수신자의 주소입니다. 컨트랙트 생성 트랜잭션이면 `null`을 반환합니다.                                                                                                                             |
+| transactionIndex   | QUANTITY      | 블록 내 트랜잭션의 인덱스 위치의 정숫값입니다. 보류 중인 상태이면 `null`을 반환합니다.                                                                                                                       |
+| 형식                 | String        | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                                                     |
+| typeInt            | QUANTITY      | 트랜잭션의 유형을 나타내는 정수입니다.                                                                                                                                                      |
+| value              | QUANTITY      | peb로 전송된 값입니다.                                                                                                                                                             |
 
 
 **예시**
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionByHash","params":["0xaca5d9a1ed8b86b1ef61431b2bedfc99a66eaefc3a7e1cffdf9ff53653956a67"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionByHash","params":["0xaca5d9a1ed8b86b1ef61431b2bedfc99a66eaefc3a7e1cffdf9ff53653956a67"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -306,7 +307,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 발신자 트랜잭션 해시로 조회한 트랜잭션의 정보를 반환합니다. 이 API는 RPC 호출로만 작동하며 자바스크립트 콘솔을 통해서는 작동하지 않습니다. 이 API는 `--sendertxhashindexing`에 의해 인덱싱 기능이 활성화되어 있을 때만 올바른 결과를 반환합니다. [klay_isSenderTxHashIndexingEnabled](config.md#klay_issendertxhashindexingenabled)를 호출하여 확인할 수 있습니다.
 
-**매개변수**
+**Parameters**
 
 | 타입            | 설명                                                                                                                             |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -316,35 +317,35 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 `객체` - 트랜잭션 객체를 반환하거나 또는 해당하는 트랜잭션을 찾을 수 없는 경우 `null`을 반환합니다.
 
-| 명칭                 | 형식            | 설명                                                                                                                                                                        |
-| ------------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | 32바이트 크기 DATA | 트랜잭션이 담긴 블록의 해시입니다. 보류 중인 상태이면 `null`을 반환합니다.                                                                                                                             |
-| blockNumber        | QUANTITY      | 트랜잭션이 담긴 블록의 번호입니다. 보류 중인 상태이면 `null`을 반환합니다.                                                                                                                             |
-| codeFormat         | String        | (선택사항) 스마트 컨트랙트 코드의 코드 형식입니다.                                                                                                                                             |
-| feePayer           | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소입니다.                                                                                                                                                      |
-| feePayerSignatures | Array         | 트랜잭션 수수료 납부자의 서명 객체들로 이루어진 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                                 |
-| feeRatio           | QUANTITY      | (선택사항) 트랜잭션 수수료 납부자의 부담 비율입니다. 이 값이 30이면, 트랜잭션 수수료의 30%를 트랜잭션 수수료 납부자가 지불합니다. 나머지 70%는 트랜잭션 발신자가 지불합니다.                                                                   |
-| from               | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                          |
-| gas                | QUANTITY      | 트랜잭션 발신자에 의해 설정된 가스양입니다.                                                                                                                                                  |
-| gasPrice           | QUANTITY      | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다.                                                                                                                                          |
-| 해시                 | 32바이트 크기 DATA | 트랜잭션의 해시입니다.                                                                                                                                                              |
-| humanReadable      | Boolean       | (선택사항) Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.                                                                                                     |
-| key                | String        | (선택사항) 새로 생성된 계정의 키입니다.                                                                                                                                                   |
-| input              | DATA          | (선택사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                               |
-| 논스                 | QUANTITY      | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                                                   |
-| senderTxHash       | 32바이트 크기 DATA | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. 이에 대한 자세한 내용은 [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash)를 참고하세요. 이 값은 수수료 위임 트랜잭션이 아닌 경우의 `hash`와 항상 동일합니다. |
-| signatures         | Array         | 서명 객체의 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                                                     |
-| to                 | 20바이트 크기 DATA | 트랜잭션 수신자의 주소입니다. 컨트랙트 생성 트랜잭션이면 `null`을 반환합니다.                                                                                                                            |
-| transactionIndex   | QUANTITY      | 블록 내 트랜잭션의 인덱스 위치의 정숫값입니다. 보류 중이면 `null`을 반환합니다.                                                                                                                          |
-| 형식                 | String        | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                                                    |
-| typeInt            | QUANTITY      | 트랜잭션의 유형을 나타내는 정수입니다.                                                                                                                                                     |
-| value              | QUANTITY      | peb로 전송된 값입니다.                                                                                                                                                            |
+| 이름                 | 타입            | 설명                                                                                                                                                                         |
+| ------------------ | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash          | 32바이트 크기 DATA | 트랜잭션이 담긴 블록의 해시입니다. 보류 중인 상태이면 `null`을 반환합니다.                                                                                                                              |
+| blockNumber        | QUANTITY      | 트랜잭션이 담긴 블록의 번호입니다. 보류 중인 상태이면 `null`을 반환합니다.                                                                                                                              |
+| codeFormat         | String        | (선택사항) 스마트 컨트랙트 코드의 코드 형식입니다.                                                                                                                                              |
+| feePayer           | 20바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소입니다.                                                                                                                                                       |
+| feePayerSignatures | Array         | 트랜잭션 수수료 납부자의 서명 객체들로 이루어진 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                                  |
+| feeRatio           | QUANTITY      | (선택사항) 트랜잭션 수수료 납부자의 부담 비율입니다. 이 값이 30이면, 트랜잭션 수수료의 30%를 트랜잭션 수수료 납부자가 지불합니다. 나머지 70%는 트랜잭션 발신자가 지불합니다.                                                                    |
+| from               | 20바이트 크기 DATA | 트랜잭션 발신자의 주소입니다.                                                                                                                                                           |
+| gas                | QUANTITY      | 트랜잭션 발신자에 의해 설정된 가스양입니다.                                                                                                                                                   |
+| gasPrice           | QUANTITY      | peb에서 트랜잭션 발신자에 의해 설정된 가스 가격입니다.                                                                                                                                           |
+| 해시                 | 32바이트 크기 DATA | 트랜잭션의 해시입니다.                                                                                                                                                               |
+| humanReadable      | Boolean       | (선택사항) Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.                                                                                                      |
+| key                | String        | (선택사항) 새로 생성된 계정의 키입니다.                                                                                                                                                    |
+| input              | DATA          | (선택사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                                                |
+| 논스                 | QUANTITY      | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                                                    |
+| senderTxHash       | 32바이트 크기 DATA | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. 이에 대한 자세한 내용은 [SenderTxHash](../../../../klaytn/design/transactions/README.md#sendertxhash)를 참고하세요. 이 값은 수수료 위임된 트랜잭션이 아닌 경우의 `hash`와 항상 동일합니다. |
+| signatures         | Array         | 서명 객체의 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                                                      |
+| to                 | 20바이트 크기 DATA | 트랜잭션 수신자의 주소입니다. 컨트랙트 생성 트랜잭션이면 `null`을 반환합니다.                                                                                                                             |
+| transactionIndex   | QUANTITY      | 블록 내 트랜잭션의 인덱스 위치의 정숫값입니다. 보류 중인 상태이면 `null`을 반환합니다.                                                                                                                       |
+| 형식                 | String        | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                                                     |
+| typeInt            | QUANTITY      | 트랜잭션의 유형을 나타내는 정수입니다.                                                                                                                                                      |
+| value              | QUANTITY      | peb로 전송된 값입니다.                                                                                                                                                             |
 
 **예시**
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionBySenderTxHash","params":["0x18fe9e1007da7d20aad77778557fb8acc58c80054daba65124c8c843aadd3478"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionBySenderTxHash","params":["0x18fe9e1007da7d20aad77778557fb8acc58c80054daba65124c8c843aadd3478"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -390,9 +391,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **참고**: 보류 상태의 트랜잭션은 영수증을 확인할 수 없습니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭 | 형식            | 설명          |
+| 이름 | 타입            | 설명          |
 | -- | ------------- | ----------- |
 | 해시 | 32바이트 크기 DATA | 트랜잭션 해시입니다. |
 
@@ -400,14 +401,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 `객체` - 트랜잭션 영수증 객체를 반환하거나 또는 해당하는 트랜잭션 영수증을 찾을 수 없는 경우 `null`을 반환합니다.
 
-| 명칭                 | 형식                   | 설명                                                                                                                                               |
+| 이름                 | 타입                   | 설명                                                                                                                                               |
 | ------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | blockHash          | 32바이트 크기 DATA        | 트랜잭션이 담긴 블록의 해시입니다.                                                                                                                              |
 | blockNumber        | QUANTITY             | 트랜잭션이 담긴 블록의 번호입니다.                                                                                                                              |
 | codeFormat         | String               | (선택사항) 스마트 컨트랙트 코드의 코드 형식입니다.                                                                                                                    |
 | contractAddress    | DATA                 | 컨트랙트 생성 트랜잭션이면 생성된 컨트랙트의 주소를 반환합니다. 컨트랙트 생성 트랜잭션이 아닌 경우 `null`을 반환합니다.                                                                           |
 | feePayer           | 20바이트 크기 DATA        | (선택사항) 트랜잭션 수수료 납부자의 주소입니다.                                                                                                                      |
-| feePayerSignatures | 배열                   | (선택사항) 트랜잭션 수수료 납부자의 서명 객체들로 이루어진 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다. |
+| feePayerSignatures | Array                | (선택사항) 트랜잭션 수수료 납부자의 서명 객체들로 이루어진 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다. |
 | feeRatio           | QUANTITY             | (선택사항) 트랜잭션 수수료 납부자의 부담 비율입니다. 이 값이 30이면, 트랜잭션 수수료의 30%를 트랜잭션 수수료 납부자가 지불합니다. 나머지 70%는 트랜잭션 발신자가 지불합니다.                                          |
 | from               | 20바이트 크기 DATA        | 트랜잭션 발신자의 주소입니다.                                                                                                                                 |
 | gas                | QUANTITY             | 트랜잭션 발신자에 의해 설정된 가스양입니다.                                                                                                                         |
@@ -416,25 +417,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 | humanReadable      | Boolean              | (선택사항) Human-Readable Address이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.                                                                            |
 | key                | String               | (선택사항) 새로 생성된 계정의 키입니다.                                                                                                                          |
 | input              | DATA                 | (선택사항) 트랜잭션과 함께 전송된 데이터입니다.                                                                                                                      |
-| 로그                 | 배열                   | 이 트랜잭션이 발생시킨 로그 객체들의 배열입니다.                                                                                                                      |
+| 로그                 | Array                | 이 트랜잭션이 발생시킨 로그 객체들의 배열입니다.                                                                                                                      |
 | logsBloom          | 256바이트 크기 DATA       | 라이트 클라이언트가 관련된 로그를 빠르게 검색할 수 있도록 하는 블룸필터입니다.                                                                                                     |
 | 논스                 | QUANTITY             | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                          |
 | senderTxHash       | (선택사항) 32바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소와 서명이 없는 트랜잭션 해시입니다. 이 값은 수수료 위임된 트랜잭션이 아닌 경우의 transactionHash의 값과 항상 동일합니다.                                                     |
-| 서명 값입니다.           | 배열                   | 서명 객체의 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                            |
+| 서명 값입니다.           | Array                | 서명 객체의 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                            |
 | 상태                 | QUANTITY             | `1` (성공) 또는 `0` (실패)를 나타냅니다.                                                                                                                     |
 | txError            | QUANTITY             | (선택사항) `status`가 0이면 상세한 오류 코드를 나타냅니다.                                                                                                           |
 | to                 | 20바이트 크기 DATA        | 트랜잭션 수신자의 주소입니다. 컨트랙트 생성 트랜잭션이면 `null`을 반환합니다.                                                                                                   |
-| transactionHash    | 32바이트 크기 DATA        | 트랜잭션 해시.                                                                                                                                         |
+| transactionHash    | 32바이트 크기 DATA        | 트랜잭션의 해시입니다.                                                                                                                                     |
 | transactionIndex   | QUANTITY             | 블록 내 트랜잭션의 인덱스 위치의 정숫값입니다.                                                                                                                       |
 | 형식                 | String               | 트랜잭션의 유형을 나타내는 문자열입니다.                                                                                                                           |
 | typeInt            | QUANTITY             | 트랜잭션의 유형을 나타내는 정수입니다.                                                                                                                            |
-| 값                  | QUANTITY             | peb로 전송된 값입니다.                                                                                                                                   |
+| value              | QUANTITY             | peb로 전송된 값입니다.                                                                                                                                   |
 
 **예시**
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionReceipt","params":["0xaca5d9a1ed8b86b1ef61431b2bedfc99a66eaefc3a7e1cffdf9ff53653956a67"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionReceipt","params":["0xaca5d9a1ed8b86b1ef61431b2bedfc99a66eaefc3a7e1cffdf9ff53653956a67"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -514,7 +515,7 @@ SenderTxHash로 조회한 트랜잭션의 영수증을 반환합니다.
 | 로그                 | Array                | 이 트랜잭션이 발생시킨 로그 객체들의 배열입니다.                                                                                                               |
 | logsBloom          | 256바이트 크기 DATA       | 라이트 클라이언트가 관련된 로그를 빠르게 검색할 수 있도록 하는 블룸필터입니다.                                                                                              |
 | 논스                 | QUANTITY             | 트랜잭션 발신자가 이 트랜잭션 이전까지 전송했던 트랜잭션의 개수입니다.                                                                                                   |
-| senderTxHash       | (선택사항) 32바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소와 서명이 없는 트랜잭션 해시입니다. 이 값은 수수료 위임 트랜잭션이 아닌 경우의 transactionHash의 값과 항상 동일합니다.                                               |
+| senderTxHash       | (선택사항) 32바이트 크기 DATA | 트랜잭션 수수료 납부자의 주소와 서명이 없는 트랜잭션 해시입니다. 이 값은 수수료 위임된 트랜잭션이 아닌 경우의 transactionHash의 값과 항상 동일합니다.                                              |
 | 서명 값입니다.           | Array                | 서명 객체의 배열입니다. 각 서명 객체에는 (V, R, S) 등 세 필드가 있습니다. V는 ECDSA 복구 ID를 담고 있습니다. R은 ECDSA 서명 r을 담고 있고 S는 ECDSA 서명 s를 담고 있습니다.                     |
 | 상태                 | QUANTITY             | `1` (성공) 또는 `0` (실패)를 나타냅니다.                                                                                                              |
 | txError            | QUANTITY             | (선택사항) `status`가 0이면 상세한 오류 코드를 나타냅니다.                                                                                                    |
@@ -529,7 +530,7 @@ SenderTxHash로 조회한 트랜잭션의 영수증을 반환합니다.
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionReceiptBySenderTxHash","params":["0x18fe9e1007da7d20aad77778557fb8acc58c80054daba65124c8c843aadd3478"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionReceiptBySenderTxHash","params":["0x18fe9e1007da7d20aad77778557fb8acc58c80054daba65124c8c843aadd3478"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -578,15 +579,15 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 새 메시지 호출 트랜잭션을 생성하거나 또는 서명된 트랜잭션을 입력으로 받으면 컨트랙트를 생성합니다.
 
-**매개변수**
+**Parameters**
 
-| 형식   | 설명               |
+| 타입   | 설명               |
 | ---- | ---------------- |
 | DATA | 서명된 트랜잭션 데이터입니다. |
 
 **리턴값**
 
-| 형식            | 설명                                                     |
+| 타입            | 설명                                                     |
 | ------------- | ------------------------------------------------------ |
 | 32바이트 크기 DATA | 트랜잭션 해시를 반환하거나 또는 해당 트랜잭션을 아직 사용할 수 없는 경우 0 해시를 반환합니다. |
 
@@ -596,7 +597,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_sendRawTransaction","params":[{see above}],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_sendRawTransaction","params":[{see above}],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -619,7 +620,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **리턴값**
 
-| 형식            | 설명      |
+| 타입            | 설명      |
 | ------------- | ------- |
 | 32바이트 크기 DATA | 트랜잭션 해시 |
 
@@ -640,7 +641,7 @@ params: [{
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_sendTransaction","params":[{see above}],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_sendTransaction","params":[{see above}],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -662,7 +663,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **리턴값**
 
-| 형식            | 설명      |
+| 타입            | 설명      |
 | ------------- | ------- |
 | 32바이트 크기 DATA | 트랜잭션 해시 |
 
@@ -692,7 +693,7 @@ params: [{
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_sendTransactionAsFeePayer","params":[{see above}],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_sendTransactionAsFeePayer","params":[{see above}],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -707,7 +708,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **참고**: 서명하려는 계정은 잠금 해제되어 있어야 합니다.
 
-**매개변수**
+**Parameters**
 
 필수적으로 있어야 하는 파라미터들은 트랜잭션 타입에 따라 다릅니다. [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md)에서 적절한 파라미터를 확인하십시오.
 
@@ -721,7 +722,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 **예시**
 ```shell
 // Request
-curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_signTransaction", "params":[{"from":"0x77982323172e5b6182539d3522d5a33a944206d4", "to":"0xcd6bfdb523a4d030890d28bf1eb6ef36307c9aaa", "value":"0x10000", "gas":"0x1000000", "nonce":"0x2", "gasprice":"0x25000000000"}],"id":73}' http://localhost:8551
+curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_signTransaction", "params":[{"from":"0x77982323172e5b6182539d3522d5a33a944206d4", "to":"0xcd6bfdb523a4d030890d28bf1eb6ef36307c9aaa", "value":"0x10000", "gas":"0x1000000", "nonce":"0x2", "gasprice":"0x25000000000"}],"id":73}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -752,13 +753,13 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 **참고**: 서명하려는 트랜잭션 수수료 납부자의 주소는 잠금 해제되어 있어야 합니다.
 
-**매개변수**
+**Parameters**
 
 필수적으로 있어야 하는 파라미터들은 트랜잭션 타입에 따라 다릅니다. [Working with Klaytn Transaction Types](./transaction/transaction-type-support.md)에서 적절한 파라미터를 확인하십시오.
 
 **리턴값**
 
-| 형식  | 설명                               |
+| 타입  | 설명                               |
 | --- | -------------------------------- |
 | raw | 서명된 rawTransaction을 반환합니다.       |
 | tx  | 트랜잭션 수수료 납부자 서명을 포함한 트랜잭션 객체입니다. |
@@ -863,7 +864,7 @@ Klaytn은 트랜잭션 영수증의 `txError` 필드를 통해 트랜잭션 실�
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getDecodedAnchoringTransactionByHash","params":["0x499350bc5e2f6fee1ba78b4d40a7a1db0a64f3c091112e6798a02ed9a4140084"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getDecodedAnchoringTransactionByHash","params":["0x499350bc5e2f6fee1ba78b4d40a7a1db0a64f3c091112e6798a02ed9a4140084"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
