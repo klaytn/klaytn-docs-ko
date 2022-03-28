@@ -1,11 +1,11 @@
 ---
 description: >-
-  네임스페이스 'klay' 일대 Klaytn API에 대한 자바스크립트 래퍼.
+  Klaytn API 중 'klay' namespace에 해당하는 자바스크립트 래퍼.
 ---
 
 # caver.klay <a id="caver-klay"></a>
 
-`caver-klay` 패키지를 사용하면 Klaytn 노드와 상호작용할 수 있습니다.  아래 목록은 `caver-js`에서 현재 지원하는 API의 함수를 열거합니다.
+The `caver-klay` package allows you to interact with the Klaytn nodes.  The list below enumerates the API functions that are currently supported in `caver-js`.
 
 
 ## [계정](./caver.klay/account.md) <a id="account"></a>
