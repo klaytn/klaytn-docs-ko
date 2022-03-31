@@ -37,7 +37,7 @@
     * 체인 ID: 8217
   * Baobab
     * 네트워크 이름: Klaytn Baobab
-    * 새 RPC URL: [https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651) (Default: [http://localhost:8551](http://localhost:8551/))
+    * New RPC URL: [https://api.baobab.klaytn.net:8651](https://api.baobab.klaytn.net:8651)
     * 블록 탐색기 URL: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
     * 체인 ID: 1001
   * 공통

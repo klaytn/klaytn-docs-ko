@@ -7,23 +7,23 @@ caver.klay.sendTransaction(transactionObject [, callback])
 ```
 [Value Transfer Memo](../../../../../../klaytn/design/transactions/basic.md#txtypevaluetransfermemo) 트랜잭션을 네트워크에 전송합니다.
 
-**매개변수**
+**Parameters**
 
 sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니다.
 
-| 명칭                | 형식       | 설명                                                                   |
+| 이름                | 타입       | 설명                                                                   |
 | ----------------- | -------- | -------------------------------------------------------------------- |
 | transactionObject | Object   | 전송하려는 트랜잭션 객체.                                                       |
 | callback          | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 `VALUE_TRANSFER_MEMO` 유형의 트랜잭션 오브젝트의 구조는 다음과 같습니다.
 
-| 명칭       | 형식                                              | 설명                                                                                    |
+| 이름       | 타입                                              | 설명                                                                                    |
 | -------- | ----------------------------------------------- | ------------------------------------------------------------------------------------- |
 | 형식       | String                                          | 트랜잭션 타입. "VALUE_TRANSFER_MEMO"                                                      |
-| from     | String                                          | 이 트랜잭션 발신자의 주소.                                                                       |
+| from     | String                                          | 이 트랜잭션 발신자의 주소입니다.                                                                    |
 | to       | String                                          | 트랜잭션 수신 주소.                                                                           |
-| 값        | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션으로 전송될 peb 단위의 KLAY.                                                      |
+| value    | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션으로 전송될 peb 단위의 KLAY.                                                      |
 | data     | String                                          | 함께 보낼 메시지.                                                                            |
 | gas      | Number                                          | 트랜잭션에 지불할 의향이 있는 최대 가스량(사용하지 않은 가스는 환불됨).                                             |
 | gasPrice | Number                                          | (선택사항) 트랜잭션 발신자가 설정한 가스 가격으로 단위는 peb입니다. gasPrice는 Klaytn 노드에 설정된 unitPrice와 같아야 합니다. |
@@ -83,23 +83,23 @@ caver.klay.sendTransaction(transactionObject [, callback])
 ```
 [Fee Delegated Value Transfer Memo](../../../../../../klaytn/design/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo) 트랜잭션을 네트워크에 전송합니다.
 
-**매개변수**
+**Parameters**
 
 sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니다.
 
-| 명칭                | 형식       | 설명                                                                   |
+| 이름                | 타입       | 설명                                                                   |
 | ----------------- | -------- | -------------------------------------------------------------------- |
 | transactionObject | Object   | 전송하려는 트랜잭션 객체.                                                       |
 | callback          | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 `FEE_DELEGATED_VALUE_TRANSFER_MEMO` 트랜잭션 객체의 구조는 다음과 같습니다.
 
-| 명칭       | 형식                                              | 설명                                                                                    |
+| 이름       | 타입                                              | 설명                                                                                    |
 | -------- | ----------------------------------------------- | ------------------------------------------------------------------------------------- |
 | 형식       | String                                          | 트랜잭션 타입. "FEE_DELEGATED_VALUE_TRANSFER_MEMO"                                      |
-| from     | String                                          | 이 트랜잭션 발신자의 주소.                                                                       |
+| from     | String                                          | 이 트랜잭션 발신자의 주소입니다.                                                                    |
 | to       | String                                          | 트랜잭션 수신 주소.                                                                           |
-| 값        | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션으로 전송될 peb 단위의 KLAY.                                                      |
+| value    | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션으로 전송될 peb 단위의 KLAY.                                                      |
 | data     | String                                          | 함께 보낼 메시지.                                                                            |
 | gas      | Number                                          | 트랜잭션에 지불할 의향이 있는 최대 가스량(사용하지 않은 가스는 환불됨).                                             |
 | gasPrice | Number                                          | (선택사항) 트랜잭션 발신자가 설정한 가스 가격으로 단위는 peb입니다. gasPrice는 Klaytn 노드에 설정된 unitPrice와 같아야 합니다. |
@@ -109,7 +109,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니�
 
 수수료 납부자가 트랜잭션 발신자가 서명한 RLP 인코딩된 트랜잭션에 서명하고 이를 네트워크로 전송하려면 다음 구조로 오브젝트를 정의하고 `caver.klay.sendTransaction`을 호출하세요.
 
-| 명칭                   | 형식     | 설명                      |
+| 이름                   | 타입     | 설명                      |
 | -------------------- | ------ | ----------------------- |
 | feePayer             | String | 트랜잭션 수수료 납부자의 주소.       |
 | senderRawTransaction | String | 발신자가 서명한 RLP 인코딩된 트랜잭션. |
@@ -179,23 +179,23 @@ caver.klay.sendTransaction(transactionObject [, callback])
 ```
 [Fee Delegated Value Transfer Memo With Ratio](../../../../../../klaytn/design/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio) 트랜잭션을 네트워크에 전송합니다.
 
-**매개변수**
+**Parameters**
 
 sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니다.
 
-| 명칭                | 형식       | 설명                                                                   |
+| 이름                | 타입       | 설명                                                                   |
 | ----------------- | -------- | -------------------------------------------------------------------- |
 | transactionObject | Object   | 전송하려는 트랜잭션 객체.                                                       |
 | callback          | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
 `FEE_DELEGATED_VALUE_TRANSFER_MEMO_WITH_RATIO` 트랜잭션 객체의 구조는 다음과 같습니다.
 
-| 명칭       | 형식                                              | 설명                                                                                                                                                 |
+| 이름       | 타입                                              | 설명                                                                                                                                                 |
 | -------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 형식       | String                                          | 트랜잭션 타입. "FEE_DELEGATED_VALUE_TRANSFER_MEMO_WITH_RATIO"                                                                                      |
-| from     | String                                          | 이 트랜잭션 발신자의 주소.                                                                                                                                    |
+| from     | String                                          | 이 트랜잭션 발신자의 주소입니다.                                                                                                                                 |
 | to       | String                                          | 트랜잭션 수신 주소.                                                                                                                                        |
-| 값        | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션으로 전송될 peb 단위의 KLAY.                                                                                                                   |
+| value    | Number &#124; String &#124; BN &#124; BigNumber | (선택 사항) 트랜잭션으로 전송될 peb 단위의 KLAY.                                                                                                                   |
 | data     | String                                          | 함께 보낼 메시지.                                                                                                                                         |
 | gas      | Number                                          | 트랜잭션에 지불할 의향이 있는 최대 가스량(사용하지 않은 가스는 환불됨).                                                                                                          |
 | gasPrice | Number                                          | (선택사항) 트랜잭션 발신자가 설정한 가스 가격으로 단위는 peb입니다. gasPrice는 Klaytn 노드에 설정된 unitPrice와 같아야 합니다.                                                              |
@@ -206,7 +206,7 @@ sendTransaction의 매개 변수는 트랜잭션 객체 및 콜백 함수입니�
 
 수수료 납부자가 트랜잭션 발신자가 서명한 RLP 인코딩된 트랜잭션에 서명하고 이를 네트워크로 전송하려면 다음 구조로 오브젝트를 정의하고 `caver.klay.sendTransaction`을 호출하세요.
 
-| 명칭                   | 형식     | 설명                      |
+| 이름                   | 타입     | 설명                      |
 | -------------------- | ------ | ----------------------- |
 | feePayer             | String | 트랜잭션 수수료 납부자의 주소.       |
 | senderRawTransaction | String | 발신자가 서명한 RLP 인코딩된 트랜잭션. |

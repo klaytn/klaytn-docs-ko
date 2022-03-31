@@ -11,15 +11,15 @@ description: >-
 
 노드의 KNI (Klaytn Network Identifier)를 포함하여 브리지 노드 정보를 반환합니다. 메인브리지 노드는 KNI를 통해 서브브리지 노드에 연결할 수 있습니다.
 
-**매개변수**
+**Parameters**
 
 없음
 
 **리턴값**
 
-| 타입          | 설명                |
-| ----------- | ----------------- |
-| JSON string | 브리지 노드에 대한 정보입니다. |
+| 타입       | 설명                |
+| -------- | ----------------- |
+| JSON 문자열 | 브리지 노드에 대한 정보입니다. |
 
 **예시**
 
@@ -58,7 +58,7 @@ description: >-
 
 피어 목록에 새 원격 노드를 추가합니다. 각 노드는 목록의 노드들과의 연결을 항상 유지하고자 하고, 원격 연결이 간혹 끊어지면 다시 연결합니다. 이 메소드는 추적을 시작하기 위해 하나의 인자로 원격 피어의 `kni` URL를 받고, 피어 추적이 허용되었는지 또는 어떤 오류가 발생했는지를 나타내는 `BOOL`을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름  | 타입     | 설명                |
 | --- | ------ | ----------------- |
@@ -81,7 +81,7 @@ true
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"mainbridge_addPeer","params":["kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:50505"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"mainbridge_addPeer","params":["kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:50505"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -90,11 +90,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 
 `removePeer` 메소드는 추적된 정적 노드 목록에서 원격 노드의 연결을 끊고 제거합니다. 이 메소드는 추적을 시작하기 위해 하나의 인자로 원격 피어의 `kni` URL를 받고, 피어 추적이 허용되었는지 또는 어떤 오류가 발생했는지를 나타내는 `BOOL`을 반환합니다.
 
-**매개변수**
+**Parameters**
 
-| 이름  | 타입     | 설명             |
-| --- | ------ | -------------- |
-| url | string | 피어의 `kni` URL. |
+| 이름  | 타입     | 설명                |
+| --- | ------ | ----------------- |
+| url | string | 피어의 `kni` URL입니다. |
 
 **리턴값**
 
@@ -114,7 +114,7 @@ true
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"mainbridge_removePeer","params":["kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:50505"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"mainbridge_removePeer","params":["kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:50505"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -122,7 +122,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 
 `mainbridge_getChildChainIndexingEnabled`는 앵커링 트랜잭션의 인덱싱이 활성화되어 있는지 여부를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -143,7 +143,7 @@ true
 
 주어진 자식 체인 블록 해시의 앵커링 트랜잭션 해시를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 타입            | 설명               |
 | ------------- | ---------------- |
@@ -167,7 +167,7 @@ true
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"mainbridge_convertChildChainBlockHashToParentChainTxHash","params":["0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"mainbridge_convertChildChainBlockHashToParentChainTxHash","params":["0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":"0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51"}
 ```
 

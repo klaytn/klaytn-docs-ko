@@ -7,9 +7,9 @@ caver.klay.sendTransaction(transactionObject [, callback])
 ```
 [Account Creation](../../../../../../klaytn/design/transactions/basic.md) 트랜잭션을 네트워크에 전송합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭                                     | 형식                                              | 설명                                                                                                                                            |
+| 이름                                     | 타입                                              | 설명                                                                                                                                            |
 | -------------------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionObject                      | Object                                          | 전송하려는 트랜잭션 객체.                                                                                                                                |
 | transactionObject.type                 | String                                          | "ACCOUNT_CREATION" 트랜잭션 타입.                                                                                                                   |

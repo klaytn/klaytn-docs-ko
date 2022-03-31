@@ -2,7 +2,7 @@
 
 체인 ID를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -16,7 +16,7 @@
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_chainID","id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_chainID","id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -31,7 +31,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 Klaytn 노드의 현재 클라이언트 버전을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -45,7 +45,7 @@ Klaytn 노드의 현재 클라이언트 버전을 반환합니다.
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_clientVersion","id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_clientVersion","id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -62,7 +62,7 @@ peb의 현재 가스 가격을 반환합니다.
 
 **참고**: 이더리움에서 권장 가스비를 반환하던 것과 달리 Klaytn에서는 현재 가스비를 반환하는 형태로, 이더리움과 다르게 동작하는 API 입니다.
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -76,7 +76,7 @@ peb의 현재 가스 가격을 반환합니다.
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_gasPrice","params":[],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_gasPrice","params":[],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -90,9 +90,9 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 입력으로 받은 peb의 블록의 단가를 반환합니다.
 
-**참고**: 이 API는 이더리움에서와 다르게 동작하여 이더리움에서는 추천 가스 가격을 반환하던 것과 달리 Klaytn에서는 현재 가스 가격을 반환합니다.
+**참고**: 이더리움에서 권장 가스비를 반환하던 것과 달리 Klaytn에서는 현재 가스비를 반환하는 형태로, 이더리움과 다르게 동작하는 API 입니다.
 
-**매개변수**
+**Parameters**
 
 | 타입     | 설명                              |
 | ------ | ------------------------------- |
@@ -108,7 +108,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ```javascript
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_gasPriceAt","params":["0x64"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_gasPriceAt","params":["0x64"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -122,7 +122,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 노드가 병렬로 블록체인 데이터를 쓰고 있으면 `true`를 반환합니다. 이는 기본적으로 활성화되어 있습니다.
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -136,7 +136,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_isParallelDBWrite","id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_isParallelDBWrite","id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -151,7 +151,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 노드가 트랜잭션 해시 맵핑 정보를 SenderTxHash로 색인화하고 있으면 `true`를 반환합니다. 이 설정은 기본적으로 비활성화되어 있으며 `--sendertxhashindexing`으로 활성화할 수 있습니다.
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -165,7 +165,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_isSenderTxHashIndexingEnabled","id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_isSenderTxHashIndexingEnabled","id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -180,7 +180,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 노드의 Klaytn 프로토콜 버전을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -194,7 +194,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_protocolVersion","params":[],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_protocolVersion","params":[],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -209,7 +209,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 현재 노드의 Rewardbase를 반환합니다. Rewardbase는 블록 보상을 받은 계정의 주소입니다. 컨센서스 노드(CN)의 경우에만 해당합니다.
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -223,7 +223,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_rewardbase","id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_rewardbase","id":1}' https://api.baobab.klaytn.net:8651
 
 // Result - If requested from non-CN nodes
 {

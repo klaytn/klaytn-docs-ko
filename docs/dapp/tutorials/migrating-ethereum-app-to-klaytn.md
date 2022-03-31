@@ -15,9 +15,10 @@
 
 본 튜토리얼은 이더리움 애플리케이션에서 Klaytn으로의 이전에 대한 가이드를 제공합니다. Klaytn 사용 경험은 없어도 괜찮습니다. 간단한 블록체인 애플리케이션을 통해 어떻게 이더리움 애플리케이션에서 Klaytn으로 이전하는지 보여드리도록 하겠습니다.
 
-여기서는 이더리움 애플리케이션에서 Klaytn으로 이전하는 데에 필요한 코드 수정만을 중점적으로 다룰 것입니다. Klaytn BApp을 만드는 것에 대한 자세한 내용은 [CountBApp 튜토리얼](count-bapp/README.md)을 참고하세요.
+여기서는 이더리움 애플리케이션에서 Klaytn으로 이전하는 데에 필요한 코드 수정만을 중점적으로 다룰 것입니다. If you need details on creating a Klaytn dApp, Please refer to [CountBApp Tutorial](count-bapp/README.md).
 
-> **소스 코드** 전체 소스 코드는 GitHub에서 확인할 수 있습니다. [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
+> **Source Code**  
+> Complete source code can be found on GitHub at [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
 
 #### 튜토리얼 대상 <a id="intended-audience"></a>
 
@@ -40,10 +41,10 @@ Klaytn의 런타임 환경은 이더리움 가상머신과 호환되어 솔리�
 
 우선 노드에 연결하는 라이브러리를 변경해야 합니다. 그리고 'rpcURL'에 노드 URL을 지정합니다.
 
-- 이더리움 BApp 예시
+- 이더리움
   - `web3` 라이브러리는 이더리움 노드에 연결하고 통신합니다.
   - `Ropsten testnet` URL이 'rpcURL'에 할당되어 있습니다.
-- Klaytn BApp 예시
+- Klaytn
   - `caver-js` 라이브러리는 Klaytn 노드에 연결하고 통신합니다.
   - `Baobab testnet` URL이 'rpcURL'에 할당되어 있습니다.
 
@@ -54,7 +55,7 @@ Klaytn의 런타임 환경은 이더리움 가상머신과 호환되어 솔리�
 import Caver from 'caver-js'
 
 // const ROPSTEN_TESTNET_RPC_URL = 'https://ropsten.infura.io/'
-const BAOBAB_TESTNET_RPC_URL = 'https://your.en.url:8651/'
+const BAOBAB_TESTNET_RPC_URL = 'https://api.baobab.klaytn.net:8651/'
 
 // const rpcURL = ROPSTEN_TESTNET_RPC_URL
 const rpcURL = BAOBAB_TESTNET_RPC_URL
@@ -73,7 +74,7 @@ export default caver
 BlockNumber 컴포넌트는 1초(1000ms)마다 현재 블록 번호를 가져옵니다.
 
 간단히 `web3` 라이브러리를 `caver-js`로 대체하여 이더리움 블록 번호 대신 Klaytn의 블록 번호를 실시간 동기화할 수 있습니다.
-> 이더리움: [`web3.eth.getBlockNumber()`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth.html#getblocknumber)  
+> Ethereum: [`web3.eth.getBlockNumber()`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth.html#getblocknumber)  
 > Klaytn: [`caver.klay.getBlockNumber()`](../sdk/caver-js/v1.4.1/api-references/caver.klay/block.md#getblocknumber)
 
 ```js
@@ -126,7 +127,7 @@ const HDWalletProvider = require("truffle-hdwallet-provider-klaytn")
 const NETWORK_ID = '1001' // Klaytn, Baobab testnet's network id
 
 // const RPC_URL = 'https://ropsten.infura.io/'
-const RPC_URL = 'https://your.en.url:8651'
+const RPC_URL = 'https://api.baobab.klaytn.net:8651'
 
 // Change it to your own private key that has enough KLAY to deploy contract
 const PRIVATE_KEY = '0x3de0c90ce7e440f19eff6439390c29389f611725422b79c95f9f48c856b58277'
@@ -162,7 +163,8 @@ module.exports = {
 
 `caver-js` API를 사용하여 컨트랙트 인스턴스를 생성할 수 있습니다. 컨트랙트 인스턴스는 `Count` 컨트랙트와의 연결을 생성합니다. 즉 이 인스턴스를 통해 컨트랙트 메서드를 호출할 수 있습니다.
 
-> 이더리움 : [`web3.eth.Contract(ABI, address)`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth-contract.html#new-contract) Klaytn : [`caver.klay.Contract(ABI, address)`](../sdk/caver-js/v1.4.1/api-references/caver.klay.Contract.md#new-contract)
+> Ethereum : [`web3.eth.Contract(ABI, address)`](https://web3js.readthedocs.io/en/v1.2.1/web3-eth-contract.html#new-contract)  
+> Klaytn : [`caver.klay.Contract(ABI, address)`](../sdk/caver-js/v1.4.1/api-references/caver.klay.Contract.md#new-contract)
 
 `src/components/Count.js`
 ```javascript
@@ -189,12 +191,13 @@ export default Count
 
 Count 컨트랙트 인스턴스를 생성하는 데에 사용된 `ABI` \(Application Binary Interface\)는 아래와 같이 `caver-js`가 컨트랙트 메서드를 호출할 수 있도록 해줍니다. 자바스크립트 객체처럼 Count 컨트랙트와 상호작용할 수 있습니다.
 
-- 데이터 읽어오기(call)  
+- Read data (call)  
   `CountContract.methods.count().call()`
-- 데이터 쓰기(send)  
-  `CountContract.methods.plus().send({ ... })` `CountContract.methods.minus().send({ ... })`
+- Write data (send)  
+  `CountContract.methods.plus().send({ ... })`  
+  `CountContract.methods.minus().send({ ... })`
 
-이전 단계에서처럼 컨트랙트 인스턴스를 생성하면, 컨트랙트 메서드를 사용하여 코드를 수정할 필요가 없습니다. BApp 이전이 완료되었습니다!
+이전 단계에서처럼 컨트랙트 인스턴스를 생성하면, 컨트랙트 메서드를 사용하여 코드를 수정할 필요가 없습니다. dApp migration has been completed!
 
 #### 전체 코드: `Count` 컴포넌트 <a id="full-code-count-component"></a>
 
@@ -254,9 +257,9 @@ class Count extends Component {
     // 예시: this.countContract.methods.methodName(arguments).send(txObject)
     // 위와 같이 컨트랙트 메서드(SEND)를 호출할 수 있습니다.
     // 예를 들어 컨트랙트에 `plus`라는 메서드가 있을 때,
-    // 해당 메서드를 다음과 같이 호출할 수 있습니다.
-    // 예시: this.countContract.methods.plus().send({
-    //   from: '0x952A8dD075fdc0876d48fC26a389b53331C34585', // 본인의 주소를 적으세요.
+    // You can call it like below:
+    // ex:) this.countContract.methods.plus().send({
+    //   from: '0x952A8dD075fdc0876d48fC26a389b53331C34585', // PUT YOUR ADDRESS
     //   gas: '200000',
     // })
     this.countContract.methods.plus().send({
@@ -309,7 +312,7 @@ class Count extends Component {
     // : 트랜잭션을 전송한 후 로직을 처리하려는 경우
     // .once('receipt') 이벤트를 사용하세요.
     // : 트랜잭션이 블록에 포함된 후 로직을 처리하려는 경우
-    // 예시: .once('receipt', (data) => {
+    // ex:) .once('receipt', (data) => {
     //   console.log(data)
     // })
     this.countContract.methods.minus().send({

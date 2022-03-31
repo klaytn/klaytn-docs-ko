@@ -871,6 +871,39 @@ When signing transactions, it is recommended to use [caver.wallet.sign][] or [tr
 ]
 ```
 
+## keyring.ecsign <a id="keyring-ecsign"></a>
+
+```javascript
+keyring.ecsign(hash, role [, index])
+```
+
+Signs with hashed data using the private key and returns a signature where V is 0 or 1 (parity of the y-value of a the secp256k1 curve).
+
+This function is only used for certain transaction types. Therefore, it is recommended to use [caver.wallet.sign][] or [transaction.sign][] when signing a transaction.
+
+**Parameters**
+
+| 이름    | 타입     | 설명                                                                                                            |
+| ----- | ------ | ------------------------------------------------------------------------------------------------------------- |
+| 해시    | string | The hash string to sign.                                                                                      |
+| role  | number | 키의 역할을 나타내는 숫자입니다. `caver.wallet.keyring.role`를 사용할 수 있습니다.                                                   |
+| index | number | (선택 사항) 사용하고자 하는 개인키의 인덱스입니다. 인덱스는 각각의 역할에 정의된 개인키들의 배열 길이보다 작아야 합니다. 인덱스가 정의되지 않았을 경우, 이 메서드는 모든 개인키를 사용합니다. |
+
+**리턴값**
+
+| 타입    | 설명                             |
+| ----- | ------------------------------ |
+| Array | An array of [SignatureData][]. |
+
+**예시**
+
+```javascript
+> keyring.ecsign('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550', caver.wallet.keyring.role.roleTransactionKey)
+[
+    SignatureData { _v: '0x00', _r: '0x7a8b6...', _s: '0x17139...' }
+]
+```
+
 ## keyring.signMessage<a id="keyring-signmessage"></a>
 
 ```javascript
@@ -1050,9 +1083,9 @@ Depending on the type of the private key(s) in the keyring, the returned [Accoun
 
 **리턴값**
 
-| 타입              | 설명                                                                                                                                                                                                                                                                                                                                                  |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [계정(Account)][] | An Account instance to be used when a user updates AccountKey for their account in the Klaytn. Note that if you want to replace the existing keyring (or the existing private key(s)) with a new keyring (or a new private key(s)) for your account, you must update your AccountKey by sending an Account Update transaction to Klaytn beforehand. |
+| 타입          | 설명                                                                                                                                                                                                                                                                                                                                                  |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Account][] | An Account instance to be used when a user updates AccountKey for their account in the Klaytn. Note that if you want to replace the existing keyring (or the existing private key(s)) with a new keyring (or a new private key(s)) for your account, you must update your AccountKey by sending an Account Update transaction to Klaytn beforehand. |
 
 **예시**
 
@@ -1400,7 +1433,6 @@ false
 [caver.wallet.sign]: ./README.md#caver-wallet-sign
 [transaction.sign]: ../caver.transaction/README.md#transaction-sign
 [Account]: ../caver.account.md#account
-[계정(Account)]: ../caver.account.md#account
 [AccountKeyPublic]: ../caver.account.md#accountkeypublic
 [AccountKeyWeigthedMultiSig]: ../caver.account.md#accountkeyweightedmultisig
 [AccountKeyRoleBased]: ../caver.account.md#accountkeyrolebased

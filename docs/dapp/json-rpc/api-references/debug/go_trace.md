@@ -9,7 +9,7 @@
 |  콘솔   | `debug.goTrace(file, seconds)`                            |
 |  RPC  | `{"method": "debug_goTrace", "params": [string, number]}` |
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입     | 설명                  |
 | ------- | ------ | ------------------- |
@@ -30,7 +30,7 @@ null
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_goTrace","params":["go.trace",5],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_goTrace","params":["go.trace",5],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -44,7 +44,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.startGoTrace(file)`                             |
 |  RPC  | `{"method": "debug_startGoTrace", "params": [string]}` |
 
-**매개변수**
+**Parameters**
 
 | 이름   | 타입     | 설명                  |
 | ---- | ------ | ------------------- |
@@ -63,7 +63,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startGoTrace","params":["go.trace"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startGoTrace","params":["go.trace"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -77,7 +77,7 @@ Go 런타임 추적을 중지합니다.
 |  콘솔   | `debug.stopGoTrace()`                           |
 |  RPC  | `{"method": "debug_stopGoTrace", "params": []}` |
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -94,7 +94,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stopGoTrace","params":[],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stopGoTrace","params":[],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 

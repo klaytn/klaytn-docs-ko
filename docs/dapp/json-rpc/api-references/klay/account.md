@@ -2,12 +2,12 @@
 
 입력된 주소의 계정이 존재하는 경우 `true`를 반환합니다. 해당 주소의 계정이 존재하지 않으면 `false`를 반환합니다.
 
-**매개변수**
+**Parameters**
 
-| 이름          | 타입                              | 설명                                                                                                                                           |
-| ----------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| account     | 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                       |
-| 블록 번호 또는 해시 | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)나 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
+| 이름                   | 타입                              | 설명                                                                                                                                           |
+| -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| account              | 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                       |
+| block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)나 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
 
 {% hint style="success" %}
 참고: Klaytn v1.7.0 이전 버전에서는 정수형 블록 번호나 `"earliest"`, `"latest"` 같은 문자열만 사용할 수 있습니다.
@@ -23,7 +23,7 @@
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_accountCreated","params":["0xa4f42d4d2a3a13874406435500950c9bf2d783db","latest"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_accountCreated","params":["0xa4f42d4d2a3a13874406435500950c9bf2d783db","latest"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -52,7 +52,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_accounts","params":[],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_accounts","params":[],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -246,8 +246,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 **예시**
 
 ```shell
-    // Request (Account type: Externally Owned Account)
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getAccount","params":["0x3111a0577f322e8fb54f78d9982a26ae7ca0f722", "latest"],"id":1}' http://localhost:8551
+// Request (Account type: Externally Owned Account)
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getAccount","params":["0x3111a0577f322e8fb54f78d9982a26ae7ca0f722", "latest"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -272,7 +272,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 ```shell
 // Request (Account type: Smart Contract Account)
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getAccount","params":["0x3111a0577f322e8fb54f78d9982a26ae7ca0f722", "latest"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getAccount","params":["0x3111a0577f322e8fb54f78d9982a26ae7ca0f722", "latest"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -322,7 +322,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ```shell
 // Request (AccountKey type: AccountKeyPublic)
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getAccountKey","params":["0x3111a0577f322e8fb54f78d9982a26ae7ca0f722", "latest"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getAccountKey","params":["0x3111a0577f322e8fb54f78d9982a26ae7ca0f722", "latest"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -339,7 +339,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 ```shell
 // Request (AccountKey type: AccountKeyRoleBased)
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getAccountKey","params":["0x68756d616e616161000000000000000000000000", "latest"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getAccountKey","params":["0x68756d616e616161000000000000000000000000", "latest"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result (AccountKeyRoleBased has nested key structure)
 {
@@ -371,7 +371,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 ```
 ```shell
 // Request (AccountKey type: AccountKeyLegacy)
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getAccountKey","params":["0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "latest"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getAccountKey","params":["0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "latest"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -410,7 +410,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getBalance","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f", "latest"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getBalance","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f", "latest"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -445,7 +445,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getCode","params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getCode","params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -464,7 +464,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 | 타입                              | 설명                                                                                                                                           |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20바이트 크기 DATA                   | 주소                                                                                                                                           |
+| 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                       |
 | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)나 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
 
 {% hint style="success" %}
@@ -481,7 +481,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
  ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionCount","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f","latest"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_getTransactionCount","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f","latest"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -502,7 +502,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 | 이름                   | 타입                              | 설명                                                                                                                                           |
 | -------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| account              | 20바이트 크기 DATA                   | 계정의 주소입니다.                                                                                                                                   |
+| account              | 20바이트 크기 DATA                   | 주소입니다.                                                                                                                                       |
 | block number 또는 hash | QUANTITY &#124; TAG &#124; HASH | 정수 형태의 블록 번호 또는 [기본 블록 매개변수](./block.md#the-default-block-parameter)나 블록 해시에서와 같이 `"earliest"`, `"latest"`, `"pending"`과 같이 상태를 나타내는 문자열입니다. |
 
 {% hint style="success" %}
@@ -519,7 +519,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_isContractAccount","params":["0x2f07d5b3fa1051460099dc9ea0c2975b6ea67776", "latest"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_isContractAccount","params":["0x2f07d5b3fa1051460099dc9ea0c2975b6ea67776", "latest"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {
@@ -536,7 +536,7 @@ sign 메서드는 다음을 사용하여 Klaytn만의 서명을 계산합니다.
 sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 ```
 
-메시지에 접두사를 붙이면 계산된 서명 값이 Klaytn의 서명임을 알 수 있습니다. 악성 BApp이 트랜잭션 등 임의의 데이터를 서명하여 타인을 사칭할 수 없도록 방지합니다.
+메시지에 접두사를 붙이면 계산된 서명 값이 Klaytn의 서명임을 알 수 있습니다. This prevents misuse where a malicious dApp can sign arbitrary data, *e.g.*, transaction, and use the signature to impersonate the victim.
 
 **참고**: 서명하려는 계정은 잠금 해제되어 있어야 합니다.
 
@@ -544,7 +544,7 @@ sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 
 | 이름      | 타입             | 설명            |
 | ------- | -------------- | ------------- |
-| account | 20바이트 크기 DATA  | 계정의 주소입니다.    |
+| account | 20바이트 크기 DATA  | 주소입니다.        |
 | 메시지     | N 바이트 크기의 DATA | 서명하려는 메시지입니다. |
 
 **리턴값**
@@ -557,7 +557,7 @@ sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_sign","params":["0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "0xdeadbeaf"],"id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay_sign","params":["0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "0xdeadbeaf"],"id":1}' https://api.baobab.klaytn.net:8651
 
 // Result
 {

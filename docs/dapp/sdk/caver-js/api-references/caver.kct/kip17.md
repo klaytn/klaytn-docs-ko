@@ -131,7 +131,7 @@ caver.kct.kip17.detectInterface(contractAddress)
 ```javascript
 caver.kct.kip17.create([tokenAddress])
 ```
-새로운 KIP17 인스턴스를 인스턴스 메서드, 이벤트들과 함께 생성합니다. 이 함수는 [new KIP17](#new-kip17)과 동일하게 작동합니다.
+새로운 KIP17 인스턴스를 인스턴스 메소드, 이벤트들과 함께 생성합니다. 이 함수는 [new KIP17](#new-kip17)과 동일하게 작동합니다.
 
 **NOTE** `caver.kct.kip17.create` caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
@@ -643,15 +643,15 @@ kip17.approve(to, tokenId [, sendParam])
 
 sendParam 객체는 다음을 포함할 수 있습니다:
 
-| 이름            | 타입                                              | 설명                                                                                                                                                                                                              |
-| ------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from          | string                                          | (선택 사항) 트랜잭션 발신자 주소입니다. 미입력시 `kip17.options.from`에 의해 지정됩니다. `sendParam`객체의 `from` 또는 `kip17.options.from`가 주어지지 않으면 오류가 발생합니다.                                                                                 |
-| gas           | number &#124; string                            | (선택 사항) 트랜잭션에 규정된 최대 가스입니다 (가스 제한). 미입력시 caver-js가 `kip17.methods.approve(spender, tokenId).estimateGas({from})`를 호출하여 이 값을 지정합니다.                                                                              |
-| gasPrice      | number &#124; string                            | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격. 생략하면 `caver.klay.getGasPrice` 값으로 caver-js가 설정합니다.                                                                                                                             |
-| value         | number &#124; string &#124; BN &#124; BigNumber | (선택 사항) peb으로 환산한 전송될 토큰 가치.                                                                                                                                                                                    |
-| feeDelegation | boolean                                         | (optional, default `false`) 수수료 위임 트랜잭션 사용 여부를 나타냅니다. 미입력시 `kip17.options.feeDelegation`를 사용합니다. 둘 다 미입력시 수수료 위임은 사용되지 않습니다.                                                                                    |
-| feePayer      | string                                          | (선택 사항) 트랜잭션 수수료를 부담하는 fee payer의 주소입니다. `feeDelegation`이 `true`일 때, 값은 트랜잭션의 `feePayer` 필드에 설정됩니다. 미입력시 `kip17.options.feePayer`를 사용합니다. 둘 다 미입력시 오류를 반환합니다.                                                   |
-| feeRatio      | string                                          | (선택 사항) Fee payer가 부담하게될 트랜잭션 수수료의 비율입니다. `feeDelegation`이 `true`이며, `feeRatio`가 유효한 값으로 설정되었을 경우, 부분 수수료 위임 트랜잭션이 사용됩니다. 유효한 범위는 1에서 99 사이입니다. 0이나 100 이상의 값은 허용되지 않습니다. 미입력시 `kip17.options.feeRatio`를 사용합니다. |
+| 이름            | 타입                                              | 설명                                                                                                                                                                                                                 |
+| ------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| from          | string                                          | (선택 사항) 트랜잭션 발신자 주소입니다. 미입력시 `kip17.options.from`에 의해 지정됩니다. `sendParam`객체의 `from` 또는 `kip17.options.from`가 주어지지 않으면 오류가 발생합니다.                                                                                    |
+| gas           | number &#124; string                            | (선택 사항) 트랜잭션에 규정된 최대 가스입니다 (가스 제한). 미입력시 caver-js가 `kip17.methods.approve(spender, tokenId).estimateGas({from})`를 호출하여 이 값을 지정합니다.                                                                                 |
+| gasPrice      | number &#124; string                            | (선택 사항) 트랜잭션에 사용할 peb 단위의 가스 가격. 생략하면 `caver.klay.getGasPrice` 값으로 caver-js가 설정합니다.                                                                                                                                |
+| value         | number &#124; string &#124; BN &#124; BigNumber | (선택 사항) peb으로 환산한 전송될 토큰 가치.                                                                                                                                                                                       |
+| feeDelegation | boolean                                         | (optional, default `false`) 수수료 위임 트랜잭션 사용 여부를 나타냅니다. 미입력시 `kip17.options.feeDelegation`를 사용합니다. 둘 다 미입력시 수수료 위임은 사용되지 않습니다.                                                                                       |
+| feePayer      | string                                          | (선택 사항) 트랜잭션 수수료를 부담하는 수수료 납부자의 주소입니다. `feeDelegation`이 `true`일 때, 값은 트랜잭션의 `feePayer` 필드에 설정됩니다. 미입력시 `kip17.options.feePayer`를 사용합니다. 둘 다 미입력시 오류를 반환합니다.                                                        |
+| feeRatio      | string                                          | (optional) Fee payer가 부담하게될 트랜잭션 수수료의 비율입니다. `feeDelegation`이 `true`이며, `feeRatio`가 유효한 값으로 설정되었을 경우, 부분 수수료 위임 트랜잭션이 사용됩니다. 유효한 범위는 1에서 99 사이입니다. 0이나 100 이상의 값은 허용되지 않습니다. 미입력시 `kip17.options.feeRatio`를 사용합니다. |
 
 **참고** `feeDelegation`, `feePayer`, 그리고 `feeRatio`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 이후부터 지원됩니다.
 
@@ -877,7 +877,7 @@ Transfers the token of the given token id, `tokenId` from the token owner's bala
 ```javascript
 kip17.safeTransferFrom(from, to, tokenId [, data] [, sendParam])
 ```
-더 안전한 방법으로 주어진 토큰 ID `tokenId`를 가진 토큰을 토큰 소유자 잔액에서 다른 계정으로 전송합니다. 토큰 소유자의 토큰을 보내도록 허락받은 주소인 operator, 또는 토큰 소유자 자신이 이 토큰 전송 트랜잭션을 실행할 수 있습니다. 따라서 토큰을 보내도록 허락받은 계정 또는 토큰 소유자가 이 트랜잭션 발신자이어야 하며, 허락받은 계정의 주소는 반드시 `sendParam.from` 또는 `kip7Instance.options.from`에 주어져야 합니다. `sendParam.from` 또는 `kip7Instance.options.from`가 주어지지 않는다면 에러가 발생합니다.
+더 안전한 방법으로 주어진 토큰 ID `tokenId`를 가진 토큰을 토큰 소유자 잔액에서 다른 계정으로 전송합니다. The address that was authorized to send the token owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. 따라서 토큰을 보내도록 허락받은 계정 또는 토큰 소유자가 이 트랜잭션 발신자이어야 하며, 허락받은 계정의 주소는 반드시 `sendParam.from` 또는 `kip7Instance.options.from`에 주어져야 합니다. Unless both `sendParam.from` and `kip17Instance.options.from` are provided, an error would occur.
 
 `to`이 컨트랙트 주소라면, 이 컨트랙트는 반드시 [IKIP17Receiver.onKIP17Received](https://kips.klaytn.com/KIPs/kip-17#wallet-interface)를 구현했어야 합니다. 그렇지 않으면, 전송은 거부됩니다.
 

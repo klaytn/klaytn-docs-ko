@@ -62,7 +62,7 @@ description: >-
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_nodeInfo","id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_nodeInfo","id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,
 "result":               {"id":"377ef808aff73a397d133b3bf160df586054c98c0e6a65c8fce9560e6a0632bc975419f461803d27f28ee270287113cc2359225814debc1bfb2f811061e14c5d", "name":"Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X",    "kni":"kni://377ef808aff73a397d133b3bf160df586054c98c0e6a65c8fce9560e6a0632bc975419f461803d27f28ee270287113cc2359225814debc1bfb2f811061e14c5d@[::]:32323?discport=0",
 "ip":"::",
@@ -81,7 +81,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 |  콘솔   | `admin.datadir`               |
 |  RPC  | `{"method": "admin_datadir"}` |
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -102,7 +102,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_datadir","id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_datadir","id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":"/your/dir/ken/data/dd"}
 ```
 
@@ -116,15 +116,15 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 |  콘솔   | `admin.peers`               |
 |  RPC  | `{"method": "admin_peers"}` |
 
-**매개변수**
+**Parameters**
 
 없음
 
 **리턴값**
 
-| 타입          | 설명                   |
-| ----------- | -------------------- |
-| JSON string | 연결된 모든 피어에 대한 정보입니다. |
+| 타입       | 설명                   |
+| -------- | -------------------- |
+| JSON 문자열 | 연결된 모든 피어에 대한 정보입니다. |
 
 **예시**
 
@@ -177,7 +177,7 @@ HTTP RPC
 **참고**: 아래 IP 주소는 예시입니다. 실행 환경에서의 실제 IP 주소로 바꿔주세요.
 
 ```shell
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_peers","id":1}' http://localhost:8551
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_peers","id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":[{"id":"144af69d2bb030c6a2a5ceee7445dc613e200f19358547cffc353d56e6c8a5b4186a6953c028b6afd0ab3c2bfc4c86f24b0bf855d0686b964ec65cefd3deec37","name":"Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X","caps":["istanbul/64"],"network":{"localAddress":"10.0.10.1:49355","remoteAddress":"10.0.0.1:32323","inbound":false,"trusted":false,"static":true},"protocols":{"istanbul":{"version":64,"difficulty":1285901,"head":"0x2d04ac52df4af08a9a0e15d5939c29decb00031e7b3f6abd05bc0c731f6b5561"}}},{"id":"a875620f67f0b12edb97d0ec269e7940f2505b1f62576f39858c37e1d7f956318c3a619239f03f806a79ccaa8e7e9b5def343c24a9fd2e9d715964e0952dd995","name":"Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X","caps":["istanbul/64"],"networks":[{"localAddress":"10.0.10.2:49353","remoteAddress":"10.0.0.2:32323","inbound":false,"trusted":false,"static":true}],"protocols":{"istanbul":{"version":64,"difficulty":1285901,"head":"0x2d04ac52df4af08a9a0e15d5939c29decb00031e7b3f6abd05bc0c731f6b5561"}}},{"id":"e18d6d4e0ffac0a51028a8d49a548295ac8ac50d064f3581600799a3ae761a61f0b39c38b4195e163e01f30db616debf61b5b2ddea716bc8fb1c907ce7a1de26","name":"Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X","caps":["istanbul/64"],"network":{"localAddress":"10.0.10.3:49354","remoteAddress":"10.0.0.3:32323","inbound":false,"trusted":false,"static":true},"protocols":{"istanbul":{"version":64,"difficulty":1285900,"head":"0x2e228a45c7c9b9e6729b6c66b31957d6cb62ce53e32cedf156615a4e8a2e253a"}}}]}
 ```
 
@@ -193,7 +193,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admi
 |  콘솔   | `admin.addPeer(url)`                           |
 |  RPC  | `{"method": "admin_addPeer", "params": [url]}` |
 
-**매개변수**
+**Parameters**
 
 | 이름  | 타입     | 설명                |
 | --- | ------ | ----------------- |
@@ -215,7 +215,7 @@ true
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:32323"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:32323"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -231,17 +231,17 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 |  콘솔   | `admin.removePeer(url)`                           |
 |  RPC  | `{"method": "admin_removePeer", "params": [url]}` |
 
-**매개변수**
+**Parameters**
 
-| 명칭  | 형식  | 설명                |
-| --- | --- | ----------------- |
-| url | 문자열 | 피어의 `kni` URL입니다. |
+| 이름  | 타입     | 설명                |
+| --- | ------ | ----------------- |
+| url | string | 피어의 `kni` URL입니다. |
 
 **리턴값**
 
-| 형식   | 설명                                                |
+| 타입   | 설명                                                |
 | ---- | ------------------------------------------------- |
-| bool | 피어 제거가 완료되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
+| bool | 피어 추적이 허용되면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
 **예시**
 
@@ -253,7 +253,7 @@ true
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_removePeer","params":["kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:32323"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_removePeer","params":["kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:32323"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -272,16 +272,16 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **Parameters**
 
-| 명칭   | 형식  | 설명                                                                                                                             |
-| ---- | --- | ------------------------------------------------------------------------------------------------------------------------------ |
-| host | 문자열 | (선택 사항) 리스너 소켓이 열려있는 네트워크 인터페이스입니다. (기본 설정:  `"localhost"`)                                                                    |
-| port | int | (선택 사항) 리스너 소켓이 열려있는 네트워크 포트입니다. (기본 설정:  `8551`)                                                                              |
-| cors | 문자열 | (선택 사항) 사용할 [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 헤더입니다. (기본 설정:  `""`) |
-| apis | 문자열 | (선택 사항) 이 인터페이스를 통해 제공할 API 모듈입니다. (기본 설정:  `"klay,net,rpc"`)                                                                  |
+| 이름   | 타입     | 설명                                                                                                                             |
+| ---- | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| host | string | (선택 사항) 리스너 소켓이 열려있는 네트워크 인터페이스입니다. (기본 설정:  `"localhost"`)                                                                    |
+| port | int    | (선택 사항) 리스너 소켓이 열려있는 네트워크 포트입니다. (기본 설정:  `8551`)                                                                              |
+| cors | string | (선택 사항) 사용할 [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 헤더입니다. (기본 설정:  `""`) |
+| apis | string | (선택 사항) 이 인터페이스를 통해 제공할 API 모듈입니다. (기본 설정:  `"klay,net,rpc"`)                                                                  |
 
 **리턴값**
 
-| 형식   | 설명                                                      |
+| 타입   | 설명                                                      |
 | ---- | ------------------------------------------------------- |
 | bool | HTTP RPC 리스너가 열리면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
@@ -295,7 +295,7 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startHTTP","id":1, "params":["127.0.0.1", 8551, "", "klay"]}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startHTTP","id":1, "params":["127.0.0.1", 8551, "", "klay"]}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"error":{"code":-32000,"message":"HTTP RPC already running on 127.0.0.1:8551"}}
 ```
 
@@ -331,7 +331,7 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stopHTTP","id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stopHTTP","id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -351,7 +351,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 | 이름   | 타입     | 설명                                                                                                                             |
 | ---- | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| host | string | (선택 사항) 리스너 소켓을 열기 위한 네트워크 인터페이스입니다. (기본 설정:  `"localhost"`)                                                                   |
+| host | string | (선택 사항) 리스너 소켓이 열려있는 네트워크 인터페이스입니다. (기본 설정:  `"localhost"`)                                                                    |
 | port | int    | (선택 사항) 리스너 소켓을 열기 위한 네트워크 포트입니다. (기본 설정:  `8552`)                                                                             |
 | cors | string | (선택 사항) 사용할 [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 헤더입니다. (기본 설정:  `""`) |
 | apis | string | (선택 사항) 이 인터페이스를 통해 제공할 API 모듈입니다. (기본 설정:  `"klay,net,personal"`)                                                             |
@@ -372,7 +372,7 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startWS","params":["127.0.0.1", 8552, "", "klay"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startWS","params":["127.0.0.1", 8552, "", "klay"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -392,7 +392,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **리턴값**
 
-| 형식   | 설명                                               |
+| 타입   | 설명                                               |
 | ---- | ------------------------------------------------ |
 | bool | 엔드포인트가 닫히면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
@@ -406,7 +406,7 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stopWS","id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stopWS","id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -442,7 +442,7 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_exportChain","params":["/tmp/chain.txt"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_exportChain","params":["/tmp/chain.txt"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -458,13 +458,13 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 **Parameters**
 
-| 명칭       | 형식  | 설명                             |
-| -------- | --- | ------------------------------ |
-| fileName | 문자열 | 가져올 블록체인을 담고 있는 파일의 명확한 경로입니다. |
+| 이름       | 타입     | 설명                             |
+| -------- | ------ | ------------------------------ |
+| fileName | string | 가져올 블록체인을 담고 있는 파일의 명확한 경로입니다. |
 
 **리턴값**
 
-| 형식   | 설명                                               |
+| 타입   | 설명                                               |
 | ---- | ------------------------------------------------ |
 | bool | 블록체인을 가져오면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
@@ -478,7 +478,7 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_importChain","params":["/tmp/chain.txt"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_importChain","params":["/tmp/chain.txt"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -513,7 +513,7 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_importChainFromString","params":["f9071...080c0"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_importChainFromString","params":["f9071...080c0"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -547,7 +547,7 @@ null
 
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startStateMigration","id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_startStateMigration","id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -582,7 +582,7 @@ true
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stopStateMigration","id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stopStateMigration","id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -629,7 +629,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stateMigrationStatus","id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_stateMigrationStatus","id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":{"committed":14995692,"err":"null","isMigration":true,"migrationBlockNumber":32630836,"pending":19699,"progress":25,"read":14997777}}
 ```
 
@@ -663,7 +663,7 @@ null
 
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_saveTrieNodeCacheToDisk", "id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_saveTrieNodeCacheToDisk", "id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -699,6 +699,6 @@ null
 
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_setMaxSubscriptionPerWSConn", "params":[5], "id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_setMaxSubscriptionPerWSConn", "params":[5], "id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```

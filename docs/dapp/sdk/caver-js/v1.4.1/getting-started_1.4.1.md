@@ -43,7 +43,7 @@ caver-js 설치가 끝나면 이제 caver-js를 Klaytn 노드와 연결할 수 �
 ```text
 $ node
 > const Caver = require('caver-js')
-> const caver = new Caver('https://your.en.url:8651/')
+> const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 ```
 
 EN을 실행 중인 경우, 아래와 같이 호스트와 포트를 변경하여 자신의 노드에 연결할 수 있습니다:
@@ -51,7 +51,7 @@ EN을 실행 중인 경우, 아래와 같이 호스트와 포트를 변경하여
 ```text
 $ node
 > const Caver = require('caver-js')
-> const caver = new Caver('http://localhost:8551/')
+> const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 ```
 
 ## 계정 관리 <a id="managing-accounts"></a>
@@ -69,7 +69,7 @@ $ node
   ... }
 ```
 
-**참고**: [caver.klay.accounts](api-references/caver.klay.accounts.md)와 관련된 함수들은 실제 Klaytn 네트워크에는 영향을 미치지 않습니다.
+**Note**: Functions associated with [caver.klay.accounts][] have no effect on the actual Klaytn network.
 
 ### caver-js에 계정 추가하기 <a id="add-accounts-to-caver-js"></a>
 
@@ -185,7 +185,7 @@ caver-js 지갑 없이 해당 개인키로부터 서명을 직접 생성하고�
   })
 ```
 
-그리고 위와 같이 [caver.klay.accounts.signTransaction](api-references/caver.klay.accounts.md#signtransaction)을 실행하여 RLP 인코딩된 트랜잭션\(`rawTransaction`\)을 생성하고, 이를 이용하여 아래와 같이 해당 트랜잭션을 Klaytn 네트워크에 전송합니다.
+You can get a RLP-encoded transaction \(`rawTransaction`\) using [caver.klay.accounts.signTransaction][] as above and use this to transfer the transaction to the Klaytn network as below.
 
 ```text
 > caver.klay.sendSignedTransaction(rawTransaction).on('transactionHash', console.log)
@@ -236,7 +236,7 @@ caver-js 지갑 없이 해당 개인키로부터 서명을 직접 생성하고�
 }
 ```
 
-위 예시와 같이 프로미스(promise)와 이벤트 이미터(event emitter)를 통해 트랜잭션을 전송한 결과를 가져올 수 있습니다. 또한 트랜잭션의 해시를 알고 있다면 [caver.klay.getTransactionReceipt](api-references/caver.klay/transaction.md#gettransactionreceipt) RPC 호출을 하여 트랜잭션 영수증을 요청할 수도 있습니다. 아래 예시는 [caver.klay.getTransactionReceipt](api-references/caver.klay/transaction.md#gettransactionreceipt) RPC 호출을 사용하여 영수증을 받는 방법을 보여줍니다.
+위 예시와 같이 프로미스(promise)와 이벤트 이미터(event emitter)를 통해 트랜잭션을 전송한 결과를 가져올 수 있습니다. And also, if you know the transaction hash, you can query the transaction receipt using the [caver.klay.getTransactionReceipt][] RPC call. The example below shows how to get a receipt using the [caver.klay.getTransactionReceipt][] RPC call.
 
 ```text
 > caver.klay.getTransactionReceipt('0xbad4dd6d80beda6c04d90f1db7e4179557ab48423d4f14295b33e38a9418e59f').then(console.log)
@@ -269,7 +269,7 @@ caver-js 지갑 없이 해당 개인키로부터 서명을 직접 생성하고�
 }
 ```
 
-트랜잭션의 실행 결과는 영수증의 상태를 통하여 확인할 수 있습니다. 리턴값에 대한 자세한 설명은 [getTransactionReceipt](api-references/caver.klay/transaction.md#gettransactionreceipt)를 참조하세요. 만약 트랜잭션 실행이 실패한다면 에러에 대한 내용은 영수증의 `txError`에서 확인할 수 있습니다. `txError`에 대한 자세한 설명은 [txError: Detailed Information of Transaction Failures](../../../json-rpc/transaction-error-codes.md)를 참고하세요.
+트랜잭션의 실행 결과는 영수증의 상태를 통하여 확인할 수 있습니다. For a detailed description of the return values, see [getTransactionReceipt][]. 만약 트랜잭션 실행이 실패한다면 에러에 대한 내용은 영수증의 `txError`에서 확인할 수 있습니다. For more information about `txError`, see [txError: Detailed Information of Transaction Failures][].
 
 ## 다른 트랜잭션 타입 실행하기 <a id="executing-other-transaction-types"></a>
 
@@ -277,7 +277,7 @@ Klaytn은 확장성과 성능을 위한 다양한 트랜잭션 타입을 제공�
 
 ### 트랜잭션 수수료 위임 <a id="fee-delegation"></a>
 
-Klaytn은 [트랜잭션 수수료 위임](../../../../klaytn/design/transactions/README.md#fee-delegation) 기능을 제공합니다. 예제 코드는 다음과 같습니다.
+Klaytn provides [Fee Delegation][] feature. 예제 코드는 다음과 같습니다.
 
 발신인인 경우 아래 코드를 사용하여 RLP로 인코딩된 트랜잭션 객체를 만드세요:
 
@@ -321,7 +321,7 @@ Klaytn은 [트랜잭션 수수료 위임](../../../../klaytn/design/transactions
 
 ### 계정 업데이트 <a id="account-update"></a>
 
-계정의 키를 변경하려면 아래와 같은 트랜잭션을 보내세요. 키 타입에 따른 트랜잭션 필드는 [계정 업데이트](api-references/caver.klay/sendtx_account_update.md)를 확인하세요.
+계정의 키를 변경하려면 아래와 같은 트랜잭션을 보내세요. Please check [Account Update][] for the transaction field according to the key type.
 
 ```text
 // 아직 caver-js 지갑에 계정을 추가하지 않았다면 'caver.klay.accounts.wallet.add'를 실행하여 지갑에 계정을 추가하세요.
@@ -338,7 +338,7 @@ Klaytn은 [트랜잭션 수수료 위임](../../../../klaytn/design/transactions
 
 ### 스마트 컨트랙트 <a id="smart-contract"></a>
 
-[caver.klay.Contract](api-references/caver.klay.Contract.md) 패키지를 사용하면 Klaytn의 스마트 컨트랙트와 쉽게 상호작용할 수 있습니다. 저수준 ABI\(Application Binary Interface\)가 주어지면 스마트 컨트랙트의 모든 메소드를 자동으로 자바스크립트 호출로 변환합니다. 이를 통해 스마트 컨트랙트가 마치 자바스크립트 객체인 것처럼 스마트 컨트랙트와 상호작용할 수 있습니다.
+The [caver.klay.Contract][] package makes it easy to interact with smart contracts on Klaytn. 저수준 ABI\(Application Binary Interface\)가 주어지면 스마트 컨트랙트의 모든 메소드를 자동으로 자바스크립트 호출로 변환합니다. 이를 통해 스마트 컨트랙트가 마치 자바스크립트 객체인 것처럼 스마트 컨트랙트와 상호작용할 수 있습니다.
 
 먼저 스마트 컨트랙트를 컴파일하여 바이트코드와 ABI를 얻습니다.
 
@@ -353,7 +353,7 @@ Contract JSON ABI
 
 **참고**: 스마트 컨트랙트를 컴파일하려면 솔리디티 컴파일러가 설치되어 있어야 합니다.
 
-스마트 컨트랙트 배포는 [caver.klay.Contract](api-references/caver.klay.Contract.md)를 사용하거나, [SMART_CONTRACT_DEPLOY](api-references/caver.klay/sendtx_smart_contract_deploy.md) 트랜잭션으로 배포할 수 있습니다. 다음은 [caver.klay.Contract](api-references/caver.klay.Contract.md)를 사용하는 예시입니다.
+For smart contract deployment, you can use [caver.klay.Contract][] to deploy it, or you can deploy it using [SMART_CONTRACT_DEPLOY][] transaction. Here is an example of using [caver.klay.Contract][].
 
 컨트랙트 인스턴스가 생성되면, 아래와 같이 바이트코드를 `data` 필드에 전달하는 것으로 배포할 수 있습니다:
 
@@ -395,7 +395,7 @@ Contract JSON ABI
 '0xC9f0b868e5103b6823171a2Df85E7B696660E466'
 ```
 
-스마트 컨트랙트의 특정 메소드를 호출하는 한 가지 방법은 `caver.klay.Contract`를 사용하거나 [SMART_CONTRACT_EXECUTION](api-references/caver.klay/sendtx_smart_contract_execution.md)를 사용하는 것입니다.
+One way to invoke a specific method of a smart contract is to use it with `caver.klay.Contract` or use [SMART_CONTRACT_EXECUTION][].
 
 스마트 컨트랙트로 트랜잭션을 생성하려면:
 
@@ -429,11 +429,11 @@ Contract JSON ABI
 2194
 ```
 
-자세한 내용은 [caver.klay.Contract](api-references/caver.klay.Contract.md)를 참조하세요.
+See [caver.klay.Contract][] for details.
 
 ## 다양한 AccountKey 타입 사용 <a id="using-various-accountkey-types"></a>
 
-caver-js는 플랫폼 지원으로 다양한 유형의 [AccountKey](../../../../klaytn/design/accounts.md#account-key)를 지원하는 새로운 클래스를 도입했습니다.
+caver-js introduces new classes to support the various types of [AccountKey][] supported by the platform.
 
 아래 예제는 Node.js 파일에서의 예시를 설명합니다. 예제를 실습하려면, 먼저 아래처럼 작업 디렉토리에 테스트 파일을 생성하세요.
 
@@ -446,7 +446,7 @@ test.js에 다음 코드를 작성하세요.
 ```javascript
 // test.js file
 const Caver = require('caver-js')
-const caver = new Caver('https://your.en.url:8651/')
+const caver = new Caver('https://api.baobab.klaytn.net:8651/')
 
 async function testFunction() {
     const version = await caver.klay.getNodeInfo()
@@ -782,7 +782,7 @@ caver.klay.accounts.wallet.updateAccountKey(account.address, newKey)
 이 장에서는 서명하는 사람이 여럿인 경우 서명을 수집하고 트랜잭션을 보내는 방법에 대해 설명합니다.
 
 ### 순차적 서명<a id="sequential-sign"></a>
-[caver.klay.accounts.signTransaction](api-references/caver.klay.accounts.md#signtransaction)의 결과로 반환되는 객체에는 rawTransaction 필드가 있습니다.
+The result object of [caver.klay.accounts.signTransaction][] has a rawTransaction field.
 
 `rawTransaction`은 RLP 인코딩된 트랜잭션으로 `signatures`와 `feePayerSignatures`를 가지고 있습니다. `feePayerSignature`는 수수료 위임 트랜잭션인 경우에만 포함됩니다.
 
@@ -831,7 +831,7 @@ const receipt = await caver.klay.sendSignedTransaction(feePayer2Signed)
 console.log(receipt)
 ```
 
-**참고** `caver.klay.accounts.feePayerSignTransaction`은 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
+**참고** `caver.klay.accounts.feePayerSignTransaction`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
 사용하는 계정이 caver-js의 인메모리 지갑에 있으면 키를 `signTransaction` 또는 `feePayerSignTransaction`에 전달할 필요가 없습니다. 아래 예제를 참조하세요.
 
@@ -953,7 +953,7 @@ console.log(rawTransaction)
 
 ## 샘플 프로젝트 <a id="sample-projects"></a>
 
-caver-js를 사용한 BApp \(Blockchain Application\) 개발 샘플 프로젝트는 다음과 같습니다:
+Sample projects for development of dApps \(Decentralized Applications\) using caver-js can be found below:
 
 * [Count BApp 개발하기](../../../tutorials/count-bapp/README.md)
 * [Klaystagram](../../../tutorials/klaystagram/README.md)
@@ -962,4 +962,18 @@ caver-js를 사용한 BApp \(Blockchain Application\) 개발 샘플 프로젝트
 
 * caver-js [깃허브 레포지토리](https://github.com/klaytn/caver-js)
 * caver-js on [npm](https://www.npmjs.com/package/caver-js)
+
+
+
+[caver.klay.Contract]: api-references/caver.klay.Contract.md
+[caver.klay.accounts]: api-references/caver.klay.accounts.md
+[caver.klay.accounts.signTransaction]: api-references/caver.klay.accounts.md#signtransaction
+[caver.klay.getTransactionReceipt]: api-references/caver.klay/transaction.md#gettransactionreceipt
+[getTransactionReceipt]: api-references/caver.klay/transaction.md#gettransactionreceipt
+[txError: Detailed Information of Transaction Failures]: ../../../json-rpc/transaction-error-codes.md
+[Fee Delegation]: ../../../../klaytn/design/transactions/README.md#fee-delegation
+[AccountKey]: ../../../../klaytn/design/accounts.md#account-key
+[Account Update]: api-references/caver.klay/sendtx_account_update.md
+[SMART_CONTRACT_DEPLOY]: api-references/caver.klay/sendtx_smart_contract_deploy.md
+[SMART_CONTRACT_EXECUTION]: api-references/caver.klay/sendtx_smart_contract_execution.md
 

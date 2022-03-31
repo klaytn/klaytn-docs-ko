@@ -9,7 +9,7 @@
 |  콘솔   | `debug.blockProfile(file, seconds)`                            |
 |  RPC  | `{"method": "debug_blockProfile", "params": [string, number]}` |
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입     | 설명                     |
 | ------- | ------ | ---------------------- |
@@ -29,7 +29,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_blockProfile","params":["block.profile", 10],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_blockProfile","params":["block.profile", 10],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -43,7 +43,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.cpuProfile(file, seconds)`                            |
 |  RPC  | `{"method": "debug_cpuProfile", "params": [string, number]}` |
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입     | 설명                     |
 | ------- | ------ | ---------------------- |
@@ -63,7 +63,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_cpuProfile","params":["block.profile", 10],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_cpuProfile","params":["block.profile", 10],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -76,7 +76,7 @@ nsec (nanosecond)에 대한 뮤텍스(mutex) 프로파일링을 시작하고 파
 |  콘솔   | `debug.mutexProfile(file, seconds)`                            |
 |  RPC  | `{"method": "debug_mutexProfile", "params": [string, number]}` |
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입     | 설명                     |
 | ------- | ------ | ---------------------- |
@@ -96,7 +96,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_mutexProfile","params":["mutex.profile", 10],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_mutexProfile","params":["mutex.profile", 10],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -110,7 +110,7 @@ pprof HTTP 서버가 실행 중이면 `true`를 반환하고, 그렇지 않으�
 |  콘솔   | `debug.isPProfRunning()`                           |
 |  RPC  | `{"method": "debug_isPProfRunning", "params": []}` |
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -130,7 +130,7 @@ false
 
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_isPProfRunning","params":[],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_isPProfRunning","params":[],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":true}
 ```
 
@@ -144,7 +144,7 @@ Go루틴 블록 프로파일 데이터 수집 속도(샘플/초)를 설정합니
 |  콘솔   | `debug.setBlockProfileRate(rate)`                             |
 |  RPC  | `{"method": "debug_setBlockProfileRate", "params": [number]}` |
 
-**매개변수**
+**Parameters**
 
 | 이름   | 타입  | 설명                       |
 | ---- | --- | ------------------------ |
@@ -163,7 +163,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_setBlockProfileRate","params":['3'],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_setBlockProfileRate","params":['3'],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -177,7 +177,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.startCPUProfile(file)`                             |
 |  RPC  | `{"method": "debug_startCPUProfile", "params": [string]}` |
 
-**매개변수**
+**Parameters**
 
 | 이름   | 타입     | 설명                  |
 | ---- | ------ | ------------------- |
@@ -197,7 +197,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startCPUProfile","params":["cpu.profile"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startCPUProfile","params":["cpu.profile"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -228,7 +228,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stopCPUProfile","params":[],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stopCPUProfile","params":[],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -245,7 +245,7 @@ pprof HTTP 서버를 시작합니다.  실행 중인 pprof 서버는 아래를 �
 |  콘솔   | `debug.startPProf(address, port)`                            |
 |  RPC  | `{"method": "debug_startPProf", "params": [string, number]}` |
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입     | 설명                                                       |
 | ------- | ------ | -------------------------------------------------------- |
@@ -271,8 +271,8 @@ null
 
 HTTP RPC
 ```shell
-#  localhost:6060에서 pprof 서버 시작하기
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startPProf","params":["localhost", 6060],"id":1}' http://localhost:8551
+# To start the pprof server at localhost:6060
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_startPProf","params":["localhost", 6060],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -304,7 +304,7 @@ null
 
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stopPProf","params":[],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_stopPProf","params":[],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -318,7 +318,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.writeBlockProfile(file)`                             |
 |  RPC  | `{"method": "debug_writeBlockProfile", "params": [string]}` |
 
-**매개변수**
+**Parameters**
 
 | 이름   | 타입     | 설명                  |
 | ---- | ------ | ------------------- |
@@ -337,7 +337,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_writeBlockProfile","params":["block.profile"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_writeBlockProfile","params":["block.profile"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -370,7 +370,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_writeMemProfile","params":["mem.profile"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_writeMemProfile","params":["mem.profile"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -402,6 +402,6 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_writeMutexProfile","params":["mutex.profile"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_writeMutexProfile","params":["mutex.profile"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```

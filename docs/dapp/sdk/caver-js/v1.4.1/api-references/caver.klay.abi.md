@@ -15,15 +15,15 @@ caver.klay.abi.encodeFunctionSignature(functionSignature)
 
 Type을 포함한 함수 이름의 sha3 해시의 첫 4바이트인 ABI 서명으로 함수 서명을 인코딩합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭                | 형식                   | 설명                                                                                                                                  |
+| 이름                | 타입                   | 설명                                                                                                                                  |
 | ----------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | functionSignature | String &#124; Object | 인코딩할 이벤트의 이벤트 서명 또는 JSON 인터페이스 객체입니다. 문자열인 경우 `function(type,type,...)` 형식이어야 합니다. 예시: `myFunction(uint256,uint32[],bytes10,bytes)` |
 
 **리턴값**
 
-| 형식     | 설명          |
+| 타입     | 설명          |
 | ------ | ----------- |
 | String | 함수의 ABI 서명. |
 
@@ -57,15 +57,15 @@ caver.klay.abi.encodeEventSignature(eventSignature)
 
 입력 타입을 포함한 이벤트 이름의 sha3 해시의 ABI 서명으로 이벤트 서명을 인코딩합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭             | 형식                   | 설명                                                                                                                            |
+| 이름             | 타입                   | 설명                                                                                                                            |
 | -------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | eventSignature | String &#124; Object | 인코딩할 이벤트의 이벤트 서명 또는 JSON 인터페이스 객체입니다. 문자열인 경우 `event(type,type,...)` 형식이어야 합니다. 예시: `myEvent(uint256,uint32[],bytes10,bytes)` |
 
 **리턴값**
 
-| 형식     | 설명           |
+| 타입     | 설명           |
 | ------ | ------------ |
 | String | 이벤트의 ABI 서명. |
 
@@ -99,16 +99,16 @@ caver.klay.abi.encodeParameter(type, parameter)
 
 타입에 따라 매개변수를 ABI 표현으로 인코딩합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭        | 형식                   | 설명                                                                                                              |
+| 이름        | 타입                   | 설명                                                                                                              |
 | --------- | -------------------- | --------------------------------------------------------------------------------------------------------------- |
 | 형식        | String &#124; Object | 매개변수 타입입니다. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)에서 확인할 수 있습니다. |
 | parameter | 복합                   | 인코딩할 실제 매개변수.                                                                                                   |
 
 **리턴값**
 
-| 형식     | 설명             |
+| 타입     | 설명             |
 | ------ | -------------- |
 | String | ABI 인코딩된 매개변수. |
 
@@ -136,16 +136,16 @@ caver.klay.abi.encodeParameters(typesArray, parameters)
 
 JSON 인터페이스 객체를 기반으로 함수 매개변수를 인코딩합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭         | 형식                                    | 설명                                                                                                                             |
+| 이름         | 타입                                    | 설명                                                                                                                             |
 | ---------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | typesArray | Array<String&#124;Object>&#124;Object | 타입의 배열 또는 함수의 JSON 인터페이스의 배열입니다. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
-| parameters | 배열                                    | 인코딩할 매개변수.                                                                                                                     |
+| parameters | Array                                 | 인코딩할 매개변수.                                                                                                                     |
 
 **리턴값**
 
-| 형식     | 설명             |
+| 타입     | 설명             |
 | ------ | -------------- |
 | String | ABI 인코딩된 매개변수. |
 
@@ -167,16 +167,16 @@ caver.klay.abi.encodeFunctionCall(jsonInterface, parameters)
 
 JSON 인터페이스 객체 및 주어진 매개변수를 사용하여 함수 호출을 인코딩합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭            | 형식     | 설명                 |
+| 이름            | 타입     | 설명                 |
 | ------------- | ------ | ------------------ |
 | jsonInterface | Object | 함수의 JSON 인터페이스 객체. |
-| 매개변수          | 배열     | 인코딩할 매개변수.         |
+| parameters    | Array  | 인코딩할 매개변수.         |
 
 **리턴값**
 
-| 형식     | 설명                                 |
+| 타입     | 설명                                 |
 | ------ | ---------------------------------- |
 | String | 함수 서명 + 매개변수를 의미하는 ABI 인코딩된 함수 호출. |
 
@@ -205,16 +205,16 @@ caver.klay.abi.decodeParameter(type, hexString)
 
 ABI 인코딩된 매개변수를 자바스크립트 타입으로 디코딩합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭        | 형식                 | 설명                                                                                                              |
+| 이름        | 타입                 | 설명                                                                                                              |
 | --------- | ------------------ | --------------------------------------------------------------------------------------------------------------- |
 | 형식        | String&#124;Object | 매개변수 타입입니다. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)에서 확인할 수 있습니다. |
-| hexString | 배열                 | 디코딩할 ABI 바이트 코드.                                                                                                |
+| hexString | Array              | 디코딩할 ABI 바이트 코드.                                                                                                |
 
 **리턴값**
 
-| 형식 | 설명         |
+| 타입 | 설명         |
 | -- | ---------- |
 | 복합 | 디코딩된 매개변수. |
 
@@ -236,7 +236,7 @@ caver.klay.abi.decodeParameters(typesArray, hexString)
 
 ABI 인코딩된 매개변수를 자바스크립트 타입으로 디코딩합니다.
 
-**매개변수**
+**Parameters**
 | 이름         | 타입                                    | 설명                                                                                                                                                   |
 | ---------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | typesArray | Array<String&#124;Object>&#124;Object | An array with types or a JSON interface outputs array. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
@@ -277,7 +277,7 @@ caver.klay.abi.decodeLog(inputs, hexString, topics)
 
 ABI 인코딩된 로그 데이터 및 인덱싱된 토픽 데이터를 디코딩합니다.
 
-**매개변수**
+**Parameters**
 | 이름        | 타입     | 설명                                                                                                                               |
 | --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------- |
 | inputs    | Array  | A JSON interface inputs array. 타입 목록은 [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요.     |
@@ -286,7 +286,7 @@ ABI 인코딩된 로그 데이터 및 인덱싱된 토픽 데이터를 디코딩
 
 **리턴값**
 
-| 형식     | 설명                     |
+| 타입     | 설명                     |
 | ------ | ---------------------- |
 | Object | 디코딩된 매개변수를 포함하는 결과 객체. |
 
@@ -325,7 +325,7 @@ caver.klay.abi.encodeContractDeploy(jsonInterface, hexString, params)
 
 생성자의 인자를 포함한 스마트 컨트랙트 바이트코드를 인코딩합니다.
 
-**매개변수**
+**Parameters**
 | 이름            | 타입     | 설명                                    |
 | ------------- | ------ | ------------------------------------- |
 | jsonInterface | Array  | 컨트랙트의 JSON 인터페이스.                     |

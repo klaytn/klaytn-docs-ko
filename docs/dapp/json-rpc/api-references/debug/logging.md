@@ -9,7 +9,7 @@
 |  콘솔   | `debug.backtraceAt(location)`                         |
 |  RPC  | `{"method": "debug_backtraceAt", "params": [string]}` |
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입     | 설명                                                      |
 | -------- | ------ | ------------------------------------------------------- |
@@ -29,7 +29,7 @@ null
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_backtraceAt","params":["server.go:443"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_backtraceAt","params":["server.go:443"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -43,7 +43,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.setVMLogTarget(target)`                           |
 |  RPC  | `{"method": "debug_setVMLogTarget", "params": [number]}` |
 
-**매개변수**
+**Parameters**
 
 | 이름     | 타입  | 설명                                                                   |
 | ------ | --- | -------------------------------------------------------------------- |
@@ -80,7 +80,7 @@ Error: target should be between 0 and 3
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_setVMLogTarget","params":[3],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_setVMLogTarget","params":[3],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":"both file and stdout"}
 ```
 
@@ -98,7 +98,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 |  콘솔   | `debug.verbosity(level)`                          |
 |  RPC  | `{"method": "debug_vmodule", "params": [number]}` |
 
-**매개변수**
+**Parameters**
 
 | 이름    | 타입  | 설명                     |
 | ----- | --- | ---------------------- |
@@ -117,7 +117,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_verbosity","params":['3'],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_verbosity","params":['3'],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -154,7 +154,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_verbosityByName","params":["name", '3'],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_verbosityByName","params":["name", '3'],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -176,10 +176,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 **Parameters**
 
-| 이름    | 타입  | 설명                    |
-| ----- | --- | --------------------- |
-| id    | int | 모듈의 ID입니다.            |
-| level | int | 로깅의 상세수준을 나타내는 레벨입니다. |
+| 이름    | 타입  | 설명                     |
+| ----- | --- | ---------------------- |
+| id    | int | 모듈의 ID입니다.             |
+| level | int | 로깅의 상세 정도를 나타내는 레벨입니다. |
 
 **리턴값**
 
@@ -194,7 +194,7 @@ null
 ```
 HTTP RPC
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_verbosityById","params":['1',3'],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_verbosityById","params":['1',3'],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 
@@ -243,7 +243,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_vmodule","params":["p2p=4"],"id":1}' http://localhost:8551
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_vmodule","params":["p2p=4"],"id":1}' https://api.baobab.klaytn.net:8651
 {"jsonrpc":"2.0","id":1,"result":null}
 ```
 

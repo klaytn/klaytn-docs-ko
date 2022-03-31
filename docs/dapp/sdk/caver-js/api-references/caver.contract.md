@@ -135,7 +135,7 @@ myContract.options
 myContract.options.address
 ```
 
-이 컨트랙트 인스턴스 `myContract`에 사용된 주소입니다. 해당 컨트랙트에서 caver-js에 의해 생성된 모든 트랜잭션에 이 주소가 `to`로서 포함될 것입니다.
+이 컨트랙트 인스턴스 `myContract`에 사용된 주소. 해당 컨트랙트에서 caver-js에 의해 생성된 모든 트랜잭션에 이 주소가 `to`로서 포함될 것입니다.
 
 **속성**
 
@@ -247,20 +247,20 @@ myContract.deploy(options, byteCode [, param1 [, param2 [, ...]]])
 
 **Parameters**
 
-| 이름         | 타입     | 설명                                                                                     |
-| ---------- | ------ | -------------------------------------------------------------------------------------- |
-| options    | object | 전송에 사용되는 옵션입니다. 자세한 사항은 [methods.methodName.send](#methods-methodname-send)의 표를 참고하세요. |
-| byteCode   | string | 컨트랙트의 바이트 코드입니다.                                                                       |
-| parameters | 복합     | (선택 사항) 배포시 생성자에게 전달되는 파라미터입니다.                                                        |
+| 이름         | 타입     | 설명                                                                                  |
+| ---------- | ------ | ----------------------------------------------------------------------------------- |
+| options    | object | 전송에 사용되는 옵션. 자세한 사항은 [methods.methodName.send](#methods-methodname-send)의 표를 참고하세요. |
+| byteCode   | string | 컨트랙트의 바이트 코드.                                                                       |
+| parameters | 복합     | (선택 사항) 배포시 생성자에게 전달되는 파라미터입니다.                                                     |
 
 
 **리턴값**
 
 `Promise`는 `PromiEvent`를 반환: Promise가 새로운 컨트랙트 인스턴스와 함께 해결(resolved)됩니다.
 
-| 타입         | 설명                                                                                                                                                           |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| PromiEvent | Promise가 조합된 이벤트 이미터(event emitter)입니다. 트랜잭션 영수증이 준비되면 해결(resolve)됩니다. `myContract.deploy()`에서 `send()`가 호출될 경우, Promise는 새로운 컨트랙트 인스턴스와 함께 해결(resolved)됩니다. |
+| 타입         | 설명                                                                                                                                                              |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| PromiEvent | 프로미스(promise)가 조합된 이벤트 이미터(event emitter). 트랜잭션 영수증이 준비되면 해결(resolve)됩니다. `myContract.deploy()`에서 `send()`가 호출될 경우, Promise는 새로운 컨트랙트 인스턴스와 함께 해결(resolved)됩니다. |
 
 PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
 
@@ -333,7 +333,7 @@ PromiEvent에서는 다음 이벤트가 발생할 수 있습니다.
   })
 ```
 
-## myContract.deploymyContract.deploy<a id="mycontract-deploy"></a>
+## myContract.deploy<a id="mycontract-deploy"></a>
 
 ```javascript
 myContract.deploy(options)
@@ -443,7 +443,7 @@ myContract.send(options, methodName [, param1 [, param2 [, ...]]])
 - `feeDelegation`가 `true`로 정의되었고`feePayer`도 정의되었지만, `feeRatio`가 정의되지 않음: [FeeDelegatedSmartContractExecution][]
 - `feeDelegation`가 `true`로 정의되었고`feePayer`와 `feeRatio`도 정의되었음: [FeeDelegatedSmartContractExecutionWithRatio][]
 
-**NOTE** 서명을 하기 위해서는 `caver.wallet`가 `options`나 `myContract.options`의 `from`과 `feePayer`에 해당하는 키링 인스턴스를 포함해야 합니다.
+**NOTE** 서명을 하기 위해서는 `caver.wallet`가 `options`나 `myContract.options`의 `from`와 `feePayer`에 해당하는 키링 인스턴스를 포함해야 합니다.
 
 **참고** `myContract.send`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
@@ -854,7 +854,7 @@ myContract.call('methodName', [param1 [, param2 [, ...]]])
 myContract.call(options, 'methodName', [param1 [, param2 [, ...]]])
 ```
 
-상수형 메서드를 호출하며 트랜잭션을 보내지 않고 그 스마트 컨트랙트 메서드를 Klaytn 가상머신에서 실행합니다. 이러한 호출은 스마트 컨트랙트 상태를 변경할 수 없음에 유의하세요.
+상수형 메서드를 호출하며 트랜잭션을 보내지 않고 그 스마트 컨트랙트 메서드를 Klaytn 가상머신에서 실행합니다. Note that calling cannot alter the smart contract state.
 
 **참고** `myContract.call`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
@@ -869,7 +869,7 @@ myContract.call(options, 'methodName', [param1 [, param2 [, ...]]])
 
 **리턴값**
 
-`Promise`가 `Mixed`를 반환: 스마트 컨트랙트 메서드의 리턴값(들) 입니다. 하나의 값을 반환하면, 그대로 반환됩니다. 다수의 반환값이 있는 경우 속성과 인덱스로 구성된 객체로서 반환됩니다.
+`Promise`가 `Mixed`를 반환: 스마트 컨트랙트 메서드의 리턴값(들) 입니다. 하나를 반환하면, 그대로 반환됩니다. 다수의 반환값이 있는 경우 속성과 인덱스로 구성된 객체로서 반환됩니다.
 
 **예시**
 
@@ -1087,7 +1087,7 @@ myContract.methods.methodName([param1 [, param2 [, ...]]]).call(options [, callb
 myContract.methods['methodName']([param1 [, param2 [, ...]]]).call(options [, callback])
 ```
 
-상수형 메서드를 호출하며 트랜잭션을 보내지 않고 그 스마트 컨트랙트 메서드를 Klaytn 가상머신에서 실행합니다.  이러한 호출은 스마트 컨트랙트 상태를 변경할 수 없음에 유의하세요. 단축함수로서 제공되는 [myContract.call](#mycontract-call)를 사용하는 것이 제안됩니다.
+상수형 메서드를 호출하며 트랜잭션을 보내지 않고 그 스마트 컨트랙트 메서드를 Klaytn 가상머신에서 실행합니다.  Note that calling cannot alter the smart contract state. 단축함수로서 제공되는 [myContract.call](#mycontract-call)를 사용하는 것이 제안됩니다.
 
 **Parameters**
 

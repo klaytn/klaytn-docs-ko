@@ -30,12 +30,12 @@ tokenInfo 객체는 다음을 반드시 포함해야 합니다:
 
 | 이름            | 타입                                    | 설명                   |
 | ------------- | ------------------------------------- | -------------------- |
-| name          | string                                | 토큰 이름입니다.            |
-| symbol        | string                                | 토큰 심볼입니다.            |
+| 명칭            | string                                | 토큰 이름입니다.            |
+| 기호            | string                                | 토큰 심볼입니다.            |
 | decimals      | number                                | 토큰이 사용하는 소수점 자릿수입니다. |
 | initialSupply | BigNumber &#124; string &#124; number | 최초 공급될 토큰 총 수량입니다.   |
 
-**참고** `initialSupply` 파라미터는 `number` 타입을 받지만, 입력된 값이 number.MAX_SAFE_INTEGER 범위를 초과할 경우, 예상치 못한 결과나 오류가 발생할 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력에는 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `initialSupply` 파라미터는 `number` 타입을 받지만, 입력된 값이 number.MAX_SAFE_INTEGER 범위를 초과할 경우, 예상치 못한 결과나 오류가 발생할 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 **리턴값**
 
@@ -45,7 +45,7 @@ tokenInfo 객체는 다음을 반드시 포함해야 합니다:
 | --------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionHash | string | 트랜잭션이 전송된 직후 및 트랜잭션 해시를 사용할 수 있을 때 발생합니다.                                                                                                            |
 | receipt         | object | 트랜잭션 영수증을 사용할 수 있을 때 발생합니다. 영수증 객체 속성값들에 관한 자세한 정보는 [getTransactionReceipt][]를 참고하십시오. KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다. |
-| error           | Error  | 전송 중 오류가 나타나면 발생합니다.                                                                                                                                 |
+| error           | 에러     | 전송 중 오류가 나타나면 발생됩니다.                                                                                                                                 |
 
 **예시**
 
@@ -111,13 +111,13 @@ KIP7 {
 ```javascript
 caver.kct.kip7.detectInterface(contractAddress)
 ```
-토큰 컨트랙트로 구현된 인터페이스의 정보를 반환합니다. 이 정적 함수는 [kip7.detectInterface](#kip7-detectinterface)를 사용합니다.
+토큰 컨트랙트에 의해 구현된 인터페이스 정보를 반환합니다. 이 정적 함수는 [kip7.detectInterface](#kip7-detectinterface)를 사용합니다.
 
-**매개변수**
+**Parameters**
 
-| 이름              | 타입     | 설명                |
-| --------------- | ------ | ----------------- |
-| contractAddress | string | KIP-7 토큰 컨트랙트의 주소 |
+| 이름              | 타입     | 설명                    |
+| --------------- | ------ | --------------------- |
+| contractAddress | string | KIP-7 토큰 컨트랙트의 주소입니다. |
 
 **리턴값**
 
@@ -145,7 +145,7 @@ caver.kct.kip7.create([tokenAddress])
 
 **참고** `caver.kct.kip7.create`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
 [new KIP7](#new-kip7)를 참고하세요.
 
@@ -206,15 +206,15 @@ kip7.clone([tokenAddress])
 
 **Parameters**
 
-| 이름           | 타입     | 설명                                                                      |
-| ------------ | ------ | ----------------------------------------------------------------------- |
-| tokenAddress | string | (선택 사항) 다른 KIP-7 토큰을 배포했던 스마트 컨트랙트 주소입니다. 미입력시 원본 인스턴스의 컨트랙트 주소로 설정됩니다. |
+| 이름           | 타입     | 설명                                                                                 |
+| ------------ | ------ | ---------------------------------------------------------------------------------- |
+| tokenAddress | string | (선택 사항) 다른 KIP-7 토큰을 배포했던 스마트 컨트랙트 주소입니다. 입력을 생략하면, 이 주소는 원본 인스턴스의 컨트랙트 주소로 설정됩니다. |
 
 **리턴값**
 
-| 타입     | 설명                          |
-| ------ | --------------------------- |
-| object | 원본 KIP-7 인스턴스를 복제한 인스턴스입니다. |
+| 타입     | 설명                         |
+| ------ | -------------------------- |
+| object | 원본 KIP7 인스턴스를 복제한 인스턴스입니다. |
 
 
 **예시**
@@ -236,7 +236,7 @@ kip7.detectInterface()
 ```
 토큰 컨트랙트에 의해 구현된 인터페이스 정보를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -446,7 +446,7 @@ kip7.isMinter(address)
 
 **리턴값**
 
-`프로미스`는 `Boolean`을 반환: 계정이 minter라면 `true`를 반환합니다.
+`프로미스`는 `Boolean`을 반환: 계정이 발행자라면 `true`를 반환합니다.
 
 **예시**
 
@@ -530,7 +530,7 @@ kip7.approve(spender, amount [, sendParam])
 | amount    | BigNumber &#124; string &#124; number | 토큰 spender가 사용을 허락받은 토큰 수량입니다.               |
 | sendParam | object                                | (선택 사항) 트랜잭션을 보내는 데 필요한 파라미터들을 가지고 있는 객체입니다. |
 
-**참고** `amount` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 오류를 발생시킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력에는 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
+**참고** `amount` 파라미터는 `Number` 타입 값을 받지만, 입력된 값이 Number.MAX_SAFE_INTEGER 범위를 초과하면 예상치 못한 결과 또는 오류를 발생시킬 수 있습니다. 이 경우, `BigNumber` 타입 값 사용이 권장되며, 특히 `uint256` 크기의 숫자 입력은 `BigNumber` 타입 값을 사용하는 것이 좋습니다.
 
 `sendParam` 객체는 다음을 포함합니다:
 
@@ -541,7 +541,7 @@ kip7.approve(spender, amount [, sendParam])
 | gasPrice      | number &#124; string                            | (선택 사항) 이 트랜잭션에 사용할 peb 단위의 가스 가격. 생략하면 `caver.klay.getGasPrice` 값으로 caver-js가 설정합니다.                                                                                                                              |
 | value         | number &#124; string &#124; BN &#124; BigNumber | (선택 사항) peb으로 환산한 전송될 토큰 가치.                                                                                                                                                                                       |
 | feeDelegation | boolean                                         | (optional, default `false`) 수수료 위임 트랜잭션 사용 여부를 나타냅니다. 미입력 시 `kip7.options.feeDelegation`를 사용합니다. 둘 다 미입력시 수수료 위임은 사용되지 않습니다.                                                                                       |
-| feePayer      | string                                          | (optional) 트랜잭션 수수료를 부담하는 fee payer의 주소입니다. `feeDelegation`이 `true`일 때, 값은 트랜잭션의 `feePayer` 필드에 설정됩니다. 미입력 시 `kip7.options.feePayer`를 사용합니다. 둘 다 미입력시 오류를 반환합니다.                                                   |
+| feePayer      | string                                          | (선택 사항) 트랜잭션 수수료를 부담하는 수수료 납부자의 주소입니다. `feeDelegation`이 `true`일 때, 값은 트랜잭션의 `feePayer` 필드에 설정됩니다. 미입력 시 `kip7.options.feePayer`를 사용합니다. 둘 다 미입력시 오류를 반환합니다.                                                        |
 | feeRatio      | string                                          | (optional) Fee payer가 부담하게될 트랜잭션 수수료의 비율입니다. `feeDelegation`이 `true`이며, `feeRatio`가 유효한 값으로 설정되었을 경우, 부분 수수료 위임 트랜잭션이 사용됩니다. 유효한 범위는 1에서 99 사이입니다. 0이나 100 이상의 값은 허용되지 않습니다. 미입력 시 `kip7.options.feeRatio`를 사용합니다. |
 
 **참고** `feeDelegation`, `feePayer`, 그리고 `feeRatio`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 이후부터 지원됩니다.

@@ -15,9 +15,9 @@ caver.klay.accounts.create([entropy])
 ```
 개인키와 공개키를 사용하여 계정 개체를 생성합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭      | 형식     | 설명                                                                                                                                       |
+| 이름      | 타입     | 설명                                                                                                                                       |
 | ------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | entropy | String | (선택 사항) 엔트로피를 증가시키는 임의의 문자열입니다. If none is given, a random string will be generated using [randomHex](./caver.utils_1.4.1.md#randomhex). |
 
@@ -26,7 +26,7 @@ caver.klay.accounts.create([entropy])
 
 ` Object` - 다음 구조의 계정 객체:
 
-| 명칭                               | 형식       | 설명                                                                             |
+| 이름                               | 타입       | 설명                                                                             |
 | -------------------------------- | -------- | ------------------------------------------------------------------------------ |
 | address                          | String   | 계정 주소.                                                                         |
 | privateKey                       | String   | 계정 개인키. 로컬 스토리지에 암호화되지 않은 상태로 공유하거나 저장해서는 안 됩니다! 또한 사용 후에는 메모리를 null로 설정하세요.   |
@@ -77,9 +77,9 @@ caver.klay.accounts.createWithAccountKey(address, accountKey)
 
 **참고** 이는 caver-js에서 사용되는 데이터 구조체일 뿐입니다. 이 메서드는 Klaytn 네트워크에 계정을 생성하거나 네트워크에 있는 계정을 업데이트하지 않습니다. **참고** `caver.klay.accounts.createWithAccountKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭         | 형식                                | 설명                                                                                                                                                    |
+| 이름         | 타입                                | 설명                                                                                                                                                    |
 | ---------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address    | String                            | 계정 주소.                                                                                                                                                |
 | accountKey | String &#124; Array &#124; Object | AccountKey 인스턴스(`AccountKeyPublic`, `AccountKeyMultiSig`, `AccountKeyRoleBased`) 또는 키 정보(개인키 문자열, 개인키 문자열의 배열 또는 각 역할에 해당하는 키를 정의한 객체)를 포함하는 데이터 구조체. |
@@ -89,7 +89,7 @@ caver.klay.accounts.createWithAccountKey(address, accountKey)
 
 `Object` - 다음 속성을 가진 Account 인스턴스가 반환됩니다.
 
-| 명칭                               | 형식                                | 설명                                                                                                                                                                                                   |
+| 이름                               | 타입                                | 설명                                                                                                                                                                                                   |
 | -------------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address                          | String                            | 계정 주소.                                                                                                                                                                                               |
 | privateKey                       | String                            | 계정에 있는 accountKey의 기본 키 문자열. 이 속성은 이전 버전과의 호환성을 위해 남겨졌습니다. privateKey는 accountKey의 기본 키만 나타내므로, privateKey를 사용하여 서명하거나 트랜잭션을 보내지 않는 편이 좋습니다. transactionKey, updateKey 또는 feePayerKey를 사용하는 것이 좋습니다. |
@@ -157,9 +157,9 @@ AccountKeyPublic을 가지는 Account 인스턴스를 생성합니다.
 
 **참고** `caver.klay.accounts.createWithAccountKeyPublic`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭         | 형식                   | 설명                                                    |
+| 이름         | 타입                   | 설명                                                    |
 | ---------- | -------------------- | ----------------------------------------------------- |
 | address    | String               | 계정 주소.                                                |
 | accountKey | String &#124; Object | An AccountKeyPublic instance or a private key string. |
@@ -193,9 +193,9 @@ AccountKeyMultiSig를 가지는 Account 인스턴스를 생성합니다.
 
 **참고** `caver.klay.accounts.createWithAccountKeyMultiSig`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭         | 형식                   | 설명                                                                 |
+| 이름         | 타입                   | 설명                                                                 |
 | ---------- | -------------------- | ------------------------------------------------------------------ |
 | address    | String               | 계정 주소.                                                             |
 | accountKey | String &#124; Object | An AccountKeyMultiSig instance or an array of private key strings. |
@@ -229,9 +229,9 @@ AccountKeyRoleBased를 가지는 Account 인스턴스를 생성합니다.
 
 **참고** `caver.klay.accounts.createWithAccountKeyRoleBased`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭         | 형식                   | 설명                                                                               |
+| 이름         | 타입                   | 설명                                                                               |
 | ---------- | -------------------- | -------------------------------------------------------------------------------- |
 | address    | String               | 계정 주소.                                                                           |
 | accountKey | String &#124; Object | An AccountKeyRoleBased instance or an object that defines the key for each role. |
@@ -271,9 +271,9 @@ AccountKey는 caver-js에서 키를 관리하기 위한 데이터 구조체입�
 
 **참고** `caver.klay.accounts.createAccountKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭  | 형식                                | 설명                                                                                                                                                                                                                                                                                                                                    |
+| 이름  | 타입                                | 설명                                                                                                                                                                                                                                                                                                                                    |
 | --- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | key | String &#124; Array &#124; Object | AccountKey를 생성하기 위한 키입니다. `key`가 단일 개인키 문자열인 경우, AccountKeyPublic 인스턴스가 생성됩니다. `key`가 개인키 문자열의 배열인 경우, AccountKeyMultiSig 인스턴스가 생성됩니다. `key`가 역할별 키를 정의한 객체인 경우, AccountKeyRoleBased 인스턴스가 생성됩니다. 각 역할별 키는 단일 개인키 문자열 또는 개인키 문자열의 배열이 될 수 있습니다. AccountKeyRoleBased 인스턴스는 각 역할을 위해 AccountKeyPublic 또는 AccountKeyMultiSig를 가질 수 있습니다. |
 
@@ -282,14 +282,14 @@ AccountKey는 caver-js에서 키를 관리하기 위한 데이터 구조체입�
 
 `Object` - 다음 속성을 가지는 AccountKeyPublic, AccountKeyMultiSig 또는 AccountKeyRoleBased 객체가 반환됩니다.
 
-| 명칭             | 형식                                | 설명                                                                                                                                                                                                                                                          |
+| 이름             | 타입                                | 설명                                                                                                                                                                                                                                                          |
 | -------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 형식             | String                            | AccountKey 인스턴스의 타입.                                                                                                                                                                                                                                        |
 | defaultKey     | String                            | AccountKey의 기본 개인키. defaultKey는 AccountKeyPublic에 정의된 개인키 문자열, 또는 AccountKeyMultiSig인 경우에는 배열의 0번째 인덱스에 있는 개인키 문자열을 지칭합니다. AccountKeyRoleBased의 경우 첫 번째로 찾아지는 AccountKey의 defaultKey를 지칭하는데, AccountKey를 찾는 순서는 transactionkey, updateKey, feePayerKey 입니다. |
 | keys           | String &#124; Array &#124; Object | AccountKey 인스턴스 내에 정의된 모든 개인키. AccountKeyPublic의 경우 단일 개인키 문자열입니다. AccountKeyMultiSig의 경우 모든 개인키 문자열이 포함된 배열을 반환합니다. AccountKeyRoleBased의 경우 각 역할에 연계된 키를 가지는 객체가 반환됩니다.                                                                                    |
 | transactionKey | String &#124; Array               | [RoleTransaction](../../../../../klaytn/design/accounts.md#roles)에 사용되는 키. AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, transactionKey는 키와 동일한 값을 가집니다.                                                                                        |
-| updateKey      | String &#124; Array               | [RoleAccountUpdate](../../../../../klaytn/design/accounts.md#roles)에 사용된 키. AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, updateKey는 키와 동일한 값을 가집니다.                                                                                            |
-| feePayerKey    | String &#124; Array               | [RoleFeePayer](../../../../../klaytn/design/accounts.md#roles)에 사용되는 키. AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, feePayerKey는 키와 동일한 값을 가집니다.                                                                                              |
+| updateKey      | String &#124; Array               | Key used for the [RoleAccountUpdate](../../../../../klaytn/design/accounts.md#roles). AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, updateKey는 키와 동일한 값을 가집니다.                                                                                  |
+| feePayerKey    | String &#124; Array               | Key used for [RoleFeePayer](../../../../../klaytn/design/accounts.md#roles). AccountKeyPublic 또는 AccountKeyMultiSig는 어떤 역할에도 묶이지 않으므로, feePayerKey는 키와 동일한 값을 가집니다.                                                                                         |
 
 **예시**
 
@@ -343,9 +343,9 @@ caver.klay.accounts.createAccountKeyPublic(key)
 
 **참고** `caver.klay.accounts.createAccountKeyPublic`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭  | 형식     | 설명                                    |
+| 이름  | 타입     | 설명                                    |
 | --- | ------ | ------------------------------------- |
 | key | String | AccountKeyPublic을 생성하기 위한 개인키 문자열입니다. |
 
@@ -373,11 +373,11 @@ caver.klay.accounts.createAccountKeyMultiSig(keys
 
 **참고** `caver.klay.accounts.createAccountKeyMultiSig`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭   | 형식 | 설명                                         |
-| ---- | -- | ------------------------------------------ |
-| keys | 배열 | AccountKeyMultiSig를 생성하기위한 개인키 문자열의 배열입니다. |
+| 이름   | 타입    | 설명                                         |
+| ---- | ----- | ------------------------------------------ |
+| keys | Array | AccountKeyMultiSig를 생성하기위한 개인키 문자열의 배열입니다. |
 
 
 **리턴값**
@@ -406,9 +406,9 @@ caver.klay.accounts.createAccountKeyRoleBased(keyObject)
 
 **참고** `caver.klay.accounts.createAccountKeyRoleBased`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭        | 형식     | 설명                                                               |
+| 이름        | 타입     | 설명                                                               |
 | --------- | ------ | ---------------------------------------------------------------- |
 | keyObject | Object | 역할-키 쌍을 가지고 있는 객체. 각 역할에 해당하는 키는 개인키 문자열 또는 개인키 문자열의 배열일 수 있습니다. |
 
@@ -454,15 +454,15 @@ caver.klay.accounts.accountKeyToPublicKey(accountKey)
 
 **참고** `caver.klay.accounts.accountKeyToPublicKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭         | 형식                                | 설명                                                                                                                                                    |
+| 이름         | 타입                                | 설명                                                                                                                                                    |
 | ---------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | accountKey | String &#124; Array &#124; Object | AccountKey 인스턴스(`AccountKeyPublic`, `AccountKeyMultiSig`, `AccountKeyRoleBased`) 또는 키 정보(개인키 문자열, 개인키 문자열의 배열 또는 각 역할에 해당하는 키를 정의한 객체)를 포함하는 데이터 구조체. |
 
 **리턴값**
 
-| 형식                                | 설명                                                                                                                                                                                                                                                                              |
+| 타입                                | 설명                                                                                                                                                                                                                                                                              |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | String &#124; Array &#124; Object | 만일 매개 변수가 AccountKeyPublic 인스턴스 또는 개인키 문자열인 경우 공개키 문자열이 반환됩니다. 만일 매개 변수가 AccountKeyMultiSig 인스턴스 또는 개인키 문자열의 배열인 경우 공개키 문자열의 배열이 반환됩니다. 만일 매개 변수가 AccountKeyRoleBased 인스턴스 또는 역할별 키(단일 개인키 문자열 또는 개인키 문자열의 배열)를 정의한 객체인 경우, 역할과 공개키(단일 공개키 문자열 또는 공개키 문자열의 배열) 쌍을 가진 객체를 반환합니다. |
 
@@ -503,11 +503,11 @@ caver.klay.accounts.privateKeyToAccount(privateKey)
 ```
 개인키에서 계정 객체를 생성합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭         | 형식  | 설명       |
-| ---------- | --- | -------- |
-| privateKey | 문자열 | 변환할 개인키. |
+| 이름         | 타입     | 설명       |
+| ---------- | ------ | -------- |
+| privateKey | string | 변환할 개인키. |
 
 
 **리턴값**
@@ -535,11 +535,11 @@ caver.klay.accounts.privateKeyToPublicKey(privateKey)
 ```
 주어진 개인키에서 공개키를 도출합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭         | 형식  | 설명       |
-| ---------- | --- | -------- |
-| privateKey | 문자열 | 변환할 개인키. |
+| 이름         | 타입     | 설명       |
+| ---------- | ------ | -------- |
+| privateKey | string | 변환할 개인키. |
 
 
 **리턴값**
@@ -570,9 +570,9 @@ caver.klay.accounts.createAccountForUpdate의 accountKey 매개 변수는 개인
 
 **참고** `caver.klay.accounts.createAccountForUpdate`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭         | 형식                                | 설명                                                                                                                                                                                                                                                                                            |
+| 이름         | 타입                                | 설명                                                                                                                                                                                                                                                                                            |
 | ---------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address    | String                            | 계정 주소.                                                                                                                                                                                                                                                                                        |
 | accountKey | String &#124; Array &#124; Object | AccountKey 인스턴스(`AccountKeyPublic`, `AccountKeyMultiSig`, `AccountKeyRoleBased`) 또는 상응하는 키 정보(개인키 문자열, 개인키 문자열의 배열 또는 각 역할에 해당하는 키를 정의한 객체). accountKey가 AccountKey 인스턴스가 아닌 경우 이 메서드는 내부적으로 [caver.klay.accounts.createAccountKey](#createaccountkey)를 호출하여 주어진 키 정보로 AccountKey 인스턴스를 만듭니다. |
@@ -582,7 +582,7 @@ caver.klay.accounts.createAccountForUpdate의 accountKey 매개 변수는 개인
 
 `Object` - 다음 속성을 가진 AccountForUpdate 인스턴스가 반환됩니다.
 
-| 명칭           | 형식     | 설명                                      |
+| 이름           | 타입     | 설명                                      |
 | ------------ | ------ | --------------------------------------- |
 | address      | String | 업데이트 할 계정의 주소.                          |
 | keyForUpdate | Object | 주어진 accountKey에서 도출한, 새로운 공개키를 포함하는 객체. |
@@ -673,9 +673,9 @@ caver.klay.accounts.createAccountForUpdateWithPublicKey(address, keyForUpdate, o
 
 **참고** `caver.klay.accounts.createAccountForUpdateWithPublicKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭           | 형식                                | 설명                                                                                                                                                                   |
+| 이름           | 타입                                | 설명                                                                                                                                                                   |
 | ------------ | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address      | String                            | 계정 주소.                                                                                                                                                               |
 | keyForUpdate | String &#124; Array &#124; Object | The public-key of the new key to update. 이 값은 키가 AccountKeyPublic인 경우에는 단일 공개키 문자열, AccountKeyMultiSig인 경우 공개키 문자열의 배열, 키가 AccountKeyRoleBased인 경우는 객체입니다.           |
@@ -760,9 +760,9 @@ caver.klay.accounts.createAccountForUpdateWithLegacyKey(address)
 
 **참고** `caver.klay.accounts.createAccountForUpdateWithLegacyKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭      | 형식     | 설명     |
+| 이름      | 타입     | 설명     |
 | ------- | ------ | ------ |
 | address | String | 계정 주소. |
 
@@ -793,9 +793,9 @@ caver.klay.accounts.createAccountForUpdateWithFailKey(address)
 
 **참고** `caver.klay.accounts.createAccountForUpdateWithFailKey`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭      | 형식     | 설명     |
+| 이름      | 타입     | 설명     |
 | ------- | ------ | ------ |
 | address | String | 계정 주소. |
 
@@ -829,9 +829,9 @@ Also since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), si
 
 여러 사용자의 서명을 하나의 rawTransaction으로 결합하는 방법은 [Sending a Transaction with multiple signer](../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer)를 참조하세요.
 
-**매개변수**
+**Parameters**
 
-| 명칭         | 형식                   | 설명                                                                                                                                                                                                                                 |
+| 이름         | 타입                   | 설명                                                                                                                                                                                                                                 |
 | ---------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | tx         | String &#124; Object | Transaction object or RLP-encoded transaction string (rawTransaction). 트랜잭션 객체의 속성은 트랜잭션 유형에 따라 다릅니다. For the description of each transaction type, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
 | privateKey | String &#124; Array  | (optional) The private key to sign with.                                                                                                                                                                                           |
@@ -845,17 +845,17 @@ Also since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), si
 
 `Promise`는 `Object`를 반환: RLP 인코딩된 서명된 트랜잭션. 객체 속성은 다음과 같습니다:
 
-| 명칭                 | 형식             | 설명                                                                                                     |
-| ------------------ | -------------- | ------------------------------------------------------------------------------------------------------ |
-| messageHash        | String         | 주어진 메시지의 해시.                                                                                           |
-| r                  | String         | ECDSA 서명 r.                                                                                            |
-| s                  | String         | ECDSA 서명 s.                                                                                            |
-| v                  | String         | ECDSA 리커버리 id.                                                                                         |
-| rawTransaction     | String         | caver.klay.sendSignedTransaction을 사용하여 전송할 준비가 된 RLP 인코딩된 트랜잭션.                                        |
-| txHash             | 32-byte String | 트랜잭션 해시.                                                                                               |
-| senderTxHash       | 32-byte String | 발신자만 서명한 트랜잭션 해시. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash) |
-| signatures         | 배열             | (optional) An array of the sender's signature(s).                                                      |
-| feePayerSignatures | 배열             | (optional) An array of the fee payer's signature(s).                                                   |
+| 이름                 | 타입             | 설명                                                                                                              |
+| ------------------ | -------------- | --------------------------------------------------------------------------------------------------------------- |
+| messageHash        | String         | 주어진 메시지의 해시.                                                                                                    |
+| r                  | String         | ECDSA 서명 r.                                                                                                     |
+| s                  | String         | ECDSA 서명 s.                                                                                                     |
+| v                  | String         | ECDSA 리커버리 id.                                                                                                  |
+| rawTransaction     | String         | caver.klay.sendSignedTransaction을 사용하여 전송할 준비가 된 RLP 인코딩된 트랜잭션.                                                 |
+| txHash             | 32-byte String | 트랜잭션의 해시입니다.                                                                                                    |
+| senderTxHash       | 32-byte String | 트랜잭션 발신자만 서명한 트랜잭션의 해시입니다. See [SenderTxHash](../../../../../klaytn/design/transactions/README.md#sendertxhash) |
+| signatures         | Array          | (optional) An array of the sender's signature(s).                                                               |
+| feePayerSignatures | Array          | (optional) An array of the fee payer's signature(s).                                                            |
 
 **참고** signatures 및 feePayerSignatures 속성은 caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3) 이후 추가되었습니다. 발신자가 트랜잭션에 서명하면, 서명 배열이 `signatures`로 반환됩니다. 수수료 지불자가 서명하면, 서명 배열이 `feePayerSignatures`로 반환됩니다.
 
@@ -1021,9 +1021,9 @@ caver.klay.accounts.signTransactionWithHash(txHash, privateKeys [, chainId] [, c
 
 **참고** `caver.klay.accounts.signTransactionWithHash`는 caver-js [v1.3.2-rc.2](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.2)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭          | 형식                   | 설명                                                                                                                                |
+| 이름          | 타입                   | 설명                                                                                                                                |
 | ----------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | txHash      | String               | 서명할 트랜잭션 해시입니다.                                                                                                                   |
 | privateKeys | String &#124; Array  | 서명에 사용할 개인키입니다.                                                                                                                   |
@@ -1111,12 +1111,12 @@ feePayerSignTransaction keeps the existing signatures/feePayerSignatures in the 
 
 여러 사용자의 서명을 하나의 rawTransaction으로 결합하는 방법은 [Sending a Transaction with multiple signer](../getting-started_1.4.1.md#sending-a-transaction-with-multiple-signer)를 참조하세요.
 
-**참고** `caver.klay.accounts.feePayerSignTransaction`은 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
+**참고** `caver.klay.accounts.feePayerSignTransaction`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
 
-| 명칭              | 형식                   | 설명                                                                                                                                                                                                                                 |
+| 이름              | 타입                   | 설명                                                                                                                                                                                                                                 |
 | --------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | tx              | String &#124; Object | Transaction object or RLP-encoded transaction string (rawTransaction). 트랜잭션 객체의 속성은 트랜잭션 유형에 따라 다릅니다. For the description of each transaction type, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
 | feePayerAddress | String               | 트랜잭션 수수료 납부자의 주소입니다.                                                                                                                                                                                                               |
@@ -1125,11 +1125,11 @@ feePayerSignTransaction keeps the existing signatures/feePayerSignatures in the 
 
 **리턴값**
 
-`Promise`는 `객체`를 반환: RLP 인코딩된 서명된 트랜잭션. 객체 속성은 다음과 같습니다:
+`Promise`는 `Object`를 반환: RLP 인코딩된 서명된 트랜잭션. 객체 속성은 다음과 같습니다:
 
-| 명칭                 | 형식             | 설명                                                                                                              |
+| 이름                 | 타입             | 설명                                                                                                              |
 | ------------------ | -------------- | --------------------------------------------------------------------------------------------------------------- |
-| messageHash        | String         | 주어진 메시지의 해시입니다.                                                                                                 |
+| messageHash        | String         | 주어진 메시지의 해시.                                                                                                    |
 | v                  | String         | ECDSA 리커버리 id.                                                                                                  |
 | r                  | String         | ECDSA 서명 r.                                                                                                     |
 | s                  | String         | ECDSA 서명 s.                                                                                                     |
@@ -1258,9 +1258,9 @@ caver.klay.accounts.recoverTransaction(rawTransaction)
 ```
 주어진 RLP 인코딩된 트랜잭션에 서명하는 데 사용된 Klaytn 주소를 복구합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭       | 형식     | 설명                           |
+| 이름       | 타입     | 설명                           |
 | -------- | ------ | ---------------------------- |
 | 서명 값입니다. | String | The RLP encoded transaction. |
 
@@ -1290,7 +1290,7 @@ caver.klay.accounts.hashMessage(message)
 ```
 keccak256로 해시를 취합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름  | 타입     | 설명                                            |
 | --- | ------ | --------------------------------------------- |
@@ -1326,7 +1326,7 @@ caver.klay.accounts.sign(data, privateKey)
 "\x19Klaytn Signed Message:\n" + message.length + message
 ```
 
-**매개변수**
+**Parameters**
 
 | 이름         | 타입     | 설명              |
 | ---------- | ------ | --------------- |
@@ -1338,14 +1338,14 @@ caver.klay.accounts.sign(data, privateKey)
 
 `String|Object`: 서명된 데이터 RLP 인코딩된 서명. 서명값은 다음과 같습니다:
 
-| 명칭          | 형식     | 설명              |
-| ----------- | ------ | --------------- |
-| 메시지         | String | 주어진 메시지입니다.     |
-| messageHash | String | 주어진 메시지의 해시입니다. |
-| r           | String | ECDSA 서명 r.     |
-| s           | String | ECDSA 서명 s.     |
-| v           | String | ECDSA 리커버리 id.  |
-| 서명 값입니다.    | String | 생성된 서명입니다.      |
+| 이름          | 타입     | 설명             |
+| ----------- | ------ | -------------- |
+| 메시지         | String | 주어진 메시지입니다.    |
+| messageHash | String | 주어진 메시지의 해시.   |
+| r           | String | ECDSA 서명 r.    |
+| s           | String | ECDSA 서명 s.    |
+| v           | String | ECDSA 리커버리 id. |
+| 서명 값입니다.    | String | 생성된 서명입니다.     |
 
 
 **예시**
@@ -1372,9 +1372,9 @@ caver.klay.accounts.recover(message, v, r, s [, preFixed])
 ```
 주어진 데이터에 서명하는 데 사용된 Klaytn 주소를 복구합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭                             | 형식                   | 설명                                                                                                                                                   |
+| 이름                             | 타입                   | 설명                                                                                                                                                   |
 | ------------------------------ | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | message &#124; signatureObject | String &#124; Object | 서명된 메시지 또는 해시입니다. 서명 객체에 대한 자세한 내용은 아래 표를 참조하세요.                                                                                                     |
 | messageHash                    | String               | 주어진 메시지의 해시.                                                                                                                                         |
@@ -1383,7 +1383,7 @@ caver.klay.accounts.recover(message, v, r, s [, preFixed])
 
 서명 객체는 다음과 같은 값을 가집니다:
 
-| 명칭          | 형식     | 설명                                                                                       |
+| 이름          | 타입     | 설명                                                                                       |
 | ----------- | ------ | ---------------------------------------------------------------------------------------- |
 | messageHash | String | `"\x19Klaytn Signed Message:\n" + message.length + message` 접두사가 붙어 있는 주어진 메세지의 해시입니다. |
 | r           | String | ECDSA 서명 r.                                                                              |
@@ -1430,7 +1430,7 @@ combineSignatures는 signatures 또는 feePayerSignatures에서 중복 값은 �
 
 **참고** `caver.klay.accounts.combineSignatures`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
 | 이름              | 타입    | 설명                                        |
 | --------------- | ----- | ----------------------------------------- |
@@ -1440,7 +1440,7 @@ combineSignatures는 signatures 또는 feePayerSignatures에서 중복 값은 �
 
 `Promise`는 `Object`를 반환: RLP 인코딩된 트랜잭션. 객체 속성은 다음과 같습니다:
 
-| 명칭                 | 형식             | 설명                                                                                                                                          |
+| 이름                 | 타입             | 설명                                                                                                                                          |
 | ------------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | rawTransaction     | String         | caver.klay.sendSignedTransaction을 사용하여 전송할 준비가 된 RLP 인코딩된 트랜잭션입니다.                                                                          |
 | txHash             | 32-byte String | 트랜잭션의 해시입니다.                                                                                                                                |
@@ -1503,9 +1503,9 @@ caver.klay.accounts.getRawTransactionWithSignatures(tx [, callback])
 
 **참고** `caver.klay.accounts.getRawTransactionWithSignatures`는 caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭 | 형식     | 설명                                                                                                                                                                                                              |
+| 이름 | 타입     | 설명                                                                                                                                                                                                              |
 | -- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | tx | Object | signatures와 feePayerSignatures를 포함하고 있는 트랜잭션 객체입니다. 트랜잭션 객체의 속성은 트랜잭션 유형에 따라 다릅니다. For the description of each transaction type, see [caver.klay.sendTransaction](./caver.klay/transaction.md#sendtransaction). |
 
@@ -1513,7 +1513,7 @@ caver.klay.accounts.getRawTransactionWithSignatures(tx [, callback])
 
 `Promise`는 `Object`를 반환: RLP 인코딩된 트랜잭션. 객체 속성은 다음과 같습니다:
 
-| 명칭                 | 형식             | 설명                                                                                                                                      |
+| 이름                 | 타입             | 설명                                                                                                                                      |
 | ------------------ | -------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | rawTransaction     | String         | caver.klay.sendSignedTransaction을 사용하여 전송할 준비가 된 RLP 인코딩된 트랜잭션입니다.                                                                      |
 | txHash             | 32-byte String | 트랜잭션의 해시입니다.                                                                                                                            |
@@ -1655,9 +1655,9 @@ Klaytn 키스토어 표준으로 계정을 암호화합니다. 더 자세한 내
 
 **참고** caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터, `caver.klay.accounts.encrypt`는 다양한 AccountKey 타입(AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased)을 지원하기 키스토어 v4 표준을 사용하여 암호화합니다. 키스토어 v3를 사용해 계정을 암호화하려면, [caver.klay.accounts.encryptV3](#encryptv3)를 사용하시기 바랍니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭            | 형식                                | 설명                                                                                                                                                                                                                                             |
+| 이름            | 타입                                | 설명                                                                                                                                                                                                                                             |
 | ------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | encryptTarget | String &#124; Array &#124; Object | 암호화할 개인키 또는 Klaytn 지갑 키입니다. caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터 encryptTarget은 Account 또는 AccountKey(AccountKeyPublic, AccountKeyMultiSig 또는 AccountKeyRoleBased)의 인스턴스, 개인키 문자열의 배열 또는 역할별 키를 정의한 객체일 수 있습니다. |
 | password      | String                            | 암호화에 사용되는 비밀번호.                                                                                                                                                                                                                                |
@@ -1891,7 +1891,7 @@ Klaytn 키스토어 v3 표준으로 계정을 암호화합니다.
 
 **참고** `caver.klay.accounts.encryptV3`는 caver-js [v1.3.2-rc.1](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.1)부터 지원됩니다.
 
-**매개변수**
+**Parameters**
 
 | 이름            | 타입                   | 설명                                                                                                                                       |
 | ------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1972,7 +1972,7 @@ caver.klay.accounts.decrypt(keystoreJsonV3, password)
 
 **참고** caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0)부터, `caver.klay.accounts.decrypt`는 키스토어 v4 형식을 복호화할 수 있습니다.
 
-**매개변수**
+**Parameters**
 
 | 이름           | 타입     | 설명                             |
 | ------------ | ------ | ------------------------------ |
@@ -2054,7 +2054,7 @@ caver.klay.accounts.isDecoupled(key, address)
 ```
 키가 주소에서 분리되었는지 확인합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입     | 설명                                                                                                                                      |
 | ------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2092,7 +2092,7 @@ caver.klay.accounts.getLegacyAccount(key)
 ```
 주어진 개인키에서 파생된 주소를 가진 계정을 반환합니다. [AccountKeyLegacy](../../../../../klaytn/design/accounts.md#accountkeylegacy)를 참조하세요.
 
-**매개변수**
+**Parameters**
 
 | 이름  | 타입     | 설명                                                                                                                                                                                      |
 | --- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2178,7 +2178,7 @@ caver.klay.accounts.wallet.create([numberOfAccounts] [, entropy])
 ```
 무작위로 생성된 키 쌍을 사용하여 지갑에 하나 이상의 계정을 생성합니다. 지갑이 이미 존재하면, 덮어쓰지 않습니다.
 
-**매개변수**
+**Parameters**
 
 | 이름               | 타입     | 설명                                                                                                                                       |
 | ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2217,7 +2217,7 @@ caver.klay.accounts.wallet.add(account [, targetAddress])
 **참고**: 지갑에 동일한 주소가 있는 경우에는 오류가 반환됩니다. 지갑의 계정과 관련된 개인키를 변경하려면 [caver.klay.accounts.wallet.updatePrivateKey](#wallet-updateprivatekey)를 사용하세요.
 
 
-**매개변수**
+**Parameters**
 
 | 이름            | 타입                   | 설명                                                          |
 | ------------- | -------------------- | ----------------------------------------------------------- |
@@ -2296,7 +2296,7 @@ caver.klay.accounts.wallet.getAccount(addressOrIndex)
 `caver.klay.accounts.wallet` 주소에 일치하는 키링 인스턴스를 반환합니다.
 
 
-**매개변수**
+**Parameters**
 
 | 이름             | 타입                   | 설명                                                            |
 | -------------- | -------------------- | ------------------------------------------------------------- |
@@ -2347,7 +2347,7 @@ caver.klay.accounts.wallet.remove(account)
 ```
 지갑에서 계정을 제거합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름      | 타입                   | 설명                   |
 | ------- | -------------------- | -------------------- |
@@ -2396,7 +2396,7 @@ caver.klay.accounts.wallet.clear()
 
 **리턴값**
 
-| 형식     | 설명        |
+| 타입     | 설명        |
 | ------ | --------- |
 | Object | 지갑 객체입니다. |
 
@@ -2419,7 +2419,7 @@ caver.klay.accounts.wallet.encrypt(password)
 ```
 모든 지갑 계정을 암호화하고 암호화된 키스토어 v3 객체 배열을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름       | 타입     | 설명                |
 | -------- | ------ | ----------------- |
@@ -2487,7 +2487,7 @@ caver.klay.accounts.wallet.decrypt(keystoreArray, password)
 ```
 키스토어 v3 객체들을 복호화합니다.
 
-**매개변수**
+**Parameters**
 
 | 이름            | 타입     | 설명                        |
 | ------------- | ------ | ------------------------- |

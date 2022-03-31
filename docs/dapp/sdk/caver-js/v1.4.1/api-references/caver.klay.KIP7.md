@@ -24,16 +24,16 @@ KIP-7 토큰 컨트랙트를 Klaytn 블록체인에 배포합니다. caver.klay.
 
 성공적으로 배포된 후, 프로미스는 새로운 KIP7 인스턴스를 반환할 것입니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭        | 형식     | 설명                                                                    |
+| 이름        | 타입     | 설명                                                                    |
 |:--------- |:------ |:--------------------------------------------------------------------- |
 | tokenInfo | Object | Klaytn 블록체인에 KIP-7 토큰 컨트랙트를 배포하는 데 필요한 정보입니다. 자세한 내용은 아래 표를 참조하세요.    |
 | deployer  | String | KIP-7 토큰 컨트랙트를 배포하는 계정 주소입니다. 이 계정은 반드시 배포를 위해 충분한 KLAY를 가지고 있어야 합니다. |
 
 tokenInfo 객체는 다음을 반드시 포함해야 합니다:
 
-| 명칭            | 형식           | 설명                                                                      |
+| 이름            | 타입           | 설명                                                                      |
 |:------------- |:------------ |:----------------------------------------------------------------------- |
 | 명칭            | String       | 토큰 이름입니다.                                                               |
 | 기호            | String       | 토큰 심볼입니다.                                                               |
@@ -46,11 +46,11 @@ tokenInfo 객체는 다음을 반드시 포함해야 합니다:
 
 `PromiEvent`: 이벤트 이미터와 결합된 프로미스이며 새로운 KIP7 인스턴스를 반환합니다. 추가로 다음 이벤트가 발생할 수 있습니다.
 
-| 명칭              | 형식     | 설명                                                                                                                                                                                                                                          |
+| 이름              | 타입     | 설명                                                                                                                                                                                                                                          |
 |:--------------- |:------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionHash | String | 트랜잭션이 전송된 직후 및 트랜잭션 해시를 사용할 수 있을 때 발생합니다.                                                                                                                                                                                                   |
 | receipt         | Object | 트랜잭션 영수증을 사용할 수 있을 때 발생합니다. If you want to know about the properties inside the receipt object, see [getTransactionReceipt](caver.klay/transaction.md#gettransactionreceipt). KIP7 인스턴스의 영수증은 'logs' 속성 대신에 ABI로 파싱된 'events' 속성을 가지고 있습니다. |
-| 에러              | 에러     | 전송 중 오류가 나타나면 발생됩니다.                                                                                                                                                                                                                        |
+| error           | 에러     | 전송 중 오류가 나타나면 발생됩니다.                                                                                                                                                                                                                        |
 
 **예시**
 
@@ -106,15 +106,15 @@ new caver.klay.KIP7([tokenAddress])
 
 새로운 KIP7 인스턴스를 인스턴스 메소드, 이벤트들과 함께 생성합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭           | 형식     | 설명                                                                                                                                      |
+| 이름           | 타입     | 설명                                                                                                                                      |
 |:------------ |:------ |:--------------------------------------------------------------------------------------------------------------------------------------- |
 | tokenAddress | String | \(optional\) The address of the KIP-7 token contract, which can be assigned later through `kip7Instance.options.address = '0x1234..'` |
 
 **리턴값**
 
-| 형식     | 설명                                  |
+| 타입     | 설명                                  |
 |:------ |:----------------------------------- |
 | Object | 인스턴스 메소드와 이벤트들을 갖고 있는 KIP7 인스턴스입니다. |
 
@@ -136,15 +136,15 @@ kip7Instance.clone([tokenAddress])
 
 현재 KIP7 인스턴스를 복제합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭           | 형식     | 설명                                                                                                                          |
+| 이름           | 타입     | 설명                                                                                                                          |
 |:------------ |:------ |:--------------------------------------------------------------------------------------------------------------------------- |
 | tokenAddress | String | \(optional\) The address of the smart contract that deployed another KIP7 token. 입력을 생략하면, 이 주소는 원본 인스턴스의 컨트랙트 주소로 설정됩니다. |
 
 **리턴값**
 
-| 형식     | 설명                         |
+| 타입     | 설명                         |
 |:------ |:-------------------------- |
 | Object | 원본 KIP7 인스턴스를 복제한 인스턴스입니다. |
 
@@ -168,9 +168,9 @@ kip7Instance.supportsInterface(interfaceId)
 
 이 컨트랙트가 `interfaceId`로 정의된 인터페이스를 구현한다면 `true`를 반환합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭          | 형식     | 설명                  |
+| 이름          | 타입     | 설명                  |
 |:----------- |:------ |:------------------- |
 | interfaceId | String | 확인할 interfaceId입니다. |
 
@@ -195,7 +195,7 @@ kip7Instance.name()
 
 토큰 이름을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -218,7 +218,7 @@ kip7Instance.symbol()
 
 토큰 심볼을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -241,7 +241,7 @@ kip7Instance.decimals()
 
 토큰이 사용하는 소수점 자릿수를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -264,7 +264,7 @@ kip7Instance.totalSupply()
 
 공급된 토큰 총량을 반환합니다.
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -287,9 +287,9 @@ kip7Instance.balanceOf(address)
 
 주어진 계정 주소의 잔액을 반환합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭      | 형식     | 설명                |
+| 이름      | 타입     | 설명                |
 |:------- |:------ |:----------------- |
 | address | String | 잔액을 확인할 계정 주소입니다. |
 
@@ -312,9 +312,9 @@ kip7Instance.allowance(owner, spender)
 
 `spender`가 `owner`의 잔액에서 인출하도록 허락받은 토큰 수량을 반환합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭      | 형식     | 설명                             |
+| 이름      | 타입     | 설명                             |
 |:------- |:------ |:------------------------------ |
 | owner   | String | 토큰 소유자 계정의 주소입니다.              |
 | spender | String | 토큰 소유자를 대신해 토큰을 사용하는 계정 주소입니다. |
@@ -341,9 +341,9 @@ kip7Instance.isMinter(address)
 
 주어진 계정이 새 KIP7 토큰을 발행할 수 있는 발행자라면 `true`를 반환합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭      | 형식     | 설명                             |
+| 이름      | 타입     | 설명                             |
 |:------- |:------ |:------------------------------ |
 | address | String | 발행 권한을 가지고 있는지를 확인받을 계정 주소입니다. |
 
@@ -369,9 +369,9 @@ kip7Instance.isPauser(address)
 
 주어진 계정이 토큰 전송을 멈출 수 있는 pauser라면 `true`를 반환합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭      | 형식     | 설명                                |
+| 이름      | 타입     | 설명                                |
 |:------- |:------ |:--------------------------------- |
 | address | String | 토큰 전송을 멈출 권한이 있는지를 확인받을 계정 주소입니다. |
 
@@ -397,7 +397,7 @@ kip7Instance.paused()
 
 컨트랙트가 작동을 멈추었다면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.
 
-**매개변수**
+**Parameters**
 
 없음
 
@@ -425,9 +425,9 @@ kip7Instance.approve(spender, amount [, sendParam])
 
 이 메서드는 토큰 소유자가 트랜잭션 발신자로서 Klaytn 네트워크에 트랜잭션을 전송하며, 트랜잭션 수수료가 트랜잭션 발신자에게 부과됩니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭        | 형식           | 설명                                                                                       |
+| 이름        | 타입           | 설명                                                                                       |
 |:--------- |:------------ |:---------------------------------------------------------------------------------------- |
 | spender   | String       | 토큰 소유자를 대신해 토큰을 사용하는 계정 주소입니다.                                                           |
 | amount    | BigNumber \ | String \| Number | The amount of token the spender is allowed to use.                   |
@@ -437,7 +437,7 @@ kip7Instance.approve(spender, amount [, sendParam])
 
 `sendParam` 객체는 다음을 포함합니다:
 
-| 명칭       | 형식        | 설명                                                                                                                                                                                             |
+| 이름       | 타입        | 설명                                                                                                                                                                                             |
 |:-------- |:--------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | from     | String    | \(optional\) The address from which the transaction should be sent. 생략되면, `this.options.from`에 의해 지정됩니다. `sendParam`객체의 `from` 또는 `this.options.from`가 주어지지 않으면, 에러가 발생합니다.                  |
 | gas      | Number \ | String | \(optional\) The maximum number of gas provided for this transaction \(gas limit\). 생략되면, caver-js가 `this.methods.approve(spender, amount).estimateGas({from})`를 호출하여 이 값을 지정합니다. |
@@ -506,9 +506,9 @@ kip7Instance.transfer(recipient, amount [, sendParam])
 
 트랜잭션 전송은 트랜잭션 발신자에게 트랜잭션 수수료를 부과함을 유의하십시오.
 
-**매개변수**
+**Parameters**
 
-| 명칭        | 형식           | 설명                                                                                                                                                                                                          |
+| 이름        | 타입           | 설명                                                                                                                                                                                                          |
 |:--------- |:------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | recipient | String       | 토큰을 받을 계정 주소입니다.                                                                                                                                                                                            |
 | amount    | BigNumber \ | String \| Number | The amount of token to be transferred.                                                                                                                                                  |
@@ -582,7 +582,7 @@ kip7Instance.safeTransfer(recipient, amount [, data] [, sendParam])
 
 **Parameters**
 
-| 명칭        | 형식           | 설명                                                                                                                                                                                                          |
+| 이름        | 타입           | 설명                                                                                                                                                                                                          |
 |:--------- |:------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | recipient | String       | 토큰을 받을 계정 주소입니다.                                                                                                                                                                                            |
 | amount    | BigNumber \ | String \| Number | The amount of token you want to transfer.                                                                                                                                               |
@@ -658,7 +658,7 @@ kip7Instance.transferFrom(sender, recipient, amount [, sendParam])
 
 **Parameters**
 
-| 명칭        | 형식           | 설명                                                                                                                                                                                                          |
+| 이름        | 타입           | 설명                                                                                                                                                                                                          |
 |:--------- |:------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | sender    | String       | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance.approve)를 사용해 토큰이 보내집니다.                                                                                                                              |
 | recipient | String       | 토큰을 받을 계정 주소입니다.                                                                                                                                                                                            |
@@ -756,7 +756,7 @@ kip7Instance.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 
 **Parameters**
 
-| 명칭        | 형식           | 설명                                                                                                                                                                                                          |
+| 이름        | 타입           | 설명                                                                                                                                                                                                          |
 |:--------- |:------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | sender    | String       | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance.approve)를 사용해 토큰이 보내집니다.                                                                                                                              |
 | recipient | String       | 토큰을 받을 계정 주소입니다.                                                                                                                                                                                            |
@@ -856,7 +856,7 @@ kip7Instance.mint(account, amount [, sendParam])
 
 **Parameters**
 
-| 명칭        | 형식           | 설명                                                                                                                                                                                                          |
+| 이름        | 타입           | 설명                                                                                                                                                                                                          |
 |:--------- |:------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | account   | String       | 토큰이 발행될 계정 주소입니다.                                                                                                                                                                                           |
 | amount    | BigNumber \ | String \| Number | The amount of token to be minted.                                                                                                                                                       |
@@ -930,9 +930,9 @@ kip7Instance.addMinter(account [, sendParam])
 
 **Parameters**
 
-| 명칭        | 형식     | 설명                                                                                                                                                                                                          |
+| 이름        | 타입     | 설명                                                                                                                                                                                                          |
 |:--------- |:------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Account   | String | 발행자에 추가될 계정 주소입니다.                                                                                                                                                                                          |
+| account   | String | 발행자에 추가될 계정 주소입니다.                                                                                                                                                                                          |
 | sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
 
 **참고** 만약 `sendParam.from` 또는 `kip7Instance.options.from`이 주어졌다면, 이 주소는 반드시 발행자이어야 합니다.
@@ -997,7 +997,7 @@ kip7Instance.renounceMinter([sendParam])
 
 **Parameters**
 
-| 명칭        | 형식     | 설명                                                                                                                                                                                                          |
+| 이름        | 타입     | 설명                                                                                                                                                                                                          |
 |:--------- |:------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
 
@@ -1063,7 +1063,7 @@ kip7Instance.burn(amount [, sendParam])
 
 **Parameters**
 
-| 명칭        | 형식           | 설명                                                                                                                                                                                                          |
+| 이름        | 타입           | 설명                                                                                                                                                                                                          |
 |:--------- |:------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | amount    | BigNumber \ | String \| Number | The amount of token to be destroyed.                                                                                                                                                    |
 | sendParam | Object       | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
@@ -1134,7 +1134,7 @@ kip7Instance.burnFrom(account, amount [, sendParam])
 
 **Parameters**
 
-| 명칭        | 형식           | 설명                                                                                                                                                                                                          |
+| 이름        | 타입           | 설명                                                                                                                                                                                                          |
 |:--------- |:------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | account   | String       | 토큰을 소유한 계정 주소입니다. 이 계정 주소 잔액에서 allowance(kip7Instance. approve)를 사용해 토큰이 제거됩니다.                                                                                                                             |
 | amount    | BigNumber \ | String \| Number | The amount of token to be destroyed.                                                                                                                                                    |
@@ -1229,7 +1229,7 @@ kip7Instance.addPauser(account [, sendParam])
 
 **Parameters**
 
-| 명칭        | 형식     | 설명                                                                                                                                                                                                          |
+| 이름        | 타입     | 설명                                                                                                                                                                                                          |
 |:--------- |:------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | account   | String | 컨트랙트 중지 권한을 가질 계정 주소입니다.                                                                                                                                                                                    |
 | sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
@@ -1296,7 +1296,7 @@ kip7Instance.renouncePauser([sendParam])
 
 **Parameters**
 
-| 명칭        | 형식     | 설명                                                                                                                                                                                                          |
+| 이름        | 타입     | 설명                                                                                                                                                                                                          |
 |:--------- |:------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
 
@@ -1362,7 +1362,7 @@ kip7Instance.pause([sendParam])
 
 **Parameters**
 
-| 명칭        | 형식     | 설명                                                                                                                                                                                                          |
+| 이름        | 타입     | 설명                                                                                                                                                                                                          |
 |:--------- |:------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
 
@@ -1428,7 +1428,7 @@ kip7Instance.unpause([sendParam])
 
 **Parameters**
 
-| 명칭        | 형식     | 설명                                                                                                                                                                                                          |
+| 이름        | 타입     | 설명                                                                                                                                                                                                          |
 |:--------- |:------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | sendParam | Object | \(optional\) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](caver.klay.KIP7.md#kip7instance-approve). |
 

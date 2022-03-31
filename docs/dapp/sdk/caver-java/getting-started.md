@@ -101,7 +101,7 @@ implementation "ch.qos.logback:logback-classic:1.2.3"
 
 커맨드라인 도구를 사용하면 커맨드라인에서 솔리디티 스마트 컨트랙트 함수 래퍼를 생성할 수 있습니다.
 
-**\(Homebrew\) 설치**
+**설치 \(Homebrew\)**
 
 이를 설치하려면 Java 1.8 이상이 필요합니다.
 
@@ -116,7 +116,7 @@ $ brew install caver-java
 $ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
 ```
 
-**\(기타\) 설치**
+**설치 \(기타\)**
 
 현재 다른 패키지 관리자는 지원하지 않습니다. 다른 솔루션으로, 아래 CLI를 구축하는 방법을 제공합니다.
 
@@ -207,7 +207,7 @@ Caver caver = new Caver("http://your.en.url:8551/");
 
 `MultipleKeyring`는 내부에 `keys` 속성을 정의하며, 이 `keys`는 여러 개인키를 저장하기 위해 배열로서 구현됩니다.
 
-`RoleBasedKeyring`에 정의되어 있는 `keys` 속성은 개인키 배열 3개를 요소로 갖는 List 객체로서 구현되어(`keys`가 비어있으면 `[ [], [], [] ]`와 같이 보임), 각 `role`이 사용하는 여러 개의 개인키가 저장될 수 있습니다. 배열의 1번째 요소에는 `roleTransactionKey`로 사용될 개인키(들), 배열의 2번째 요소에는 `roleAccountUpdateKey`로 사용될 개인키(들), 배열의 3번째 요소에는 `roleFeePayerKey`로 사용될 개인키(들)이 저장됩니다.
+`RoleBasedKeyring`에 정의되어 있는 `keys` 속성은 개인키 배열 3개를 요소로 갖는 List 객체로서 구현되어(`keys`가 비어있으면 `[ [], [], [] ]`와 같이 보임), 각 `role`이 사용하는 여러 개의 개인키가 저장될 수 있습니다. The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
 
 ### Keyring 생성<a id="creating-a-keyring"></a>
 
@@ -435,7 +435,7 @@ System.out.println("RLP-encoded string: " + rlpEncoded)
 
 위 코드는 Keyring을 `caver.wallet`에 추가하고, 트랜잭션을 생성하고, `caver.wallet.sign`를 통해 이 트랜잭션에 서명합니다.
 
-위 코드를 실행하면 아래 결과를 얻습니다. 위 코드가 실행되었을 때, RLP 인코딩된 트랜잭션 문자열은 아래와 같이 나타납니다. (결과로 얻은 RLP 인코딩된 문자열은 아래에 있는 RLP 인코딩된 문자열과 다를 수 있습니다.)
+위 코드를 실행하면 아래 결과를 얻습니다. 위 코드가 실행되었을 때, RLP 인코딩된 트랜잭션 문자열은 아래와 같이 나타납니다. (The RLP-encoded string output you got could be different from the string output shown below.)
 
 ```bash
 RLP-encoded string: 0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b6991507647f720194ade4883d092e2a972d70637ca7de9ab5166894a2f847f845824e44a0e1ec99789157e5cb6bc691935c204a23aaa3dc049efafca106992a5d5db2d179a0511c421d5e508fdb335b6048ca7aa84560a53a5881d531644ff178b6aa4c0a41
@@ -558,9 +558,9 @@ try {
 
 ## 다른 트랜잭션 타입 실행하기 <a id="executing-other-transaction-types"></a>
 
-Klaytn은 확장성과 성능을 위한 다양한 트랜잭션 타입을 제공합니다. 자세한 내용은 [트랜잭션](../../../klaytn/design/transactions/README.md)을 참고하세요. 이 장에서는 caver-java와 함께 사용할 수 있는 예시를 설명합니다.
+Klaytn은 확장성과 성능을 위한 다양한 트랜잭션 타입을 제공합니다. For more information, see [Transactions](../../../klaytn/design/transactions/README.md). 이 장에서는 caver-java와 함께 사용할 수 있는 예시를 설명합니다.
 
-### 트랜잭션 수수료 대납<a id="fee-delegation"></a>
+### 트랜잭션 수수료 위임 <a id="fee-delegation"></a>
 
 Klaytn은 수수료 대납 기능을 제공합니다. 여기에서는, 여러분이 트랜잭션 전송자일 때 RLP 인코딩된 트랜잭션을 만드는 예시를 소개합니다.
 
@@ -582,13 +582,13 @@ String rlpEncoded = feeDelegatedValueTransfer.getRLPEncoding();
 System.out.println(rlpEncoded);
 ```
 
-위 코드가 실행되었을 때, RLP 인코딩된 문자열이 출력됩니다. (결과로 얻은 RLP 인코딩된 문자열은 아래에 있는 RLP 인코딩된 문자열과 다를 수 있습니다.)
+위 코드가 실행되었을 때, RLP 인코딩된 문자열이 출력됩니다. (The RLP-encoded string output you got could be different from the string output shown below.)
 
 ```bash
 0x09f884028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf080c4c3018080
 ```
 
-수수료 납부자는 트랜잭션 발신자가 서명한 RLP 인코딩된 문자열(`rawTransaction`)에 `feePayerSignatures`를 첨부한 후에 Klaytn에 트랜잭션을 전송할 수 있습니다. `caver.wallet`에 수수료 납부자 Keyring도 같이 있다면, `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`를 호출하여 수수료 납부자 서명을 `feeDelegatedTx`에 넣을 수 있습니다. 그렇지 않다면, 수수료 납부자는 트랜잭션 발신자가 서명한 RLP 인코딩된 문자열에서 `feeDelegatedTx`를 새로 만들고, 자신의 서명을 여기에 추가해야합니다. 아래 예시를 참고하십시오. 아래 예시를 직접 실행하려면 `0x{RLP-encoded string}`를 위 `rlpEncoded` 값으로 대체하십시오 .
+The fee payer can send the transaction to the Klaytn after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. `caver.wallet`에 수수료 납부자 Keyring도 같이 있다면, `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`를 호출하여 수수료 납부자 서명을 `feeDelegatedTx`에 넣을 수 있습니다. 그렇지 않다면, 수수료 납부자는 트랜잭션 발신자가 서명한 RLP 인코딩된 문자열에서 `feeDelegatedTx`를 새로 만들고, 자신의 서명을 여기에 추가해야합니다. 아래 예시를 참고하십시오. 아래 예시를 직접 실행하려면 `0x{RLP-encoded string}`를 위 `rlpEncoded` 값으로 대체하십시오 .
 
 ```java
 Caver caver = new Caver(Caver.BAOBAB_URL);
@@ -605,7 +605,7 @@ caver.wallet.signAsFeePayer(feePayerKeyring.getAddress(), feeDelegatedValueTrans
 System.out.println(feeDelegatedValueTransfer.getRLPEncoding());
 ```
 
-위 코드가 실행되었을 때, 발신자 서명과 수수료 납부자 서명이 첨부된 RLP 인코딩된 문자열 아래와 같이 나타납니다. (실제 결과값은 아래에 있는 문자열 결과값과 다를 수 있습니다.)
+위 코드가 실행되었을 때, 발신자 서명과 수수료 납부자 서명이 첨부된 RLP 인코딩된 문자열 아래와 같이 나타납니다. (The output you got could be different from the string output shown below.)
 
 ```bash
 0x09f8dc028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf09417e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24f847f845824e44a0921b7c3be69db96ce14134b306c2ada423613cb66ecc6697ee8067983c268b6ea07b86b255d1c781781315d85d7904226fb2101eb9498c4a03f3fbd30ba3ec5b79
@@ -639,13 +639,13 @@ try {
 
 ### 계정 업데이트 <a id="account-update"></a>
 
-여러분의 Klaytn 계정 개인키를 변경하려면 다음 3가지 사항을 반드시 알아야 합니다:
+If you want to change the private key(s) for your Klaytn account, there are 3 important things you need to remember:
 
 1. Klaytn은 자신에게 전송되는 모든 트랜잭션을 검증합니다.
 2. 트랜잭션을 검증하려면 개인키와 짝을 이루는 공개키가 필요합니다.
 3. 따라서, 기존에 사용하던 개인키를 새로운 개인키로 바꾸기 전에, **먼저** 기존 공개키를 새로운 공개키로 바꿔야 합니다. 새로운 공개키는 반드시 새로운 개인키로부터 만들어야 합니다.
 
-위 3가지를 염두에 두면서 다음 단계들을 통해 개인키를 변경할 수 있습니다.
+Keeping the 3 things above in your mind, you can change your private key(s) by following the steps below:
 
 1. 새로운 Keyring을 만들기 위해 새 개인키(들)을 준비합니다.
 2. 필요한 Keyring 타입(SingleKeyring, MultipleKeyring, RoleBasedKeyring)을 골라 Keyring을 만듭니다.
@@ -657,7 +657,7 @@ try {
 
 AccountKey를 변경하려면, `Account` 인스턴스를 `caver.transaction.type.AccountUpdate`의 입력 변수 객체의 `account` 필드에 넣어야 합니다. `Account` 인스턴스는 Klaytn 계정의 주소와 업데이트할 AccountKey를 담고 있습니다.
 
-아래 코드는 Klaytn 계정 개인키를 바꾸는 것과 더불어 Klaytn 계정 AccountKey를 `AccountKeyPublic`로 바꾸는 예시입니다. 이를 위해서는 새로 사용할 개인키를 준비하셔야 합니다.
+아래 코드는 Klaytn 계정 개인키를 바꾸는 것과 더불어 Klaytn 계정 AccountKey를 `AccountKeyPublic`로 바꾸는 예시입니다. Don't forget to prepare your new private key(s).
 
 ```java
 Caver caver = new Caver(Caver.DEFAULT_URL);
@@ -698,7 +698,7 @@ try {
 senderKeyring = (SingleKeyring)caver.wallet.updateKeyring(newKeyring);
 ```
 
-위 코드가 성공적으로 실행되었다면 서명 시 기존 개인키와 이에 대응되는 기존 Keyring은 트랜잭션에 더 이상 사용하실 수 없습니다. 따라서 여러분은 `caver.wallet.updateKeyring(newKeyring)`을 사용해 기존 Keyring을 `newKeyring`으로 업데이트하셔야 합니다.  업데이트되고 나면 트랜잭션 서명은 새로운 개인키로만 가능합니다.
+위 코드가 성공적으로 실행되었다면 서명 시 기존 개인키와 이에 대응되는 기존 Keyring은 트랜잭션에 더 이상 사용하실 수 없습니다. 따라서 여러분은 `caver.wallet.updateKeyring(newKeyring)`을 사용해 기존 Keyring을 `newKeyring`으로 업데이트하셔야 합니다.  Once it is updated, the signing will be done by the newly updated private key(s).
 
 Klaytn 계정 AccountKey를 여러 개의 `AccountKeys`로 업데이트하려면 어떻게 해야 할까요? 아래 예시는 여러분이 사용하고 싶은 개인키들을 가지고 `Account` 인스턴스를 만드는 방법을 소개합니다(`caver.account.create`로 여러 공개키를 가지고 `Account` 인스턴스를 만들 수 있습니다.). 여기에서도, 트랜잭션 객체의 `account` 필드에 Account 인스턴스를 입력 파라미터로 넣으면, 나머지 업데이트 과정은 위에서 소개한 AccountKey 1개를 업데이트하는 과정과 동일합니다.
 
@@ -895,7 +895,7 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
 컨트랙트 배포 트랜잭션 타입에 따라 스마트 컨트랙트는 다음 클래스 중 하나를 사용해 배포됩니다.
-  - `caver.contract` 패키지의 `Contract` 클래스: 스마트 컨트랙트 트랜잭션의 발신자가 수수료를 지불할 때
+  - `caver.contract` 패키지의 `Contract` 클래스: 스마트 컨트랙트 트랜잭션의 발신자 또는 대납자가 수수료를 지불할 때
   - `caver.transaction`패키지의 `SmartContractDeploy`클래스: 스마트 컨트랙트 트랜잭션 발신자가 수수료를 지불할 때
   - `caver.transaction`패키지의`feeDelegatedSmartContractDeploy` 클래스: 스마트 컨트랙트 트랜잭션 수수료 납부자가 수수료를 지불할 때
   - `caver.transaction`패키지의`feeDelegatedSmartContractDeployWithRatio` 클래스: 스마트 컨트랙트 트랜잭션 수수료 납부자가 수수료를 일부 지불할 때
@@ -1039,7 +1039,7 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
     }
 ```
 
-`caver.contract`를 통해 스마트 컨트랙트를 배포할 때 발신자와 수수료 납부자가 서명을 따로하는 트랜잭션을 전송하고 싶은 경우 아래 코드를 참고하세요:
+If you want to send a transaction with sender and feePayer signed separately when executing a smart contract through `caver.contract`, refer to the code below:
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -1100,7 +1100,7 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 testValue
 ```
 
-자세한 내용은 [caver-java API](https://javadoc.io/doc/com.klaytn.caver/core/)를 참고해주세요
+To find more information, see [caver-java API][]
 
 
 ## IPFS<a id="ipfs"></a>
@@ -1210,9 +1210,9 @@ QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk
 
 ## KCT 인터페이스 식별<a id="detect kct interface"></a>
 
-[KIP-7](https://kips.klaytn.com/KIPs/kip-7), [KIP-17](https://kips.klaytn.com/KIPs/kip-17), [KIP-37](https://kips.klaytn.com/KIPs/kip-37)와 같은 KCT (Klaytn Compatible Token; Klaytn 호환 토큰) 컨트랙트는 다양한 인터페이스를 정의, 제공하며, [KIP-13](https://kips.klaytn.com/KIPs/kip-13)를 사용하면 어떤 컨트랙트가 KCT 명세에 부합하는지 여부, 어떤 인터페이스를 구현하는지를 확인할 수 있습니다.
+KCT (Klaytn Compatible Token) contracts such as [KIP-7][], [KIP-17][], and [KIP-37][] define and provide various interfaces, and [KIP-13][] allows you to see whether a contract complies with KCT specifications and which interface it implements, by sending a query to the contract.
 
-[KIP-13](https://kips.klaytn.com/KIPs/kip-13)는 Caver v1.5.7에서 구현되었습니다. `detectInterface()`를 사용해 모든 KCT 컨트랙트 클래스 (`KIP7`, `KIP17`, `KIP37`)의 인터페이스를 식별할 수 있습니다.
+[KIP-13][] was implemented in Caver v1.5.7. It could detect interface through `detectInterface()` for any of the KCT contract classes (`KIP7`, `KIP17`, and `KIP37`).
 
 ### KIP-7 인터페이스 식별 <a id="detecting-kip-7-interfaces"></a>
 
@@ -1310,7 +1310,7 @@ System.out.println(resultJson);
 }
 ```
 
-### KIP-37 인터페이스 식별 <a id="detecting-kip-37-interfaces"></a>
+### Detecting KIP-37 interfaces <a id="detecting-kip-37-interfaces"></a>
 
 KIP-37 토큰 컨트랙트에 구현된 인터페이스를 식별하기 위해 `KIP37` 클래스의 `detectInterface()`를 사용할 수 있습니다. KIP-37 인터페이스 식별자와, 그 인터페이스가 지원 간의 매핑을 반환합니다.
 
@@ -1356,3 +1356,10 @@ System.out.println(resultJson);
   "IKIP37Mintable" : true
 }
 ```
+
+
+[caver-java API]: https://javadoc.io/doc/com.klaytn.caver/core/
+[KIP-7]: https://kips.klaytn.com/KIPs/kip-7
+[KIP-13]: https://kips.klaytn.com/KIPs/kip-13
+[KIP-17]: https://kips.klaytn.com/KIPs/kip-17
+[KIP-37]: https://kips.klaytn.com/KIPs/kip-37

@@ -6,7 +6,7 @@
 
 각 트랜잭션 클래스에 대한 자세한 설명이 있습니다:
 
-|                        | 일반 트랜잭션                                                   | 수수료 위임 트랜잭션                                                                                | 수수료 부분 위임 트랜잭션                                                                                                       |
+|                        | 기본                                                        | 트랜잭션 비용 위임                                                                                 | 부분 트랜잭션 비용 위임                                                                                                        |
 |:---------------------- |:--------------------------------------------------------- |:------------------------------------------------------------------------------------------ |:-------------------------------------------------------------------------------------------------------------------- |
 | LegacyTransaction      | [LegacyTransaction](basic.md#legacytransaction)           | N/A                                                                                        | N/A                                                                                                                  |
 | ValueTransfer          | [ValueTransfer](basic.md#valuetransfer)                   | [FeeDelegatedValueTransfer](fee-delegation.md#feedelegatedvaluetransfer)                   | [FeeDelegatedValueTransferWithRatio](partial-fee-delegation.md#feedelegatedvaluetransferwithratio)                   |
@@ -16,6 +16,8 @@
 | AccountUpdate          | [AccountUpdate](basic.md#accountupdate)                   | [FeeDelegatedAccountUpdate](fee-delegation.md#feedelegatedaccountupdate)                   | [FeeDelegatedAccountUpdateWithRatio](partial-fee-delegation.md#feedelegatedaccountupdatewithratio)                   |
 | Cancel                 | [Cancel](basic.md#cancel)                                 | [FeeDelegatedCancel](fee-delegation.md#feedelegatedcancel)                                 | [FeeDelegatedCancelWithRatio](partial-fee-delegation.md#feedelegatedcancelwithratio)                                 |
 | ChainDataAnchoring     | [ChainDataAnchoring](basic.md#chaindataanchoring)         | [FeeDelegatedChainDataAnchoring](fee-delegation.md#feedelegatedchaindataanchoring)         | [FeeDelegatedChainDataAnchoringWithRatio](partial-fee-delegation.md#feedelegatedchaindataanchoringwithratio)         |
+| EthereumAccessList     | [EthereumAccessList](basic.md#ethereumaccesslist)         | N/A                                                                                        | N/A                                                                                                                  |
+| EthereumDynamicFee     | [EthereumDynamicFee](basic.md#ethereumdynamicfee)         | N/A                                                                                        | N/A                                                                                                                  |
 
 
 ## caver.transaction.decode<a id="caver-transaction-decode"></a>
@@ -636,9 +638,9 @@ transaction.recoverPublicKeys()
 
 **리턴값**
 
-| 타입    | 설명                                   |
-| ----- | ------------------------------------ |
-| Array | `signatures`에서 복구된 공개키를 포함하는 문자열입니다. |
+| 타입    | 설명                                                           |
+| ----- | ------------------------------------------------------------ |
+| Array | An array containing public keys recovered from `signatures`. |
 
 **예시**
 
@@ -663,9 +665,9 @@ transaction.recoverFeePayerPublicKeys()
 
 **리턴값**
 
-| 타입    | 설명                                           |
-| ----- | -------------------------------------------- |
-| Array | `feePayerSignatures`에서 복구된 공개키를 포함하는 문자열입니다. |
+| 타입    | 설명                                                                   |
+| ----- | -------------------------------------------------------------------- |
+| Array | An array containing public keys recovered from `feePayerSignatures`. |
 
 **예시**
 

@@ -6,9 +6,9 @@ caver.klay.getFilterChanges(filterId [, callback])
 
 필터에 대한 폴링 방법으로, 마지막 폴링 이후 발생한 로그를 배열의 형태로 반환합니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭       | 형식       | 설명                                                                   |
+| 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | filterId | String   | 필터 ID입니다.                                                            |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
@@ -19,7 +19,7 @@ caver.klay.getFilterChanges(filterId [, callback])
 
 `Array`에 담겨 반환된 로그 `Object`의 구조는 다음과 같습니다:
 
-| 명칭               | 형식            | 설명                                                                                                                                                                              |
+| 이름               | 타입            | 설명                                                                                                                                                                              |
 | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address          | 20바이트 크기 DATA | 로그를 발생시킨 주소입니다.                                                                                                                                                                 |
 | topics           | DATA 배열       | 길이가 0부터 4까지인 배열로, 배열의 각 원소는 32바이트 크기 DATA 형태의 인덱스화된 로그 인수들입니다. (솔리디티의 경우 `anonymous` 지정자로 이벤트를 선언하지 않았다면 첫 번째 토픽은 이벤트에 대한 서명의 해시입니다. (*예*. `Deposit(address,bytes32,uint256)`)) |
@@ -56,11 +56,12 @@ caver.klay.getFilterChanges(filterId [, callback])
 caver.klay.getFilterLogs(filterId [, callback])
 ```
 
-입력으로 받은 필터 ID값을 가진 필터 객체를 찾고, 이 필터 객체에 해당하는 모든 로그를 배열 형태로 반환합니다. The filter object should be obtained using [newFilter](#newfilter). Note that filter ids returned by other filter creation functions, such as [newBlockFilter](#newblockfilter) or [newPendingTransactionFilter](#newpendingtransactionfilter), cannot be used with this function.
+입력으로 받은 필터 ID값을 가진 필터 객체를 찾고, 이 필터 객체에 해당하는 모든 로그를 배열 형태로 반환합니다. The filter object should be obtained using [newFilter](#newfilter).  
+Note that filter ids returned by other filter creation functions, such as [newBlockFilter](#newblockfilter) or [newPendingTransactionFilter](#newpendingtransactionfilter), cannot be used with this function.
 
-**매개변수**
+**Parameters**
 
-| 명칭       | 형식       | 설명                                                                   |
+| 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | filterId | String   | 필터 ID입니다.                                                            |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
@@ -97,15 +98,15 @@ caver.klay.getPastLogs(options [, callback])
 
 주어진 옵션에 맞는 과거 로그를 얻습니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭                | 형식                   | 설명                                                                                                                                                                               |
+| 이름                | 타입                   | 설명                                                                                                                                                                               |
 | ----------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | options           | Object               | 필터 옵션.                                                                                                                                                                           |
-| options.fromBlock | Number &#124; String | (optional) The number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`.                                          |
+| options.fromBlock | Number &#124; String | (optional) The number of the earliest block to get the logs. (`"latest"` means the most recent block.) 기본값은 `"latest"`입니다.                                                       |
 | options.toBlock   | Number &#124; String | (optional) The number of the last block to get the logs. (`"latest"`는 가장 최신 블록을 의미합니다.). 기본값은 `"latest"`입니다.                                                                     |
 | options.address   | String &#124; Array  | (선택 사항) 주소 또는 주소 목록입니다. 특정 계정(들)과 관련있는 로그들만 반환됩니다.                                                                                                                               |
-| options.topics    | 배열                   | (선택 사항) 로그에 반드시 있어야할 값들이 담긴 배열입니다. 값들의 순서는 중요합니다. 특정 토픽을 쓰지 않으려면 `[null, '0x12...']`에서와 같이 `null`을 사용하십시오. 각 토픽에 대해 `[null, ['option1', 'option2']]`와 같이  토픽 옵션을 배열로 넣을 수도 있습니다. |
+| options.topics    | Array                | (선택 사항) 로그에 반드시 있어야할 값들이 담긴 배열입니다. 값들의 순서는 중요합니다. 특정 토픽을 쓰지 않으려면 `[null, '0x12...']`에서와 같이 `null`을 사용하십시오. 각 토픽에 대해 `[null, ['option1', 'option2']]`와 같이  토픽 옵션을 배열로 넣을 수도 있습니다. |
 | callback          | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                             |
 
 **리턴값**
@@ -114,11 +115,11 @@ caver.klay.getPastLogs(options [, callback])
 
 `Array`에 담겨 반환된 이벤트 `Object`의 구조는 다음과 같습니다:
 
-| 명칭               | 형식             | 설명                                                                                                     |
+| 이름               | 타입             | 설명                                                                                                     |
 | ---------------- | -------------- | ------------------------------------------------------------------------------------------------------ |
 | address          | String         | 이벤트가 발생한 곳입니다.                                                                                         |
 | data             | String         | 색인화되지 않은 로그 매개변수를 포함하는 데이터.                                                                            |
-| topics           | 배열             | 최대 4개의 32바이트 주제를 가진 배열, 주제 1-3은 로그의 색인화된 매개변수가 포함됩니다.                                                  |
+| topics           | Array          | 최대 4개의 32바이트 주제를 가진 배열, 주제 1-3은 로그의 색인화된 매개변수가 포함됩니다.                                                  |
 | logIndex         | Number         | 블록에서 이벤트 인덱스 위치의 정수값.                                                                                  |
 | transactionIndex | Number         | 이벤트가 생성된 트랜잭션의 인덱스 위치의 정수값.                                                                            |
 | transactionHash  | 32-byte String | 이 이벤트가 생성된 트랜잭션의 해시.                                                                                   |
@@ -156,9 +157,9 @@ caver.klay.newBlockFilter([callback])
 
 새로운 블록이 도착했다는 정보를 받기 위해 노드에 필터를 만듭니다. To check if the state has changed, call [getFilterChanges](#getfilterchanges).
 
-**매개변수**
+**Parameters**
 
-| 명칭       | 형식       | 설명                                                                                        |
+| 이름       | 타입       | 설명                                                                                        |
 | -------- | -------- | ----------------------------------------------------------------------------------------- |
 | callback | Function | (optional) Optional callback. 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 하여 실행됩니다. |
 
@@ -186,15 +187,15 @@ For detailed information about topic filters, please see [Klaytn Platform API - 
 
 
 
-**매개변수**
+**Parameters**
 
-| 명칭                | 형식                   | 설명                                                                                                                                                                                                                                                       |
+| 이름                | 타입                   | 설명                                                                                                                                                                                                                                                       |
 | ----------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | options           | Object               | 필터 옵션.                                                                                                                                                                                                                                                   |
 | options.fromBlock | Number &#124; String | (optional) The number of the earliest block height to query the events. (There are special tags, `"latest"` means the most recent block). 기본값은 `"latest"`입니다.                                                                                            |
 | options.toBlock   | Number &#124; String | (optional) The number of the last block height to query the events (There are special tags,`"latest"` means the most recent confirmed block). 기본값은 `"latest"`입니다.                                                                                        |
 | options.address   | String &#124; Array  | (optional) An address or a list of addresses to get logs generated inside the given contract(s).                                                                                                                                                         |
-| options.topics    | 배열                   | (optional) An array of values to search for in the log entries. 값들의 순서는 중요합니다. If you want to match everything in the given position, use `null`, *e.g.*, `[null, '0x12...']`. 배열을 입력하여 여러 개 중 하나를 찾을 수 있습니다.  *e.g.,* `[null, ['option1', 'option2']]`. |
+| options.topics    | Array                | (optional) An array of values to search for in the log entries. 값들의 순서는 중요합니다. If you want to match everything in the given position, use `null`, *e.g.*, `[null, '0x12...']`. 배열을 입력하여 여러 개 중 하나를 찾을 수 있습니다.  *e.g.,* `[null, ['option1', 'option2']]`. |
 | callback          | Function             | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다.                                                                                                                                                                                     |
 
 
@@ -220,9 +221,9 @@ caver.klay.newPendingTransactionFilter([callback])
 
 보류 상태의 트랜잭션이 새롭게 도착했다는 정보를 받기 위해 노드에 필터를 만듭니다. To check if the state has changed, call [getFilterChanges](#getfilterchanges).
 
-**매개변수**
+**Parameters**
 
-| 명칭       | 형식       | 설명                                                                   |
+| 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
 
@@ -245,9 +246,9 @@ caver.klay.uninstallFilter(filterId [, callback])
 
 주어진 ID를 가진 필터를 제거합니다. 모니터링이 불필요하다면 즉시 필터를 제거하는 것을 강력하게 권장합니다. A filter will be removed if the filter has not been invoked through [getFilterChanges](#getfilterchanges) for more than the timeout value set in the node. 기본 설정은 5분 입니다.
 
-**매개변수**
+**Parameters**
 
-| 명칭       | 형식       | 설명                                                                   |
+| 이름       | 타입       | 설명                                                                   |
 | -------- | -------- | -------------------------------------------------------------------- |
 | filterId | String   | 필터 ID입니다.                                                            |
 | callback | Function | (선택 사항) 선택적 콜백(callback)은 오류 객체를 첫 번째 매개 변수로, 결과를 두 번째 매개 변수로 반환합니다. |
