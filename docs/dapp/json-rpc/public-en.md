@@ -84,7 +84,7 @@
 
 - 카이카스는 클레이튼 네트워크를 위한 웹 브라우저 확장 프로그램 지갑입니다. [카이카스](https://docs.klaytn.com/dapp/developer-tools/kaikas) 소개 바로가기
 
-- 포셋(Faucet): Baobab 테스트넷을 위한 테스트 KLAY를 얻을 수 있습니다. [포셋](https://docs.klaytn.com/dapp/developer-tools/klaytn-wallet#how-to-receive-baobab-testnet-klay) 바로가기.
+- 포셋(Faucet): Baobab 테스트넷을 위한 테스트 KLAY를 얻을 수 있습니다. [포셋](https://docs.klaytn.com/dapp/developer-tools/klaytn-wallet#how-to-receive-baobab-testnet-klay) 바로가기
 
 - 탐색기: 클레이튼 스코프는 클레이튼 네트워크의 블록 탐색기입니다. [클레이튼 스코프](https://docs.klaytn.com/dapp/developer-tools/klaytnscope) 바로가기
 
