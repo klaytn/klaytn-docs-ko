@@ -67,7 +67,7 @@
 * 다시 KLAY 전송 화면으로 돌아온 뒤, Gas 비용 설정을 시장가격이 아닌 고정가격으로 변경하겠습니다.
 * 시장(Market) 버튼을 클릭하고, 가스 요금 편집(Edit gas fee) 창에서 고급(Advanced) 버튼을 누릅니다.
 * 이후 최대 기본 요금(Max base fee)와 우선 요금(Priority Fee)에 고정 가스 가격을 입력합니다.
-   * Baobab 가스 가격: 750, Cypress 가스 가격: 750
+   * Baobab gas fee: 250, Cypress gas fee: 250
 * 그리고, `항상 이 값과 고급 설정을 기본값으로 사용합니다`(Always use these values and advanced setting as default) 버튼을 체크하고 저장(Save) 버튼을 누릅니다. 이 버튼을 체크하면, 다음 전송부터는 가스 비용 설정과정을 반복하지 않아도 됩니다.
 
 ![Send KLAY 3](./img/metamask-send-klay-3.png) ![Send KLAY 4](./img/metamask-send-klay-4.png)
@@ -93,7 +93,7 @@
 
 ![개인 키 내보내기](./img/metamask-obtain-private-key.png)
 
-* Baobab 테스트넷에서는 [**Klaytn Faucet**](https://baobab.wallet.klaytn.com/access?next=faucet)을 이용하여 테스트에 필요한 KLAY를 받을 수 있습니다.
+* When using Baobab Testnet, you can obtain Test Klay in [**Klaytn Faucet**](https://baobab.wallet.klaytn.foundation/access?next=faucet).
 * Klaytn Wallet에서 개인 키를 입력한 후 [Access] 버튼을 클릭해 로그인합니다. (개인 키 앞에 0x를 기입합니다.)
 * [Run Faucet] 버튼을 클릭하세요. 5 테스트넷 KLAY가 전송되고 잔액이 업데이트됩니다. Faucet 기능은 계정당 1일 1회, 24시간마다 한 번씩 실행할 수 있습니다.
 

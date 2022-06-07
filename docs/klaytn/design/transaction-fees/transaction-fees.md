@@ -21,7 +21,7 @@
 
 ### 단가(Unit Price)<a id="unit-price"></a>
 
-`단가`는 가스당 가격입니다. 단가 \(`가스 가격`\라고도 함)는 거버넌스에 의해 시스템에 설정되어 있습니다. It is currently set to 750 ston \(_i.e._, 750 x 10^9 peb\) per gas and cannot be changed by user. 현재의 단가 정보는 `klay.gasPrice` API를 호출하여 얻을 수 있습니다.
+`단가`는 가스당 가격입니다. 단가 \(`가스 가격`\라고도 함)는 거버넌스에 의해 시스템에 설정되어 있습니다. 현재는 가스당 250 Gpeb\(_즉_, 250 x 10^9 peb\)로 설정되어있으며, 사용자에 의해 바뀔 수 없습니다. 현재의 단가 정보는 `klay.gasPrice` API를 호출하여 얻을 수 있습니다.
 
 이더리움에서 사용자는 각 트랜잭션에 대한 가스 가격을 설정하고, 채굴자들은 보상을 극대화하기 위해 특정 트랜잭션을 그들의 블록에 포함시킬 수 있습니다. 이는 한정된 자원을 얻기 위한 경매와 같습니다. 이 접근 방식은 시장을 기반으로 하므로 효과가 있습니다. 하지만, 트랜잭션 수수료의 변동이 심하고 실행을 보장할 수 없을 정도로 수수료가 너무 비싸지는 경우가 잦습니다.
 
@@ -44,11 +44,11 @@ Klaytn은 현재 단가를 이용하는 트랜잭션을 교체할 수 없습니�
 기본적으로 Klaytn은 이더리움과 호환성을 유지합니다. 그래서 Klaytn의 가스표는 이더리움과 매우 유사합니다. 하지만 Klaytn의 고유한 기능이 있기 때문에, 그런 기능들을 위한 다른 수치들이 있습니다.
 
 {% hint style="success" %}
-NOTE: The gas table has changed with the protocol upgrade, or the hard fork. 이전 문서는 [이전 문서](transaction-fees-previous.md)를 참고해주세요.
+NOTE: The gas table has changed with the `IstanbulEVM` protocol upgrade, or the "hard fork". 이전 문서는 [이전 문서](transaction-fees-previous.md)를 참고해주세요.
 
-v1.7.0 프로토콜 업그레이드 - **Istanbul** 하드포크 및 Klaytn의 자체 사항들을 포함하는 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#75373312`부터 적용됩니다. Cypress mainnet will be subject to the same protocol upgrade in the next version.
-
-v1.7.3 프로토콜 업그레이드 - **London** 하드 포크의 Base Fee를 포함한 비호환 변경이 적용됩니다. Baobab 네트워크의 경우 블록 번호 `#80295291`부터 적용됩니다. Cypress mainnet will be subject to the same protocol upgrade in the next version.
+`IstanbulEVM` protocol upgrade block number is as follows.
+* Baobab Testnet: `#75373312`
+* Cypress Mainnet: `#86816005`
 {% endhint %}
 
 ### 공통 비용<a id="common-fee"></a>

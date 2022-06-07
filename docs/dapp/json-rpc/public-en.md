@@ -56,6 +56,12 @@
 
 - `wss://klaytn05.fandom.finance/ws/`
 
+##### Archive Node Access Points
+
+- `https://cypress.fandom.finance/archive`
+
+- `wss://cypress.fandom.finance/archive/ws`
+
 
 ### 테스트넷 (Baobab) 퍼블릭 JSON-RPC 엔드포인트
 
@@ -67,7 +73,7 @@
 
 **WebSocket**
 
-- `https://public-node-api.klaytnapi.com/v1/baobab`
+- `wss://public-node-api.klaytnapi.com/v1/baobab/ws`
 
 #### 서비스 제공주체: 클레이튼 재단
 
@@ -79,16 +85,35 @@
 
 - `wss://api.baobab.klaytn.net:8652`
 
+#### 서비스 제공주체: Fantrie
+
+**HTTPS**
+
+- `https://baobab01.fandom.finance`
+
+- `https://baobab02.fandom.finance`
+
+**WebSocket**
+
+- `wss://baobab01.fandom.finance/ws`
+
+- `wss://baobab02.fandom.finance/ws`
+
+##### Archive Node Access Points
+
+- `https://baobab.fandom.finance/archive`
+
+- `wss://baobab.fandom.finance/archive/ws`
 
 ## 유용한 정보
 
-- 카이카스는 클레이튼 네트워크를 위한 웹 브라우저 확장 프로그램 지갑입니다. [카이카스](https://docs.klaytn.com/dapp/developer-tools/kaikas) 소개 바로가기
+- Wallet: Kaikas is a browser extension wallet for the Klaytn Network. [Kaikas](https://docs.klaytn.foundation/dapp/developer-tools/kaikas)
 
-- 포셋(Faucet): Baobab 테스트넷을 위한 테스트 KLAY를 얻을 수 있습니다. [포셋](https://docs.klaytn.com/dapp/developer-tools/klaytn-wallet#how-to-receive-baobab-testnet-klay) 바로가기
+- Faucet: You can obtain test KLAY for the Baobab test network. [Faucet](https://docs.klaytn.foundation/dapp/developer-tools/klaytn-wallet#how-to-receive-baobab-testnet-klay)
 
-- 탐색기: 클레이튼 스코프는 클레이튼 네트워크의 블록 탐색기입니다. [클레이튼 스코프](https://docs.klaytn.com/dapp/developer-tools/klaytnscope) 바로가기
+- Explorer: Klaytnscope is the block explorer for the Klaytn Network. [Klaytnscope](https://docs.klaytn.foundation/dapp/developer-tools/klaytnscope)
 
 - ChainID : Baobab: 1001 (0x3E9), Cypress: 8217 (0x2019)
 
-- 가스비: 750 ston로 고정 [트랜잭션 비용](https://docs.klaytn.com/klaytn/design/transaction-fees) 설명 바로가기
+- Gas price: Fixed at 250 ston [Transaction Fees](https://docs.klaytn.com/klaytn/design/transaction-fees)
 
