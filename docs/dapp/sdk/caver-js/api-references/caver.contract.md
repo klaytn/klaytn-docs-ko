@@ -51,7 +51,7 @@ JSON 인터페이스 오브젝트에 정의된 모든 메소드 및 이벤트로
 | 이름            | 타입     | 설명                                                                                        |
 | ------------- | ------ | ----------------------------------------------------------------------------------------- |
 | jsonInterface | 객체     | 컨트랙트를 인스턴스화하기 위한 JSON 인터페이스                                                               |
-| 주소            | string | (선택 사항) 호출할 스마트 컨트랙트의 주소. `myContract.options.address = '0x1234..'`를 사용하여 나중에 추가할 수 있습니다. |
+| address       | string | (선택 사항) 호출할 스마트 컨트랙트의 주소. `myContract.options.address = '0x1234..'`를 사용하여 나중에 추가할 수 있습니다. |
 | options       | 객체     | (선택 사항) 컨트랙트 옵션. 자세한 내용은 아래 표를 참조하세요.                                                     |
 
 옵션 개체에는 다음이 포함됩니다:
@@ -91,7 +91,7 @@ myContract.options
 
 | 이름            | 타입      | 설명                                                                                                                                                                           |
 | ------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 주소            | string  | 컨트랙트가 배포된 주소.                                                                                                                                                                |
+| address       | string  | 컨트랙트가 배포된 주소.                                                                                                                                                                |
 | jsonInterface | Array   | 컨트랙트의 JSON 인터페이스.                                                                                                                                                            |
 | from          | string  | 컨트랙트 배포/실행 트랜잭션을 전송하는 기본 주소입니다. 트랜잭션 생성시 `from` 주소가 정의되어 있지 않다면, 트랜잭션 생성시 항상 `myContract.options.from`가 사용됩니다.                                                               |
 | 가스 가격         | string  | 트랜잭션에 사용할 peb 단위의 가스 가격.                                                                                                                                                     |
@@ -139,9 +139,9 @@ myContract.options.address
 
 **속성**
 
-| 이름 | 타입                   | 설명                                      |
-| -- | -------------------- | --------------------------------------- |
-| 주소 | string &#124; `null` | 이 컨트랙트의 주소이거나, 아직 설정되지 않은 경우 `null`입니다. |
+| 이름      | 타입                   | 설명                                      |
+| ------- | -------------------- | --------------------------------------- |
+| address | string &#124; `null` | 이 컨트랙트의 주소이거나, 아직 설정되지 않은 경우 `null`입니다. |
 
 **예시**
 
@@ -1585,6 +1585,65 @@ Subscribes to an event and unsubscribes immediately after the first event or err
 }
 ```
 
+## myContract.subscribe <a id="mycontract-subscribe"></a>
+
+```javascript
+myContract.subscribe(event [, options], callback)
+```
+
+이벤트를 구독합니다. This function works same as [myContract.events.eventName](#mycontract-events).
+
+You can unsubscribe an event by calling the `unsubscribe` function of the subscription object returned by the `subscribe` function.
+
+**NOTE** `myContract.subscribe` is supported since caver-js [v1.9.1-rc.1](https://www.npmjs.com/package/caver-js/v/1.9.1-rc.1).
+
+**Parameters**
+
+| 이름       | 타입       | 설명                                                                                                                                        |
+| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| event    | string   | The name of the event in the contract, or `allEvents` to get all events.                                                                  |
+| options  | 객체       | (optional) The options used for subscription. 자세한 내용은 아래 표를 참조하세요.                                                                        |
+| callback | function | 이 콜백은 첫 번째 이벤트를 두 번째 인수로, 또는 오류를 첫 번째 인수로 하여 발생됩니다. See [myContract.getPastEvents](#getpastevents) for details about the event structure. |
+
+옵션 개체에는 다음이 포함됩니다:
+
+| 이름     | 타입    | 설명                                                                                                                                                                    |
+| ------ | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 필터     | 객체    | (optional) Lets you filter events by indexed parameters, *e.g.*, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                       |
+| topics | Array | (optional) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
+
+**리턴값**
+
+`Promise` returns `object` - An event object. For more detail about event object, please refer to [myContract.getPastEvents](#getpastevents).
+
+**예시**
+
+```javascript
+> const subscription = myContract.subscribe('eventName', {
+    filter: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
+  }, function(error, event) { console.log(event) })
+{
+    returnValues: {
+        myIndexedParam: 20,
+        myOtherIndexedParam: '0x123456789...',
+        myNonIndexParam: 'My string'
+    },
+    raw: {
+        data: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
+        topics: ['0xfd43a...', '0x7f9fa...']
+    },
+    event: 'eventName',
+    signature: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
+    logIndex: 0,
+    transactionIndex: 0,
+    transactionHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
+    blockHash: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
+    blocknumber: 1234,
+    address: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'
+}
+> subscription.unsubscribe() // unsubscribe the event
+```
+
 
 ## myContract.events <a id="mycontract-events"></a>
 
@@ -1627,8 +1686,8 @@ The structure of the returned event `object` looks as follows:
 | 이름               | 타입                   | 설명                                                                                                      |
 | ---------------- | -------------------- | ------------------------------------------------------------------------------------------------------- |
 | event            | string               | 이벤트 이름.                                                                                                 |
-| 서명 값입니다.         | string &#124; `null` | The event signature, `null` if it is an anonymous event.                                                |
-| 주소               | string               | 이 이벤트가 발생한 주소.                                                                                          |
+| signature        | string &#124; `null` | The event signature, `null` if it is an anonymous event.                                                |
+| address          | string               | 이 이벤트가 발생한 주소.                                                                                          |
 | returnValues     | 객체                   | The return values coming from the event, *e.g.*, `{myVar: 1, myVar2: '0x234...'}`.                      |
 | logIndex         | number               | 블록에서 이벤트 인덱스 위치의 정수값.                                                                                   |
 | transactionIndex | number               | 이벤트가 생성된 트랜잭션의 인덱스 위치의 정수값.                                                                             |
@@ -1719,8 +1778,8 @@ An event object can contain the following:
 | 이름               | 타입                   | 설명                                                                                                                                                                                                            |
 | ---------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | event            | string               | 이벤트 이름.                                                                                                                                                                                                       |
-| 서명 값입니다.         | string &#124; `null` | The event signature, `null` if it’s an anonymous event.                                                                                                                                                       |
-| 주소               | string               | Address this event originated from.                                                                                                                                                                           |
+| signature        | string &#124; `null` | The event signature, `null` if it’s an anonymous event.                                                                                                                                                       |
+| address          | string               | Address this event originated from.                                                                                                                                                                           |
 | returnValues     | 객체                   | The return values coming from the event, e.g. {myVar: 1, myVar2: '0x234...'}.                                                                                                                                 |
 | logIndex         | number               | The event index position in the block.                                                                                                                                                                        |
 | transactionIndex | number               | The transaction’s index position the event was created in.                                                                                                                                                    |

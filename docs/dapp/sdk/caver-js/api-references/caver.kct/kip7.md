@@ -6,7 +6,7 @@
 
 caver.kct.kip7에서 사용된 abi와 바이트 코드는 [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20) 예시를 사용하여 구현되었습니다.
 
-caver-js에서 KIP-7을 구현한 예시는 [Caver-js Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/token/KIP7)에서 확인할 수 있습니다.
+The code that implements KIP-7 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP7).
 
 For more information about KIP-7, see [Klaytn Improvement Proposals](https://kips.klaytn.foundation/KIPs/kip-7).
 
@@ -386,9 +386,9 @@ kip7.balanceOf(address)
 
 **Parameters**
 
-| 이름 | 타입     | 설명                |
-| -- | ------ | ----------------- |
-| 주소 | string | 잔액을 확인할 계정 주소입니다. |
+| 이름      | 타입     | 설명                |
+| ------- | ------ | ----------------- |
+| address | string | 잔액을 확인할 계정 주소입니다. |
 
 **리턴값**
 
@@ -440,9 +440,9 @@ kip7.isMinter(address)
 
 **Parameters**
 
-| 이름 | 타입     | 설명                             |
-| -- | ------ | ------------------------------ |
-| 주소 | string | 발행 권한을 가지고 있는지를 확인받을 계정 주소입니다. |
+| 이름      | 타입     | 설명                             |
+| ------- | ------ | ------------------------------ |
+| address | string | 발행 권한을 가지고 있는지를 확인받을 계정 주소입니다. |
 
 **리턴값**
 
@@ -468,9 +468,9 @@ kip7.isPauser(address)
 
 **Parameters**
 
-| 이름 | 타입     | 설명                                |
-| -- | ------ | --------------------------------- |
-| 주소 | string | 토큰 전송을 멈출 권한이 있는지를 확인받을 계정 주소입니다. |
+| 이름      | 타입     | 설명                                |
+| ------- | ------ | --------------------------------- |
+| address | string | 토큰 전송을 멈출 권한이 있는지를 확인받을 계정 주소입니다. |
 
 **리턴값**
 
