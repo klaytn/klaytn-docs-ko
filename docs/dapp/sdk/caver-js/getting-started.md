@@ -124,7 +124,7 @@ EN을 실행 중인 경우, 아래와 같이 호스트와 포트를 변경하여
 
 ```javascript
 const Caver = require('caver-js')
-const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+const caver = new Caver('https://your.en.url:8651/')
 ```
 
 ## Keyring 관리 <a id="managing-keyrings"></a>
@@ -1796,9 +1796,9 @@ $ node ./test.js
 
 ## 샘플 프로젝트 <a id="sample-projects"></a>
 
-caver-js를 사용한 BApp \(Blockchain Application\) 개발 샘플 프로젝트는 다음과 같습니다:
+The DApp \(Blockchain Application\) Development sample projects using caver-js are the following:
 
-* [Count BApp 개발하기](../../tutorials/count-bapp/README.md)
+* [Count DApp](../../tutorials/count-dapp/README.md)
 * [Klaystagram](../../tutorials/klaystagram/README.md)
 
 ## 문제 해결 <a id="troubleshooting"></a>

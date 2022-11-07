@@ -51,7 +51,7 @@ EN을 실행 중인 경우, 아래와 같이 호스트와 포트를 변경하여
 ```text
 $ node
 > const Caver = require('caver-js')
-> const caver = new Caver('https://api.baobab.klaytn.net:8651/')
+> const caver = new Caver('https://your.en.url:8651/')
 ```
 
 ## 계정 관리 <a id="managing-accounts"></a>
@@ -955,7 +955,7 @@ console.log(rawTransaction)
 
 Sample projects for development of dApps \(Decentralized Applications\) using caver-js can be found below:
 
-* [Count BApp 개발하기](../../../tutorials/count-bapp/README.md)
+* [Count DApp](../../../tutorials/count-dapp/README.md)
 * [Klaystagram](../../../tutorials/klaystagram/README.md)
 
 ## 링크 <a id="links"></a>
