@@ -1,10 +1,10 @@
-# caver.validator <a id="caver-validator"></a>
+# caver.validator
 
 The `caver.validator` package provides validation functions that should be used when implementing applications on Klaytn.
 
 **NOTE** `caver.validator` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
-## validateSignedMessage <a id="validatesignedmessage"></a>
+## validateSignedMessage <a href="#validatesignedmessage" id="validatesignedmessage"></a>
 
 ```javascript
 caver.validator.validateSignedMessage(message, signatures, address [, isHashed])
@@ -12,19 +12,18 @@ caver.validator.validateSignedMessage(message, signatures, address [, isHashed])
 
 Validates a signed message by comparing the public key recovered from the signature with the account key of the Klaytn account.
 
-**Parameters**
+**파라미터**
 
-| 이름       | 타입                  | 설명                                                                                                                                                                                                                                                        |
-| -------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 메시지      | string              | The raw message string. If this message is hashed with the Klaytn-specific prefix, the third parameter should be passed as `true`.                                                                                                                        |
-| 서명       | object &#124; Array | An object in the format of `{ v, r, s }`, an instance of `SignatureData`, or an array of `SignatureData`. '[ v, r, s ]' or '[[ v, r, s ]]' array can also be passed as a parameter, and in this case, it is internally converted to `SignatureData` type. |
-| address  | string              | The address of the account that signed the message.                                                                                                                                                                                                       |
-| isHashed | boolean             | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`.                                                                                           |
+| 이름       | 타입        | 설명                                                                                                                                                                                                                                                                      |
+| -------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 메시지      | string    | The raw message string. If this message is hashed with the Klaytn-specific prefix, the third parameter should be passed as `true`.                                                                                                                                      |
+| 서명       | object \ | Array | An object in the format of `{ v, r, s }`, an instance of `SignatureData`, or an array of `SignatureData`. '\[ v, r, s ]' or '\[\[ v, r, s ]]' array can also be passed as a parameter, and in this case, it is internally converted to `SignatureData` type. |
+| address  | string    | The address of the account that signed the message.                                                                                                                                                                                                                     |
+| isHashed | boolean   | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`.                                                                                                         |
 
 **리턴값**
 
 `Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the signature on the message is valid or not.
-
 
 **예제**
 
@@ -49,7 +48,7 @@ const signature = [
 > caver.validator.validateSignedMessage(hashedMessage, signature, address, true).then(console.log)
 ```
 
-## validateTransaction <a id="validatetransaction"></a>
+## validateTransaction <a href="#validatetransaction" id="validatetransaction"></a>
 
 ```javascript
 caver.validator.validateTransaction(tx)
@@ -57,16 +56,15 @@ caver.validator.validateTransaction(tx)
 
 Validates a transaction. This function compares the public keys from the account key of the Klaytn account with the public keys recovered from `signatures`. If the transaction is fee-delegated with the `feePayerSignatures` variable inside, this function compares the public keys recovered from `feePayerSignatures` with the public keys of the fee payer.
 
-**Parameters**
+**파라미터**
 
-| 이름 | 타입 | 설명                                          |
-| -- | -- | ------------------------------------------- |
-| tx | 객체 | An instance of [Transaction][] to validate. |
+| 이름 | 타입 | 설명                                                                  |
+| -- | -- | ------------------------------------------------------------------- |
+| tx | 객체 | An instance of [Transaction](caver.transaction/#class) to validate. |
 
 **리턴값**
 
 `Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transacion is valid or not.
-
 
 **예제**
 
@@ -80,7 +78,7 @@ const tx = caver.transaction.feeDelegatedValueTransfer.create({...})
 > caver.validator.validateTransaction(tx).then(console.log)
 ```
 
-## validateSender <a id="validatesender"></a>
+## validateSender <a href="#validatesender" id="validatesender"></a>
 
 ```javascript
 caver.validator.validateSender(tx)
@@ -88,16 +86,15 @@ caver.validator.validateSender(tx)
 
 Validates the sender of the transaction. This function compares the public keys of the account key of the Klaytn account with the public keys recovered from `signatures`.
 
-**Parameters**
+**파라미터**
 
-| 이름 | 타입 | 설명                                          |
-| -- | -- | ------------------------------------------- |
-| tx | 객체 | An instance of [Transaction][] to validate. |
+| 이름 | 타입 | 설명                                                                  |
+| -- | -- | ------------------------------------------------------------------- |
+| tx | 객체 | An instance of [Transaction](caver.transaction/#class) to validate. |
 
 **리턴값**
 
 `Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transaction is valid or not.
-
 
 **예제**
 
@@ -106,7 +103,7 @@ const tx = caver.transaction.valueTransfer.create({...})
 > caver.validator.validateSender(tx).then(console.log)
 ```
 
-## validateFeePayer <a id="validatefeepayer"></a>
+## validateFeePayer <a href="#validatefeepayer" id="validatefeepayer"></a>
 
 ```javascript
 caver.validator.validateFeePayer(tx)
@@ -114,16 +111,15 @@ caver.validator.validateFeePayer(tx)
 
 Validates a fee payer in the transaction. This function compares the public keys of the account key of the fee payer with the public keys recovered from `feePayerSignatures`.
 
-**Parameters**
+**파라미터**
 
-| 이름 | 타입 | 설명                                          |
-| -- | -- | ------------------------------------------- |
-| tx | 객체 | An instance of [Transaction][] to validate. |
+| 이름 | 타입 | 설명                                                                  |
+| -- | -- | ------------------------------------------------------------------- |
+| tx | 객체 | An instance of [Transaction](caver.transaction/#class) to validate. |
 
 **리턴값**
 
 `Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transaction is valid or not.
-
 
 **예제**
 
@@ -131,5 +127,3 @@ Validates a fee payer in the transaction. This function compares the public keys
 const tx = caver.transaction.feeDelegatedValueTransfer.create({...})
 > caver.validator.validateFeePayer(tx).then(console.log)
 ```
-
-[Transaction]: ./caver.transaction/README.md#class
