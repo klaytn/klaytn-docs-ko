@@ -1,4 +1,4 @@
-# 업그레이드 및 하드포크
+# Upgrade & Hard Fork
 
 Klaytn and its ServiceChain have constantly released new versions to develop new features and fix bugs. This page is a guide to upgrade ServiceChain binaries and setting hard fork block numbers for your ServiceChain.
 
@@ -12,7 +12,7 @@ This section shows how to upgrade the ServiceChain binary.
 
 You can get the latest version of Klaytn and ServiceChain binaries in one of the below links:
 
-* [Klaytn Docs](../../download/)
+* [Klaytn Docs](../../../download/README.md)
 * [Klaytn Github Repository](https://github.com/klaytn/klaytn/releases)
 
 To upgrade the ServiceChain binary, stop the ServiceChain node and replace the binary. For example, you can use below commands to stop an SCN node and replace the binary with a newer one.

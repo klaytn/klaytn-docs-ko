@@ -1,6 +1,6 @@
 # 거버넌스(Governance)<a id="governance"></a>
 
-## 개요 <a id="overview"></a>
+## Overview <a id="overview"></a>
 
 ### 클레이튼 거버넌스: 탈중앙화로 가는 첫 걸음<a id="klaytn-governance-taking-the-first-step-to-decentralization"></a>
 
@@ -12,44 +12,44 @@
 
 스테이킹 기반 거버넌스 모델의 도입과 클레이튼 투표 메커니즘에서 지니 계수의 제거를 통해 클레이튼은 커뮤니티의 지지를 많이 받는 거버넌스 참여자들이 자신의 선호에 따라 클레이튼을 만들어 나갈 수 있도록 해줍니다. 메타버스화된 세상에서 적절한 결정을 내릴 수 있는 주체들이 클레이튼 GC에서 더 많은 영향력을 지니게 될 것입니다. 우리는 DAO와 빌더들이 해당 영역의 리더가 될 것이라 믿습니다.
 
-When the level of metaversification crosses the critical threshold, Klaytn governance will be fully decentralized with various types of entities. Ultimately, Klaytn will evolve into a DAO of DAOs and a platform for DAOs to communicate the voices of Klaytn Communities through on-chain mechanisms.
+메타버스화 수준이 임계치를 넘으면 클레이튼 거버넌스는 다양한 유형의 엔티티로 완전히 탈중앙화될 것입니다. 궁극적으로 클레이튼은 온체인 메커니즘을 통해 DAO들이 클레이튼 커뮤니티의 목소리를 전달할 수 있는 플랫폼이자 DAO들의 DAO로 진화할 것입니다.
 
 ## 거버넌스 사항 <a id="governance-topics"></a>
 
-The main topics that can be decided through the governance structure include the following three areas, and proposals that require additional decision making may be introduced in a regular meeting or temporary meeting for review. The Klaytn Governance Council must make decisions that are best for the growth of Klaytn.
+거버넌스 구조를 통해 결정할 수 있는 주요 안건은 다음 세 가지 영역이며, 추가 의사 결정이 필요한 안건은 정기 회의 또는 임시 회의에 상정하여 검토할 수 있습니다. 클레이튼 거버넌스 카운슬은 클레이튼의 성장을 위해 최선의 결정을 내려야 합니다.
 
 - **기술**
-  - Matters related to the technical update of the platform. Here the issues on the blockchain's basic structure (e.g., Account Structure), new features (e.g., L2 solution), or software update schedule are included.
+  - 플랫폼의 기술적 업데이트와 관련된 사항. 여기에는 블록체인의 기본 구조(예: 계정 구조), 새로운 기능(예: L2 솔루션) 또는 소프트웨어 업데이트 일정에 대한 이슈가 포함됩니다.
 - **Economy**
-  - Issues relating to additional issuance of KLAY and its distribution structure, changes in transaction fees, and Klaytn Improvement Reserve spending approval etc. are included in this category.
+  - KLAY 추가 발행 및 분배 구조, 트랜잭션 수수료 변경, Klaytn 개선 준비금(KIR) 지출 승인 등과 관련된 이슈가 이 범주에 포함됩니다.
 - **Governing Rule**
-  - The governance subjects and processes, as well as the rules for the responsibilities and rights of governing bodies, are included in this category.
+  - 거버넌스 주체와 프로세스, 거버넌스 기관의 책임과 권한에 대한 규칙이 이 범주에 포함됩니다.
 
 ## 거버넌스 프로세스 <a id="governance-process"></a>
 
-Klaytn principally aims for the governance process to occur within the protocol (on-chain). Through this process, the votes will be recorded on the blockchain, and the results will be carried out following the vote. As the platform grows, more matters will be handled through on-chain governance.
+클레이튼은 기본적으로 거버넌스 프로세스가 프로토콜(On-chain) 내에서 이루어지는 것을 목표로 합니다. 이 과정을 통해 투표가 블록체인에 기록되고, 투표 후 결과가 실행됩니다. 플랫폼이 성장함에 따라 더 많은 사안이 온체인 거버넌스를 통해 처리될 것입니다.
 
-### General Governance Process <a id="general-governance-process"></a>
+### 일반 거버넌스 절차(General Governance Process)<a id="general-governance-process"></a>
 
-The initial governance process proceeds in the following order: proposal introduction, statement of opinion submitted by advisors, voting by council members, and various follow-up procedures depending on the result of the vote.
+초기 거버넌스 프로세스는 제안서 소개, 자문위원의 의견서 제출, 거버넌스 카운슬 멤버들의 투표, 투표 결과에 따른 다양한 후속 절차의 순서로 진행됩니다.
 
-Those who have the right to introduce proposals can make sure each proposal is voted on by introducing it. Once the proposal is introduced, the advisors must conduct expert analysis on the proposal and submit a statement of opinion with their results.
+제안을 상정할 권한이 있는 사람은 제안을 상정함으로써 각 제안을 투표에 부칠 수 있습니다. 제안서가 상정되면 자문위원은 제안서에 대한 전문적인 분석을 수행하고 그 결과를 담은 의견서를 제출해야 합니다.
 
-During the initial phase of Klaytn governance, the Klaytn Governance Council members will have the right to vote on the introduced proposals and will reference the advisors' statements of opinion to vote on what they believe to be the best option. If the number of votes passes the threshold, the proposal will pass; if not, the proposal will be dismissed. In its initial phase, the voting process may be replaced by a discussion process facilitated by the Klaytn foundation. The follow-up measures for an approved proposal will be led by the chairman, and the chairman has the responsibility to carry out all the proposals that have been passed by the council during his or her term.
+클레이튼 거버넌스 초기 단계에서 클레이튼 거버넌스 카운슬 멤버들은 도입된 제안에 대해 투표권을 가지며, 자문위원들의 의견서를 참고하여 최선의 선택이라고 생각되는 사항에 투표하게 될 것입니다. 투표 수가 임계치를 넘으면 제안이 통과되고, 그렇지 않으면 제안이 기각됩니다. 초기 단계에서는 투표 정차가 클레이튼 재단에서 진행하는 토론 절차로 대체될 수 있습니다. 승인된 제안에 대한 후속 조치는 의장이 주도하며, 의장은 임기 동안 협의회에서 통과된 모든 제안을 실행할 책임이 있습니다.
 
 ### Klaytn Improvement Reserve Review Process <a id="klaytn-improvement-reserve-review-process"></a>
 
 
-The KIR Proposal review will be decided through the voting of the Governance Council members, and the proposal will be rejected if half of the committee or more vote against(rejected) the proposal. For more details on the KIR Proposal review, refer to the following.
+KIR 제안서 심사는 거버넌스 카운슬 위원들의 투표를 통해 결정되며, 위원 과반수 이상이 반대(부결)하면 제안서는 부결됩니다. For more details on the KIR Proposal review, refer to the following.
 
 ![kir_process](../images/kir_process.png)
 
-For more information, visit [KIR Forum](https://kir.klaytn.foundation/).
+자세한 내용은 [KIR 포럼](https://kir.klaytn.foundation/)에서 확인하세요.
 
 ## Governance Roadmap <a id="governance-roadmap"></a>
 
-The bodies participating in governance must act in consideration of Klaytn’s long-term benefits rather than just for their personal interests, and they must actively participate in the governance process. Additionally, all participants that contribute to the network as Klaytn Governance Council members must secure computing resources that are greater than the platform requirements and stake a set amount KLAY of their own or from third parties. For smooth operations in development and stabilization of the platform, Klaytn Foundation will take on many roles in governance related matters in the initial development phase. In the future, however, other bodies will gradually take on greater roles in the decision-making process, and they will have the right to participate independently.
+거버넌스에 참여하는 주체들은 개인의 이익보다는 클레이튼의 장기적인 이익을 고려하여 행동해야 하며, 거버넌스 프로세스에 적극적으로 참여해야 합니다. 또한 클레이튼 거버넌스 카운슬 멤버로서 네트워크에 기여하는 모든 참여자는 플랫폼 요구 사항보다 더 많은 컴퓨팅 자원(computing resources)을 확보해야 하며, 자체적으로 또는 제3자로부터 일정량의 KLAY를 스테이킹해야 합니다. 클레이튼 재단은 플랫폼 개발과 안정화의 원활한 운영을 위해 초기 개발 단계에서 거버넌스와 관련된 많은 역할을 맡게 될 것입니다. 그러나 앞으로는 의사 결정 과정에서 다른 기관의 역할이 점차 커질 것이며, 독립적으로 참여할 수 있는 권리를 갖게 될 것입니다.
 
-* **Development Phase**: The initial development phase after the mainnet launch must quickly see parameter adjustments, new feature developments, etc. For this to be possible, many issues will be decided through gathering the opinions of the Klaytn Governance Council members, service providers, and community members. To secure initial stabilization, Klaytn Foundation will lead the decision-making process. Additionally, all decided matters will be transparently shared with the public.
-* **Stabilization Phase**: The Klaytn Governance Council has governing rights on many proposals and this phase will gradually begin starting Jan 2021. For special matters such as those concerning platform development, and matters that directly affect the overall Klaytn ecosystem, Klaytn foundation may facilitate the discussion and execution.
-* **Decentralization Phase**: Following the stabilization period, a number of non-traditional entities such as DAOs and builders may be brought into the decision-making process for additional opinions. Decentralization phase may be gradually achieved through multiple stages with different governing rules and participants.
+* **개발 단계(Development Phase)**: 메인넷 출시 후 초기 개발 단계에서는 매개변수 조정, 새로운 기능 개발 등이 신속하게 이루어져야 합니다. 이를 위해 클레이튼 거버넌스 카운슬 멤버, 서비스 제공자, 커뮤니티 멤버들의 의견을 수렴하여 많은 이슈를 결정할 것입니다. 초기 안정화를 위해 클레이튼 재단이 의사결정 과정을 주도할 것입니다. 또한 결정된 모든 사안은 대중과 투명하게 공유됩니다.
+* **안정화 단계(Stabilization Phase)**: 클레이튼 거버넌스 카운슬은 많은 제안에 대한 관리 권한을 가지고 있으며, 이 단계는 2021년 1월부터 점진적으로 시작될 예정입니다. 플랫폼 개발에 관한 사항이나 클레이튼 생태계 전반에 직접적인 영향을 미치는 사항과 같은 특별한 사안의 경우, 클레이튼 재단이 논의와 실행을 독려할 수 있습니다.
+* **탈중앙화 단계(Decentralization Phase)**: 안정화 기간 이후에는 DAO 및 빌더와 같은 다양한 비전통적 주체(non-traditional entities)가 의사결정 과정에 참여하여 추가적인 의견을 제시할 수 있습니다. 탈중앙화 단계는 서로 다른 운영 규칙과 참가자를 통한 여러 단계를 통해 점진적으로 달성될 수 있습니다.

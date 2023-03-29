@@ -57,9 +57,9 @@ participating.
  ...
 ```
 
-## 자바스크립트 콘솔 <a id="javascript-console"></a>
+## JavaScript Console <a id="javascript-console"></a>
 
-Klaytn 엔드포인트 노드는 자바스크립트 콘솔과 함께 제공됩니다. 콘솔 명령행에서 EN을 향한 Klaytn API 호출 중 일부를 시작할 수 있습니다. 자바스크립트 콘솔에 연결하려면 다음 명령을 실행하세요.
+Klaytn Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Klaytn API calls to your EN. To attach to the JavaScript console, execute the following command.
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
@@ -81,7 +81,7 @@ Welcome to the Klaytn JavaScript console
 
 ### 모듈 API <a id="module-apis"></a>
 
-콘솔 프롬프트에 모듈명을 입력하면 해당 모듈에서 사용 가능한 프로퍼티와 함수 목록이 표시됩니다. 함수의 상세 명세는 [Klaytn API](../../dapp/json-rpc/api-references/README.md)를 참고해주세요.
+콘솔 프롬프트에 모듈명을 입력하면 해당 모듈에서 사용 가능한 프로퍼티와 함수 목록이 표시됩니다. For the details of functions, please see [Klaytn API](../../../dapp/json-rpc/README.md).
 
 ```javascript
 > personal

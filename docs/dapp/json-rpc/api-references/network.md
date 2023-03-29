@@ -12,21 +12,21 @@ description: >-
 
 네트워크 식별자(네트워크 ID)를 반환합니다.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                                                                                                                                |
+| Type     | Description                                                                                                                       |
 | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY | The integer of the network identifier.<br> - `"1001"`: Klaytn Baobab testnet.<br> - `"8217"`: Klaytn Cypress mainnet. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_networkID","params":[],"id":67}' https://api.baobab.klaytn.net:8651
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_networkID","params":[],"id":67}' https://public-en-baobab.klaytn.net
 
 // Result
 {
@@ -41,21 +41,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 클라이언트가 네트워크 연결을 수신하고 있으면 `true`를 반환합니다.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입      | 설명                                                      |
+| Type    | Description                                             |
 | ------- | ------------------------------------------------------- |
 | Boolean | 클라이언트가 연결을 수신 중이면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":67}' https://api.baobab.klaytn.net:8651
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":67}' https://public-en-baobab.klaytn.net
 
 // Result
 {
@@ -70,21 +70,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 현재 클라이언트에 연결된 피어의 수를 반환합니다.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                 |
+| Type     | Description        |
 | -------- | ------------------ |
 | QUANTITY | 연결된 피어의 수의 정숫값입니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":74}' https://api.baobab.klaytn.net:8651
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":74}' https://public-en-baobab.klaytn.net
 
 // Result
 {
@@ -98,21 +98,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 유형별 연결된 노드의 수와 연결된 모든 노드 수를 키-밸류 쌍의 형태로 반환합니다.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                                  |
-| -------- | ----------------------------------- |
-| JSON 문자열 | 유형별 연결된 피어의 수와 연결된 모든 피어의 수를 반환합니다. |
+| Type        | Description                         |
+| ----------- | ----------------------------------- |
+| JSON string | 유형별 연결된 피어의 수와 연결된 모든 피어의 수를 반환합니다. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_peerCountByType","params":[],"id":74}' https://api.baobab.klaytn.net:8651
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_peerCountByType","params":[],"id":74}' https://public-en-baobab.klaytn.net
 
 // Result
 {
@@ -126,21 +126,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
 
 현재 Klaytn 프로토콜 버전을 반환합니다.
 
-**파라미터**
+**Parameters**
 
-없음
+None
 
-**리턴값**
+**Return Value**
 
-| 타입       | 설명                                                                                                                                     |
+| Type     | Description                                                                                                                            |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY | The integer of the klaytn protocol version.<br> - `"1001"`: Klaytn Baobab testnet.<br> - `"8217"`: Klaytn Cypress mainnet. |
 
-**예시**
+**Example**
 
 ```shell
 // Request
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67}' https://api.baobab.klaytn.net:8651
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67}' https://public-en-baobab.klaytn.net
 // Result
 {
     "jsonrpc":"2.0",
