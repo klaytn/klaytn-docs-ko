@@ -1,7 +1,7 @@
 이번 장에서는 Baobab 네트워크와 서비스체인 간에 토큰을 전송하는 방법을 설명합니다. 운영자 계정에 KLAY를 확보하고 브릿지 컨트랙트 및 ERC-20 컨트랙트를 배포합니다. 그런 다음 SCN 서브 브릿지에 계약 주소를 등록합니다.  그리고 ERC-20 토큰 전송을 테스트합니다.
 
 
-## 준비 사항 <a id="prerequisites"></a>
+## Prerequisites <a id="prerequisites"></a>
 - 서비스체인을 구성하고, [Baobab 연결](en-scn-connection.md)의 설명에 따라 서비스체인을 Baobab EN에 연결했다고 가정합니다.
 - [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples) 저장소를 복제합니다.
 - `Node.js` (v14)과 `npm`을 설치합니다. ([How to install](https://nodejs.org/en/download/package-manager/))
@@ -51,7 +51,7 @@ True
 ```
 
 ### 2 단계 : 컨트랙트 배포 <a id="step-2-deploy-contracts"></a>
-- SCN에 연결하여 컨트랙트 배포를 위한 노드 환경을 준비합니다. [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples) 저장소를 복제합니다.
+- SCN에 연결하여 컨트랙트 배포를 위한 노드 환경을 준비합니다. Clone the repository [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples).
 
 ![](../images/sc-vt-deploy.png)
 
@@ -162,4 +162,4 @@ $ node kip7-transfer-2step-erc20-interface.js
 현재 Klaytn 팀에서 제공하는 브릿지 컨트랙트는 토큰 전송을 위해 `requestERC20Transfer()` 및 `requestERC721Transfer()`만 지원합니다.  KIP-7 및 KIP-17에 대한 기능은 곧 지원될 예정입니다.  구현이 완료되기 까지는 위의 설명과 같이 ERC-20 인터페이스를 사용하여 KIP-7 토큰을 전송할 수 있습니다.
 
 ## ERC-721, KIP-17와 KLAY 토큰 전송<a id="value-transfer-for-erc721-kip17-and-klay"></a>
-ERC-721, KIP-17, KLAY의 동작도 위와 동일합니다.  `erc721</a>`, [`kip17`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/master/kip17) 및 [`klay`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/master/klay) 디렉토리에 예제 소스 코드가 있습니다.</p>
+ERC-721, KIP-17, KLAY의 동작도 위와 동일합니다.  [`erc721`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/erc721), [`kip17`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/kip17), and [`klay`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/klay) directories contain corresponding example source code.

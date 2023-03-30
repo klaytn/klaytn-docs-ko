@@ -18,7 +18,7 @@ EN과 SCN을 설정한 후 체인 간 밸류 트랜스퍼를 활성화하려면 
 - ERC-20 컨트랙트 (필요한 경우)
 - ERC-721 컨트랙트 (필요한 경우)
 
-![그림 1. 서비스체인 구조](../images/sc_arch.png)
+![Figure 1. 서비스체인 구조](../images/sc_arch.png)
 
 # 브리지 오퍼레이터 계정<a id="bridge-operator-account"></a>
 For ServiceChain, there are two operator accounts: parent chain bridge operator account, service chain bridge operator account. 각 오퍼레이터 계정은 트랜잭션 서명에 사용됩니다. 만일 트랜잭션이 부모체인으로 가치를 전송하면 부모 체인 브리지 오퍼레이터 계정이 트랜잭션에 서명합니다. 자식 체인으로 자치를 전송할때는 자식 체인 브리지 오퍼레이터 계정이 사용됩니다. 사용자가 "request value transfer" 트랜잭션을 제출하면 서브 브리지는 브리지 오퍼레이터 계정이 서명한 "handle value transfer" 트랜잭션을 생성합니다. 따라서 부모 체인 브리지 운영자는 트랜잭션 수수료를 부모 체인에 지불할 수 있는 충분한 KLAY 잔액이 필요합니다. 서비스체인의 가스 가격이 0이 아닌 값으로 설정되어 있다면 서비스체인 브리지 오퍼레이터도 KLAY 잔액을 보유해야 합니다.
@@ -66,10 +66,10 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 "0x5C1C757a6Cb6c6FcEFE398674D8209FDA2A74Df4"
 ```
 
-상세 사항은 [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_parentOperator)를 참조하세요.
+You can refer to the [subbridge API](../../../../dapp/json-rpc/api-references/subbridge.md#subbridge_parentOperator) for more details.
 
 ## 브리지 오퍼레이터에게 KLAY 보내기 <a id="send-klay-to-bridge-operators"></a>
-앵커링과 마찬가지로 부모 체인 브리지 오퍼레이터는 밸류 트랜스퍼 트랜잭션을 생성하기 위해 KLAY가 필요합니다. 서비스체인의 가스 가격이 0이 아닌 값으로 설정되어 있다면 서비스체인 브리지 오퍼레이터도 KLAY 잔액을 보유해야 합니다.
+앵커링과 마찬가지로 부모 체인 브리지 오퍼레이터는 밸류 트랜스퍼 트랜잭션을 생성하기 위해 KLAY가 필요합니다. If the service chain's gas price is set to non-zero, the service chain bridge operator should have KLAY in their balance as well.
 
 오퍼레이터 계정에 잔액을 보충한 후 아래와 같이 잔액을 확인할 수 있습니다.
 
@@ -124,7 +124,7 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
     subscribed: false
 }]
 ```
-상세 사항은 [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_deployBridge)를 참조하세요.
+You can refer to the [subbridge API](../../../../dapp/json-rpc/api-references/subbridge.md#subbridge_deployBridge) for more details.
 
 `subbridge_listBridge`는 브리지 컨트랙트 주소 및 구독 상태를 보여줍니다. 서브 브리지는 브리지 컨트랙트 주소 목록을 파일에 저장합니다. 재부팅시 서브 브리지는 파일에서 브리지 컨트랙트 목록을 다시 로드합니다.
 
@@ -171,7 +171,7 @@ INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=
 - pending : `request`와 ` lowerHandle`의 차이.
 
 ### RPC API <a id="rpc-api"></a>
-다음과 같이 브리지 컨트랙트의 상태를 확인할 수 있습니다. 상세 사항은 [subbridge API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_getBridgeInformation)를 참조하세요.
+다음과 같이 브리지 컨트랙트의 상태를 확인할 수 있습니다. You can refer to the [subbridge API](../../../../dapp/json-rpc/api-references/subbridge.md#subbridge_getBridgeInformation) for more details.
 
 ```javascript
 > subbridge.getBridgeInformation("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")
@@ -202,7 +202,7 @@ null
 
 이 명령은 자식 체인 토큰("0x376b72abe1b29cace831bd3f5acdfa967814c9cd")을 자식 체인 브리지 컨트랙트("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")에 등록합니다. 그리고 부모 체인 토큰("0x53160735f7cc6ff75e48619f368bb94daff66a1b")을 부모 체인 브리지 컨트랙트("0x22c41ae528627b790233d2e59ea520be12350eb5")에 등록합니다.
 
-상세 사항은 [Service Chain API](../../../bapp/json-rpc/api-references/subbridge.md#subbridge_registerToken)를 참조하세요.
+You can refer to the [Service Chain API](../../../../dapp/json-rpc/api-references/subbridge.md#subbridge_registerToken) for more details.
 
 # 밸류 트랜스퍼 요청<a id="request-value-transfer"></a>
 이 장에서는 사용자가 밸류 트랜스퍼를 요청하기 위해 컨트랙트 메서드를 호출하는 방법에 대해 설명합니다. 0값 (KLAY/ERC-20) 전송 요청은 허용하지 않습니다.
@@ -244,8 +244,8 @@ function requestValueTransfer(uint256 _amount, address _to, uint256 _feeLimit, b
 
 ## ERC-721 전송<a id="erc-721-transfer"></a>
 
-### 브리지 컨트랙트를 통한 2단계 요청 <a id="2-step-request-via-bridge-contract"></a>
-사용자는 아래 함수를 사용하여 "request value transfer" 트랜잭션을 브리지 컨트랙트에 요청할 수 있는데, 이 전에 토큰이 브리지 컨트랙트를 [approve](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#approve)했어야 합니다.
+### 2-Step request via Bridge contract <a id="2-step-request-via-bridge-contract"></a>
+Users can make a "request value transfer" transaction to the Bridge contract using the below method after [approving](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#approve) the token to the Bridge contract.
 
 ```solidity
 function requestERC721Transfer(address _tokenAddress, address _to, uint256 _tokenId, bytes memory _extraData) external

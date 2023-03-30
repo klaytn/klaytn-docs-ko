@@ -3,8 +3,8 @@
 ![](../images/sc-4scn-arch.png)
 
 
-## 준비 사항 <a id="prerequisites"></a>
- - Download packages for `kscn`, `homi` binary from [Download](../references/download/README.md).
+## Prerequisites <a id="prerequisites"></a>
+ - Download packages for `kscn`, `homi` binary from [Download](../../../download/README.md).
  - 4대의 Linux 또는 MacOS 서버
  - 최소 하드웨어 요구 사항
    - CPU: 4코어(Intel Xeon 또는 동급), RAM: 16GB, HDD: 50GB

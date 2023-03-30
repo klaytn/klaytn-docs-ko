@@ -1,7 +1,7 @@
 ---
 description: >-
-  Klaytn에 익숙해지도록 해봅시다 이 장이 Klaytn dApp 여행의 출발점입니다.
+  Klaytn을 사용해보고 더 익숙해져 보아요. 이 장은 Klaytn dApps에 대해 더 자세히 이해할 수 있도록 구성되었습니다.
 ---
 
-# 개요 <a id="overview"></a>
+# Overview <a id="overview"></a>
 
