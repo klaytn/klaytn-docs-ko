@@ -1,5 +1,6 @@
 ---
-cover: .gitbook/assets/test_header5.png coverY: 0
+cover: .gitbook/assets/test_header5.png 
+coverY: 0
 ---
 
 # Klaytn Docs
