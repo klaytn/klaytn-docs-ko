@@ -22,21 +22,20 @@ Please keep in mind that these endpoints are provided to the community for testi
 
 **HTTPS**
 
-| Service Provider                                   | Endpoints                                          | Namespaces   | Type    |
-| -------------------------------------------------- | -------------------------------------------------- | ------------ | ------- |
-| [Klaytn API Service](https://www.klaytnapi.com/)   | `https://public-node-api.klaytnapi.com/v1/cypress` | klay,eth,net | Full    |
-| [Klaytn Foundation](https://www.klaytn.foundation) | `https://public-en-cypress.klaytn.net`             | klay,eth,net | Full    |
-|                                                    | `https://archive-en.cypress.klaytn.net`            | klay,eth,net | Archive |
-| [All That Node](www.allthatnode.com)               | `https://klaytn-mainnet-rpc.allthatnode.com:8551`  | klay,eth,net | Full    |
-| [BlockPI Network](https://blockpi.io/)             | `https://klaytn.blockpi.network/v1/rpc/public`     | klay,eth,net | Full    |
+| Service Provider                                   | Endpoints                                         | Namespaces   | Type    |
+| -------------------------------------------------- | ------------------------------------------------- | ------------ | ------- |
+| [Klaytn Foundation](https://www.klaytn.foundation) | `https://public-en-cypress.klaytn.net`            | klay,eth,net | Full    |
+|                                                    | `https://archive-en.cypress.klaytn.net`           | klay,eth,net | Archive |
+| [All That Node](www.allthatnode.com)               | `https://klaytn-mainnet-rpc.allthatnode.com:8551` | klay,eth,net | Full    |
+| [BlockPI Network](https://blockpi.io/)             | `https://klaytn.blockpi.network/v1/rpc/public`    | klay,eth,net | Full    |
+| [Pokt Network](https://pokt.network/)              | `https://klaytn-rpc.gateway.pokt.network/)`       | klay,eth,net | Full    |
 
 **WebSocket**
 
-| Service Provider                                   | Endpoints                                           | Namespaces   | Type    |
-| -------------------------------------------------- | --------------------------------------------------- | ------------ | ------- |
-| [Klaytn API Service](https://www.klaytnapi.com/)   | `wss://public-node-api.klaytnapi.com/v1/cypress/ws` | klay,eth,net | Full    |
-| [Klaytn Foundation](https://www.klaytn.foundation) | `wss://public-en-cypress.klaytn.net/ws`             | klay,eth,net | Full    |
-|                                                    | `wss://archive-en.cypress.klaytn.net/ws`            | klay,eth,net | Archive |
+| Service Provider                                   | Endpoints                                | Namespaces   | Type    |
+| -------------------------------------------------- | ---------------------------------------- | ------------ | ------- |
+| [Klaytn Foundation](https://www.klaytn.foundation) | `wss://public-en-cypress.klaytn.net/ws`  | klay,eth,net | Full    |
+|                                                    | `wss://archive-en.cypress.klaytn.net/ws` | klay,eth,net | Archive |
 
 
 ### Testnet (Baobab) Public JSON-RPC Endpoints
@@ -45,25 +44,17 @@ Please keep in mind that these endpoints are provided to the community for testi
 
 | Service Provider                                   | Endpoints                                             | Namespaces   | Type    |
 | -------------------------------------------------- | ----------------------------------------------------- | ------------ | ------- |
-| [Klaytn API Service](https://www.klaytnapi.com/)   | `https://public-node-api.klaytnapi.com/v1/baobab`     | klay,eth,net | Full    |
 | [Klaytn Foundation](https://www.klaytn.foundation) | `https://public-en-baobab.klaytn.net`                 | klay,eth,net | Full    |
 |                                                    | `https://archive-en.baobab.klaytn.net/`               | klay,eth,net | Archive |
-| Fantrie                                            | `https://baobab01.fautor.app/`                        | klay,eth,net | Full    |
-|                                                    | `https://baobab02.fautor.app/`                        | klay,eth,net | Full    |
-|                                                    | `https://baobab.fautor.app/archive`                   | klay,eth,net | Archive |
 | [All That Node](www.allthatnode.com)               | `https://klaytn-baobab-rpc.allthatnode.com:8551`      | klay,eth,net | Full    |
 | [BlockPI Network](https://blockpi.io/)             | `https://klaytn-baobab.blockpi.network/v1/rpc/public` | klay,eth,net | Full    |
 
 **WebSocket**
 
-| Service Provider                                   | Endpoints                                          | Namespaces   | Type    |
-| -------------------------------------------------- | -------------------------------------------------- | ------------ | ------- |
-| [Klaytn API Service](https://www.klaytnapi.com/)   | `wss://public-node-api.klaytnapi.com/v1/baobab/ws` | klay,eth,net | Full    |
-| [Klaytn Foundation](https://www.klaytn.foundation) | `wss://public-en-baobab.klaytn.net/ws`             | klay,eth,net | Full    |
-|                                                    | `wss://archive-en.baobab.klaytn.net/ws`            | klay,eth,net | Archive |
-| Fantrie                                            | `wss://baobab01.fautor.app/ws/`                    | klay,eth,net | Full    |
-|                                                    | `wss://baobab02.fautor.app/ws/`                    | klay,eth,net | Full    |
-|                                                    | `wss://baobab.fautor.app/archive/ws`               | klay,eth,net | Archive |
+| Service Provider                                   | Endpoints                               | Namespaces   | Type    |
+| -------------------------------------------------- | --------------------------------------- | ------------ | ------- |
+| [Klaytn Foundation](https://www.klaytn.foundation) | `wss://public-en-baobab.klaytn.net/ws`  | klay,eth,net | Full    |
+|                                                    | `wss://archive-en.baobab.klaytn.net/ws` | klay,eth,net | Archive |
 
 ### Useful Resources
 

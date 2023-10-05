@@ -30,25 +30,28 @@ Klaytn에는 세 가지 거버넌스 모드가 있습니다.
 - `Key` : 변경하고자 하는 환경설정의 이름입니다. 키는 `domain.field`의 형식으로 되어 있습니다.
 - `Value` : 각 키에 대한 다양한 형태의 값입니다.
 
-| Key                                 | Description                                                                                                                                                                                                     |
-| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"governance.governancemode"`       | `STRING`. 세 거버넌스 모드 중 하나입니다. `"none"`, `"single"`, `"ballot"` 등 세 가지 모드 중 하나를 선택합니다.                                                                                                                            |
-| `"governance.governingnode"`        | `ADDRESS`. 거버넌스를 통제하는 특정 노드의 주소입니다. 거버넌스 모드가 `"single"`인 경우에만 해당합니다. 예를 들어, `"0xe733cb4d279da696f30d470f8c04decb54fcb0d2"`입니다.                                                                                  |
-| `"governance.unitprice"`            | `NUMBER`. 가스당 가격입니다. 예를 들어, `25000000000`입니다.                                                                                                                                                                   |
-| `"governance.addvalidator"`         | `ADDRESS`. 새로운 검증자 후보의 주소입니다. 예를 들어, `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`입니다.                                                                                                                           |
-| `"governance.removevalidator"`      | `ADDRESS`. 제거될 검증자의 주소입니다. e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                   |
-| `"istanbul.epoch"`                  | `NUMBER`. 표를 수집할 블록 단위의 시간입니다. 투표 기간이 종료되면 기간을 넘긴 투표는 무효가 됩니다. 예를 들어, `86400`입니다.                                                                                                                               |
-| `"istanbul.committeesize"`          | `NUMBER`. 위원회 내 검증자 수입니다.(체인 환경설정에서 `sub`입니다.) 예를 들어, `7`입니다.                                                                                                                                                   |
-| `"reward.mintingamount"`            | `STRING`. 블록이 생성될 때 발행되는 peb의 양입니다. 값에는 큰따옴표가 필요합니다. 예를 들어, `"9600000000000000000"`입니다.                                                                                                                         |
-| `"reward.ratio"`                    | `STRING`. `"/"`로 구분되는 <0>CN/KIR/PoC</0>의 분포 비율입니다. 각 값의 합은 `100`이어야 합니다. e.g., `"50/40/10"` meaning CN 50%, KGF 40%, KIR 10%                                                                                    |
-| `"reward.useginicoeff"`             | `BOOL`. 지니(GINI) 계수 사용 여부입니다 `true` 또는 `false`로 설정합니다.                                                                                                                                                          |
-| `"reward.deferredtxfee"`            | `BOOL`. 트랜잭션 수수료를 제안자에게 지급하는 방법입니다. true이면 트랜잭션 수수료는 블록 보상과 합산되어 제안자, KIR, PoC에게 분배됩니다. false이면 트랜잭션 수수료가 제안자에게 지급됩니다. `true`, `false`                                                                          |
-| `"reward.minimumstake"`             | `STRING`. CN(컨센서스 노드)이 되는 데 필요한 KLAY 양입니다. Double quotation marks are needed for a value. 예를 들어, `"5000000"`입니다.                                                                                                |
-| `"kip71.lowerboundbasefee"`         | `NUMBER`. The lowest possible base fee. See [KIP-71](https://github.com/klaytn/kips/blob/main/KIPs/kip-71.md) for further details. e.g., `25000000000`                                                          |
-| `"kip71.upperboundbasefee"`         | `NUMBER`. The highest possible base fee. e.g., `750000000000`                                                                                                                                                   |
-| `"kip71.gastarget"`                 | `NUMBER`. The block gas that base fee wants to achieve. The base fee increases when parent block contains more than gas target, and decreases when parent block contains less than gas target. e.g., `30000000` |
-| `"kip71.basefeedenominator"`        | `NUMBER`. Controls how fast base fee changes. e.g., `20`                                                                                                                                                        |
-| `"kip71.maxblockgasusedforbasefee"` | `NUMBER`. The maximum block gas perceived in base fee calculation. e.g., `60000000`                                                                                                                             |
+| Key                                 | Description                                                                                                                                                                                                                                                                                       |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"governance.governancemode"`       | `STRING`. 세 거버넌스 모드 중 하나입니다. `"none"`, `"single"`, `"ballot"` 등 세 가지 모드 중 하나를 선택합니다.                                                                                                                                                                                                              |
+| `"governance.governingnode"`        | `ADDRESS`. 거버넌스를 통제하는 특정 노드의 주소입니다. 거버넌스 모드가 `"single"`인 경우에만 해당합니다. 예를 들어, `"0xe733cb4d279da696f30d470f8c04decb54fcb0d2"`입니다.                                                                                                                                                                    |
+| `"governance.unitprice"`            | `NUMBER`. 가스당 가격입니다. 예를 들어, `25000000000`입니다.                                                                                                                                                                                                                                                     |
+| `"governance.addvalidator"`         | `ADDRESS`. 새로운 검증자 후보의 주소입니다. 예를 들어, `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`입니다.                                                                                                                                                                                                             |
+| `"governance.removevalidator"`      | `ADDRESS`. 제거될 검증자의 주소입니다. e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                                                                                                     |
+| `"governance.deriveshaimpl"`        | `NUMBER`. Policy to generate the transaction hash and receipt hash in a block header. See [here](https://github.com/klaytn/klaytn/blob/v1.10.0/blockchain/types/derive_sha.go#L34) for available options. e.g., `2` (DeriveShaConcat)                                                             |
+| `"governance.govparamcontract"`     | `ADDRESS`. Address of the GovParam contract. e.g., `0xe733cb4d279da696f30d470f8c04decb54fcb0d2`                                                                                                                                                                                                   |
+| `"istanbul.epoch"`                  | `NUMBER`. A period in which votes are gathered in blocks. When an epoch end, all votes which haven't been passed will be cleared. e.g., `86400`                                                                                                                                                   |
+| `"istanbul.committeesize"`          | `NUMBER`. The number of validators in a committee.(`sub` in chain configuration) e.g., `7`                                                                                                                                                                                                        |
+| `"reward.mintingamount"`            | `STRING`. Amount of Peb minted when a block is generated. Double quotation marks are needed for a value. e.g., `"9600000000000000000"`                                                                                                                                                            |
+| `"reward.ratio"`                    | `STRING`. Distribution rate for a CN/KGF/KIR separated by `"/"`. The sum of all values has to be `100`. e.g., `"50/40/10"` meaning CN 50%, KGF 40%, KIR 10%                                                                                                                                       |
+| `"reward.kip82ratio"`               | `STRING`. Distribution ratio of the block proposer to stakers separated by `"/"`. The sum of all values has to be `"100"`. See [KIP-82](https://github.com/klaytn/kips/blob/master/KIPs/kip-82.md) for further details. e.g., `"20/80"` means that the proposer takes 20% while stakers take 80%. |
+| `"reward.useginicoeff"`             | `BOOL`. Use the Gini coefficient or not. `true`, `false`                                                                                                                                                                                                                                          |
+| `"reward.deferredtxfee"`            | `BOOL`. The way of giving transaction fee to a proposer. If true, it means the tx fee will be summed up with block reward and distributed to the proposer, KIR and KGF. If not, all tx fee will be given to the proposer. `true`, `false`                                                         |
+| `"reward.minimumstake"`             | `STRING`. Amount of Klay required to be a CN (Consensus Node). Double quotation marks are needed for a value. e.g., `"5000000"`                                                                                                                                                                   |
+| `"kip71.lowerboundbasefee"`         | `NUMBER`. The lowest possible base fee. See [KIP-71](https://github.com/klaytn/kips/blob/main/KIPs/kip-71.md) for further details. e.g., `25000000000`                                                                                                                                            |
+| `"kip71.upperboundbasefee"`         | `NUMBER`. The highest possible base fee. e.g., `750000000000`                                                                                                                                                                                                                                     |
+| `"kip71.gastarget"`                 | `NUMBER`. The block gas that base fee wants to achieve. The base fee increases when parent block contains more than gas target, and decreases when parent block contains less than gas target. e.g., `30000000`                                                                                   |
+| `"kip71.basefeedenominator"`        | `NUMBER`. Controls how fast base fee changes. e.g., `20`                                                                                                                                                                                                                                          |
+| `"kip71.maxblockgasusedforbasefee"` | `NUMBER`. The maximum block gas perceived in base fee calculation. e.g., `60000000`                                                                                                                                                                                                               |
 
 
 **Return Value**
@@ -211,10 +214,78 @@ None
 
 ```
 
+## governance_getChainConfig <a id="governance_getchainconfig"></a>
+
+The `getChainConfig` returns the chain configuration at a specific block. If the parameter is not set, it returns the chain configuration at the latest block.
+
+**Parameters**
+
+| Type                | Description                                                                                                                                                                |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
+
+{% hint style="success" %}
+NOTE: The block number can be larger than the latest block number, in which case the API returns the tentative value based on the current chain state. The future governance parameters are subject to change via additional governance votes or GovParam contract state changes.
+{% endhint %}
+
+**Return Value**
+
+| Type | Description                                   |
+| ---- | --------------------------------------------- |
+| JSON | Chain configuration at the given block number |
+
+**Example**
+
+```javascript
+> governance.getChainConfig()
+{
+  chainId: 1001,
+  deriveShaImpl: 0,
+  ethTxTypeCompatibleBlock: 86513895,
+  governance: {
+    govParamContract: "0x84214cec245d752a9f2faf355b59ddf7f58a6edb",
+    governanceMode: "single",
+    governingNode: "0x99fb17d324fa0e07f23b49d09028ac0919414db6",
+    kip71: {
+      basefeedenominator: 20,
+      gastarget: 30000000,
+      lowerboundbasefee: 25000000000,
+      maxblockgasusedforbasefee: 60000000,
+      upperboundbasefee: 750000000000
+    },
+    reward: {
+      deferredTxFee: true,
+      kip82ratio: "20/80",
+      minimumStake: 5000000,
+      mintingAmount: 6400000000000000000,
+      proposerUpdateInterval: 3600,
+      ratio: "50/40/10",
+      stakingUpdateInterval: 86400,
+      useGiniCoeff: true
+    }
+  },
+  istanbul: {
+    epoch: 604800,
+    policy: 2,
+    sub: 22
+  },
+  istanbulCompatibleBlock: 75373312,
+  koreCompatibleBlock: 111736800,
+  londonCompatibleBlock: 80295291,
+  magmaCompatibleBlock: 98347376,
+  unitPrice: 250000000000
+}
+```
 
 ## governance_chainConfig <a id="governance_chainconfig"></a>
 
 The `chainConfig` property provides the latest chain configuration. This is equivalent to `chainConfigAt()` with an empty parameter.
+
+{% hint style="warning" %}
+`governance_chainConfig` API will be deprecated since Klaytn v1.11 (see [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)). Use <a href="#governance_getchainconfig">`governance_getChainConfig`</a> instead.
+
+NOTE: the RPC API will be deprecated since v1.11. However, the `governance.chainConfig` property in the Klaytn JavaScript console is removed since Klaytn v1.10.2.
+{% endhint %}
 
 {% hint style="success" %}
 NOTE: In versions earlier than Klaytn v1.10.0, this API returned the initial chain configuration. However, due to its confusing name, it is updated since Klaytn v1.10.0. To query the initial chain configuration, use `chainConfigAt(0)` instead.
@@ -226,9 +297,9 @@ None
 
 **Return Value**
 
-| Type | Description     |
-| ---- | --------------- |
-| JSON | 현재 체인의 환경설정입니다. |
+| Type | Description                 |
+| ---- | --------------------------- |
+| JSON | Current chain configuration |
 
 **Example**
 
@@ -274,13 +345,21 @@ None
 
 ## governance_chainConfigAt <a id="governance_chainconfigat"></a>
 
-The `chainConfigAt` returns the chain configuration at specific block. If the parameter is not set, it returns the chain configuration at the latest block.
+The `chainConfigAt` returns the chain configuration at a specific block. If the parameter is not set, it returns the chain configuration at the latest block.
+
+{% hint style="warning" %}
+`governance_chainConfigAt` API will be deprecated since Klaytn v1.11 (see [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)). Use <a href="#governance_getchainconfig">`governance_getChainConfig`</a> instead.
+{% endhint %}
 
 **Parameters**
 
 | Type                | Description                                                                                                                                                                |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
+
+{% hint style="success" %}
+NOTE: The block number can be larger than the latest block number, in which case the API returns the tentative value based on the current chain state. The future governance parameters are subject to change via additional governance votes or GovParam contract state changes.
+{% endhint %}
 
 **Return Value**
 
@@ -351,9 +430,62 @@ None
 "0xe733cb4d279da696f30d470f8c04decb54fcb0d2"
 ```
 
+## governance_getParams <a id="governance_getparams"></a>
+
+The `getParams` returns governance parameters at a specific block.
+
+**Parameters**
+
+| Type                | Description                                                                                                                                                                |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](klay/block.md#the-default-block-parameter). |
+
+{% hint style="success" %}
+NOTE: The block number can be larger than the latest block number, in which case the API returns the tentative value based on the current chain state. The future governance parameters are subject to change via additional governance votes or GovParam contract state changes.
+{% endhint %}
+
+**Return Value**
+
+| Type | Description           |
+| ---- | --------------------- |
+| JSON | governance parameters |
+
+**Example**
+
+```javascript
+> governance.getParams(89)
+{
+  governance.deriveshaimpl: 2,
+  governance.governancemode: "single",
+  governance.governingnode: "0x99fb17d324fa0e07f23b49d09028ac0919414db6",
+  governance.govparamcontract: "0x0000000000000000000000000000000000000000",
+  governance.unitprice: 25000000000,
+  istanbul.committeesize: 22,
+  istanbul.epoch: 604800,
+  istanbul.policy: 2,
+  kip71.basefeedenominator: 20,
+  kip71.gastarget: 30000000,
+  kip71.lowerboundbasefee: 25000000000,
+  kip71.maxblockgasusedforbasefee: 60000000,
+  kip71.upperboundbasefee: 750000000000,
+  reward.deferredtxfee: true,
+  reward.kip82ratio: "20/80",
+  reward.minimumstake: "5000000",
+  reward.mintingamount: "9600000000000000000",
+  reward.proposerupdateinterval: 3600,
+  reward.ratio: "34/54/12",
+  reward.stakingupdateinterval: 86400,
+  reward.useginicoeff: true
+}
+```
+
 ## governance_itemsAt <a id="governance_itemsat"></a>
 
-The `itemsAt` returns governance items at specific block. It is the result of previous voting of the block and used as configuration for chain at the given block number.
+The `itemsAt` returns governance parameters at a specific block.
+
+{% hint style="warning" %}
+`governance_itemsAt` API will be deprecated since Klaytn v1.11 (see [klaytn#1783](https://github.com/klaytn/klaytn/pull/1783)). Use <a href="#governance_getparams">`governance_getParams`</a> instead.
+{% endhint %}
 
 **Parameters**
 
@@ -365,7 +497,11 @@ The `itemsAt` returns governance items at specific block. It is the result of pr
 NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the string `"earliest"` and `"latest"` are available.
 {% endhint %}
 
-**Return Value**x
+{% hint style="success" %}
+NOTE: The block number can be larger than the latest block number, in which case the API returns the tentative value based on the current chain state. The future governance parameters are subject to change via additional governance votes or GovParam contract state changes.
+{% endhint %}
+
+**Return Value**
 
 | Type | Description      |
 | ---- | ---------------- |
@@ -376,8 +512,10 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the str
 ```javascript
 > governance.itemsAt(89)
 {
+  governance.deriveshaimpl: 2,
   governance.governancemode: "single",
   governance.governingnode: "0x7bf29f69b3a120dae17bca6cf344cf23f2daf208",
+  governance.govparamcontract: "0x0000000000000000000000000000000000000000",
   governance.unitprice: 25000000000,
   istanbul.committeesize: 13,
   istanbul.epoch: 30,
@@ -388,6 +526,7 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the str
   kip71.maxblockgasusedforbasefee: 60000000,
   kip71.upperboundbasefee: 750000000000,
   reward.deferredtxfee: true,
+  reward.kip82ratio: "20/80",
   reward.minimumstake: "5000000",
   reward.mintingamount: "9600000000000000000",
   reward.proposerupdateinterval: 30,
@@ -396,6 +535,7 @@ NOTE: In versions earlier than Klaytn v1.7.0, only integer block number, the str
   reward.useginicoeff: true
 }
 ```
+
 ## governance_pendingChanges <a id="governance_pendingchanges"></a>
 
 The `pendingChanges` returns the list of items that have received enough number of votes but not yet finalized. At the end of the current epoch, these changes will be finalized and the result will be in effect from the epoch after next epoch.
@@ -560,5 +700,82 @@ Note that the order of all addresses and the staking amounts are matched.
   KIRAddr: "0x716f89d9bc333286c79db4ebb05516897c8d208a",
   PoCAddr: "0x2bcf9d3e4a846015e7e3152a614c684de16f37c6",
   UseGini: true
+}
+```
+
+## governance_ getRewardsAccumulated<a id="governance_getRewardsAccumulated"></a>
+Returns the rewards information accumulated within the given block range `[first, last]`.
+
+{% hint style="success" %}
+NOTE: The block range should be less than 604800 (about 7 days) to protect endpoints from the resource exhaustion.
+{% endhint %}
+
+**Parameters**
+
+| Type                | Description                                                                                                                                                                                                             |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| QUANTITY &#124; TAG | Accumulation start (first) block number, inclusive. Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter). |
+| QUANTITY &#124; TAG | Accumulation end (last) block number, inclusive. Integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](./klay/block.md#the-default-block-parameter).    |
+
+**Return Value**
+
+| Type | Description         |
+| ---- | ------------------- |
+| JSON | Rewards information |
+
+**Example**
+
+```javascript
+> governance.getRewardsAccumulated(123400489,123416489)
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "firstBlockTime": "2023-05-29 15:11:27 +0900 KST",
+        "lastBlockTime": "2023-05-29 19:38:11 +0900 KST",
+        "firstBlock": 123400489,
+        "lastBlock": 123416489,
+        "totalMinted": 102406400000000000000000,
+        "totalTxFee": 1012877568458206944160,
+        "totalBurntTxFee": 1012877568458206944160,
+        "totalProposerRewards": 10240640000000000224014,
+        "totalStakingRewards": 40962559999999999775986,
+        "totalKFFRewards": 20481280000000000000000,
+        "totalKCFRewards": 30721920000000000000000,
+        "rewards": {
+            "0x04185389ec237dba242888a5a28b5555d011a223": 341760000000000007476,
+            "0x064ce4c3e8409a544ce91245f9f8cfc33bde8925": 341158409421920578070,
+            "0x0bb09aab5276ae532e33caf69d00a624adbc3fdf": 4692517369325951639990,
+            "0x0c41cce8ddaea235f97745a13207421dca7340fa": 341158442792400102695,
+            "0x179679457f93094a4e7186abcb2089661e92fc22": 4670094563747132209866,
+            "0x186de0382923086f73367bab16af09aeda4e54bf": 3344700808386003997995,
+            "0x1a147924d0489fccf53471904dc271b9d20157a4": 812253494122089774069,
+            "0x24e593fb29731e54905025c230727dc28d229f77": 341120033370479516086,
+            "0x2b2a7a1d29a203f60e0a964fc64231265a49cd97": 405647783029499903389,
+            "0x2fd3ff6e4ead7430ea25bab5e5b2b073492b7e6e": 4179365177477290146362,
+            "0x4b87df856044f2580ca62f44f6e15121d7ebcc91": 943429290876805235278,
+            "0x5459c9591c3c3f260eff1a538d84610015332c91": 399791330615756805978,
+            "0x54e8bc489cee5ab638920cc80160d8095df846b1": 1342241347422787927227,
+            "0x5ed9914689a2fafb55a0c99a1c10d2f911d37734": 1150518010638720583027,
+            "0x5f1dbd747996d8d31e2ab0317be7ffffd155522a": 507972397569861326690,
+            "0x75239993ac422a4e6a7441d5ab47ed6e91faf306": 9708690430353790307357,
+            "0x758476368db33864b704f41cc63b8460f8e7d39a": 719558444429276229872,
+            "0x85d82d811743b4b8f3c48f3e48a1664d1ffc2c10": 20481280000000000000000,
+            "0x999999999939ba65abb254339eec0b2a0dac80e9": 2546664690927360639974,
+            "0xac7f6f8a63733877a78917dc798ed7693095be7b": 976294207626140822860,
+            "0xadb287e1f8405f085c740e791a3914f9b07acae0": 4834561973146129955927,
+            "0xb89a760eb082dbae4f334a9374fa32e7b077e00d": 341120033370479516086,
+            "0xbb121974208b9282e72cb0da7f48d8ae14dba954": 477271623157965876433,
+            "0xc8e7053dc17bce47d2317718734ef087be40a023": 533654318603814390326,
+            "0xcd7cd61f0b221a61405640b8ba10f1455cce6d51": 1153716971545888984956,
+            "0xda5609a74470689a3b51cb53ee3c499b0f54f31a": 401005661421389210969,
+            "0xdbd3fbdc9e1965855b773a4746f27165b787fe3c": 1153644257271028044532,
+            "0xdc7dda990c08513962d5ae6dfb195b1f6879bfaf": 1954666498718499702479,
+            "0xdd4c8d805fc110369d3b148a6692f283ffbdccd3": 30721920000000000000000,
+            "0xdedbab7de9551a2bee78792638af67d59b8675c6": 1285976941809533886160,
+            "0xe3d49ffc285c668425b2966b683776f632859efa": 714216865143954209314,
+            "0xf786c3720a10cb48c8f12d0ac2086dcf227c7cde": 588428623678048468557
+        }
+    }
 }
 ```
