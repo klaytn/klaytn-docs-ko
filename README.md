@@ -21,7 +21,7 @@ Instead, you can contribute to the translation on the [Crowdin](https://crowdin.
 
 - Submitted translations get approved by our maintainers.
 - The approved translations will be pushed to the `l10n` branch of `klaytn-docs`. The `dev` branch of this repo mirrors the `ko/docs` subfolder of `klaytn-docs:l10n` periodically. 
-- Our maintainers will merge the changes to the `master` branch, which will be reflected at https://ko.docs.klaytn.com. 
+- Our maintainers will merge the changes to the `main` branch, which will be reflected at https://ko.docs.klaytn.com. 
 
 Note: **Do NOT push to `klaytn-docs:l10n` directly.** It will be overwritten by Crowdin and the changes will get lost.
 
